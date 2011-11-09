@@ -4,7 +4,7 @@
  */
 package norconcept;
 
-import Interface.JAppletMain2;
+import Interface.JAppletMain;
 import XML.QueryXML;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -24,7 +24,7 @@ public class Norconcept {
      */
     public static void main(String[] args) {
         
-        JAppletMain2 m = new JAppletMain2();
+        JAppletMain m = new JAppletMain();
         m.init();
         /*
         try {
