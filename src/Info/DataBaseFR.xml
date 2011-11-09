@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+    Document   : DataBaseFR.xml
+    Created on : 25 de Outubro de 2011, 23:08
+    Author     : Miguel
+    Description:
+        Purpose of the document follows.
+-->
+
+
+<norconcept>
+    <materiais>
+        <material id="1">
+            <nome_material>Granito</nome_material>           <!-- //nome_material[../@id='1'] -->
+            <cores>                                         <!-- //material[./@id='1']/cores -->
+                <cor id="1">Andromède</cor>
+                <cor id="2">Amande Fiorito</cor>
+                <cor id="3">Aruba Gold</cor>
+                <cor id="4">Black Pearl</cor>
+                <cor id="5">Black Tear</cor>
+                <cor id="6">Blanc Cristal</cor>
+                <cor id="7">Blanc Diamant</cor>
+                <cor id="8">Blanc Kashmir</cor>
+                <cor id="9">Blanc Moonlight</cor>
+                <cor id="10">Blanc Perle</cor>
+                <cor id="11">Bleu Lavande</cor>
+                <cor id="12">Bleu Magnétique</cor>
+                <cor id="13">Bleu Nuit</cor>
+                <cor id="14">Bleu Ocean</cor>
+                <cor id="15">Bleu Orissa</cor>
+                <cor id="16">Bleu Platine</cor>
+                <cor id="17">Blue in the Night</cor>
+                <cor id="18">Bleu Vizag</cor>
+                <cor id="19">Bross Blue</cor>
+                <cor id="20">Brun Baltique</cor>
+                <cor id="21">Brun Ivoire</cor>
+                <cor id="22">Brun Tropical</cor>
+                <cor id="23">Carioca</cor>
+                <cor id="24">Champagne</cor>
+                <cor id="25">Châtaigne Antigo Roca</cor>
+                <cor id="26">Cinza Evora</cor>
+                <cor id="27">Coffee Brown</cor>
+                <cor id="28">Cohiba</cor>
+                <cor id="29">Golden Wave</cor>
+                <cor id="30">Gran Perla</cor>
+                <cor id="31">Grisal</cor>
+                <cor id="32">Gris Acier</cor>
+                <cor id="33">Gris Evora</cor>
+                <cor id="34">Gris Jasperado</cor>
+                <cor id="35">Gris Nevada</cor>
+                <cor id="36">Gris Vimieiro</cor>
+                <cor id="37">Ikon Brown</cor>
+                <cor id="38">Indian Creek</cor>
+                <cor id="39">Ipanema</cor>
+                <cor id="40">Ita Brown</cor>
+                <cor id="41">Ivory Brown</cor>
+                <cor id="42">Jaune Arabe</cor>
+                <cor id="43">Jaune Balmoral</cor>
+                <cor id="44">Jaune Brésilien</cor>
+                <cor id="45">Jaune Carionca</cor>
+                <cor id="46">Jaune Dorado</cor>
+                <cor id="47">Jaune Eugenia</cor>
+                <cor id="48">Jaune Fandango</cor>
+                <cor id="49">Jaune Fiorito</cor>
+                <cor id="50">Jaune Marinage</cor>
+                <cor id="51">Jaune Or</cor>
+                <cor id="52">Jaune Real</cor>
+                <cor id="53">Jaune Topaze</cor>
+                <cor id="54">Jaune Vénitien</cor>
+                <cor id="55">Juparana Columbo</cor>
+                <cor id="56">Juparana Indien</cor>
+                <cor id="57">Kalahary</cor>
+                <cor id="58">Kashmir Blanc</cor>
+                <cor id="59">Kashmir Gold</cor>
+                <cor id="60">Labrador Blue Pearl</cor>
+                <cor id="61">Labrador Clair (Bleu)</cor>
+                <cor id="62">Labrador Foncé (Vert)</cor>
+                <cor id="63">Labrador Marron</cor>
+                <cor id="64">Labradorita</cor>
+                <cor id="65">Macajuba</cor>
+                <cor id="66">Madura Gold</cor>
+                <cor id="67">Marina Pearl</cor>
+                <cor id="68">Monchique</cor>
+                <cor id="69">Mondariz</cor>
+                <cor id="70">Multicolore Brésilien</cor>
+                <cor id="71">Multicolore Indien (Rouge)</cor>
+                <cor id="72">Noir Absolu</cor>
+                <cor id="73">Noir Afrique du Sud</cor>
+                <cor id="74">Noir Angola</cor>
+                <cor id="75">Noir Aracruz</cor>
+                <cor id="76">Noir Impala</cor>
+                <cor id="77">Noir Impérial</cor>
+                <cor id="78">Noir Intense</cor>
+                <cor id="79">Noir Kamiz</cor>
+                <cor id="80">Noir Lusitano</cor>
+                <cor id="81">Noir Marinage</cor>
+                <cor id="82">Noir Tezal</cor>
+                <cor id="83">Noir Tigre</cor>
+                <cor id="84">Noir Tijuca</cor>
+                <cor id="85">Noir Tropical</cor>
+                <cor id="86">Noir Zimbabwe</cor>
+                <cor id="87">Novo Marinage</cor>
+                <cor id="88">Orinoco</cor>
+                <cor id="89">Ouro Colombo</cor>
+                <cor id="90">Paradiso</cor>
+                <cor id="91">Pedras Salgadas</cor>
+                <cor id="92">Perle</cor>
+                <cor id="93">Pierre Bleue Belge</cor>
+                <cor id="94">Piracema</cor>
+                <cor id="95">Raw Silk</cor>
+                <cor id="96">Rhodium</cor>
+                <cor id="97">River White</cor>
+                <cor id="98">Rosavel</cor>
+                <cor id="99">Rose Coral</cor>
+                <cor id="100">Rose Ivoire</cor>
+                <cor id="101">Rose Monção</cor>
+                <cor id="102">Rose Porrinho</cor>
+                <cor id="103">Rose Saint Eulalia</cor>
+                <cor id="104">Rose Tupim</cor>
+                <cor id="105">Rouge Afrique</cor>
+                <cor id="106">Rouge Altamira</cor>
+                <cor id="107">Rouge Balmoral Fin</cor>
+                <cor id="108">Rouge Balmoral Gros</cor>
+                <cor id="109">Rouge Marinage</cor>
+                <cor id="110">Rouge Multicolore Indien</cor>
+                <cor id="111">Rouge Shangoo</cor>
+                <cor id="112">Rouge Songhoo</cor>
+                <cor id="113">Sahara Night</cor>
+                <cor id="114">Sâo Luis</cor>
+                <cor id="115">Saumon Tropical</cor>
+                <cor id="116">Shivakashi</cor>
+                <cor id="117">Shivakashi Gold</cor>
+                <cor id="118">Shivakashi Pink</cor>
+                <cor id="119">Shivakashi Yellow</cor>
+                <cor id="120">Stargate</cor>
+                <cor id="121">Steel Grey</cor>
+                <cor id="122">Tan Brown</cor>
+                <cor id="123">Vernik</cor>
+                <cor id="124">Vert Azahar</cor>
+                <cor id="125">Vert Bahia</cor>
+                <cor id="126">Vert Bamboo</cor>
+                <cor id="127">Vert Eucalyptus</cor>
+                <cor id="128">Vert Galaxie</cor>
+                <cor id="129">Vert Fontaine</cor>
+                <cor id="130">Vert Horizon</cor>
+                <cor id="131">Vert Impérial</cor>
+                <cor id="132">Vert Marinage</cor>
+                <cor id="133">Vert Maritaca</cor>
+                <cor id="134">Vert Olive</cor>
+                <cor id="135">Vert San Fancisco</cor>
+                <cor id="136">Vert Savanne</cor>
+                <cor id="137">Vert Savannah</cor>
+                <cor id="138">Vert Ubatuba</cor>
+                <cor id="139">Vert Van Gogh</cor>
+                <cor id="140">Vila Real Extra</cor>
+                <cor id="141">Vyara Gold</cor>
+            </cores>
+            <acabamentos>
+                <acabamento id="1">Polie (lisse et brillante)</acabamento>
+                <acabamento id="2">Adoucie (lisse et satinée)</acabamento>
+                <acabamento id="3">Flammée Brossée (irrégulière et satinée)</acabamento>
+            </acabamentos>
+            <cantos>
+                <canto id="1">
+                    <nome_canto>Droit avec chanfrein (offert)</nome_canto>
+                    <preco_canto>0</preco_canto>
+                </canto>
+                <canto id="2">
+                    <nome_canto>Droit adouci (offert)</nome_canto>
+                    <preco_canto>0</preco_canto>
+                </canto>
+                <canto id="3">
+                    <nome_canto>Arrondi en quart de cercle</nome_canto>
+                    <preco_canto>27.50</preco_canto>
+                </canto>
+                <canto id="4">
+                    <nome_canto>Arrondi en demi-cercle</nome_canto>
+                    <preco_canto>39.50</preco_canto>
+                </canto>
+                <canto id="5">
+                    <nome_canto>Aile d'avion</nome_canto>
+                    <preco_canto>49.50</preco_canto>
+                </canto>
+                <canto id="6">
+                    <nome_canto>Bec de Corbin</nome_canto>
+                    <preco_canto>49.50</preco_canto>
+                </canto>
+                <canto id="7">
+                    <nome_canto>Retombée en coupe d'onglet 4 à 10 cm</nome_canto>
+                    <preco_canto>119.50</preco_canto>
+                </canto>
+                <canto id="8">
+                    <nome_canto>Retombée raportée 4 à 10 cm</nome_canto>
+                    <preco_canto>73.50</preco_canto>
+                </canto>
+                <canto id="9">
+                    <nome_canto>2 + 2 cm, avec chanfreins</nome_canto>
+                    <preco_canto>69.50</preco_canto>
+                </canto>
+                <canto id="10">
+                    <nome_canto>2 + 2 cm, avec arrondi</nome_canto>
+                    <preco_canto>79.50</preco_canto>
+                </canto>
+                <canto id="11">
+                    <nome_canto>Brut (gratuit)</nome_canto>
+                    <preco_canto>0</preco_canto>
+                </canto>
+            </cantos>
+            <espessuras>
+                <espessura id="1">20</espessura>
+                <espessura id="2">30</espessura>
+            </espessuras>
+            <opcoes>
+                <opcao id="1">
+                    <nome_opcao>Découpe(s) pour table de cuisson</nome_opcao>
+                    <preco_opcao>49.50</preco_opcao>
+                </opcao>
+                <opcao id="2">
+                    <nome_opcao>Perçage(s) pour robinet</nome_opcao>
+                    <preco_opcao>21.75</preco_opcao>
+                </opcao>
+                <opcao id="3">
+                    <nome_opcao>Perçage(s) pour commande de bonde</nome_opcao>
+                    <preco_opcao>21.75</preco_opcao>
+                </opcao>
+                <opcao id="4">
+                    <nome_opcao>Découpe(s) pour prise électrique (ex. crédence)</nome_opcao>
+                    <preco_opcao>21.75</preco_opcao>
+                </opcao>
+                <opcao id="5">
+                    <nome_opcao>Découpe(s) pour évier ou lavabo, par dessus</nome_opcao>
+                    <preco_opcao>49.50</preco_opcao>
+                </opcao>
+                <opcao id="6">
+                    <nome_opcao>Découpe(s) polie(s) pour cuve, par dessous</nome_opcao>
+                    <preco_opcao>98.50</preco_opcao>
+                </opcao>
+                <opcao id="7">
+                    <nome_opcao>Rainurage pour égouttoir</nome_opcao>
+                    <preco_opcao>138.50</preco_opcao>
+                </opcao>
+            </opcoes>
+        </material>
+        
+        
+        <material id="2">
+            <nome_material>Marbre</nome_material>           <!-- //nome_material[../@id='1'] -->
+            <cores>                                         <!-- //material[./@id='1']/cores -->
+                <cor id="1">Blanc Carrare</cor>
+                <cor id="2">Blanc Thassos</cor>
+                <cor id="3">Brecha</cor>
+                <cor id="4">Brun Empereur</cor>
+                <cor id="5">Cinza Raiado</cor>
+                <cor id="6">Cinza Raiado du Portugal</cor>
+                <cor id="7">Crème Marfil</cor>
+                <cor id="8">Daim Royal</cor>
+                <cor id="9">Jaune Mer</cor>
+                <cor id="10">Jaune Montagne</cor>
+                <cor id="11">Moleanos</cor>
+                <cor id="12">Noir Markina</cor>
+                <cor id="13">Pele Serpentina</cor>
+                <cor id="14">Rose Crème</cor>
+                <cor id="15">Rose du Portugal</cor>
+                <cor id="16">Rose Valence</cor>
+                <cor id="17">Rouge Alicante</cor>
+                <cor id="18">Travertin Rouge</cor>
+                <cor id="19">Travertin Transparent</cor>
+                <cor id="20">Vert Guatemala</cor>
+            </cores>
+            <acabamentos>
+                <acabamento id="1">Polie (lisse et brillante)</acabamento>
+                <acabamento id="2">Vieillie (irrégulière et satinée)</acabamento>
+            </acabamentos>
+            <cantos>
+                <canto id="1">
+                    <nome_canto>Droit avec chanfrein (offert)</nome_canto>
+                    <preco_canto>0</preco_canto>
+                </canto>
+                <canto id="2">
+                    <nome_canto>Droit adouci (offert)</nome_canto>
+                    <preco_canto>0</preco_canto>
+                </canto>
+                <canto id="3">
+                    <nome_canto>Arrondi en quart de cercle</nome_canto>
+                    <preco_canto>27.50</preco_canto>
+                </canto>
+                <canto id="4">
+                    <nome_canto>Arrondi en demi-cercle</nome_canto>
+                    <preco_canto>39.50</preco_canto>
+                </canto>
+                <canto id="5">
+                    <nome_canto>Aile d'avion</nome_canto>
+                    <preco_canto>49.50</preco_canto>
+                </canto>
+                <canto id="6">
+                    <nome_canto>Bec de Corbin</nome_canto>
+                    <preco_canto>49.50</preco_canto>
+                </canto>
+                <canto id="7">
+                    <nome_canto>Retombée en coupe d'onglet 4 à 10 cm</nome_canto>
+                    <preco_canto>119.50</preco_canto>
+                </canto>
+                <canto id="8">
+                    <nome_canto>Retombée raportée 4 à 10 cm</nome_canto>
+                    <preco_canto>73.50</preco_canto>
+                </canto>
+                <canto id="9">
+                    <nome_canto>2 + 2 cm, avec chanfreins</nome_canto>
+                    <preco_canto>69.50</preco_canto>
+                </canto>
+                <canto id="10">
+                    <nome_canto>2 + 2 cm, avec arrondi</nome_canto>
+                    <preco_canto>79.50</preco_canto>
+                </canto>
+                <canto id="11">
+                    <nome_canto>Brut (gratuit)</nome_canto>
+                    <preco_canto>0</preco_canto>
+                </canto>
+            </cantos>
+            <espessuras>
+                <espessura id="1">20</espessura>
+                <espessura id="2">30</espessura>
+            </espessuras>
+            <opcoes>
+                <opcao id="1">
+                    <nome_opcao>Découpe(s) pour table de cuisson</nome_opcao>
+                    <preco_opcao>49.50</preco_opcao>
+                </opcao>
+                <opcao id="2">
+                    <nome_opcao>Perçage(s) pour robinet</nome_opcao>
+                    <preco_opcao>21.75</preco_opcao>
+                </opcao>
+                <opcao id="3">
+                    <nome_opcao>Perçage(s) pour commande de bonde</nome_opcao>
+                    <preco_opcao>21.75</preco_opcao>
+                </opcao>
+                <opcao id="4">
+                    <nome_opcao>Découpe(s) pour prise électrique (ex. crédence)</nome_opcao>
+                    <preco_opcao>21.75</preco_opcao>
+                </opcao>
+                <opcao id="5">
+                    <nome_opcao>Découpe(s) pour évier ou lavabo, par dessus</nome_opcao>
+                    <preco_opcao>49.50</preco_opcao>
+                </opcao>
+                <opcao id="6">
+                    <nome_opcao>Découpe(s) polie(s) pour cuve, par dessous</nome_opcao>
+                    <preco_opcao>98.50</preco_opcao>
+                </opcao>
+                <opcao id="7">
+                    <nome_opcao>Rainurage pour égouttoir</nome_opcao>
+                    <preco_opcao>138.50</preco_opcao>
+                </opcao>
+            </opcoes>
+        </material>
+    </materiais>
+</norconcept>
+

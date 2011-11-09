@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<norconcept>
+    <materiais>
+        <tipo_material tipo="pedra">
+            <material>
+                <tipo_material_nome>Mármores Polido</tipo_material_nome>
+                <espessuras>
+                    <espessura unidade="cm" valor_espessura="2"/>
+                    <espessura unidade="cm" valor_espessura="3"/>
+                </espessuras>
+                <cores unidade="m2">
+                    <cor>
+                        <cor_nome>branco carrara</cor_nome>
+                        <cor_preco valor_espessura="2">93.00</cor_preco>
+                        <cor_preco valor_espessura="3">93.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>brecha sto. antónio</cor_nome>
+                        <cor_preco valor_espessura="2">52.50</cor_preco>
+                        <cor_preco valor_espessura="3">57.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>creme marfil</cor_nome>
+                        <cor_preco valor_espessura="2">80.00</cor_preco>
+                        <cor_preco valor_espessura="3">115.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>creme marfil c</cor_nome>
+                        <cor_preco valor_espessura="2">65.00</cor_preco>
+                        <cor_preco valor_espessura="3">100.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>estremoz corrente</cor_nome>
+                        <cor_preco valor_espessura="2">35.00</cor_preco>
+                        <cor_preco valor_espessura="3">40.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>estremoz médio</cor_nome>
+                        <cor_preco valor_espessura="2">44.00</cor_preco>
+                        <cor_preco valor_espessura="3">49.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>moca creme / vidraço</cor_nome>
+                        <cor_preco valor_espessura="2">33.00</cor_preco>
+                        <cor_preco valor_espessura="3">38.00</cor_preco>
+                    </cor>
+                </cores>
+                <notas>
+                    <nota> efectuar meia esquadria e colagem 40.00 euros/m</nota>
+                    <nota>polimento na contra-face (2F) 10.00 euros/m2</nota>
+                    <nota>rodamão pode ter entre 4 e 10cm de altura</nota>
+                    <nota> para balcões/ lambrins que excedam os 70cm de largura, acrescente 30% ao
+                        preço acima mencionado</nota>
+                </notas>
+                <rodapes valor_largura="2" unidade="m">
+                    <rodape>
+                        <rodape_nome>branco carrara</rodape_nome>
+                        <rodape_preco>14.00</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>brecha sto. antónio</rodape_nome>
+                        <rodape_preco>5.75</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>creme marfil</rodape_nome>
+                        <rodape_preco>11.50</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>creme marfil c</rodape_nome>
+                        <rodape_preco>10.00</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>estremoz corrente</rodape_nome>
+                        <rodape_preco>4.00</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>estremoz médio</rodape_nome>
+                        <rodape_preco>4.90</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>moca creme / vidraço</rodape_nome>
+                        <rodape_preco>3.80</rodape_preco>
+                    </rodape>
+                </rodapes>
+
+                <furos>
+                    <furo>
+                        <furo_nome>lava-loiça de colar p/ baixo</furo_nome>
+                        <furo_preco>65.00</furo_preco>
+                    </furo>
+                    <furo>
+                        <furo_nome>lavatório de colar por baixo</furo_nome>
+                        <furo_preco>45.00</furo_preco>
+                    </furo>
+                    <furo>
+                        <furo_nome>lava-loiça/ lavatório de colar por cima</furo_nome>
+                        <furo_preco>12.50</furo_preco>
+                    </furo>
+                    <furo>
+                        <furo_nome>lambrim/ torneira/ válvula</furo_nome>
+                        <furo_preco>6.00</furo_preco>
+                    </furo>
+                    <furo>
+                        <furo_nome>placa</furo_nome>
+                        <furo_preco>12.50</furo_preco>
+                    </furo>
+                </furos>
+
+                <rebaixos>
+                    <rebaixo>
+                        <rebaixo_nome>escorredor com rasgos</rebaixo_nome>
+                        <rebaixo_preco>290.00</rebaixo_preco>
+                    </rebaixo>
+                    <rebaixo>
+                        <rebaixo_nome>escorredor sem rasgos</rebaixo_nome>
+                        <rebaixo_preco>190.00</rebaixo_preco>
+                    </rebaixo>
+                    <rebaixo>
+                        <rebaixo_nome>4 rasgos (até 35cm comprimento)</rebaixo_nome>
+                        <rebaixo_preco>125.00</rebaixo_preco>
+                    </rebaixo>
+                </rebaixos>
+
+                <colocacoes>
+                    <colocacao>
+                        <local>Braga / Barcelos</local>
+                        <funcionarios>2</funcionarios>
+                        <funcionario_adicional>30.00</funcionario_adicional>
+                        <pecas>
+                            <peca>
+                                <peca_nome>balcão</peca_nome>
+                                <peca_preco>65.00</peca_preco>
+                            </peca>
+                            <peca>
+                                <peca_nome>lambrim</peca_nome>
+                                <peca_preco>45.00</peca_preco>
+                            </peca>
+                        </pecas>
+                    </colocacao>
+                    <colocacao>
+                        <local>GUIMARÃES/ ESPOSENDE/ PORTO/ V. CASTELO</local>
+                        <funcionarios>2</funcionarios>
+                        <pecas>
+                            <peca>
+                                <peca_nome>balcão</peca_nome>
+                                <peca_preco>lambrim</peca_preco>
+                            </peca>
+                        </pecas>
+                    </colocacao>
+                </colocacoes>
+
+                <obss>
+                    <obs>Preço sujeito a IVA á taxa em vigor. </obs>
+                    <obs>Preços pagamento a 30 dias. </obs>
+                    <obs>Preços para fornecimento/ colocação de 2 cozinhas de cada vez. Existindo
+                        pedras de dimensões maiores, terá que ser dispensado da vossa parte
+                        funcionários para ajudar na colocação (ex. Ilhas). </obs>
+                    <obs>Prazos de entrega: cozinhas sem meias esquadrias, nem bancas de colar por
+                        baixo: 1 a 2 semanas (salvo ruptura de stock) </obs>
+                    <obs>Prazos de entrega: cozinhas com meias esquadrias/ bancas de colar por
+                        baixo: 3 a 4 semanas (salvo ruptura de stock) </obs>
+                    <obs>Carregamento nas nossas instalações. </obs>
+                    <obs>Outras deslocações: preço a combinar. </obs>
+                    <obs>Sendo os Mámores/Granitos um produto da natureza, estão sujeitos a
+                        variações de tonalidade, logo não aceitamos reclamações por este motivo. </obs>
+                    <obs>Á empresa reserva-se o direito de alterar a tabela sempre que necessário
+                        sem aviso prévio. </obs>
+                </obss>
+            </material>
+
+            <material>
+                <tipo_material_nome>Granitos Polido</tipo_material_nome>
+                <espessuras>
+                    <espessura unidade="cm" valor_espessura="2"/>
+                    <espessura unidade="cm" valor_espessura="3"/>
+                </espessuras>
+                <cores unidade="m2">
+                    <cor>
+                        <cor_nome>amarelo árabe</cor_nome>
+                        <cor_preco valor_espessura="2">170.00</cor_preco>
+                        <cor_preco valor_espessura="3">195.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>amarelo s. martinho/ cinza évora </cor_nome>
+                        <cor_preco valor_espessura="2">66.00</cor_preco>
+                        <cor_preco valor_espessura="3">76.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>amarelo topázio/ impala </cor_nome>
+                        <cor_preco valor_espessura="2">125.00</cor_preco>
+                        <cor_preco valor_espessura="3">145.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>amarelo v. real / monção/ p. salgadas/ porrinho </cor_nome>
+                        <cor_preco valor_espessura="2">50.00</cor_preco>
+                        <cor_preco valor_espessura="3">60.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>angola/ favaco </cor_nome>
+                        <cor_preco valor_espessura="2">115.00</cor_preco>
+                        <cor_preco valor_espessura="3">125.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>azul lavrador claro </cor_nome>
+                        <cor_preco valor_espessura="2">165.00</cor_preco>
+                        <cor_preco valor_espessura="3">190.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>azul noite</cor_nome>
+                        <cor_preco valor_espessura="2">107.50</cor_preco>
+                        <cor_preco valor_espessura="3">117.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>monforte/ rosa coral/ rosavel/ sta. eulália </cor_nome>
+                        <cor_preco valor_espessura="2">77.50</cor_preco>
+                        <cor_preco valor_espessura="3">87.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>rojo multicolor </cor_nome>
+                        <cor_preco valor_espessura="2">110.00</cor_preco>
+                        <cor_preco valor_espessura="3">120.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>zimbabwé </cor_nome>
+                        <cor_preco valor_espessura="2">160.00</cor_preco>
+                        <cor_preco valor_espessura="3">180.00</cor_preco>
+                    </cor>
+                </cores>
+                <notas>
+                    <nota>efectuar meia esquadria e colagem 40.00 euros/m</nota>
+                    <nota>polimento na contra-face (2F) 10.00 euros/m2</nota>
+                    <nota>rodamão pode ter entre 4 e 10cm de altura</nota>
+                    <nota> para balcões/ lambrins que excedam os 70cm de largura, acrescente 30% ao
+                        preço acima mencionado</nota>
+                </notas>
+                <rodapes valor_largura="2" unidade="m">
+                    <rodape>
+                        <rodape_nome>amarelo árabe </rodape_nome>
+                        <rodape_preco>19.50</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>amarelo s. martinho/ cinza évora</rodape_nome>
+                        <rodape_preco>7.60</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>amarelo topázio/ impala</rodape_nome>
+                        <rodape_preco>14.00</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>amarelo v. real / monção/ p. salgadas/ porrinho</rodape_nome>
+                        <rodape_preco>6.00</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>angola/ favaco</rodape_nome>
+                        <rodape_preco>12.50</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>azul lavrador claro </rodape_nome>
+                        <rodape_preco>19.00</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>azul noite </rodape_nome>
+                        <rodape_preco>11.75</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>monforte/ rosa coral/ rosavel/ sta. eulália </rodape_nome>
+                        <rodape_preco>8.75</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>rojo multicolor </rodape_nome>
+                        <rodape_preco>12.00</rodape_preco>
+                    </rodape>
+                    <rodape>
+                        <rodape_nome>zimbabwé </rodape_nome>
+                        <rodape_preco>18.00</rodape_preco>
+                    </rodape>
+                </rodapes>
+
+                <furos>
+                    <furo>
+                        <furo_nome>lava-loiça de colar p/ baixo</furo_nome>
+                        <furo_preco>65.00</furo_preco>
+                    </furo>
+                    <furo>
+                        <furo_nome>lavatório de colar por baixo</furo_nome>
+                        <furo_preco>45.00</furo_preco>
+                    </furo>
+                    <furo>
+                        <furo_nome>lava-loiça/ lavatório de colar por cima</furo_nome>
+                        <furo_preco>12.50</furo_preco>
+                    </furo>
+                    <furo>
+                        <furo_nome>lambrim/ torneira/ válvula</furo_nome>
+                        <furo_preco>6.00</furo_preco>
+                    </furo>
+                    <furo>
+                        <furo_nome>placa</furo_nome>
+                        <furo_preco>12.50</furo_preco>
+                    </furo>
+                </furos>
+
+                <rebaixos>
+                    <rebaixo>
+                        <rebaixo_nome>escorredor com rasgos</rebaixo_nome>
+                        <rebaixo_preco>290.00</rebaixo_preco>
+                    </rebaixo>
+                    <rebaixo>
+                        <rebaixo_nome>escorredor sem rasgos</rebaixo_nome>
+                        <rebaixo_preco>190.00</rebaixo_preco>
+                    </rebaixo>
+                    <rebaixo>
+                        <rebaixo_nome>4 rasgos (até 35cm comprimento)</rebaixo_nome>
+                        <rebaixo_preco>125.00</rebaixo_preco>
+                    </rebaixo>
+                </rebaixos>
+
+                <colocacoes>
+                    <colocacao>
+                        <local>Braga / Barcelos</local>
+                        <funcionarios>2</funcionarios>
+                        <funcionario_adicional>30.00</funcionario_adicional>
+                        <pecas>
+                            <peca>
+                                <peca_nome>balcão</peca_nome>
+                                <peca_preco>65.00</peca_preco>
+                            </peca>
+                            <peca>
+                                <peca_nome>lambrim</peca_nome>
+                                <peca_preco>45.00</peca_preco>
+                            </peca>
+                        </pecas>
+                    </colocacao>
+                    <colocacao>
+                        <local>GUIMARÃES/ ESPOSENDE/ PORTO/ V. CASTELO</local>
+                        <funcionarios>2</funcionarios>
+                        <pecas>
+                            <peca>
+                                <peca_nome>balcão</peca_nome>
+                                <peca_preco>lambrim</peca_preco>
+                            </peca>
+                        </pecas>
+                    </colocacao>
+                </colocacoes>
+
+                <obss>
+                    <obs>Preço sujeito a IVA á taxa em vigor. </obs>
+                    <obs>Preços pagamento a 30 dias. </obs>
+                    <obs>Preços para fornecimento/ colocação de 2 cozinhas de cada vez. Existindo
+                        pedras de dimensões maiores, terá que ser dispensado da vossa parte
+                        funcionários para ajudar na colocação (ex. Ilhas). </obs>
+                    <obs>Prazos de entrega: cozinhas sem meias esquadrias, nem bancas de colar por
+                        baixo: 1 a 2 semanas (salvo ruptura de stock) </obs>
+                    <obs>Prazos de entrega: cozinhas com meias esquadrias/ bancas de colar por
+                        baixo: 3 a 4 semanas (salvo ruptura de stock) </obs>
+                    <obs>Carregamento nas nossas instalações. </obs>
+                    <obs>Outras deslocações: preço a combinar. </obs>
+                    <obs>Sendo os Mámores/Granitos um produto da natureza, estão sujeitos a
+                        variações de tonalidade, logo não aceitamos reclamações por este motivo. </obs>
+                    <obs>Á empresa reserva-se o direito de alterar a tabela sempre que necessário
+                        sem aviso prévio. </obs>
+                </obss>
+            </material>
+
+        </tipo_material>
+        
+        <tipo_material tipo="nada"></tipo_material>
+
+    </materiais>
+
+
+
+</norconcept>
