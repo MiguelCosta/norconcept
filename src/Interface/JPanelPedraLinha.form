@@ -36,10 +36,10 @@
               <Component id="jLabelEspessura" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jComboBoxEspessura" min="-2" pref="63" max="-2" attributes="0"/>
-              <EmptySpace pref="57" max="32767" attributes="0"/>
+              <EmptySpace pref="54" max="32767" attributes="0"/>
               <Component id="jLabelTOTAL" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabelTOTALValor" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabelTOTALValor" min="-2" pref="47" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -105,6 +105,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelTOTALValor">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="&#x20ac;"/>
       </Properties>
     </Component>

@@ -235,7 +235,8 @@ public class QueryXML {
             XPath xpath = xFactory.newXPath();
 
             // cores de um determinado material
-            String query = "//tipo_material[./@tipo='pedra']/material/cores/cor/cor_preco[../../../tipo_material_nome='" + material + "' and ../" + cor + "' and @valor_espessura='" + espessura + "']";
+            String query = "//tipo_material[./@tipo='pedra']/material/cores/cor/cor_preco[../../../tipo_material_nome='" + material + "' and ../cor_nome='" + cor + "' and @valor_espessura='" + espessura + "']";
+            //JOptionPane.showMessageDialog(null, query);
             expr = xpath.compile(query);
 
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
@@ -247,7 +248,7 @@ public class QueryXML {
                 String p = nodes.item(i).getTextContent();
                 preco = Double.parseDouble(p);
             }
-            //JOptionPane.showMessageDialog(null, p + "\n" + query);
+
 
         } catch (XPathExpressionException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryCoresPreco" + ex.getLocalizedMessage() + "\n" + ex.getMessage());

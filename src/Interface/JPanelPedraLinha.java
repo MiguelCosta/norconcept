@@ -11,6 +11,7 @@
 package Interface;
 
 import XML.QueryXML;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
@@ -24,6 +25,7 @@ public class JPanelPedraLinha extends javax.swing.JPanel {
     String _material;
     String _cor;
     QueryXML _q;
+    DecimalFormat df = new DecimalFormat("#.##");
 
     /** Creates new form JPanelPedraLinha */
     public JPanelPedraLinha(QueryXML q, String material, String cor) {
@@ -57,9 +59,8 @@ public class JPanelPedraLinha extends javax.swing.JPanel {
         try {
             int larg = Integer.parseInt(jSpinnerLargura.getValue().toString());
             int comp = Integer.parseInt(jSpinnerComprimento.getValue().toString());
+            double dim = larg * comp;
             String esp = jComboBoxEspessura.getSelectedItem().toString();
-
-            int dim = larg * comp;
 
             String unidade_cor = _q.queryCoresUnidade(_material);
 
@@ -73,8 +74,16 @@ public class JPanelPedraLinha extends javax.swing.JPanel {
 
 
             Double preco_total = dim * preco_cor;
-            JOptionPane.showMessageDialog(jLabelComprimento, larg + "\n" + comp + "\n" + esp + "\n" + dim + "\n" + preco_cor + "\n" + preco_total);
-            jLabelTOTALValor.setText("" + preco_total);
+            /*
+            String msg = "Largura: " + larg;
+            msg += "\nComprimento: " + comp;
+            msg += "\nEspessura: " + esp;
+            msg += "\nDim: " + dim;
+            msg += "\nPreco: " + preco_cor;
+            msg += "\nPreco total: " + preco_total;
+            JOptionPane.showMessageDialog(jLabelComprimento, msg);
+            */
+            jLabelTOTALValor.setText("" + df.format(preco_total));
         } catch (Exception e) {
         }
     }
@@ -130,6 +139,7 @@ public class JPanelPedraLinha extends javax.swing.JPanel {
         jLabelTOTAL.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         jLabelTOTAL.setText("TOTAL (€):");
 
+        jLabelTOTALValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelTOTALValor.setText("€");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -148,10 +158,10 @@ public class JPanelPedraLinha extends javax.swing.JPanel {
                 .addComponent(jLabelEspessura)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxEspessura, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jLabelTOTAL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelTOTALValor)
+                .addComponent(jLabelTOTALValor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -179,7 +189,6 @@ public class JPanelPedraLinha extends javax.swing.JPanel {
     private void jComboBoxEspessuraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxEspessuraItemStateChanged
         actualizarTotal();
     }//GEN-LAST:event_jComboBoxEspessuraItemStateChanged
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBoxEspessura;
     private javax.swing.JLabel jLabelComprimento;

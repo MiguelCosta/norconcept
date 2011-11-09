@@ -73,6 +73,8 @@ public class JPanelPedra extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabelEspessuraPreco = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(168, 164, 230));
         setPreferredSize(new java.awt.Dimension(637, 400));
@@ -115,6 +117,12 @@ public class JPanelPedra extends javax.swing.JPanel {
 
         jLabelEspessuraPreco.setText("precos");
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setText("€");
+
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabel2.setText("TOTAL (€)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,12 +139,16 @@ public class JPanelPedra extends javax.swing.JPanel {
                             .addComponent(jComboBoxMaterial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBoxCor, 0, 234, Short.MAX_VALUE)))
                     .addComponent(jPanelPecas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(38, 38, 38)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabelEspessuraPreco, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -158,8 +170,10 @@ public class JPanelPedra extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
+                    .addComponent(jButton6)
                     .addComponent(jButton2)
-                    .addComponent(jButton6))
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -217,6 +231,8 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox jComboBoxCor;
     private javax.swing.JComboBox jComboBoxMaterial;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCor;
     private javax.swing.JLabel jLabelEspessuraPreco;
     private javax.swing.JLabel jLabelMaterial;
