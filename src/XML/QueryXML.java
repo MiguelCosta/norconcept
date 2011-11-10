@@ -39,14 +39,23 @@ public class QueryXML {
     DocumentBuilder builder;
     Document doc = null;
 
-    public QueryXML(URL xml) throws ParserConfigurationException, SAXException, IOException {
+    public QueryXML() throws ParserConfigurationException, SAXException, IOException {
         factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
         builder = factory.newDocumentBuilder();
 
-        String url = "http://dl.dropbox.com/u/3025160/DataBase.xml";
-        String path1 = "c:\\norconcept\\DataBase.xml";
-        String path2 = "src\\Info\\DataBaseFR.xml";
+        /*URL para dentro do projecto, se ficar este não é preciso a query receber algum parametro */
+        String local_string = "/Info/DataBase2.xml";
+        URL local_url = this.getClass().getResource(local_string);
+        InputStream inputLocal = local_url.openStream();
+
+        doc = builder.parse(inputLocal);
+    }
+    
+    public QueryXML(URL xml) throws ParserConfigurationException, SAXException, IOException {
+        factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        builder = factory.newDocumentBuilder();
 
         /* URL que é enviado pelo interface e pode ser de qualquer lado que esteja o ficheiro da DB*/
         InputStream is = xml.openStream();

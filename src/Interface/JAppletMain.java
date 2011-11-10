@@ -12,7 +12,6 @@ package Interface;
 
 import XML.QueryXML;
 import java.io.IOException;
-import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -71,13 +70,6 @@ public class JAppletMain extends javax.swing.JApplet {
         } catch (Exception ex) {
         }
 
-        /* TESTAR
-        jButton1.setToolTipText("Testar");
-        JOptionPane.showMessageDialog(rootPane, jButton1.getToolTipText());
-        
-        jLabelMaterial.setToolTipText("Material");
-        JOptionPane.showMessageDialog(rootPane, jLabelMaterial.getToolTipText());
-         */
         // meu código
         carregarBD();
         preencherTipoMateriais();
@@ -85,16 +77,14 @@ public class JAppletMain extends javax.swing.JApplet {
 
     private void carregarBD() {
         try {
-            URL base = getDocumentBase();
-            URL xmlBD = new URL(base, "DataBase2.xml");
+            //URL base = getDocumentBase();
+            //URL xmlBD = new URL(base, "DataBase2.xml");
 
             //JOptionPane.showConfirmDialog(rootPane, "URL: " + base.toString());
             //JOptionPane.showConfirmDialog(rootPane, "URL: " + xmlBD.toString());
 
             /*não está a ser usado o xmlBD*/
-            q = new QueryXML(xmlBD);
-            //JOptionPane.showConfirmDialog(rootPane, "Sucesso");
-
+            q = new QueryXML();
 
         } catch (ParserConfigurationException ex) {
             Logger.getLogger(JAppletMain.class.getName()).log(Level.SEVERE, null, ex);
