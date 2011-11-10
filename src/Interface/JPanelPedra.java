@@ -274,4 +274,9 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     public void update(Double d) {
         actualizarTotal();
     }
+
+    @Override
+    public void update(String n) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

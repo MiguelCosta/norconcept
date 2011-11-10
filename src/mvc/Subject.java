@@ -15,4 +15,6 @@ public interface Subject {
     public void removeObserver(Observer o);
 
     public void notifyObservers(Double d);
+    
+    public void notfyObservers(String n);
 }

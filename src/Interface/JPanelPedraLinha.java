@@ -228,6 +228,10 @@ public class JPanelPedraLinha extends javax.swing.JPanel implements Subject {
             Observer observer = it.next();
             observer.update(d);
         }
+    }
 
+    @Override
+    public void notfyObservers(String n) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
