@@ -17,12 +17,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.xml.xpath.XPathExpressionException;
+import mvc.Observer;
 
 /**
  *
  * @author miguel
  */
-public class JPanelPedra extends javax.swing.JPanel {
+public class JPanelPedra extends javax.swing.JPanel implements Observer {
 
     QueryXML _q;
     ArrayList<String> cores;
@@ -52,7 +53,6 @@ public class JPanelPedra extends javax.swing.JPanel {
         } catch (XPathExpressionException ex) {
             Logger.getLogger(JPanelPedra.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     /** This method is called from within the constructor to
@@ -73,7 +73,7 @@ public class JPanelPedra extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabelEspessuraPreco = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelTotalValor = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(168, 164, 230));
@@ -117,10 +117,10 @@ public class JPanelPedra extends javax.swing.JPanel {
 
         jLabelEspessuraPreco.setText("precos");
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel1.setText("€");
+        jLabelTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelTotalValor.setText("€");
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 12));
         jLabel2.setText("TOTAL (€)");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -148,7 +148,7 @@ public class JPanelPedra extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 316, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabelTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabelEspessuraPreco, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -172,7 +172,7 @@ public class JPanelPedra extends javax.swing.JPanel {
                     .addComponent(jButton1)
                     .addComponent(jButton6)
                     .addComponent(jButton2)
-                    .addComponent(jLabel1)
+                    .addComponent(jLabelTotalValor)
                     .addComponent(jLabel2))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
@@ -188,6 +188,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JPanelPedraLinha l = new JPanelPedraLinha(_q, _material, _cor);
+        l.addObserver(this);
 
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -198,6 +199,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
         jPanelPecas.repaint();
         jPanelPecas.revalidate();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -231,11 +233,11 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox jComboBoxCor;
     private javax.swing.JComboBox jComboBoxMaterial;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCor;
     private javax.swing.JLabel jLabelEspessuraPreco;
     private javax.swing.JLabel jLabelMaterial;
+    private javax.swing.JLabel jLabelTotalValor;
     private javax.swing.JPanel jPanelPecas;
     // End of variables declaration//GEN-END:variables
 
@@ -253,5 +255,23 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         }
         _material = nome_material;
         espessuras = _q.queryEspessuras(nome_material);
+    }
+
+    public void actualizarTotal() {
+        Double d = 0.0;
+        for (Component c : jPanelPecas.getComponents()) {
+            try {
+                JPanelPedraLinha l = (JPanelPedraLinha) c;
+                d += l.getTotal();
+            } catch (Exception e) {
+            }
+        }
+
+        jLabelTotalValor.setText(d.toString());
+    }
+
+    @Override
+    public void update(Double d) {
+        actualizarTotal();
     }
 }

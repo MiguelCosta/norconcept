@@ -13,19 +13,23 @@ package Interface;
 import XML.QueryXML;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
+import mvc.Observer;
+import mvc.Subject;
 
 /**
  *
  * @author miguel
  */
-public class JPanelPedraLinha extends javax.swing.JPanel {
+public class JPanelPedraLinha extends javax.swing.JPanel implements Subject {
 
     String _material;
     String _cor;
     QueryXML _q;
     DecimalFormat df = new DecimalFormat("#.##");
+    private ArrayList<Observer> observers = new ArrayList<Observer>();
 
     /** Creates new form JPanelPedraLinha */
     public JPanelPedraLinha(QueryXML q, String material, String cor) {
@@ -72,20 +76,23 @@ public class JPanelPedraLinha extends javax.swing.JPanel {
 
             preco_cor = _q.queryCoresPreco(_material, _cor, esp);
 
-
             Double preco_total = dim * preco_cor;
-            /*
-            String msg = "Largura: " + larg;
-            msg += "\nComprimento: " + comp;
-            msg += "\nEspessura: " + esp;
-            msg += "\nDim: " + dim;
-            msg += "\nPreco: " + preco_cor;
-            msg += "\nPreco total: " + preco_total;
-            JOptionPane.showMessageDialog(jLabelComprimento, msg);
-            */
+
             jLabelTOTALValor.setText("" + df.format(preco_total));
         } catch (Exception e) {
         }
+    }
+
+    public Double getTotal() {
+        Double valor = 0.0;
+        try {
+            String v = jLabelTOTALValor.getText();
+            v = v.replace(",", ".");
+            valor = Double.parseDouble(v);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Erro: getTotal() em JPanelPedraLinha.java" + e.getMessage());
+        }
+        return valor;
     }
 
     public void getLargura() {
@@ -180,14 +187,17 @@ public class JPanelPedraLinha extends javax.swing.JPanel {
 
     private void jSpinnerLarguraStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerLarguraStateChanged
         actualizarTotal();
+        notifyObservers(this.getTotal());
     }//GEN-LAST:event_jSpinnerLarguraStateChanged
 
     private void jSpinnerComprimentoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerComprimentoStateChanged
         actualizarTotal();
+        notifyObservers(this.getTotal());
     }//GEN-LAST:event_jSpinnerComprimentoStateChanged
 
     private void jComboBoxEspessuraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxEspessuraItemStateChanged
         actualizarTotal();
+        notifyObservers(this.getTotal());
     }//GEN-LAST:event_jComboBoxEspessuraItemStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBoxEspessura;
@@ -199,4 +209,25 @@ public class JPanelPedraLinha extends javax.swing.JPanel {
     private javax.swing.JSpinner jSpinnerComprimento;
     private javax.swing.JSpinner jSpinnerLargura;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void addObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void removeObserver(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservers(Double d) {
+        //JOptionPane.showMessageDialog(jLabelComprimento, "Vai notificar! Valor: " + d);
+        Iterator<Observer> it = observers.iterator();
+        while (it.hasNext()) {
+            Observer observer = it.next();
+            observer.update(d);
+        }
+
+    }
 }

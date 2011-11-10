@@ -10,15 +10,7 @@
  */
 package Interface;
 
-import Negocio.Acabamento;
-import Negocio.Canto;
-import Negocio.Cor;
-import Negocio.BaseDados;
-import Negocio.Material;
-import Negocio.Negocio;
 import XML.QueryXML;
-import java.awt.ComponentOrientation;
-import java.awt.LayoutManager;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DecimalFormat;
