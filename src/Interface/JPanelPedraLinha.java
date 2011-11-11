@@ -107,6 +107,7 @@ public class JPanelPedraLinha extends javax.swing.JPanel implements Subject {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jLabelLargura = new javax.swing.JLabel();
         jLabelComprimento = new javax.swing.JLabel();
@@ -116,9 +117,6 @@ public class JPanelPedraLinha extends javax.swing.JPanel implements Subject {
         jSpinnerComprimento = new javax.swing.JSpinner();
         jLabelTOTAL = new javax.swing.JLabel();
         jLabelTOTALValor = new javax.swing.JLabel();
-
-        setMaximumSize(new java.awt.Dimension(600, 50));
-        setPreferredSize(new java.awt.Dimension(600, 25));
 
         jLabelLargura.setText("Larg. (cm):");
 
@@ -132,19 +130,21 @@ public class JPanelPedraLinha extends javax.swing.JPanel implements Subject {
             }
         });
 
+        jSpinnerLargura.setMaximumSize(new java.awt.Dimension(36, 26));
         jSpinnerLargura.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinnerLarguraStateChanged(evt);
             }
         });
 
+        jSpinnerComprimento.setMaximumSize(new java.awt.Dimension(36, 26));
         jSpinnerComprimento.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 jSpinnerComprimentoStateChanged(evt);
             }
         });
 
-        jLabelTOTAL.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabelTOTAL.setFont(new java.awt.Font("Ubuntu", 1, 12));
         jLabelTOTAL.setText("TOTAL (€):");
 
         jLabelTOTALValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -155,34 +155,49 @@ public class JPanelPedraLinha extends javax.swing.JPanel implements Subject {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabelLargura)
-                .addGap(4, 4, 4)
-                .addComponent(jSpinnerLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelComprimento)
                 .addGap(3, 3, 3)
+                .addComponent(jLabelLargura)
+                .addGap(2, 2, 2)
+                .addComponent(jSpinnerLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addComponent(jLabelComprimento)
+                .addGap(2, 2, 2)
                 .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(21, 21, 21)
                 .addComponent(jLabelEspessura)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addComponent(jComboBoxEspessura, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGap(31, 31, 31)
                 .addComponent(jLabelTOTAL)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelTOTALValor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(2, 2, 2)
+                .addComponent(jLabelTOTALValor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabelLargura)
-                .addComponent(jSpinnerLargura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabelTOTALValor)
-                .addComponent(jLabelTOTAL)
-                .addComponent(jLabelComprimento)
-                .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabelEspessura)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabelLargura))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(jSpinnerLargura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabelComprimento))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(1, 1, 1)
+                .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabelEspessura))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(1, 1, 1)
                 .addComponent(jComboBoxEspessura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabelTOTAL))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabelTOTALValor))
         );
     }// </editor-fold>//GEN-END:initComponents
 

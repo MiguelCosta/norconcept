@@ -16,7 +16,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.xml.xpath.XPathExpressionException;
 import mvc.Observer;
 
@@ -44,8 +43,8 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
     }
 
     private void configs() {
-        jButtonAdicionar.setToolTipText("Adicionar uma nova linha.");
-        jButtonLimpar.setToolTipText("Limpar todas as linhas.");
+        jButtonAdicionarPeca.setToolTipText("Adicionar uma nova linha.");
+        jButtonLimparPeca.setToolTipText("Limpar todas as linhas.");
         jLabelEspessuraPreco.setToolTipText("Vários preços para a cor do material");
         jLabelMaterial.setToolTipText("Escolha o material pretendido na caixa ao lado.");
         jLabelCor.setToolTipText("Escolha a cor que pretende na caixa ao lado.");
@@ -81,18 +80,19 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
         jComboBoxCor = new javax.swing.JComboBox();
         jLabelEspessuraPreco = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButtonAdicionar = new javax.swing.JButton();
-        jButtonLimpar = new javax.swing.JButton();
+        jButtonAdicionarPeca = new javax.swing.JButton();
+        jButtonLimparPeca = new javax.swing.JButton();
         jLabelTotalValor = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jPanelLinhas1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButtonAdicionar1 = new javax.swing.JButton();
-        jButtonLimpar1 = new javax.swing.JButton();
+        jButtonAdicionarRodape = new javax.swing.JButton();
+        jButtonLimparRodape = new javax.swing.JButton();
         jLabelTotalValor1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanelLinhas = new javax.swing.JPanel();
+        jScrollPanePecas = new javax.swing.JScrollPane();
+        jPanelPecas = new javax.swing.JPanel();
+        jScrollPaneRodapes = new javax.swing.JScrollPane();
+        jPanelLinhasRodapes = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(168, 164, 230));
         setAutoscrolls(true);
@@ -119,17 +119,17 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
 
         jPanel1.setBackground(new java.awt.Color(217, 216, 215));
 
-        jButtonAdicionar.setText("Adicionar");
-        jButtonAdicionar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAdicionarPeca.setText("Adicionar");
+        jButtonAdicionarPeca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAdicionarActionPerformed(evt);
+                jButtonAdicionarPecaActionPerformed(evt);
             }
         });
 
-        jButtonLimpar.setText("Limpar");
-        jButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLimparPeca.setText("Limpar");
+        jButtonLimparPeca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLimparActionPerformed(evt);
+                jButtonLimparPecaActionPerformed(evt);
             }
         });
 
@@ -144,9 +144,9 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jButtonAdicionar)
+                .addComponent(jButtonAdicionarPeca)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonLimpar)
+                .addComponent(jButtonLimparPeca)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -155,29 +155,25 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jButtonAdicionar)
-                .addComponent(jButtonLimpar)
+                .addComponent(jButtonAdicionarPeca)
+                .addComponent(jButtonLimparPeca)
                 .addComponent(jLabelTotalValor)
                 .addComponent(jLabel2))
         );
 
-        jPanelLinhas1.setBorder(javax.swing.BorderFactory.createTitledBorder("Peça"));
-        jPanelLinhas1.setAutoscrolls(true);
-        jPanelLinhas1.setLayout(new java.awt.GridBagLayout());
-
         jPanel2.setBackground(new java.awt.Color(217, 216, 215));
 
-        jButtonAdicionar1.setText("Adicionar");
-        jButtonAdicionar1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAdicionarRodape.setText("Adicionar");
+        jButtonAdicionarRodape.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAdicionar1ActionPerformed(evt);
+                jButtonAdicionarRodapeActionPerformed(evt);
             }
         });
 
-        jButtonLimpar1.setText("Limpar");
-        jButtonLimpar1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLimparRodape.setText("Limpar");
+        jButtonLimparRodape.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLimpar1ActionPerformed(evt);
+                jButtonLimparRodapeActionPerformed(evt);
             }
         });
 
@@ -192,9 +188,9 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jButtonAdicionar1)
+                .addComponent(jButtonAdicionarRodape)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonLimpar1)
+                .addComponent(jButtonLimparRodape)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -203,16 +199,21 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jButtonAdicionar1)
-                .addComponent(jButtonLimpar1)
+                .addComponent(jButtonAdicionarRodape)
+                .addComponent(jButtonLimparRodape)
                 .addComponent(jLabelTotalValor1)
                 .addComponent(jLabel3))
         );
 
-        jPanelLinhas.setBorder(javax.swing.BorderFactory.createTitledBorder("Peça"));
-        jPanelLinhas.setAutoscrolls(true);
-        jPanelLinhas.setLayout(new java.awt.GridBagLayout());
-        jScrollPane1.setViewportView(jPanelLinhas);
+        jPanelPecas.setBorder(javax.swing.BorderFactory.createTitledBorder("Peças"));
+        jPanelPecas.setAutoscrolls(true);
+        jPanelPecas.setLayout(new java.awt.GridBagLayout());
+        jScrollPanePecas.setViewportView(jPanelPecas);
+
+        jPanelLinhasRodapes.setBorder(javax.swing.BorderFactory.createTitledBorder("Rodapés"));
+        jPanelLinhasRodapes.setAutoscrolls(true);
+        jPanelLinhasRodapes.setLayout(new java.awt.GridBagLayout());
+        jScrollPaneRodapes.setViewportView(jPanelLinhasRodapes);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -221,7 +222,8 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneRodapes, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
+                    .addComponent(jScrollPanePecas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelCor)
@@ -232,7 +234,6 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
                             .addComponent(jComboBoxCor, 0, 234, Short.MAX_VALUE)))
                     .addComponent(jLabelEspessuraPreco)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelLinhas1, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -250,11 +251,11 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelEspessuraPreco)
                 .addGap(17, 17, 17)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPanePecas, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanelLinhas1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPaneRodapes, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -265,28 +266,27 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 // TODO add your handling code here:
     materialSeleccionado();
     jComboBoxMaterial.setToolTipText(_material);
-    jPanelLinhas.removeAll();
-    jPanelLinhas.repaint();
-    jPanelLinhas.revalidate();
+    jPanelPecas.removeAll();
+    jPanelPecas.repaint();
+    jPanelPecas.revalidate();
 }//GEN-LAST:event_jComboBoxMaterialItemStateChanged
 
-    private void jButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarActionPerformed
+    private void jButtonAdicionarPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarPecaActionPerformed
 
         JPanelPedraLinha l = new JPanelPedraLinha(_q, _material, _cor);
         l.addObserver(this);
-
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints = new java.awt.GridBagConstraints();
+        //gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = num_linhas;
-        jPanelLinhas.add(l, gridBagConstraints);
+        jPanelPecas.add(l, gridBagConstraints);
 
         num_linhas++;
 
 
-        jPanelLinhas.repaint();
-        jPanelLinhas.revalidate();
-    }//GEN-LAST:event_jButtonAdicionarActionPerformed
+        jPanelPecas.repaint();
+        jPanelPecas.revalidate();
+    }//GEN-LAST:event_jButtonAdicionarPecaActionPerformed
 
     private void jComboBoxCorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCorItemStateChanged
         _material = jComboBoxMaterial.getSelectedItem().toString();
@@ -296,32 +296,32 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         _cor = jComboBoxCor.getSelectedItem().toString();
         jLabelEspessuraPreco.setText(_q.queryCoresPrecoString(_material, _cor));
         jComboBoxCor.setToolTipText(_cor);
-        jPanelLinhas.removeAll();
-        jPanelLinhas.repaint();
-        jPanelLinhas.revalidate();
+        jPanelPecas.removeAll();
+        jPanelPecas.repaint();
+        jPanelPecas.revalidate();
         //JOptionPane.showMessageDialog(this, "FIM" + _material + _cor);
     }//GEN-LAST:event_jComboBoxCorItemStateChanged
 
-    private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
-        jPanelLinhas.removeAll();
-        jPanelLinhas.repaint();
-        jPanelLinhas.revalidate();
+    private void jButtonLimparPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparPecaActionPerformed
+        jPanelPecas.removeAll();
+        jPanelPecas.repaint();
+        jPanelPecas.revalidate();
         jLabelTotalValor.setText("0.0");
         num_linhas = 0;
-    }//GEN-LAST:event_jButtonLimparActionPerformed
+    }//GEN-LAST:event_jButtonLimparPecaActionPerformed
 
-    private void jButtonAdicionar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionar1ActionPerformed
+    private void jButtonAdicionarRodapeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarRodapeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAdicionar1ActionPerformed
+    }//GEN-LAST:event_jButtonAdicionarRodapeActionPerformed
 
-    private void jButtonLimpar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpar1ActionPerformed
+    private void jButtonLimparRodapeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparRodapeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonLimpar1ActionPerformed
+    }//GEN-LAST:event_jButtonLimparRodapeActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAdicionar;
-    private javax.swing.JButton jButtonAdicionar1;
-    private javax.swing.JButton jButtonLimpar;
-    private javax.swing.JButton jButtonLimpar1;
+    private javax.swing.JButton jButtonAdicionarPeca;
+    private javax.swing.JButton jButtonAdicionarRodape;
+    private javax.swing.JButton jButtonLimparPeca;
+    private javax.swing.JButton jButtonLimparRodape;
     private javax.swing.JComboBox jComboBoxCor;
     private javax.swing.JComboBox jComboBoxMaterial;
     private javax.swing.JLabel jLabel2;
@@ -333,9 +333,10 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     private javax.swing.JLabel jLabelTotalValor1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanelLinhas;
-    private javax.swing.JPanel jPanelLinhas1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanelLinhasRodapes;
+    private javax.swing.JPanel jPanelPecas;
+    private javax.swing.JScrollPane jScrollPanePecas;
+    private javax.swing.JScrollPane jScrollPaneRodapes;
     // End of variables declaration//GEN-END:variables
 
     private void materialSeleccionado() {
@@ -356,7 +357,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     public void actualizarTotal() {
         Double d = 0.0;
-        for (Component c : jPanelLinhas.getComponents()) {
+        for (Component c : jPanelPecas.getComponents()) {
             try {
                 JPanelPedraLinha l = (JPanelPedraLinha) c;
                 d += l.getTotal();

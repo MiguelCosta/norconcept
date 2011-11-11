@@ -25,7 +25,8 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jScrollPane1" alignment="0" min="-2" pref="613" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneRodapes" alignment="0" min="-2" pref="613" max="32767" attributes="0"/>
+                  <Component id="jScrollPanePecas" alignment="0" min="-2" pref="613" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabelCor" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -39,7 +40,6 @@
                   </Group>
                   <Component id="jLabelEspessuraPreco" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanelLinhas1" alignment="1" pref="613" max="32767" attributes="0"/>
                   <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -62,11 +62,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelEspessuraPreco" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="180" max="-2" attributes="0"/>
+              <Component id="jScrollPanePecas" min="-2" pref="180" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jPanelLinhas1" min="-2" pref="182" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPaneRodapes" min="-2" pref="178" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
@@ -127,9 +127,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jButtonAdicionar" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonAdicionarPeca" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonLimpar" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonLimparPeca" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="365" max="32767" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -140,8 +140,8 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonAdicionarPeca" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonLimparPeca" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelTotalValor" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -149,20 +149,20 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButtonAdicionar">
+        <Component class="javax.swing.JButton" name="jButtonAdicionarPeca">
           <Properties>
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdicionarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdicionarPecaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonLimpar">
+        <Component class="javax.swing.JButton" name="jButtonLimparPeca">
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimparActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimparPecaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelTotalValor">
@@ -181,18 +181,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanelLinhas1">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Pe&#xe7;a"/>
-          </Border>
-        </Property>
-        <Property name="autoscrolls" type="boolean" value="true"/>
-      </Properties>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
-    </Container>
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -204,9 +192,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jButtonAdicionar1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonAdicionarRodape" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonLimpar1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonLimparRodape" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="365" max="32767" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -217,8 +205,8 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                  <Component id="jButtonAdicionar1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonLimpar1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonAdicionarRodape" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonLimparRodape" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelTotalValor1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -226,20 +214,20 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButtonAdicionar1">
+        <Component class="javax.swing.JButton" name="jButtonAdicionarRodape">
           <Properties>
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdicionar1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdicionarRodapeActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonLimpar1">
+        <Component class="javax.swing.JButton" name="jButtonLimparRodape">
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimpar1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimparRodapeActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelTotalValor1">
@@ -258,15 +246,33 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="jScrollPanePecas">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanelLinhas">
+        <Container class="javax.swing.JPanel" name="jPanelPecas">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Pe&#xe7;a"/>
+                <TitledBorder title="Pe&#xe7;as"/>
+              </Border>
+            </Property>
+            <Property name="autoscrolls" type="boolean" value="true"/>
+          </Properties>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollPaneRodapes">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="jPanelLinhasRodapes">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Rodap&#xe9;s"/>
               </Border>
             </Property>
             <Property name="autoscrolls" type="boolean" value="true"/>

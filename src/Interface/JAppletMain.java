@@ -223,7 +223,7 @@ public class JAppletMain extends javax.swing.JApplet {
 
         jPanel3.getAccessibleContext().setAccessibleName("Lingua");
 
-        jLabel2.setText("norconcept");
+        jLabel2.setText("€");
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
