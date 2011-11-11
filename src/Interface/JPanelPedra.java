@@ -12,6 +12,7 @@ package Interface;
 
 import XML.QueryXML;
 import java.awt.Component;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,6 +32,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
     int num_linhas = 0;
     String _material = "";
     String _cor = "";
+    DecimalFormat df = new DecimalFormat("#.##");
 
     /** Creates new form JPanelPedra */
     public JPanelPedra(QueryXML q) {
@@ -118,7 +120,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
         jLabelEspessuraPreco.setText("precos");
 
         jLabelTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelTotalValor.setText("€");
+        jLabelTotalValor.setText("0.0");
 
         jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 12));
         jLabel2.setText("TOTAL (€)");
@@ -174,7 +176,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
                     .addComponent(jButton2)
                     .addComponent(jLabelTotalValor)
                     .addComponent(jLabel2))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -266,8 +268,8 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
             } catch (Exception e) {
             }
         }
-
-        jLabelTotalValor.setText(d.toString());
+        
+        jLabelTotalValor.setText(df.format(d));
     }
 
     @Override
