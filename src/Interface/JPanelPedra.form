@@ -22,11 +22,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jScrollPaneRodapes" alignment="0" min="-2" pref="613" max="32767" attributes="0"/>
-                  <Component id="jScrollPanePecas" alignment="0" min="-2" pref="613" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jScrollPanePecas" alignment="0" pref="613" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabelCor" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -40,7 +39,8 @@
                   </Group>
                   <Component id="jLabelEspessuraPreco" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneRodapes" alignment="1" min="-2" pref="613" max="32767" attributes="0"/>
+                  <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -62,11 +62,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelEspessuraPreco" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-              <Component id="jScrollPanePecas" min="-2" pref="180" max="-2" attributes="0"/>
+              <Component id="jScrollPanePecas" min="-2" pref="124" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPaneRodapes" min="-2" pref="178" max="-2" attributes="0"/>
+              <Component id="jScrollPaneRodapes" min="-2" pref="106" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>

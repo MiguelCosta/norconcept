@@ -225,8 +225,6 @@ public class JAppletMain extends javax.swing.JApplet {
 
         jLabel2.setText("€");
 
-        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane1.setMaximumSize(new java.awt.Dimension(665, 353));
 
         jPanelTipoMaterial.setBackground(new java.awt.Color(208, 192, 190));
@@ -236,11 +234,11 @@ public class JAppletMain extends javax.swing.JApplet {
         jPanelTipoMaterial.setLayout(jPanelTipoMaterialLayout);
         jPanelTipoMaterialLayout.setHorizontalGroup(
             jPanelTipoMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 647, Short.MAX_VALUE)
+            .addGap(0, 663, Short.MAX_VALUE)
         );
         jPanelTipoMaterialLayout.setVerticalGroup(
             jPanelTipoMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 385, Short.MAX_VALUE)
+            .addGap(0, 401, Short.MAX_VALUE)
         );
 
         jScrollPane1.setViewportView(jPanelTipoMaterial);
