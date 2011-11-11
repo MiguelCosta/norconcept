@@ -25,7 +25,7 @@ import mvc.Observer;
  * @author miguel
  */
 public class JPanelPedra extends javax.swing.JPanel implements Observer {
-    
+
     private QueryXML _q;
     private ArrayList<String> cores;
     private ArrayList<String> espessuras;
@@ -33,17 +33,16 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
     private String _material = "";
     private String _cor = "";
     private DecimalFormat df = new DecimalFormat("#.##");
-    private static final int max_pecas = 6; 
 
     /** Creates new form JPanelPedra */
     public JPanelPedra(QueryXML q) {
         initComponents();
-        
+
         _q = q;
         configs();
         preencherMateriais();
     }
-    
+
     private void configs() {
         jButtonAdicionar.setToolTipText("Adicionar uma nova linha.");
         jButtonLimpar.setToolTipText("Limpar todas as linhas.");
@@ -51,17 +50,17 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
         jLabelMaterial.setToolTipText("Escolha o material pretendido na caixa ao lado.");
         jLabelCor.setToolTipText("Escolha a cor que pretende na caixa ao lado.");
     }
-    
+
     private void preencherMateriais() {
         try {
             jComboBoxMaterial.removeAllItems();
             jComboBoxMaterial.addItem("");
             ArrayList<String> materiais = _q.queryMateriais("pedra");
-            
+
             for (String s : materiais) {
                 jComboBoxMaterial.addItem(s);
             }
-            
+
         } catch (XPathExpressionException ex) {
             Logger.getLogger(JPanelPedra.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -80,18 +79,25 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
         jComboBoxMaterial = new javax.swing.JComboBox();
         jLabelCor = new javax.swing.JLabel();
         jComboBoxCor = new javax.swing.JComboBox();
-        jPanelLinhas = new javax.swing.JPanel();
         jLabelEspessuraPreco = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButtonAdicionar = new javax.swing.JButton();
         jButtonLimpar = new javax.swing.JButton();
         jLabelTotalValor = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPanelLinhas1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jButtonAdicionar1 = new javax.swing.JButton();
+        jButtonLimpar1 = new javax.swing.JButton();
+        jLabelTotalValor1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanelLinhas = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(168, 164, 230));
-        setPreferredSize(new java.awt.Dimension(637, 400));
+        setAutoscrolls(true);
 
-        jLabelMaterial.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jLabelMaterial.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelMaterial.setText("Escolha o material:");
 
         jComboBoxMaterial.addItemListener(new java.awt.event.ItemListener() {
@@ -108,9 +114,6 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
                 jComboBoxCorItemStateChanged(evt);
             }
         });
-
-        jPanelLinhas.setBorder(javax.swing.BorderFactory.createTitledBorder("Peça"));
-        jPanelLinhas.setLayout(new java.awt.GridBagLayout());
 
         jLabelEspessuraPreco.setText("precos");
 
@@ -133,7 +136,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
         jLabelTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelTotalValor.setText("0.0");
 
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 12));
         jLabel2.setText("TOTAL (€)");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -158,14 +161,68 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
                 .addComponent(jLabel2))
         );
 
+        jPanelLinhas1.setBorder(javax.swing.BorderFactory.createTitledBorder("Peça"));
+        jPanelLinhas1.setAutoscrolls(true);
+        jPanelLinhas1.setLayout(new java.awt.GridBagLayout());
+
+        jPanel2.setBackground(new java.awt.Color(217, 216, 215));
+
+        jButtonAdicionar1.setText("Adicionar");
+        jButtonAdicionar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdicionar1ActionPerformed(evt);
+            }
+        });
+
+        jButtonLimpar1.setText("Limpar");
+        jButtonLimpar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimpar1ActionPerformed(evt);
+            }
+        });
+
+        jLabelTotalValor1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelTotalValor1.setText("0.0");
+
+        jLabel3.setFont(new java.awt.Font("Ubuntu", 1, 12));
+        jLabel3.setText("TOTAL (€)");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jButtonAdicionar1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonLimpar1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelTotalValor1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jButtonAdicionar1)
+                .addComponent(jButtonLimpar1)
+                .addComponent(jLabelTotalValor1)
+                .addComponent(jLabel3))
+        );
+
+        jPanelLinhas.setBorder(javax.swing.BorderFactory.createTitledBorder("Peça"));
+        jPanelLinhas.setAutoscrolls(true);
+        jPanelLinhas.setLayout(new java.awt.GridBagLayout());
+        jScrollPane1.setViewportView(jPanelLinhas);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelCor)
                             .addComponent(jLabelMaterial))
@@ -173,9 +230,10 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jComboBoxMaterial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBoxCor, 0, 234, Short.MAX_VALUE)))
-                    .addComponent(jPanelLinhas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
-                    .addComponent(jLabelEspessuraPreco, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelEspessuraPreco)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelLinhas1, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -191,11 +249,15 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
                     .addComponent(jComboBoxCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelEspessuraPreco)
-                .addGap(21, 21, 21)
-                .addComponent(jPanelLinhas, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanelLinhas1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -207,30 +269,25 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     jPanelLinhas.repaint();
     jPanelLinhas.revalidate();
 }//GEN-LAST:event_jComboBoxMaterialItemStateChanged
-    
+
     private void jButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarActionPerformed
-        if (num_linhas < max_pecas) {
-            JPanelPedraLinha l = new JPanelPedraLinha(_q, _material, _cor);
-            l.addObserver(this);
-            
-            java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
-            gridBagConstraints = new java.awt.GridBagConstraints();
-            gridBagConstraints.gridx = 0;
-            gridBagConstraints.gridy = num_linhas;
-            jPanelLinhas.add(l, gridBagConstraints);
-            
-            num_linhas++;
-            if (num_linhas >= max_pecas) {
-                jButtonAdicionar.setEnabled(false);
-            }
-        } else {
-            jButtonAdicionar.setEnabled(false);
-        }
-        
+
+        JPanelPedraLinha l = new JPanelPedraLinha(_q, _material, _cor);
+        l.addObserver(this);
+
+        java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = num_linhas;
+        jPanelLinhas.add(l, gridBagConstraints);
+
+        num_linhas++;
+
+
         jPanelLinhas.repaint();
         jPanelLinhas.revalidate();
     }//GEN-LAST:event_jButtonAdicionarActionPerformed
-    
+
     private void jComboBoxCorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCorItemStateChanged
         _material = jComboBoxMaterial.getSelectedItem().toString();
         if (jComboBoxCor.getSelectedItem() == null) {
@@ -244,36 +301,50 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         jPanelLinhas.revalidate();
         //JOptionPane.showMessageDialog(this, "FIM" + _material + _cor);
     }//GEN-LAST:event_jComboBoxCorItemStateChanged
-    
+
     private void jButtonLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparActionPerformed
         jPanelLinhas.removeAll();
         jPanelLinhas.repaint();
         jPanelLinhas.revalidate();
         jLabelTotalValor.setText("0.0");
         num_linhas = 0;
-        jButtonAdicionar.setEnabled(true);
     }//GEN-LAST:event_jButtonLimparActionPerformed
+
+    private void jButtonAdicionar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAdicionar1ActionPerformed
+
+    private void jButtonLimpar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLimpar1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdicionar;
+    private javax.swing.JButton jButtonAdicionar1;
     private javax.swing.JButton jButtonLimpar;
+    private javax.swing.JButton jButtonLimpar1;
     private javax.swing.JComboBox jComboBoxCor;
     private javax.swing.JComboBox jComboBoxMaterial;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelCor;
     private javax.swing.JLabel jLabelEspessuraPreco;
     private javax.swing.JLabel jLabelMaterial;
     private javax.swing.JLabel jLabelTotalValor;
+    private javax.swing.JLabel jLabelTotalValor1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelLinhas;
+    private javax.swing.JPanel jPanelLinhas1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
     private void materialSeleccionado() {
         String nome_material = jComboBoxMaterial.getSelectedItem().toString();
-        
+
         if (nome_material.equalsIgnoreCase("") || nome_material == null) {
             return;
         }
-        
+
         cores = _q.queryCores(nome_material);
         jComboBoxCor.removeAllItems();
         for (String s : cores) {
@@ -282,7 +353,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         _material = nome_material;
         espessuras = _q.queryEspessuras(nome_material);
     }
-    
+
     public void actualizarTotal() {
         Double d = 0.0;
         for (Component c : jPanelLinhas.getComponents()) {
@@ -292,15 +363,15 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
             } catch (Exception e) {
             }
         }
-        
+
         jLabelTotalValor.setText(df.format(d));
     }
-    
+
     @Override
     public void update(Double d) {
         actualizarTotal();
     }
-    
+
     @Override
     public void update(String n) {
         throw new UnsupportedOperationException("Not supported yet.");

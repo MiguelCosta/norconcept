@@ -132,8 +132,9 @@ public class JAppletMain extends javax.swing.JApplet {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabelLogo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         jPanelTipoMaterial = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -222,15 +223,27 @@ public class JAppletMain extends javax.swing.JApplet {
 
         jPanel3.getAccessibleContext().setAccessibleName("Lingua");
 
-        jPanelTipoMaterial.setBackground(new java.awt.Color(208, 192, 190));
-        jPanelTipoMaterial.setMinimumSize(new java.awt.Dimension(400, 232));
-        jPanelTipoMaterial.setPreferredSize(new java.awt.Dimension(600, 228));
-        jPanelTipoMaterial.setLayout(new java.awt.GridBagLayout());
+        jLabel2.setText("norconcept");
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18));
-        jLabel1.setForeground(new java.awt.Color(55, 59, 227));
-        jLabel1.setText("Escolha o Material que deseja :)");
-        jPanelTipoMaterial.add(jLabel1, new java.awt.GridBagConstraints());
+        jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        jScrollPane1.setMaximumSize(new java.awt.Dimension(665, 353));
+
+        jPanelTipoMaterial.setBackground(new java.awt.Color(208, 192, 190));
+        jPanelTipoMaterial.setAutoscrolls(true);
+
+        javax.swing.GroupLayout jPanelTipoMaterialLayout = new javax.swing.GroupLayout(jPanelTipoMaterial);
+        jPanelTipoMaterial.setLayout(jPanelTipoMaterialLayout);
+        jPanelTipoMaterialLayout.setHorizontalGroup(
+            jPanelTipoMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 647, Short.MAX_VALUE)
+        );
+        jPanelTipoMaterialLayout.setVerticalGroup(
+            jPanelTipoMaterialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 385, Short.MAX_VALUE)
+        );
+
+        jScrollPane1.setViewportView(jPanelTipoMaterial);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,9 +252,10 @@ public class JAppletMain extends javax.swing.JApplet {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanelTipoMaterial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel2))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -252,8 +266,10 @@ public class JAppletMain extends javax.swing.JApplet {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelTipoMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -271,7 +287,13 @@ public class JAppletMain extends javax.swing.JApplet {
             }
             JPanelPedra j = new JPanelPedra(q);
             jPanelTipoMaterial.add(j);
+            jPanelTipoMaterial.repaint();
+            jPanelTipoMaterial.revalidate();
+
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
+            jPanelTipoMaterial.repaint();
+            jPanelTipoMaterial.revalidate();
+
             //JOptionPane.showMessageDialog(rootPane, "Tipo Material entrou: " + tipo_material);
         } else if (tipo_material.equalsIgnoreCase("nada")) {
             if (jPanelTipoMaterial.getComponents().length > 0) {
@@ -295,7 +317,7 @@ public class JAppletMain extends javax.swing.JApplet {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBoxTipoMaterial;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelTipoMaterial;
     private javax.swing.JPanel jPanel1;
@@ -304,6 +326,7 @@ public class JAppletMain extends javax.swing.JApplet {
     private javax.swing.JPanel jPanelTipoMaterial;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
     /************* Funcões auxiliaures *******************/
