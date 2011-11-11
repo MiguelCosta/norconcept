@@ -25,10 +25,10 @@ import mvc.Subject;
  */
 public class JPanelPedraLinha extends javax.swing.JPanel implements Subject {
 
-    String _material;
-    String _cor;
-    QueryXML _q;
-    DecimalFormat df = new DecimalFormat("#.##");
+    private String _material;
+    private String _cor;
+    private QueryXML _q;
+    private DecimalFormat df = new DecimalFormat("#.##");
     private ArrayList<Observer> observers = new ArrayList<Observer>();
 
     /** Creates new form JPanelPedraLinha */
@@ -46,6 +46,7 @@ public class JPanelPedraLinha extends javax.swing.JPanel implements Subject {
         SpinnerNumberModel modelSpinnerC = new SpinnerNumberModel(0, 0, 100000, 1);
         jSpinnerLargura.setModel(modelSpinnerL);
         jSpinnerComprimento.setModel(modelSpinnerC);
+        
 
         jLabelLargura.setToolTipText("Largura");
         jLabelComprimento.setToolTipText("Comprimento");
@@ -231,7 +232,7 @@ public class JPanelPedraLinha extends javax.swing.JPanel implements Subject {
     }
 
     @Override
-    public void notfyObservers(String n) {
+    public void notifyObservers(String n) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }

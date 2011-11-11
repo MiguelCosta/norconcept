@@ -16,5 +16,5 @@ public interface Subject {
 
     public void notifyObservers(Double d);
     
-    public void notfyObservers(String n);
+    public void notifyObservers(String n);
 }
