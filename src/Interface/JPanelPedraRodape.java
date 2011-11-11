@@ -4,7 +4,7 @@
  */
 
 /*
- * JPanelPedraLinha.java
+ * JPanelPedraPeca.java
  *
  * Created on 8/Nov/2011, 12:33:43
  */
@@ -13,6 +13,7 @@ package Interface;
 import XML.QueryXML;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
@@ -23,16 +24,18 @@ import mvc.Subject;
  *
  * @author miguel
  */
-public class JPanelPedraLinha extends javax.swing.JPanel implements Subject {
+public class JPanelPedraRodape extends javax.swing.JPanel implements Subject {
 
     private String _material;
     private String _cor;
     private QueryXML _q;
     private DecimalFormat df = new DecimalFormat("#.##");
     private ArrayList<Observer> observers = new ArrayList<Observer>();
+    // para não estar a fazer uma query sempre, fica aqui os precos com as cores
+    private HashMap<String, Double> cores_e_precos;
 
-    /** Creates new form JPanelPedraLinha */
-    public JPanelPedraLinha(QueryXML q, String material, String cor) {
+    /** Creates new form JPanelPedraPeca */
+    public JPanelPedraRodape(QueryXML q, String material, String cor) {
         initComponents();
         _q = q;
         _material = material;
@@ -42,30 +45,26 @@ public class JPanelPedraLinha extends javax.swing.JPanel implements Subject {
     }
 
     private void configs() {
-        SpinnerNumberModel modelSpinnerL = new SpinnerNumberModel(0, 0, 100000, 1);
         SpinnerNumberModel modelSpinnerC = new SpinnerNumberModel(0, 0, 100000, 1);
-        jSpinnerLargura.setModel(modelSpinnerL);
         jSpinnerComprimento.setModel(modelSpinnerC);
         
-
-        jLabelLargura.setToolTipText("Largura");
-        jLabelComprimento.setToolTipText("Comprimento");
-        jLabelEspessura.setToolTipText("Espessura");
+        jLabelCor.setToolTipText("Selecione a cor na caixa ao lado.");
+        jLabelComprimento.setToolTipText("Indique o comprimento que pretende.");
     }
 
     private void valores() {
-        ArrayList<String> esp = _q.queryEspessuras(_material);
-        for (String e : esp) {
-            jComboBoxEspessura.addItem(e);
+        cores_e_precos = _q.queryRodapes_NomeEPreco(_material);
+        
+        for (String s : cores_e_precos.keySet()) {
+            jComboBoxCor.addItem(s);
         }
     }
 
     public void actualizarTotal() {
         try {
-            int larg = Integer.parseInt(jSpinnerLargura.getValue().toString());
             int comp = Integer.parseInt(jSpinnerComprimento.getValue().toString());
-            double dim = larg * comp;
-            String esp = jComboBoxEspessura.getSelectedItem().toString();
+            double dim = comp;
+            String esp = jComboBoxCor.getSelectedItem().toString();
 
             String unidade_cor = _q.queryCoresUnidade(_material);
 
@@ -108,31 +107,21 @@ public class JPanelPedraLinha extends javax.swing.JPanel implements Subject {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelLargura = new javax.swing.JLabel();
+        jLabelCor = new javax.swing.JLabel();
         jLabelComprimento = new javax.swing.JLabel();
-        jLabelEspessura = new javax.swing.JLabel();
-        jComboBoxEspessura = new javax.swing.JComboBox();
-        jSpinnerLargura = new javax.swing.JSpinner();
+        jComboBoxCor = new javax.swing.JComboBox();
         jSpinnerComprimento = new javax.swing.JSpinner();
         jLabelTOTAL = new javax.swing.JLabel();
         jLabelTOTALValor = new javax.swing.JLabel();
+        jLabelPreco = new javax.swing.JLabel();
 
-        jLabelLargura.setText("Larg. (cm):");
+        jLabelCor.setText("Cor:");
 
         jLabelComprimento.setText("Comp. (cm):");
 
-        jLabelEspessura.setText("Esp. (cm):");
-
-        jComboBoxEspessura.addItemListener(new java.awt.event.ItemListener() {
+        jComboBoxCor.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxEspessuraItemStateChanged(evt);
-            }
-        });
-
-        jSpinnerLargura.setMaximumSize(new java.awt.Dimension(36, 26));
-        jSpinnerLargura.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jSpinnerLarguraStateChanged(evt);
+                jComboBoxCorItemStateChanged(evt);
             }
         });
 
@@ -143,86 +132,67 @@ public class JPanelPedraLinha extends javax.swing.JPanel implements Subject {
             }
         });
 
-        jLabelTOTAL.setFont(new java.awt.Font("Ubuntu", 1, 12));
+        jLabelTOTAL.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
         jLabelTOTAL.setText("TOTAL (€):");
 
         jLabelTOTALValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelTOTALValor.setText("€");
+
+        jLabelPreco.setText("€/m");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(3, 3, 3)
-                .addComponent(jLabelLargura)
-                .addGap(2, 2, 2)
-                .addComponent(jSpinnerLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addContainerGap()
+                .addComponent(jLabelCor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxCor, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelPreco)
+                .addGap(18, 18, 18)
                 .addComponent(jLabelComprimento)
-                .addGap(2, 2, 2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(jLabelEspessura)
-                .addGap(2, 2, 2)
-                .addComponent(jComboBoxEspessura, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addComponent(jLabelTOTAL)
-                .addGap(2, 2, 2)
-                .addComponent(jLabelTOTALValor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelTOTALValor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabelLargura))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(1, 1, 1)
-                .addComponent(jSpinnerLargura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabelComprimento))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(1, 1, 1)
-                .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabelEspessura))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(1, 1, 1)
-                .addComponent(jComboBoxEspessura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabelTOTAL))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabelTOTALValor))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCor)
+                    .addComponent(jLabelTOTALValor)
+                    .addComponent(jLabelTOTAL)
+                    .addComponent(jLabelPreco)
+                    .addComponent(jLabelComprimento)
+                    .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jSpinnerLarguraStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerLarguraStateChanged
-        actualizarTotal();
-        notifyObservers(this.getTotal());
-    }//GEN-LAST:event_jSpinnerLarguraStateChanged
 
     private void jSpinnerComprimentoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerComprimentoStateChanged
         actualizarTotal();
         notifyObservers(this.getTotal());
     }//GEN-LAST:event_jSpinnerComprimentoStateChanged
 
-    private void jComboBoxEspessuraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxEspessuraItemStateChanged
+    private void jComboBoxCorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCorItemStateChanged
         actualizarTotal();
         notifyObservers(this.getTotal());
-    }//GEN-LAST:event_jComboBoxEspessuraItemStateChanged
+    }//GEN-LAST:event_jComboBoxCorItemStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox jComboBoxEspessura;
+    private javax.swing.JComboBox jComboBoxCor;
     private javax.swing.JLabel jLabelComprimento;
-    private javax.swing.JLabel jLabelEspessura;
-    private javax.swing.JLabel jLabelLargura;
+    private javax.swing.JLabel jLabelCor;
+    private javax.swing.JLabel jLabelPreco;
     private javax.swing.JLabel jLabelTOTAL;
     private javax.swing.JLabel jLabelTOTALValor;
     private javax.swing.JSpinner jSpinnerComprimento;
-    private javax.swing.JSpinner jSpinnerLargura;
     // End of variables declaration//GEN-END:variables
 
     @Override

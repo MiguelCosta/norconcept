@@ -38,9 +38,9 @@
                       </Group>
                   </Group>
                   <Component id="jLabelEspessuraPreco" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jPanelPecaOp" alignment="0" max="32767" attributes="0"/>
                   <Component id="jScrollPaneRodapes" alignment="1" min="-2" pref="613" max="32767" attributes="0"/>
-                  <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jPanelRodapeOp" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -64,11 +64,11 @@
               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
               <Component id="jScrollPanePecas" min="-2" pref="124" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="jPanelPecaOp" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPaneRodapes" min="-2" pref="106" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <Component id="jPanelRodapeOp" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -116,7 +116,7 @@
         <Property name="text" type="java.lang.String" value="precos"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="jPanelPecaOp">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d7" green="d8" red="d9" type="rgb"/>
@@ -131,9 +131,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonLimparPeca" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="365" max="32767" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelPecaTotal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabelTotalValor" min="-2" pref="63" max="-2" attributes="0"/>
+                  <Component id="jLabelPecaTotalValor" min="-2" pref="63" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -142,8 +142,8 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonAdicionarPeca" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonLimparPeca" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelTotalValor" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelPecaTotalValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelPecaTotal" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -165,13 +165,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimparPecaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelTotalValor">
+        <Component class="javax.swing.JLabel" name="jLabelPecaTotalValor">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="0.0"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="jLabelPecaTotal">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="12" style="1"/>
@@ -181,7 +181,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="jPanelRodapeOp">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d7" green="d8" red="d9" type="rgb"/>
@@ -196,9 +196,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonLimparRodape" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="365" max="32767" attributes="0"/>
-                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelRodapeTotal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabelTotalValor1" min="-2" pref="63" max="-2" attributes="0"/>
+                  <Component id="jLabelRodapeTotalValor" min="-2" pref="63" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -207,8 +207,8 @@
               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                   <Component id="jButtonAdicionarRodape" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonLimparRodape" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelTotalValor1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelRodapeTotalValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelRodapeTotal" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -230,13 +230,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimparRodapeActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelTotalValor1">
+        <Component class="javax.swing.JLabel" name="jLabelRodapeTotalValor">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="0.0"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
+        <Component class="javax.swing.JLabel" name="jLabelRodapeTotal">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="12" style="1"/>
@@ -268,7 +268,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanelLinhasRodapes">
+        <Container class="javax.swing.JPanel" name="jPanelRodapes">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">

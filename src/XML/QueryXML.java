@@ -6,13 +6,11 @@ package XML;
 
 import Negocio.Acabamento;
 import Negocio.Canto;
-import Negocio.Cor;
-import Negocio.Material;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -51,7 +49,7 @@ public class QueryXML {
 
         doc = builder.parse(inputLocal);
     }
-    
+
     public QueryXML(URL xml) throws ParserConfigurationException, SAXException, IOException {
         factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
@@ -66,22 +64,6 @@ public class QueryXML {
         InputStream inputLocal = local_url.openStream();
 
         doc = builder.parse(inputLocal);
-    }
-
-    public void queryTeste() throws SAXException, IOException, XPathExpressionException, ParserConfigurationException {
-        XPathExpression expr = null;
-        XPathFactory xFactory = XPathFactory.newInstance();
-        XPath xpath = xFactory.newXPath();
-
-        expr = xpath.compile("/norconcept/materiais/material/nome_material");
-
-        Object result = expr.evaluate(doc, XPathConstants.NODESET);
-
-        NodeList nodes = (NodeList) result;
-        for (int i = 0; i < nodes.getLength(); i++) {
-            System.out.println(nodes.item(i).getTextContent());
-        }
-
     }
 
     /****************************************/
@@ -303,10 +285,10 @@ public class QueryXML {
     }
 
     /****************************************/
-    /*            ACABAMENTOS               */
+    /*              RODAPÉS                 */
     /****************************************/
-    public TreeMap<Integer, Acabamento> queryAcabamentos(Integer idMaterial) {
-        TreeMap<Integer, Acabamento> r = new TreeMap<Integer, Acabamento>();
+    public HashMap<String, Double> queryRodapes_NomeEPreco(String material) {
+        HashMap<String, Double> rodapes = new HashMap<String, Double>();
 
         try {
             XPathExpression expr = null;
@@ -314,88 +296,39 @@ public class QueryXML {
             XPath xpath = xFactory.newXPath();
 
             // cores de um determinado material
-            String query = "//material[@id='" + idMaterial + "']/acabamentos/acabamento";
+            String query = "//tipo_material[./@tipo='pedra']/material/rodapes/rodape[../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
 
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
 
             NodeList nodes = (NodeList) result;
-
+            //String s = "";
+            //String s2 = "";
             for (int i = 0; i < nodes.getLength(); i++) {
-                String nome = nodes.item(i).getTextContent();
-                Integer id = Integer.parseInt(nodes.item(i).getAttributes().getNamedItem("id").getTextContent());
-
-                Acabamento a = new Acabamento(id, nome);
-                r.put(id, a);
-            }
-
-        } catch (XPathExpressionException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryAcabamentos" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
-            Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        //JOptionPane.showMessageDialog(null, r.toString());
-        return r;
-    }
-
-    /****************************************/
-    /*              CANTOS                  */
-    /****************************************/
-    public TreeMap<Integer, Canto> queryCantos(Integer idMaterial) {
-        TreeMap<Integer, Canto> r = new TreeMap<Integer, Canto>();
-
-        try {
-            XPathExpression expr = null;
-            XPathFactory xFactory = XPathFactory.newInstance();
-            XPath xpath = xFactory.newXPath();
-
-            // cores de um determinado material
-            String query = "//material[@id='" + idMaterial + "']/cantos/canto";
-            expr = xpath.compile(query);
-
-            Object result = expr.evaluate(doc, XPathConstants.NODESET);
-
-            NodeList nodes = (NodeList) result;
-
-            //JOptionPane.showMessageDialog(null, query + "\n" + nodes.toString());
-
-            ArrayList<Integer> ids = new ArrayList<Integer>();
-            for (int i = 0; i < nodes.getLength(); i++) {
-                String idS = nodes.item(i).getAttributes().getNamedItem("id").getTextContent();
-                Integer id = Integer.parseInt(idS);
-
-                NodeList filhos_de_canto = nodes.item(i).getChildNodes();
-
+                NodeList r = nodes.item(i).getChildNodes();
                 String nome = "";
-                double preco = 0;
-                String path = "";
-                for (int j = 0; j < filhos_de_canto.getLength(); j++) {
-                    if (filhos_de_canto.item(j).getNodeName().equals("nome_canto")) {
-                        nome = filhos_de_canto.item(j).getTextContent();
+                String valor = "";
+                for (int j = 0; j < r.getLength(); j++) {
+                    if (r.item(j).getNodeName().equalsIgnoreCase("rodape_nome")) {
+                        nome = r.item(j).getTextContent();
                     }
-                    if (filhos_de_canto.item(j).getNodeName().equals("preco_canto")) {
-                        preco = Double.parseDouble(filhos_de_canto.item(j).getTextContent());
+                    if (r.item(j).getNodeName().equalsIgnoreCase("rodape_preco")) {
+                        valor = r.item(j).getTextContent();
                     }
-                    if (filhos_de_canto.item(j).getNodeName().equals("imagem_canto")) {
-                        path = filhos_de_canto.item(j).getTextContent();
-                    }
+
                 }
-                //JOptionPane.showMessageDialog(null, "NOME: " + nome + "\nPRECO: " + preco);
-                Canto c = new Canto(id, nome, preco, path);
-                r.put(id, c);
+                valor.replace(",", ".");
+                Double d = Double.parseDouble(valor);
+                rodapes.put(nome, d);
             }
 
         } catch (XPathExpressionException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryAcabamentos" + ex.getLocalizedMessage() + "\n" + ex.getMessage(), "ERROR", JOptionPane.ERROR);
+            JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryEspessuras" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NumberFormatException e) {
-            String msg = "Erro ao converter um preço! Ficheiro XML não está correto.\n";
-            msg += "Erro no canto do material com id: " + idMaterial + "\n";
-            JOptionPane.showMessageDialog(null, msg, "ERRO", JOptionPane.ERROR);
-            System.out.println(msg);
+        } catch (NumberFormatException e){
+            
         }
 
-        //JOptionPane.showMessageDialog(null, r.toString());
-        return r;
+        return rodapes;
     }
 }
