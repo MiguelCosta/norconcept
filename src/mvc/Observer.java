@@ -10,7 +10,7 @@ package mvc;
  */
 public interface Observer {
 
-    public void update(Double d);
+    public void update(String enviou, Double d);
 
     public void update(String n);
 }

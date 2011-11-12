@@ -46,7 +46,7 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject {
         SpinnerNumberModel modelSpinnerC = new SpinnerNumberModel(0, 0, 100000, 1);
         jSpinnerLargura.setModel(modelSpinnerL);
         jSpinnerComprimento.setModel(modelSpinnerC);
-        
+
 
         jLabelLargura.setToolTipText("Largura");
         jLabelComprimento.setToolTipText("Comprimento");
@@ -241,7 +241,7 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject {
         Iterator<Observer> it = observers.iterator();
         while (it.hasNext()) {
             Observer observer = it.next();
-            observer.update(d);
+            observer.update("peca" , d);
         }
     }
 

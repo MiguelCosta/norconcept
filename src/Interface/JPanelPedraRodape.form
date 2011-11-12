@@ -22,12 +22,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jComboBoxCor" min="-2" pref="174" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabelPreco" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabelRodapePreco" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabelComprimento" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSpinnerComprimento" min="-2" pref="64" max="-2" attributes="0"/>
-              <EmptySpace pref="90" max="32767" attributes="0"/>
+              <EmptySpace pref="60" max="32767" attributes="0"/>
               <Component id="jLabelTOTAL" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelTOTALValor" min="-2" pref="47" max="-2" attributes="0"/>
@@ -44,7 +44,7 @@
                   <Component id="jLabelCor" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelTOTALValor" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelTOTAL" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelPreco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelRodapePreco" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelComprimento" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jSpinnerComprimento" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -97,7 +97,7 @@
         <Property name="text" type="java.lang.String" value="&#x20ac;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelPreco">
+    <Component class="javax.swing.JLabel" name="jLabelRodapePreco">
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x20ac;/m"/>
       </Properties>

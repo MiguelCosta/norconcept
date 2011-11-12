@@ -16,6 +16,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.xml.xpath.XPathExpressionException;
 import mvc.Observer;
 
@@ -54,7 +55,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
     private void preencherMateriais() {
         try {
             jComboBoxMaterial.removeAllItems();
-            jComboBoxMaterial.addItem("");
+            //jComboBoxMaterial.addItem("");
             ArrayList<String> materiais = _q.queryMateriais("pedra");
 
             for (String s : materiais) {
@@ -98,7 +99,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
         setBackground(new java.awt.Color(168, 164, 230));
         setAutoscrolls(true);
 
-        jLabelMaterial.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelMaterial.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabelMaterial.setText("Escolha o material:");
 
         jComboBoxMaterial.addItemListener(new java.awt.event.ItemListener() {
@@ -107,7 +108,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
             }
         });
 
-        jLabelCor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelCor.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabelCor.setText("Escolha a cor:");
 
         jComboBoxCor.addItemListener(new java.awt.event.ItemListener() {
@@ -137,7 +138,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
         jLabelPecaTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelPecaTotalValor.setText("0.0");
 
-        jLabelPecaTotal.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabelPecaTotal.setFont(new java.awt.Font("Ubuntu", 1, 12));
         jLabelPecaTotal.setText("TOTAL (€)");
 
         javax.swing.GroupLayout jPanelPecaOpLayout = new javax.swing.GroupLayout(jPanelPecaOp);
@@ -181,7 +182,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
         jLabelRodapeTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelRodapeTotalValor.setText("0.0");
 
-        jLabelRodapeTotal.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabelRodapeTotal.setFont(new java.awt.Font("Ubuntu", 1, 12));
         jLabelRodapeTotal.setText("TOTAL (€)");
 
         javax.swing.GroupLayout jPanelRodapeOpLayout = new javax.swing.GroupLayout(jPanelRodapeOp);
@@ -206,12 +207,16 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
                 .addComponent(jLabelRodapeTotal))
         );
 
-        jPanelPecas.setBorder(javax.swing.BorderFactory.createTitledBorder("Peças"));
+        jScrollPanePecas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Peças", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+
+        jPanelPecas.setBorder(null);
         jPanelPecas.setAutoscrolls(true);
         jPanelPecas.setLayout(new java.awt.GridBagLayout());
         jScrollPanePecas.setViewportView(jPanelPecas);
 
-        jPanelRodapes.setBorder(javax.swing.BorderFactory.createTitledBorder("Rodapés"));
+        jScrollPaneRodapes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rodapés", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+
+        jPanelRodapes.setBorder(null);
         jPanelRodapes.setAutoscrolls(true);
         jPanelRodapes.setLayout(new java.awt.GridBagLayout());
         jScrollPaneRodapes.setViewportView(jPanelRodapes);
@@ -223,6 +228,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPaneRodapes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
                     .addComponent(jScrollPanePecas, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,7 +240,6 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
                             .addComponent(jComboBoxCor, 0, 234, Short.MAX_VALUE)))
                     .addComponent(jLabelEspessuraPreco, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanelPecaOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPaneRodapes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
                     .addComponent(jPanelRodapeOp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -252,11 +257,11 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelEspessuraPreco)
                 .addGap(17, 17, 17)
-                .addComponent(jScrollPanePecas, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPanePecas, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelPecaOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPaneRodapes, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneRodapes, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelRodapeOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -264,7 +269,6 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxMaterialItemStateChanged
-// TODO add your handling code here:
     materialSeleccionado();
     jComboBoxMaterial.setToolTipText(_material);
     jPanelPecas.removeAll();
@@ -373,7 +377,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         espessuras = _q.queryEspessuras(nome_material);
     }
 
-    public void actualizarTotal() {
+    public void actualizarTotalPecas() {
         Double d = 0.0;
         for (Component c : jPanelPecas.getComponents()) {
             try {
@@ -386,9 +390,27 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         jLabelPecaTotalValor.setText(df.format(d));
     }
 
+    public void actualizarTotalRodapes() {
+        Double d = 0.0;
+        for (Component c : jPanelRodapes.getComponents()) {
+            try {
+                JPanelPedraRodape l = (JPanelPedraRodape) c;
+                d += l.getTotal();
+            } catch (Exception e) {
+            }
+        }
+
+        jLabelRodapeTotalValor.setText(df.format(d));
+    }
+
     @Override
-    public void update(Double d) {
-        actualizarTotal();
+    public void update(String enviou, Double d) {
+        if (enviou.equalsIgnoreCase("peca")) {
+            actualizarTotalPecas();
+            //JOptionPane.showMessageDialog(jLabelCor, "peca");
+        } else if (enviou.equalsIgnoreCase("rodape")) {
+            actualizarTotalRodapes();
+        }
     }
 
     @Override
