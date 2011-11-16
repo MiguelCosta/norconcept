@@ -32,7 +32,7 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
     private DecimalFormat df = new DecimalFormat("#.##");
     private ArrayList<Observer> observers = new ArrayList<Observer>();
     // para não estar a fazer uma query sempre, fica aqui os precos com as cores
-    private HashMap<String, Double> furos_e_precos;
+    private HashMap<String, Double> furos_e_precos = new HashMap<String, Double>();
     private String furo = "";
 
     /** Creates new form JPanelPedraPeca */
@@ -54,8 +54,10 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
     }
 
     private void valores() {
+        furos_e_precos.clear();
         furos_e_precos = _q.queryFuros_NomeEPreco(_material);
 
+        jComboBoxFuro.removeAllItems();
         for (String s : furos_e_precos.keySet()) {
             jComboBoxFuro.addItem(s);
         }
@@ -170,14 +172,17 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
     }//GEN-LAST:event_jSpinnerNumeroStateChanged
 
     private void jComboBoxFuroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxFuroItemStateChanged
-        furo = jComboBoxFuro.getSelectedItem().toString();
+        try {
+            furo = jComboBoxFuro.getSelectedItem().toString();
 
-        Double d = furos_e_precos.get(furo);
-        String valor = d.toString() + " €/furo";
-        jLabelFuroPreco.setText(valor);
+            Double d = furos_e_precos.get(furo);
+            String valor = d.toString() + " €/furo";
+            jLabelFuroPreco.setText(valor);
 
-        actualizarTotal();
-        notifyObservers("furo");
+            actualizarTotal();
+            notifyObservers("furo");
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jComboBoxFuroItemStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBoxFuro;
@@ -223,6 +228,7 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
     public void update(String material, String cor) {
         _material = material;
         _cor = cor;
+        valores();
         actualizarTotal();
     }
 }

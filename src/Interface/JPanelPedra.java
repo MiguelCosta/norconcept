@@ -401,6 +401,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
         num_linhas_rodape++;
 
+        this.addObserver(r);
         jPanelRodapes.repaint();
         jPanelRodapes.revalidate();
     }//GEN-LAST:event_jButtonAdicionarRodapeActionPerformed
@@ -425,6 +426,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
         num_linhas_furos++;
 
+        this.addObserver(f);
         jPanelFuros.repaint();
         jPanelFuros.revalidate();
     }//GEN-LAST:event_jButtonAdicionarFuroActionPerformed

@@ -32,7 +32,7 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
     private DecimalFormat df = new DecimalFormat("#.##");
     private ArrayList<Observer> observers = new ArrayList<Observer>();
     // para não estar a fazer uma query sempre, fica aqui os precos com as cores
-    private HashMap<String, Double> cores_e_precos;
+    private HashMap<String, Double> cores_e_precos = new HashMap<String, Double>();
     private String cor_rodape = "";
 
     /** Creates new form JPanelPedraPeca */
@@ -54,8 +54,9 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
     }
 
     private void valores() {
+        jComboBoxCor.removeAllItems();
+        cores_e_precos.clear();
         cores_e_precos = _q.queryRodapes_NomeEPreco(_material);
-
         for (String s : cores_e_precos.keySet()) {
             jComboBoxCor.addItem(s);
         }
@@ -172,14 +173,18 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
     }//GEN-LAST:event_jSpinnerComprimentoStateChanged
 
     private void jComboBoxCorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCorItemStateChanged
-        cor_rodape = jComboBoxCor.getSelectedItem().toString();
 
-        Double d = cores_e_precos.get(cor_rodape);
-        String valor = d.toString() + " €/m";
-        jLabelRodapePreco.setText(valor);
+        try {
+            cor_rodape = jComboBoxCor.getSelectedItem().toString();
 
-        actualizarTotal();
-        notifyObservers("rodape");
+            Double d = cores_e_precos.get(cor_rodape);
+            String valor = d.toString() + " €/m";
+            jLabelRodapePreco.setText(valor);
+
+            actualizarTotal();
+            notifyObservers("rodape");
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jComboBoxCorItemStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBoxCor;
@@ -225,6 +230,7 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
     public void update(String material, String cor) {
         _material = material;
         _cor = cor;
+        valores();
         actualizarTotal();
     }
 }
