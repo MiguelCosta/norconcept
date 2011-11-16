@@ -438,6 +438,7 @@ public class QueryXML {
             //String s2 = "";
             for (int i = 0; i < nodes.getLength(); i++) {
                 String nota = nodes.item(i).getTextContent();
+                nota.replace("\n", " ");
                 notas.add(nota);
             }
 
@@ -448,6 +449,38 @@ public class QueryXML {
         }
 
         return notas;
+    }// </editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="Observações">
+    public ArrayList<String> queryObss(String material) {
+        ArrayList<String> obss = new ArrayList<String>();
+
+        try {
+            XPathExpression expr = null;
+            XPathFactory xFactory = XPathFactory.newInstance();
+            XPath xpath = xFactory.newXPath();
+
+            // cores de um determinado material
+            String query = "//tipo_material[./@tipo='"+_tipo_material+"']/material/obss/obs[../../tipo_material_nome='" + material + "']";
+            expr = xpath.compile(query);
+
+            Object result = expr.evaluate(doc, XPathConstants.NODESET);
+
+            NodeList nodes = (NodeList) result;
+            //String s = "";
+            //String s2 = "";
+            for (int i = 0; i < nodes.getLength(); i++) {
+                String obs = nodes.item(i).getTextContent();
+                obss.add(obs);
+            }
+
+        } catch (XPathExpressionException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryObss" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
+            Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException e) {
+        }
+
+        return obss;
     }// </editor-fold>
     
     

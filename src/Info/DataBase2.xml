@@ -50,8 +50,8 @@
                     <nota> efectuar meia esquadria e colagem 40.00 euros/m</nota>
                     <nota>polimento na contra-face (2F) 10.00 euros/m2</nota>
                     <nota>rodamão pode ter entre 4 e 10cm de altura</nota>
-                    <nota> para balcões/ lambrins que excedam os 70cm de largura, acrescente 30% ao
-                        preço mencionado</nota>
+                    <nota> para balcões/ lambrins que excedam os 70cm de largura, 
+                    acrescente 30% ao preço mencionado</nota>
                 </notas>
                 <rodapes valor_largura="2" unidade="m">
                     <rodape>
@@ -153,19 +153,20 @@
                 <obss>
                     <obs>Preço sujeito a IVA á taxa em vigor. </obs>
                     <obs>Preços pagamento a 30 dias. </obs>
-                    <obs>Preços para fornecimento/ colocação de 2 cozinhas de cada vez. Existindo
-                        pedras de dimensões maiores, terá que ser dispensado da vossa parte
-                        funcionários para ajudar na colocação (ex. Ilhas). </obs>
-                    <obs>Prazos de entrega: cozinhas sem meias esquadrias, nem bancas de colar por
-                        baixo: 1 a 2 semanas (salvo ruptura de stock) </obs>
-                    <obs>Prazos de entrega: cozinhas com meias esquadrias/ bancas de colar por
-                        baixo: 3 a 4 semanas (salvo ruptura de stock) </obs>
+                    <obs>Preços para fornecimento/ colocação de 2 cozinhas de cada vez. 
+                    Existindo pedras de dimensões maiores, terá que ser dispensado da vossa 
+                    parte funcionários para ajudar na colocação (ex. Ilhas). </obs>
+                    <obs>Prazos de entrega: cozinhas sem meias esquadrias, nem bancas de colar 
+                    por baixo: 1 a 2 semanas (salvo ruptura de stock) </obs>
+                    <obs>Prazos de entrega: cozinhas com meias esquadrias/ bancas de colar 
+                    por baixo: 3 a 4 semanas (salvo ruptura de stock) </obs>
                     <obs>Carregamento nas nossas instalações. </obs>
                     <obs>Outras deslocações: preço a combinar. </obs>
-                    <obs>Sendo os Mámores/Granitos um produto da natureza, estão sujeitos a
-                        variações de tonalidade, logo não aceitamos reclamações por este motivo. </obs>
-                    <obs>Á empresa reserva-se o direito de alterar a tabela sempre que necessário
-                        sem aviso prévio. </obs>
+                    <obs>Sendo os Mámores/Granitos um produto da natureza, estão 
+                    sujeitos a variações de tonalidade, logo não aceitamos reclamações 
+                    por este motivo. </obs>
+                    <obs>Á empresa reserva-se o direito de alterar a tabela sempre 
+                    que necessário sem aviso prévio. </obs>
                 </obss>
             </material>
 

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.xml.xpath.XPathExpressionException;
 import mvc.Observer;
@@ -116,6 +117,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
         jLabelRebaixoTotalValor = new javax.swing.JLabel();
         jLabelRebaixoTotal = new javax.swing.JLabel();
         jButtonNotas = new javax.swing.JButton();
+        jButtonObservações = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(168, 164, 230));
         setAutoscrolls(true);
@@ -351,32 +353,42 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
             }
         });
 
+        jButtonObservações.setText("Observações");
+        jButtonObservações.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonObservaçõesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPaneRebaixos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
-                    .addComponent(jScrollPaneRodapes, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
-                    .addComponent(jScrollPanePecas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
-                    .addComponent(jPanelPecaOp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelRodapeOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPaneFuros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
-                    .addComponent(jPanelFurosOp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelRebaixosOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelCor)
                             .addComponent(jLabelMaterial)
-                            .addComponent(jButtonNotas))
+                            .addComponent(jLabelCor))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jComboBoxMaterial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jComboBoxCor, 0, 234, Short.MAX_VALUE))
-                            .addComponent(jLabelEspessuraPreco, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(jLabelEspessuraPreco)))
+                    .addComponent(jScrollPaneRebaixos, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneRodapes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
+                    .addComponent(jScrollPanePecas, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
+                    .addComponent(jPanelPecaOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelRodapeOp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneFuros, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
+                    .addComponent(jPanelFurosOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelRebaixosOp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButtonNotas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonObservações)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -392,11 +404,12 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
                         .addComponent(jComboBoxCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelEspessuraPreco))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelCor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonNotas)))
-                .addGap(23, 23, 23)
+                    .addComponent(jLabelCor))
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonObservações)
+                    .addComponent(jButtonNotas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jScrollPanePecas, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelPecaOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -411,8 +424,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPaneRebaixos, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelRebaixosOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addComponent(jPanelRebaixosOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -547,8 +559,26 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     private void jButtonNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNotasActionPerformed
         ArrayList<String> notas = _q.queryNotas(_material);
-        JOptionPane.showMessageDialog(jButtonNotas, notas.toString());
+        String texto = "<html><ul>";
+        for(String s : notas){
+            texto += "<li>"+s+"</li>";
+        }
+        texto +="</ul></html>"; 
+        
+        JOptionPane.showMessageDialog(this, texto, "Notas", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonNotasActionPerformed
+
+    private void jButtonObservaçõesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObservaçõesActionPerformed
+        ArrayList<String> obss = _q.queryObss(_material);
+        String texto = "<html><ol>";
+        for(String s : obss){
+            texto += "<li>"+s+"</li>";
+        }
+        texto +="</ol></html>"; 
+        
+        JOptionPane.showMessageDialog(this, texto, "Notas", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButtonObservaçõesActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdicionarFuro;
     private javax.swing.JButton jButtonAdicionarPeca;
@@ -559,6 +589,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     private javax.swing.JButton jButtonLimparRebaixo;
     private javax.swing.JButton jButtonLimparRodape;
     private javax.swing.JButton jButtonNotas;
+    private javax.swing.JButton jButtonObservações;
     private javax.swing.JComboBox jComboBoxCor;
     private javax.swing.JComboBox jComboBoxMaterial;
     private javax.swing.JLabel jLabelCor;
