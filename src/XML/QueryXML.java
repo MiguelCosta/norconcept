@@ -36,6 +36,7 @@ public class QueryXML {
     DocumentBuilderFactory factory;
     DocumentBuilder builder;
     Document doc = null;
+    String _tipo_material = "";
 
     public QueryXML() throws ParserConfigurationException, SAXException, IOException {
         factory = DocumentBuilderFactory.newInstance();
@@ -64,6 +65,10 @@ public class QueryXML {
         InputStream inputLocal = local_url.openStream();
 
         doc = builder.parse(inputLocal);
+    }
+
+    public void setTipoMaterial(String tipo_material) {
+        _tipo_material = tipo_material;
     }
 
     /****************************************/
@@ -133,7 +138,7 @@ public class QueryXML {
             XPath xpath = xFactory.newXPath();
 
             // cores de um determinado material
-            String query = "//tipo_material[./@tipo='pedra']/material/cores/cor/cor_nome[../../../tipo_material_nome='" + material + "']";
+            String query = "//tipo_material[./@tipo='"+_tipo_material+"']/material/cores/cor/cor_nome[../../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
 
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
@@ -163,7 +168,7 @@ public class QueryXML {
             XPath xpath = xFactory.newXPath();
 
             // cores de um determinado material
-            String query = "//tipo_material[./@tipo='pedra']/material/cores/cor/cor_preco[../../../tipo_material_nome='" + material + "' and ../cor_nome='" + cor + "']";
+            String query = "//tipo_material[./@tipo='"+_tipo_material+"']/material/cores/cor/cor_preco[../../../tipo_material_nome='" + material + "' and ../cor_nome='" + cor + "']";
             expr = xpath.compile(query);
 
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
@@ -195,7 +200,7 @@ public class QueryXML {
             XPath xpath = xFactory.newXPath();
 
             // cores de um determinado material
-            String query = "//tipo_material[./@tipo='pedra']/material/cores[../tipo_material_nome='" + material + "']";
+            String query = "//tipo_material[./@tipo='"+_tipo_material+"']/material/cores[../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
 
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
@@ -226,7 +231,7 @@ public class QueryXML {
             XPath xpath = xFactory.newXPath();
 
             // cores de um determinado material
-            String query = "//tipo_material[./@tipo='pedra']/material/cores/cor/cor_preco[../../../tipo_material_nome='" + material + "' and ../cor_nome='" + cor + "' and @valor_espessura='" + espessura + "']";
+            String query = "//tipo_material[./@tipo='"+_tipo_material+"']/material/cores/cor/cor_preco[../../../tipo_material_nome='" + material + "' and ../cor_nome='" + cor + "' and @valor_espessura='" + espessura + "']";
             //JOptionPane.showMessageDialog(null, query);
             expr = xpath.compile(query);
 
@@ -261,7 +266,7 @@ public class QueryXML {
             XPath xpath = xFactory.newXPath();
 
             // cores de um determinado material
-            String query = "//tipo_material[./@tipo='pedra']/material/espessuras/espessura[../../tipo_material_nome='" + material + "']";
+            String query = "//tipo_material[./@tipo='"+_tipo_material+"']/material/espessuras/espessura[../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
 
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
@@ -296,7 +301,7 @@ public class QueryXML {
             XPath xpath = xFactory.newXPath();
 
             // cores de um determinado material
-            String query = "//tipo_material[./@tipo='pedra']/material/rodapes/rodape[../../tipo_material_nome='" + material + "']";
+            String query = "//tipo_material[./@tipo='"+_tipo_material+"']/material/rodapes/rodape[../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
 
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
@@ -343,7 +348,7 @@ public class QueryXML {
             XPath xpath = xFactory.newXPath();
 
             // cores de um determinado material
-            String query = "//tipo_material[./@tipo='pedra']/material/furos/furo[../../tipo_material_nome='" + material + "']";
+            String query = "//tipo_material[./@tipo='"+_tipo_material+"']/material/furos/furo[../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
 
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
@@ -376,5 +381,52 @@ public class QueryXML {
         }
 
         return furos;
+    }
+
+    /****************************************/
+    /*             REBAIXOS                 */
+    /****************************************/
+    public HashMap<String, Double> queryRebaixos_NomeEPreco(String material) {
+        HashMap<String, Double> rebaixos = new HashMap<String, Double>();
+
+        try {
+            XPathExpression expr = null;
+            XPathFactory xFactory = XPathFactory.newInstance();
+            XPath xpath = xFactory.newXPath();
+
+            // cores de um determinado material
+            String query = "//tipo_material[./@tipo='"+_tipo_material+"']/material/rebaixos/rebaixo[../../tipo_material_nome='" + material + "']";
+            expr = xpath.compile(query);
+
+            Object result = expr.evaluate(doc, XPathConstants.NODESET);
+
+            NodeList nodes = (NodeList) result;
+            //String s = "";
+            //String s2 = "";
+            for (int i = 0; i < nodes.getLength(); i++) {
+                NodeList r = nodes.item(i).getChildNodes();
+                String nome = "";
+                String valor = "";
+                for (int j = 0; j < r.getLength(); j++) {
+                    if (r.item(j).getNodeName().equalsIgnoreCase("rebaixo_nome")) {
+                        nome = r.item(j).getTextContent();
+                    }
+                    if (r.item(j).getNodeName().equalsIgnoreCase("rebaixo_preco")) {
+                        valor = r.item(j).getTextContent();
+                    }
+
+                }
+                valor.replace(",", ".");
+                Double d = Double.parseDouble(valor);
+                rebaixos.put(nome, d);
+            }
+
+        } catch (XPathExpressionException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryRebaixos" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
+            Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException e) {
+        }
+
+        return rebaixos;
     }
 }

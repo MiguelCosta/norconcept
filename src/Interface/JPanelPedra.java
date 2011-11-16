@@ -33,16 +33,19 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
     private int num_linhas_peca = 0;
     private int num_linhas_rodape = 0;
     private int num_linhas_furos = 0;
+    private int num_linhas_rebaixos = 0;
     private String _material = "";
     private String _cor = "";
     private DecimalFormat df = new DecimalFormat("#.##");
     private ArrayList<Observer> observers = new ArrayList<Observer>();
+    private String _tipo_material = "";
 
     /** Creates new form JPanelPedra */
-    public JPanelPedra(QueryXML q) {
+    public JPanelPedra(QueryXML q, String tipo_material) {
         initComponents();
 
         _q = q;
+        _tipo_material = tipo_material;
         configs();
         preencherMateriais();
     }
@@ -59,7 +62,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
         try {
             jComboBoxMaterial.removeAllItems();
             //jComboBoxMaterial.addItem("");
-            ArrayList<String> materiais = _q.queryMateriais("pedra");
+            ArrayList<String> materiais = _q.queryMateriais(_tipo_material);
 
             for (String s : materiais) {
                 jComboBoxMaterial.addItem(s);
@@ -105,6 +108,13 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
         jButtonLimparFuro = new javax.swing.JButton();
         jLabelFuroTotalValor = new javax.swing.JLabel();
         jLabelFuroTotal = new javax.swing.JLabel();
+        jScrollPaneRebaixos = new javax.swing.JScrollPane();
+        jPanelRebaixos = new javax.swing.JPanel();
+        jPanelRebaixosOp = new javax.swing.JPanel();
+        jButtonAdicionarRebaixo = new javax.swing.JButton();
+        jButtonLimparRebaixo = new javax.swing.JButton();
+        jLabelRebaixoTotalValor = new javax.swing.JLabel();
+        jLabelRebaixoTotal = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(168, 164, 230));
         setAutoscrolls(true);
@@ -257,7 +267,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
         jLabelFuroTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelFuroTotalValor.setText("0.0");
 
-        jLabelFuroTotal.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabelFuroTotal.setFont(new java.awt.Font("Ubuntu", 1, 12));
         jLabelFuroTotal.setText("TOTAL (€)");
 
         javax.swing.GroupLayout jPanelFurosOpLayout = new javax.swing.GroupLayout(jPanelFurosOp);
@@ -282,16 +292,68 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
                 .addComponent(jLabelFuroTotal))
         );
 
+        jScrollPaneRebaixos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rebaixos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+
+        jPanelRebaixos.setBorder(null);
+        jPanelRebaixos.setAutoscrolls(true);
+        jPanelRebaixos.setLayout(new java.awt.GridBagLayout());
+        jScrollPaneRebaixos.setViewportView(jPanelRebaixos);
+
+        jPanelRebaixosOp.setBackground(new java.awt.Color(217, 216, 215));
+
+        jButtonAdicionarRebaixo.setText("Adicionar");
+        jButtonAdicionarRebaixo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdicionarRebaixoActionPerformed(evt);
+            }
+        });
+
+        jButtonLimparRebaixo.setText("Limpar");
+        jButtonLimparRebaixo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimparRebaixoActionPerformed(evt);
+            }
+        });
+
+        jLabelRebaixoTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelRebaixoTotalValor.setText("0.0");
+
+        jLabelRebaixoTotal.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabelRebaixoTotal.setText("TOTAL (€)");
+
+        javax.swing.GroupLayout jPanelRebaixosOpLayout = new javax.swing.GroupLayout(jPanelRebaixosOp);
+        jPanelRebaixosOp.setLayout(jPanelRebaixosOpLayout);
+        jPanelRebaixosOpLayout.setHorizontalGroup(
+            jPanelRebaixosOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRebaixosOpLayout.createSequentialGroup()
+                .addComponent(jButtonAdicionarRebaixo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonLimparRebaixo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
+                .addComponent(jLabelRebaixoTotal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelRebaixoTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanelRebaixosOpLayout.setVerticalGroup(
+            jPanelRebaixosOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRebaixosOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jButtonAdicionarRebaixo)
+                .addComponent(jButtonLimparRebaixo)
+                .addComponent(jLabelRebaixoTotalValor)
+                .addComponent(jLabelRebaixoTotal))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneRodapes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
-                    .addComponent(jScrollPanePecas, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPaneRebaixos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneRodapes, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
+                    .addComponent(jScrollPanePecas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelCor)
                             .addComponent(jLabelMaterial))
@@ -299,11 +361,12 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jComboBoxMaterial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBoxCor, 0, 234, Short.MAX_VALUE)))
-                    .addComponent(jLabelEspessuraPreco, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanelPecaOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelRodapeOp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPaneFuros, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
-                    .addComponent(jPanelFurosOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelEspessuraPreco)
+                    .addComponent(jPanelPecaOp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelRodapeOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneFuros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
+                    .addComponent(jPanelFurosOp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelRebaixosOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -331,7 +394,11 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
                 .addComponent(jScrollPaneFuros, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelFurosOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPaneRebaixos, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanelRebaixosOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -438,12 +505,39 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         jLabelFuroTotalValor.setText("0.0");
         num_linhas_furos = 0;
     }//GEN-LAST:event_jButtonLimparFuroActionPerformed
+
+    private void jButtonAdicionarRebaixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarRebaixoActionPerformed
+        JPanelPedraRebaixo r = new JPanelPedraRebaixo(_q, _material, _cor);
+        r.addObserver(this);
+        java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = num_linhas_rebaixos;
+        jPanelRebaixos.add(r, gridBagConstraints);
+
+        num_linhas_rebaixos++;
+
+        this.addObserver(r);
+        jPanelRebaixos.repaint();
+        jPanelRebaixos.revalidate();
+    }//GEN-LAST:event_jButtonAdicionarRebaixoActionPerformed
+
+    private void jButtonLimparRebaixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparRebaixoActionPerformed
+        jPanelRebaixos.removeAll();
+        jPanelRebaixos.repaint();
+        jPanelRebaixos.revalidate();
+        jLabelRebaixoTotalValor.setText("0.0");
+        num_linhas_rebaixos = 0;
+    }//GEN-LAST:event_jButtonLimparRebaixoActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdicionarFuro;
     private javax.swing.JButton jButtonAdicionarPeca;
+    private javax.swing.JButton jButtonAdicionarRebaixo;
     private javax.swing.JButton jButtonAdicionarRodape;
     private javax.swing.JButton jButtonLimparFuro;
     private javax.swing.JButton jButtonLimparPeca;
+    private javax.swing.JButton jButtonLimparRebaixo;
     private javax.swing.JButton jButtonLimparRodape;
     private javax.swing.JComboBox jComboBoxCor;
     private javax.swing.JComboBox jComboBoxMaterial;
@@ -454,16 +548,21 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     private javax.swing.JLabel jLabelMaterial;
     private javax.swing.JLabel jLabelPecaTotal;
     private javax.swing.JLabel jLabelPecaTotalValor;
+    private javax.swing.JLabel jLabelRebaixoTotal;
+    private javax.swing.JLabel jLabelRebaixoTotalValor;
     private javax.swing.JLabel jLabelRodapeTotal;
     private javax.swing.JLabel jLabelRodapeTotalValor;
     private javax.swing.JPanel jPanelFuros;
     private javax.swing.JPanel jPanelFurosOp;
     private javax.swing.JPanel jPanelPecaOp;
     private javax.swing.JPanel jPanelPecas;
+    private javax.swing.JPanel jPanelRebaixos;
+    private javax.swing.JPanel jPanelRebaixosOp;
     private javax.swing.JPanel jPanelRodapeOp;
     private javax.swing.JPanel jPanelRodapes;
     private javax.swing.JScrollPane jScrollPaneFuros;
     private javax.swing.JScrollPane jScrollPanePecas;
+    private javax.swing.JScrollPane jScrollPaneRebaixos;
     private javax.swing.JScrollPane jScrollPaneRodapes;
     // End of variables declaration//GEN-END:variables
 
@@ -521,6 +620,19 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         jLabelFuroTotalValor.setText(df.format(d));
     }
 
+    public void actualizarTotalRebaixos() {
+        Double d = 0.0;
+        for (Component c : jPanelRebaixos.getComponents()) {
+            try {
+                JPanelPedraRebaixo j = (JPanelPedraRebaixo) c;
+                d += j.getTotal();
+            } catch (Exception e) {
+            }
+        }
+
+        jLabelRebaixoTotalValor.setText(df.format(d));
+    }
+
     @Override
     public void update(String enviou) {
         if (enviou.equalsIgnoreCase("peca")) {
@@ -530,6 +642,8 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
             actualizarTotalRodapes();
         } else if (enviou.equalsIgnoreCase("furo")) {
             actualizarTotalFuros();
+        } else if (enviou.equalsIgnoreCase("rebaixo")) {
+            actualizarTotalRebaixos();
         }
     }
 

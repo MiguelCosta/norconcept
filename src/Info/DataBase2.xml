@@ -2,7 +2,7 @@
 
 <norconcept>
     <materiais>
-        <tipo_material tipo="pedra">
+        <tipo_material tipo="Mármores e Granitos">
             <material>
                 <tipo_material_nome>Mármores Polido</tipo_material_nome>
                 <espessuras>

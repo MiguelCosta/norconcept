@@ -277,13 +277,14 @@ public class JAppletMain extends javax.swing.JApplet {
     private void jComboBoxTipoMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxTipoMaterialItemStateChanged
 
         String tipo_material = materialSeleccionado();
-
+        q.setTipoMaterial(tipo_material);
         //JOptionPane.showMessageDialog(rootPane, "Tipo Material: " + tipo_material);
-        if (tipo_material.equalsIgnoreCase("pedra")) {
+        if (tipo_material.equalsIgnoreCase("pedra") || tipo_material.equalsIgnoreCase("Mármores e Granitos")) {
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-            JPanelPedra j = new JPanelPedra(q);
+            
+            JPanelPedra j = new JPanelPedra(q, tipo_material);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
