@@ -23,7 +23,7 @@ import mvc.Subject;
  *
  * @author miguel
  */
-public class JPanelPedraPeca extends javax.swing.JPanel implements Subject {
+public class JPanelPedraPeca extends javax.swing.JPanel implements Subject, Observer {
 
     private String _material;
     private String _cor;
@@ -55,6 +55,7 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject {
 
     private void valores() {
         ArrayList<String> esp = _q.queryEspessuras(_material);
+        jComboBoxEspessura.removeAllItems();
         for (String e : esp) {
             jComboBoxEspessura.addItem(e);
         }
@@ -80,6 +81,7 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject {
             Double preco_total = dim * preco_cor;
 
             jLabelTOTALValor.setText("" + df.format(preco_total));
+            this.notifyObservers("peca");
         } catch (Exception e) {
         }
     }
@@ -202,17 +204,17 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject {
 
     private void jSpinnerLarguraStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerLarguraStateChanged
         actualizarTotal();
-        notifyObservers(this.getTotal());
+        notifyObservers("peca");
     }//GEN-LAST:event_jSpinnerLarguraStateChanged
 
     private void jSpinnerComprimentoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerComprimentoStateChanged
         actualizarTotal();
-        notifyObservers(this.getTotal());
+        notifyObservers("peca");
     }//GEN-LAST:event_jSpinnerComprimentoStateChanged
 
     private void jComboBoxEspessuraItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxEspessuraItemStateChanged
         actualizarTotal();
-        notifyObservers(this.getTotal());
+        notifyObservers("peca");
     }//GEN-LAST:event_jComboBoxEspessuraItemStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBoxEspessura;
@@ -236,17 +238,29 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject {
     }
 
     @Override
-    public void notifyObservers(Double d) {
+    public void notifyObservers(String n) {
         //JOptionPane.showMessageDialog(jLabelComprimento, "Vai notificar! Valor: " + d);
         Iterator<Observer> it = observers.iterator();
         while (it.hasNext()) {
             Observer observer = it.next();
-            observer.update("peca" , d);
+            observer.update(n);
         }
     }
 
     @Override
-    public void notifyObservers(String n) {
+    public void update(String n) {
+        actualizarTotal();
+    }
+
+    @Override
+    public void notifyObservers(String material, String cor) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void update(String material, String cor) {
+        _material = material;
+        _cor = cor;
+        actualizarTotal();
     }
 }

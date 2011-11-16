@@ -13,8 +13,8 @@ public interface Subject {
     public void addObserver(Observer o);
 
     public void removeObserver(Observer o);
-
-    public void notifyObservers(Double d);
     
     public void notifyObservers(String n);
+    
+    public void notifyObservers(String material, String cor);
 }

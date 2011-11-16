@@ -14,17 +14,19 @@ import XML.QueryXML;
 import java.awt.Component;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.xml.xpath.XPathExpressionException;
 import mvc.Observer;
+import mvc.Subject;
 
 /**
  *
  * @author miguel
  */
-public class JPanelPedra extends javax.swing.JPanel implements Observer {
+public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject {
 
     private QueryXML _q;
     private ArrayList<String> cores;
@@ -34,6 +36,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
     private String _material = "";
     private String _cor = "";
     private DecimalFormat df = new DecimalFormat("#.##");
+    private ArrayList<Observer> observers = new ArrayList<Observer>();
 
     /** Creates new form JPanelPedra */
     public JPanelPedra(QueryXML q) {
@@ -335,9 +338,12 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer {
 private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxMaterialItemStateChanged
     materialSeleccionado();
     jComboBoxMaterial.setToolTipText(_material);
-    jPanelPecas.removeAll();
-    jPanelPecas.repaint();
-    jPanelPecas.revalidate();
+    //jPanelPecas.removeAll();
+    //jPanelPecas.repaint();
+    //jPanelPecas.revalidate();
+    this.notifyObservers(_material, _cor);
+    this.repaint();
+    this.revalidate();
 }//GEN-LAST:event_jComboBoxMaterialItemStateChanged
 
     private void jButtonAdicionarPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarPecaActionPerformed
@@ -353,7 +359,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
         num_linhas_peca++;
 
-
+        this.addObserver(l);
         jPanelPecas.repaint();
         jPanelPecas.revalidate();
     }//GEN-LAST:event_jButtonAdicionarPecaActionPerformed
@@ -366,9 +372,12 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         _cor = jComboBoxCor.getSelectedItem().toString();
         jLabelEspessuraPreco.setText(_q.queryCoresPrecoString(_material, _cor));
         jComboBoxCor.setToolTipText(_cor);
-        jPanelPecas.removeAll();
-        jPanelPecas.repaint();
-        jPanelPecas.revalidate();
+        //jPanelPecas.removeAll();
+        //jPanelPecas.repaint();
+        //jPanelPecas.revalidate();
+        this.notifyObservers(_material, _cor);
+        this.repaint();
+        this.revalidate();
         //JOptionPane.showMessageDialog(this, "FIM" + _material + _cor);
     }//GEN-LAST:event_jComboBoxCorItemStateChanged
 
@@ -511,7 +520,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     }
 
     @Override
-    public void update(String enviou, Double d) {
+    public void update(String enviou) {
         if (enviou.equalsIgnoreCase("peca")) {
             actualizarTotalPecas();
             //JOptionPane.showMessageDialog(jLabelCor, "peca");
@@ -523,7 +532,31 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     }
 
     @Override
-    public void update(String n) {
+    public void update(String material, String cor) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void addObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void removeObserver(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservers(String n) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void notifyObservers(String material, String cor) {
+        Iterator<Observer> it = observers.iterator();
+        while (it.hasNext()) {
+            Observer observer = it.next();
+            observer.update(material, cor);
+        }
     }
 }

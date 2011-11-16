@@ -24,7 +24,7 @@ import mvc.Subject;
  *
  * @author miguel
  */
-public class JPanelPedraFuro extends javax.swing.JPanel implements Subject {
+public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Observer {
 
     private String _material;
     private QueryXML _q;
@@ -84,9 +84,6 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject {
             JOptionPane.showMessageDialog(this, "Erro: getTotal() em JPanelPedraLinha.java" + e.getMessage());
         }
         return valor;
-    }
-
-    public void getLargura() {
     }
 
     /** This method is called from within the constructor to
@@ -169,7 +166,7 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject {
 
     private void jSpinnerNumeroStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerNumeroStateChanged
         actualizarTotal();
-        notifyObservers(this.getTotal());
+        notifyObservers("furo");
     }//GEN-LAST:event_jSpinnerNumeroStateChanged
 
     private void jComboBoxFuroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxFuroItemStateChanged
@@ -180,7 +177,7 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject {
         jLabelFuroPreco.setText(valor);
 
         actualizarTotal();
-        notifyObservers(this.getTotal());
+        notifyObservers("furo");
     }//GEN-LAST:event_jComboBoxFuroItemStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBoxFuro;
@@ -203,17 +200,29 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject {
     }
 
     @Override
-    public void notifyObservers(Double d) {
+    public void notifyObservers(String n) {
         //JOptionPane.showMessageDialog(jLabelComprimento, "Vai notificar! Valor: " + d);
         Iterator<Observer> it = observers.iterator();
         while (it.hasNext()) {
             Observer observer = it.next();
-            observer.update("furo", d);
+            observer.update(n);
         }
     }
 
     @Override
-    public void notifyObservers(String n) {
+    public void notifyObservers(String material, String cor) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void update(String n) {
+        actualizarTotal();
+    }
+
+    @Override
+    public void update(String material, String cor) {
+        _material = material;
+        _cor = cor;
+        actualizarTotal();
     }
 }
