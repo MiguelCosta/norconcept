@@ -283,7 +283,7 @@ public class JAppletMain extends javax.swing.JApplet {
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-            
+
             JPanelPedra j = new JPanelPedra(q, tipo_material);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();

@@ -38,6 +38,7 @@ public class QueryXML {
     Document doc = null;
     String _tipo_material = "";
 
+    // <editor-fold defaultstate="collapsed" desc="Tipo QueryXML">
     public QueryXML() throws ParserConfigurationException, SAXException, IOException {
         factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
@@ -70,10 +71,9 @@ public class QueryXML {
     public void setTipoMaterial(String tipo_material) {
         _tipo_material = tipo_material;
     }
+    // </editor-fold>
 
-    /****************************************/
-    /*           TIPO MATERIAIS             */
-    /****************************************/
+    // <editor-fold defaultstate="collapsed" desc="Tipo Materiais">
     public ArrayList<String> queryTipoMateriais() throws XPathExpressionException {
         ArrayList<String> tipos_materiais = new ArrayList<String>();
 
@@ -96,11 +96,9 @@ public class QueryXML {
         //JOptionPane.showMessageDialog(null, "Materiais:\n"+tipos_materiais.toString());
 
         return tipos_materiais;
-    }
+    }// </editor-fold>
 
-    /****************************************/
-    /*             MATERIAIS                */
-    /****************************************/
+    // <editor-fold defaultstate="collapsed" desc="Materiais">
     public ArrayList<String> queryMateriais(String tipo_material) throws XPathExpressionException {
         ArrayList<String> materiais = new ArrayList<String>();
 
@@ -124,11 +122,9 @@ public class QueryXML {
 
         return materiais;
 
-    }
+    }// </editor-fold>
 
-    /****************************************/
-    /*               CORES                  */
-    /****************************************/
+    // <editor-fold defaultstate="collapsed" desc="Cores">
     public ArrayList<String> queryCores(String material) {
         ArrayList<String> cores = new ArrayList<String>();
 
@@ -252,11 +248,9 @@ public class QueryXML {
         }
 
         return preco;
-    }
+    }// </editor-fold>
 
-    /****************************************/
-    /*             ESPESSURAS               */
-    /****************************************/
+    // <editor-fold defaultstate="collapsed" desc="Espessuras">
     public ArrayList<String> queryEspessuras(String material) {
         ArrayList<String> espessuras = new ArrayList<String>();
 
@@ -287,11 +281,9 @@ public class QueryXML {
         }
 
         return espessuras;
-    }
+    }// </editor-fold>
 
-    /****************************************/
-    /*              RODAPÉS                 */
-    /****************************************/
+    // <editor-fold defaultstate="collapsed" desc="Rodapés">
     public HashMap<String, Double> queryRodapes_NomeEPreco(String material) {
         HashMap<String, Double> rodapes = new HashMap<String, Double>();
 
@@ -334,11 +326,9 @@ public class QueryXML {
         }
 
         return rodapes;
-    }
+    }// </editor-fold>
 
-    /****************************************/
-    /*               FUROS                  */
-    /****************************************/
+    // <editor-fold defaultstate="collapsed" desc="Furos">
     public HashMap<String, Double> queryFuros_NomeEPreco(String material) {
         HashMap<String, Double> furos = new HashMap<String, Double>();
 
@@ -381,11 +371,9 @@ public class QueryXML {
         }
 
         return furos;
-    }
+    }// </editor-fold>
 
-    /****************************************/
-    /*             REBAIXOS                 */
-    /****************************************/
+    // <editor-fold defaultstate="collapsed" desc="Rebaixos">
     public HashMap<String, Double> queryRebaixos_NomeEPreco(String material) {
         HashMap<String, Double> rebaixos = new HashMap<String, Double>();
 
@@ -428,5 +416,39 @@ public class QueryXML {
         }
 
         return rebaixos;
-    }
+    }// </editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="Notas">
+    public ArrayList<String> queryNotas(String material) {
+        ArrayList<String> notas = new ArrayList<String>();
+
+        try {
+            XPathExpression expr = null;
+            XPathFactory xFactory = XPathFactory.newInstance();
+            XPath xpath = xFactory.newXPath();
+
+            // cores de um determinado material
+            String query = "//tipo_material[./@tipo='"+_tipo_material+"']/material/notas/nota[../../tipo_material_nome='" + material + "']";
+            expr = xpath.compile(query);
+
+            Object result = expr.evaluate(doc, XPathConstants.NODESET);
+
+            NodeList nodes = (NodeList) result;
+            //String s = "";
+            //String s2 = "";
+            for (int i = 0; i < nodes.getLength(); i++) {
+                String nota = nodes.item(i).getTextContent();
+                notas.add(nota);
+            }
+
+        } catch (XPathExpressionException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryNotas" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
+            Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException e) {
+        }
+
+        return notas;
+    }// </editor-fold>
+    
+    
 }

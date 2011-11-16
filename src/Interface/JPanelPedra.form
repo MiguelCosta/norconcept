@@ -28,23 +28,26 @@
                   <Component id="jScrollPaneRebaixos" alignment="0" min="-2" pref="613" max="32767" attributes="0"/>
                   <Component id="jScrollPaneRodapes" alignment="1" min="-2" pref="613" max="32767" attributes="0"/>
                   <Component id="jScrollPanePecas" alignment="0" pref="613" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelCor" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelMaterial" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="256" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jComboBoxMaterial" alignment="0" max="32767" attributes="1"/>
-                          <Component id="jComboBoxCor" alignment="0" pref="234" max="32767" attributes="1"/>
-                      </Group>
-                  </Group>
-                  <Component id="jLabelEspessuraPreco" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jPanelPecaOp" alignment="0" max="32767" attributes="0"/>
                   <Component id="jPanelRodapeOp" alignment="1" max="32767" attributes="0"/>
                   <Component id="jScrollPaneFuros" alignment="0" min="-2" pref="613" max="32767" attributes="0"/>
                   <Component id="jPanelFurosOp" alignment="0" max="32767" attributes="0"/>
                   <Component id="jPanelRebaixosOp" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelCor" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelMaterial" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonNotas" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="256" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jComboBoxMaterial" alignment="0" max="32767" attributes="1"/>
+                              <Component id="jComboBoxCor" alignment="0" pref="234" max="32767" attributes="1"/>
+                          </Group>
+                          <Component id="jLabelEspessuraPreco" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -60,12 +63,18 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelCor" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBoxCor" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jComboBoxCor" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabelEspessuraPreco" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabelCor" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButtonNotas" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabelEspessuraPreco" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Component id="jScrollPanePecas" min="-2" pref="160" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelPecaOp" min="-2" max="-2" attributes="0"/>
@@ -81,7 +90,7 @@
               <Component id="jScrollPaneRebaixos" min="-2" pref="116" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelRebaixosOp" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="19" max="32767" attributes="0"/>
+              <EmptySpace pref="17" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -488,5 +497,13 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="jButtonNotas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Notas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNotasActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>
