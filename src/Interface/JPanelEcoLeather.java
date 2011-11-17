@@ -14,6 +14,7 @@ import XML.QueryXML;
 import java.awt.Component;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.logging.Level;
@@ -27,7 +28,7 @@ import mvc.Subject;
  *
  * @author miguel
  */
-public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject {
+public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Subject {
 
     private QueryXML _q;
     private ArrayList<String> cores;
@@ -42,7 +43,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
     private String _tipo_material = "";
 
     /** Creates new form JPanelPedra */
-    public JPanelPedra(QueryXML q, String tipo_material) {
+    public JPanelEcoLeather(QueryXML q, String tipo_material) {
         initComponents();
 
         _q = q;
@@ -68,9 +69,9 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
             for (String s : materiais) {
                 jComboBoxMaterial.addItem(s);
             }
-            
+
         } catch (XPathExpressionException ex) {
-            Logger.getLogger(JPanelPedra.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JPanelEcoLeather.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -559,7 +560,6 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         jPanelFuros.revalidate();
         jLabelFuroTotalValor.setText("0.0");
         num_linhas_furos = 0;
-        notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonLimparFuroActionPerformed
 
     private void jButtonAdicionarRebaixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarRebaixoActionPerformed
@@ -577,6 +577,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         this.addObserver(r);
         jPanelRebaixos.repaint();
         jPanelRebaixos.revalidate();
+        notifyObservers(_material, getTotal());
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonAdicionarRebaixoActionPerformed
 

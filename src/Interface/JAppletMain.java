@@ -305,13 +305,20 @@ public class JAppletMain extends javax.swing.JApplet implements Observer{
             jPanelTipoMaterial.revalidate();
 
             //JOptionPane.showMessageDialog(rootPane, "Tipo Material entrou: " + tipo_material);
-        } else if (tipo_material.equalsIgnoreCase("nada")) {
+        } else if (tipo_material.equalsIgnoreCase("Lambrim e Balcão")) {
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-            JPanelNada j = new JPanelNada();
+            
+            JPanelEcoLeather j = new JPanelEcoLeather(q, tipo_material);
+            j.addObserver(this);
             jPanelTipoMaterial.add(j);
+            jPanelTipoMaterial.repaint();
+            jPanelTipoMaterial.revalidate();
+
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
+            jPanelTipoMaterial.repaint();
+            jPanelTipoMaterial.revalidate();
         } else {
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
