@@ -64,7 +64,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
             jComboBoxMaterial.removeAllItems();
             //jComboBoxMaterial.addItem("");
             ArrayList<String> materiais = _q.queryMateriais(_tipo_material);
-            Collections.sort(materiais);
+            
             for (String s : materiais) {
                 jComboBoxMaterial.addItem(s);
             }
@@ -659,7 +659,6 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         }
 
         cores = _q.queryCores(nome_material);
-        Collections.sort(cores);
         jComboBoxCor.removeAllItems();
         for (String s : cores) {
             jComboBoxCor.addItem(s);

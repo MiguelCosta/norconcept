@@ -4,14 +4,12 @@
  */
 package XML;
 
-import Negocio.Acabamento;
-import Negocio.Canto;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -94,7 +92,7 @@ public class QueryXML {
 
         //System.out.println(r.toString());
         //JOptionPane.showMessageDialog(null, "Materiais:\n"+tipos_materiais.toString());
-
+        Collections.sort(tipos_materiais);
         return tipos_materiais;
     }// </editor-fold>
 
@@ -119,7 +117,7 @@ public class QueryXML {
 
         //System.out.println(r.toString());
         //JOptionPane.showMessageDialog(null, "Materiais:\n"+materiais.toString());
-
+        Collections.sort(materiais);
         return materiais;
 
     }// </editor-fold>
@@ -151,7 +149,7 @@ public class QueryXML {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryCores" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        Collections.sort(cores);
         return cores;
     }
 
@@ -324,7 +322,7 @@ public class QueryXML {
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException e) {
         }
-
+        
         return rodapes;
     }// </editor-fold>
 
