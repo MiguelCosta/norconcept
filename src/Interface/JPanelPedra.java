@@ -559,24 +559,24 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     private void jButtonNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNotasActionPerformed
         ArrayList<String> notas = _q.queryNotas(_material);
-        String texto = "<html><ul>";
+        String texto = "<html><table width=\"600\"><tr><td>";
         for(String s : notas){
             texto += "<li>"+s+"</li>";
         }
-        texto +="</ul></html>"; 
+        texto +="</ul></td></tr></table></html>"; 
         
-        JOptionPane.showMessageDialog(this, texto, "Notas", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, texto, "Notas", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonNotasActionPerformed
 
     private void jButtonObservaçõesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObservaçõesActionPerformed
         ArrayList<String> obss = _q.queryObss(_material);
-        String texto = "<html><ol>";
+        String texto = "<html><table width=\"600\"><tr><td><ol>";
         for(String s : obss){
             texto += "<li>"+s+"</li>";
         }
-        texto +="</ol></html>"; 
+        texto +="</ol></td></tr></table></html>"; 
         
-        JOptionPane.showMessageDialog(this, texto, "Notas", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, texto, "Observaçõese", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonObservaçõesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
