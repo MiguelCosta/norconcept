@@ -20,13 +20,14 @@ import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
+import mvc.Observer;
 import org.xml.sax.SAXException;
 
 /**
  *
  * @author Miguel
  */
-public class JAppletMain extends javax.swing.JApplet {
+public class JAppletMain extends javax.swing.JApplet implements Observer{
 
     QueryXML q;
     DecimalFormat df = new DecimalFormat("#.##");
@@ -132,9 +133,10 @@ public class JAppletMain extends javax.swing.JApplet {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabelLogo = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelTotalValor = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanelTipoMaterial = new javax.swing.JPanel();
+        jLabelTotal = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -223,7 +225,8 @@ public class JAppletMain extends javax.swing.JApplet {
 
         jPanel3.getAccessibleContext().setAccessibleName("Lingua");
 
-        jLabel2.setText("€");
+        jLabelTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelTotalValor.setText("€");
 
         jScrollPane1.setMaximumSize(new java.awt.Dimension(665, 353));
 
@@ -243,6 +246,8 @@ public class JAppletMain extends javax.swing.JApplet {
 
         jScrollPane1.setViewportView(jPanelTipoMaterial);
 
+        jLabelTotal.setText("TOTAL");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -253,7 +258,10 @@ public class JAppletMain extends javax.swing.JApplet {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 665, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelTotal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -266,7 +274,9 @@ public class JAppletMain extends javax.swing.JApplet {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelTotalValor)
+                    .addComponent(jLabelTotal))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -285,6 +295,7 @@ public class JAppletMain extends javax.swing.JApplet {
             }
 
             JPanelPedra j = new JPanelPedra(q, tipo_material);
+            j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -316,9 +327,10 @@ public class JAppletMain extends javax.swing.JApplet {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBoxTipoMaterial;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelTipoMaterial;
+    private javax.swing.JLabel jLabelTotal;
+    private javax.swing.JLabel jLabelTotalValor;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -337,5 +349,18 @@ public class JAppletMain extends javax.swing.JApplet {
             JOptionPane.showMessageDialog(rootPane, "Erro");
         }
         return m;
+    }
+
+    @Override
+    public void update(String n) {
+    }
+
+    @Override
+    public void update(String material, String cor) {
+    }
+
+    @Override
+    public void update(String n, Double v) {
+        jLabelTotalValor.setText(df.format(v).toString());
     }
 }

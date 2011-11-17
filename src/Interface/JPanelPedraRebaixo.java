@@ -231,4 +231,12 @@ public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, O
         valores();
         actualizarTotal();
     }
+
+    @Override
+    public void notifyObservers(String n, Double d) {
+    }
+
+    @Override
+    public void update(String n, Double v) {
+    }
 }

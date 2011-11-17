@@ -16,5 +16,7 @@ public interface Subject {
     
     public void notifyObservers(String n);
     
+    public void notifyObservers(String n, Double d);
+    
     public void notifyObservers(String material, String cor);
 }

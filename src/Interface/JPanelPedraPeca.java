@@ -254,7 +254,6 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject, Obse
 
     @Override
     public void notifyObservers(String material, String cor) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
@@ -262,5 +261,14 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject, Obse
         _material = material;
         _cor = cor;
         actualizarTotal();
+    }
+
+    @Override
+    public void notifyObservers(String n, Double d) {
+    }
+
+    @Override
+    public void update(String n, Double v) {
+        
     }
 }

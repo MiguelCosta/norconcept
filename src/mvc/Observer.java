@@ -11,6 +11,8 @@ package mvc;
 public interface Observer {
 
     public void update(String n);
+    
+    public void update(String n, Double v);
 
     public void update(String material, String cor);
 }

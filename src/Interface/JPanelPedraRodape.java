@@ -218,7 +218,6 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
 
     @Override
     public void notifyObservers(String material, String cor) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
@@ -232,5 +231,13 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
         _cor = cor;
         valores();
         actualizarTotal();
+    }
+
+    @Override
+    public void notifyObservers(String n, Double d) {
+    }
+
+    @Override
+    public void update(String n, Double v) {
     }
 }

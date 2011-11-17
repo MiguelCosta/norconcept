@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.xml.xpath.XPathExpressionException;
 import mvc.Observer;
@@ -73,6 +72,30 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
             Logger.getLogger(JPanelPedra.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    // <editor-fold defaultstate="collapsed" desc="getTotal">
+    public Double getTotal() {
+        Double valor = 0.0;
+        try {
+            String furo = jLabelFuroTotalValor.getText();
+            String pecas = jLabelPecaTotalValor.getText();
+            String rodapes = jLabelRodapeTotalValor.getText();
+            String rebaixos = jLabelRebaixoTotalValor.getText();
+            furo = furo.replace(",", ".");
+            pecas = pecas.replace(",", ".");
+            rodapes = rodapes.replace(",", ".");
+            rebaixos = rebaixos.replace(",", ".");
+            valor += Double.parseDouble(furo);
+            valor += Double.parseDouble(pecas);
+            valor += Double.parseDouble(rodapes);
+            valor += Double.parseDouble(rebaixos);
+            
+        } catch (Exception e) {
+        }
+
+        return valor;
+    }
+    // </editor-fold>
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -321,7 +344,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
         jLabelRebaixoTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelRebaixoTotalValor.setText("0.0");
 
-        jLabelRebaixoTotal.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabelRebaixoTotal.setFont(new java.awt.Font("Ubuntu", 1, 12));
         jLabelRebaixoTotal.setText("TOTAL (€)");
 
         javax.swing.GroupLayout jPanelRebaixosOpLayout = new javax.swing.GroupLayout(jPanelRebaixosOp);
@@ -428,6 +451,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    // <editor-fold defaultstate="collapsed" desc="Eventos e variáveis">
 private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxMaterialItemStateChanged
     materialSeleccionado();
     jComboBoxMaterial.setToolTipText(_material);
@@ -560,25 +584,25 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     private void jButtonNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNotasActionPerformed
         ArrayList<String> notas = _q.queryNotas(_material);
         String texto = "<html><table width=\"600\"><tr><td>";
-        for(String s : notas){
-            texto += "<li>"+s+"</li>";
+        for (String s : notas) {
+            texto += "<li>" + s + "</li>";
         }
-        texto +="</ul></td></tr></table></html>"; 
-        
+        texto += "</ul></td></tr></table></html>";
+
         JOptionPane.showMessageDialog(null, texto, "Notas", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonNotasActionPerformed
 
+    
     private void jButtonObservaçõesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObservaçõesActionPerformed
         ArrayList<String> obss = _q.queryObss(_material);
         String texto = "<html><table width=\"600\"><tr><td><ol>";
-        for(String s : obss){
-            texto += "<li>"+s+"</li>";
+        for (String s : obss) {
+            texto += "<li>" + s + "</li>";
         }
-        texto +="</ol></td></tr></table></html>"; 
-        
-        JOptionPane.showMessageDialog(null, texto, "Observaçõese", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_jButtonObservaçõesActionPerformed
+        texto += "</ol></td></tr></table></html>";
 
+        JOptionPane.showMessageDialog(null, texto, "Observações", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButtonObservaçõesActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdicionarFuro;
     private javax.swing.JButton jButtonAdicionarPeca;
@@ -616,7 +640,9 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     private javax.swing.JScrollPane jScrollPaneRebaixos;
     private javax.swing.JScrollPane jScrollPaneRodapes;
     // End of variables declaration//GEN-END:variables
-
+    // </editor-fold>
+    
+    
     private void materialSeleccionado() {
         String nome_material = jComboBoxMaterial.getSelectedItem().toString();
 
@@ -632,6 +658,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         _material = nome_material;
     }
 
+    // <editor-fold defaultstate="collapsed" desc="Actualizar">
     public void actualizarTotalPecas() {
         Double d = 0.0;
         for (Component c : jPanelPecas.getComponents()) {
@@ -683,7 +710,9 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
         jLabelRebaixoTotalValor.setText(df.format(d));
     }
+    // </editor-fold>
 
+    // <editor-fold defaultstate="collapsed" desc="Notify Observer">
     @Override
     public void update(String enviou) {
         if (enviou.equalsIgnoreCase("peca")) {
@@ -696,6 +725,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         } else if (enviou.equalsIgnoreCase("rebaixo")) {
             actualizarTotalRebaixos();
         }
+        notifyObservers(_material, getTotal());
     }
 
     @Override
@@ -726,4 +756,19 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
             observer.update(material, cor);
         }
     }
+
+    @Override
+    public void notifyObservers(String n, Double d) {
+        Iterator<Observer> it = observers.iterator();
+        while (it.hasNext()) {
+            Observer observer = it.next();
+            observer.update(n, d);
+        }
+    }
+
+    @Override
+    public void update(String n, Double v) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    // </editor-fold>
 }
