@@ -416,6 +416,51 @@ public class QueryXML {
         return rebaixos;
     }// </editor-fold>
     
+    // <editor-fold defaultstate="collapsed" desc="Acabamentos">
+    public HashMap<String, Double> queryAcabamentos_NomeEPreco(String material) {
+        HashMap<String, Double> acabamentos = new HashMap<String, Double>();
+
+        try {
+            XPathExpression expr = null;
+            XPathFactory xFactory = XPathFactory.newInstance();
+            XPath xpath = xFactory.newXPath();
+
+            // cores de um determinado material
+            String query = "//tipo_material[./@tipo='"+_tipo_material+"']/material/acabamentos/acabamento[../../tipo_material_nome='" + material + "']";
+            expr = xpath.compile(query);
+
+            Object result = expr.evaluate(doc, XPathConstants.NODESET);
+
+            NodeList nodes = (NodeList) result;
+            //String s = "";
+            //String s2 = "";
+            for (int i = 0; i < nodes.getLength(); i++) {
+                NodeList r = nodes.item(i).getChildNodes();
+                String nome = "";
+                String valor = "";
+                for (int j = 0; j < r.getLength(); j++) {
+                    if (r.item(j).getNodeName().equalsIgnoreCase("acabamento_nome")) {
+                        nome = r.item(j).getTextContent();
+                    }
+                    if (r.item(j).getNodeName().equalsIgnoreCase("acabamento_preco")) {
+                        valor = r.item(j).getTextContent();
+                    }
+
+                }
+                valor.replace(",", ".");
+                Double d = Double.parseDouble(valor);
+                acabamentos.put(nome, d);
+            }
+
+        } catch (XPathExpressionException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryAcabamentos" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
+            Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException e) {
+        }
+
+        return acabamentos;
+    }// </editor-fold>
+    
     // <editor-fold defaultstate="collapsed" desc="Notas">
     public ArrayList<String> queryNotas(String material) {
         ArrayList<String> notas = new ArrayList<String>();

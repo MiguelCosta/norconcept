@@ -14,8 +14,6 @@ import XML.QueryXML;
 import java.awt.Component;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,7 +31,7 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
     private QueryXML _q;
     private ArrayList<String> cores;
     private int num_linhas_peca = 0;
-    private int num_linhas_rodape = 0;
+    private int num_linhas_acabamento = 0;
     private int num_linhas_furos = 0;
     private int num_linhas_rebaixos = 0;
     private String _material = "";
@@ -80,7 +78,7 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
         try {
             String furo = jLabelFuroTotalValor.getText();
             String pecas = jLabelPecaTotalValor.getText();
-            String rodapes = jLabelRodapeTotalValor.getText();
+            String rodapes = jLabelAcabamentoTotalValor.getText();
             String rebaixos = jLabelRebaixoTotalValor.getText();
             furo = furo.replace(",", ".");
             pecas = pecas.replace(",", ".");
@@ -117,15 +115,15 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
         jButtonLimparPeca = new javax.swing.JButton();
         jLabelPecaTotalValor = new javax.swing.JLabel();
         jLabelPecaTotal = new javax.swing.JLabel();
-        jPanelRodapeOp = new javax.swing.JPanel();
-        jButtonAdicionarRodape = new javax.swing.JButton();
-        jButtonLimparRodape = new javax.swing.JButton();
-        jLabelRodapeTotalValor = new javax.swing.JLabel();
-        jLabelRodapeTotal = new javax.swing.JLabel();
+        jPanelAcabamentoOp = new javax.swing.JPanel();
+        jButtonAdicionarAcabamento = new javax.swing.JButton();
+        jButtonLimparAcabamento = new javax.swing.JButton();
+        jLabelAcabamentoTotalValor = new javax.swing.JLabel();
+        jLabelAcabamentoTotal = new javax.swing.JLabel();
         jScrollPanePecas = new javax.swing.JScrollPane();
         jPanelPecas = new javax.swing.JPanel();
-        jScrollPaneRodapes = new javax.swing.JScrollPane();
-        jPanelRodapes = new javax.swing.JPanel();
+        jScrollPaneAcabamentos = new javax.swing.JScrollPane();
+        jPanelAcabamentos = new javax.swing.JPanel();
         jScrollPaneFuros = new javax.swing.JScrollPane();
         jPanelFuros = new javax.swing.JPanel();
         jPanelFurosOp = new javax.swing.JPanel();
@@ -211,48 +209,48 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
                 .addComponent(jLabelPecaTotal))
         );
 
-        jPanelRodapeOp.setBackground(new java.awt.Color(217, 216, 215));
+        jPanelAcabamentoOp.setBackground(new java.awt.Color(217, 216, 215));
 
-        jButtonAdicionarRodape.setText("Adicionar");
-        jButtonAdicionarRodape.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAdicionarAcabamento.setText("Adicionar");
+        jButtonAdicionarAcabamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAdicionarRodapeActionPerformed(evt);
+                jButtonAdicionarAcabamentoActionPerformed(evt);
             }
         });
 
-        jButtonLimparRodape.setText("Limpar");
-        jButtonLimparRodape.addActionListener(new java.awt.event.ActionListener() {
+        jButtonLimparAcabamento.setText("Limpar");
+        jButtonLimparAcabamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLimparRodapeActionPerformed(evt);
+                jButtonLimparAcabamentoActionPerformed(evt);
             }
         });
 
-        jLabelRodapeTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelRodapeTotalValor.setText("0.0");
+        jLabelAcabamentoTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelAcabamentoTotalValor.setText("0.0");
 
-        jLabelRodapeTotal.setFont(new java.awt.Font("Ubuntu", 1, 12));
-        jLabelRodapeTotal.setText("TOTAL (€)");
+        jLabelAcabamentoTotal.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabelAcabamentoTotal.setText("TOTAL (€)");
 
-        javax.swing.GroupLayout jPanelRodapeOpLayout = new javax.swing.GroupLayout(jPanelRodapeOp);
-        jPanelRodapeOp.setLayout(jPanelRodapeOpLayout);
-        jPanelRodapeOpLayout.setHorizontalGroup(
-            jPanelRodapeOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRodapeOpLayout.createSequentialGroup()
-                .addComponent(jButtonAdicionarRodape)
+        javax.swing.GroupLayout jPanelAcabamentoOpLayout = new javax.swing.GroupLayout(jPanelAcabamentoOp);
+        jPanelAcabamentoOp.setLayout(jPanelAcabamentoOpLayout);
+        jPanelAcabamentoOpLayout.setHorizontalGroup(
+            jPanelAcabamentoOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAcabamentoOpLayout.createSequentialGroup()
+                .addComponent(jButtonAdicionarAcabamento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonLimparRodape)
+                .addComponent(jButtonLimparAcabamento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
-                .addComponent(jLabelRodapeTotal)
+                .addComponent(jLabelAcabamentoTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelRodapeTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabelAcabamentoTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanelRodapeOpLayout.setVerticalGroup(
-            jPanelRodapeOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelRodapeOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jButtonAdicionarRodape)
-                .addComponent(jButtonLimparRodape)
-                .addComponent(jLabelRodapeTotalValor)
-                .addComponent(jLabelRodapeTotal))
+        jPanelAcabamentoOpLayout.setVerticalGroup(
+            jPanelAcabamentoOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAcabamentoOpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jButtonAdicionarAcabamento)
+                .addComponent(jButtonLimparAcabamento)
+                .addComponent(jLabelAcabamentoTotalValor)
+                .addComponent(jLabelAcabamentoTotal))
         );
 
         jScrollPanePecas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Peças", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
@@ -262,12 +260,12 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
         jPanelPecas.setLayout(new java.awt.GridBagLayout());
         jScrollPanePecas.setViewportView(jPanelPecas);
 
-        jScrollPaneRodapes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rodapés", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+        jScrollPaneAcabamentos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acabamentos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
 
-        jPanelRodapes.setBorder(null);
-        jPanelRodapes.setAutoscrolls(true);
-        jPanelRodapes.setLayout(new java.awt.GridBagLayout());
-        jScrollPaneRodapes.setViewportView(jPanelRodapes);
+        jPanelAcabamentos.setBorder(null);
+        jPanelAcabamentos.setAutoscrolls(true);
+        jPanelAcabamentos.setLayout(new java.awt.GridBagLayout());
+        jScrollPaneAcabamentos.setViewportView(jPanelAcabamentos);
 
         jScrollPaneFuros.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Furos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
 
@@ -402,10 +400,10 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
                             .addComponent(jComboBoxMaterial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBoxCor, 0, 234, Short.MAX_VALUE)))
                     .addComponent(jScrollPaneRebaixos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
-                    .addComponent(jScrollPaneRodapes, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneAcabamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
                     .addComponent(jScrollPanePecas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
                     .addComponent(jPanelPecaOp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelRodapeOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelAcabamentoOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPaneFuros, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 613, Short.MAX_VALUE)
                     .addComponent(jPanelFurosOp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelRebaixosOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -437,9 +435,9 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanelPecaOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPaneRodapes, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPaneAcabamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanelRodapeOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelAcabamentoOp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPaneFuros, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -508,32 +506,32 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonLimparPecaActionPerformed
 
-    private void jButtonAdicionarRodapeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarRodapeActionPerformed
-        JPanelPedraRodape r = new JPanelPedraRodape(_q, _material, _cor);
+    private void jButtonAdicionarAcabamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarAcabamentoActionPerformed
+        JPanelEcoLeatherAcabamento r = new JPanelEcoLeatherAcabamento(_q, _material, _cor);
         r.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = num_linhas_rodape;
-        jPanelRodapes.add(r, gridBagConstraints);
+        gridBagConstraints.gridy = num_linhas_acabamento;
+        jPanelAcabamentos.add(r, gridBagConstraints);
 
-        num_linhas_rodape++;
+        num_linhas_acabamento++;
 
         this.addObserver(r);
-        jPanelRodapes.repaint();
-        jPanelRodapes.revalidate();
+        jPanelAcabamentos.repaint();
+        jPanelAcabamentos.revalidate();
         notifyObservers(_material, getTotal());
-    }//GEN-LAST:event_jButtonAdicionarRodapeActionPerformed
+    }//GEN-LAST:event_jButtonAdicionarAcabamentoActionPerformed
 
-    private void jButtonLimparRodapeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparRodapeActionPerformed
-        jPanelRodapes.removeAll();
-        jPanelRodapes.repaint();
-        jPanelRodapes.revalidate();
-        jLabelRodapeTotalValor.setText("0.0");
-        num_linhas_rodape = 0;
+    private void jButtonLimparAcabamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparAcabamentoActionPerformed
+        jPanelAcabamentos.removeAll();
+        jPanelAcabamentos.repaint();
+        jPanelAcabamentos.revalidate();
+        jLabelAcabamentoTotalValor.setText("0.0");
+        num_linhas_acabamento = 0;
         notifyObservers(_material, getTotal());
-    }//GEN-LAST:event_jButtonLimparRodapeActionPerformed
+    }//GEN-LAST:event_jButtonLimparAcabamentoActionPerformed
 
     private void jButtonAdicionarFuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarFuroActionPerformed
         JPanelPedraFuro f = new JPanelPedraFuro(_q, _material, _cor);
@@ -612,18 +610,20 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         JOptionPane.showMessageDialog(null, texto, "Observações", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonObservaçõesActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAdicionarAcabamento;
     private javax.swing.JButton jButtonAdicionarFuro;
     private javax.swing.JButton jButtonAdicionarPeca;
     private javax.swing.JButton jButtonAdicionarRebaixo;
-    private javax.swing.JButton jButtonAdicionarRodape;
+    private javax.swing.JButton jButtonLimparAcabamento;
     private javax.swing.JButton jButtonLimparFuro;
     private javax.swing.JButton jButtonLimparPeca;
     private javax.swing.JButton jButtonLimparRebaixo;
-    private javax.swing.JButton jButtonLimparRodape;
     private javax.swing.JButton jButtonNotas;
     private javax.swing.JButton jButtonObservações;
     private javax.swing.JComboBox jComboBoxCor;
     private javax.swing.JComboBox jComboBoxMaterial;
+    private javax.swing.JLabel jLabelAcabamentoTotal;
+    private javax.swing.JLabel jLabelAcabamentoTotalValor;
     private javax.swing.JLabel jLabelCor;
     private javax.swing.JLabel jLabelEspessuraPreco;
     private javax.swing.JLabel jLabelFuroTotal;
@@ -633,20 +633,18 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     private javax.swing.JLabel jLabelPecaTotalValor;
     private javax.swing.JLabel jLabelRebaixoTotal;
     private javax.swing.JLabel jLabelRebaixoTotalValor;
-    private javax.swing.JLabel jLabelRodapeTotal;
-    private javax.swing.JLabel jLabelRodapeTotalValor;
+    private javax.swing.JPanel jPanelAcabamentoOp;
+    private javax.swing.JPanel jPanelAcabamentos;
     private javax.swing.JPanel jPanelFuros;
     private javax.swing.JPanel jPanelFurosOp;
     private javax.swing.JPanel jPanelPecaOp;
     private javax.swing.JPanel jPanelPecas;
     private javax.swing.JPanel jPanelRebaixos;
     private javax.swing.JPanel jPanelRebaixosOp;
-    private javax.swing.JPanel jPanelRodapeOp;
-    private javax.swing.JPanel jPanelRodapes;
+    private javax.swing.JScrollPane jScrollPaneAcabamentos;
     private javax.swing.JScrollPane jScrollPaneFuros;
     private javax.swing.JScrollPane jScrollPanePecas;
     private javax.swing.JScrollPane jScrollPaneRebaixos;
-    private javax.swing.JScrollPane jScrollPaneRodapes;
     // End of variables declaration//GEN-END:variables
     // </editor-fold>
     
@@ -680,17 +678,17 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         jLabelPecaTotalValor.setText(df.format(d));
     }
 
-    public void actualizarTotalRodapes() {
+    public void actualizarTotalAcabamentos() {
         Double d = 0.0;
-        for (Component c : jPanelRodapes.getComponents()) {
+        for (Component c : jPanelAcabamentos.getComponents()) {
             try {
-                JPanelPedraRodape l = (JPanelPedraRodape) c;
+                JPanelEcoLeatherAcabamento l = (JPanelEcoLeatherAcabamento) c;
                 d += l.getTotal();
             } catch (Exception e) {
             }
         }
 
-        jLabelRodapeTotalValor.setText(df.format(d));
+        jLabelAcabamentoTotalValor.setText(df.format(d));
     }
 
     public void actualizarTotalFuros() {
@@ -726,8 +724,8 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         if (enviou.equalsIgnoreCase("peca")) {
             actualizarTotalPecas();
             //JOptionPane.showMessageDialog(jLabelCor, "peca");
-        } else if (enviou.equalsIgnoreCase("rodape")) {
-            actualizarTotalRodapes();
+        } else if (enviou.equalsIgnoreCase("acabamento")) {
+            actualizarTotalAcabamentos();
         } else if (enviou.equalsIgnoreCase("furo")) {
             actualizarTotalFuros();
         } else if (enviou.equalsIgnoreCase("rebaixo")) {
