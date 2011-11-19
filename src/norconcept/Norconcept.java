@@ -4,6 +4,7 @@
  */
 package norconcept;
 
+import Config.StringHtml;
 import Interface.JAppletMain;
 import XML.QueryXML;
 import java.io.IOException;
@@ -23,6 +24,8 @@ public class Norconcept {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        StringHtml.html_toolTipText("ola ola ola");
         
         JAppletMain m = new JAppletMain();
         m.init();

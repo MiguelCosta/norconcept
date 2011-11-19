@@ -10,6 +10,7 @@
  */
 package Interface;
 
+import Config.StringHtml;
 import XML.QueryXML;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -27,7 +28,7 @@ import org.xml.sax.SAXException;
  *
  * @author Miguel
  */
-public class JAppletMain extends javax.swing.JApplet implements Observer{
+public class JAppletMain extends javax.swing.JApplet implements Observer {
 
     QueryXML q;
     DecimalFormat df = new DecimalFormat("#.##");
@@ -74,6 +75,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer{
         // meu código
         carregarBD();
         preencherTipoMateriais();
+        configs();
     }
 
     private void carregarBD() {
@@ -94,6 +96,13 @@ public class JAppletMain extends javax.swing.JApplet implements Observer{
         } catch (IOException ex) {
             Logger.getLogger(JAppletMain.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void configs() {
+        String tm = StringHtml.html_toolTipText("Escolha na caixa ao lado o tipo de material que pretende.");
+        jLabelTipoMaterial.setToolTipText(tm);
+        String v = StringHtml.html_toolTipText("Valor total do que foi escolhido.");
+        jLabelTotalValor.setToolTipText(v);
     }
 
     /****************************************/
@@ -124,7 +133,6 @@ public class JAppletMain extends javax.swing.JApplet implements Observer{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox();
         jPanel1 = new javax.swing.JPanel();
         jLabelTipoMaterial = new javax.swing.JLabel();
         jComboBoxTipoMaterial = new javax.swing.JComboBox();
@@ -137,8 +145,6 @@ public class JAppletMain extends javax.swing.JApplet implements Observer{
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanelTipoMaterial = new javax.swing.JPanel();
         jLabelTotal = new javax.swing.JLabel();
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -288,8 +294,10 @@ public class JAppletMain extends javax.swing.JApplet implements Observer{
 
         String tipo_material = materialSeleccionado();
         q.setTipoMaterial(tipo_material);
-        //JOptionPane.showMessageDialog(rootPane, "Tipo Material: " + tipo_material);
+        jComboBoxTipoMaterial.setToolTipText(tipo_material);
+
         if (tipo_material.equalsIgnoreCase("pedra") || tipo_material.equalsIgnoreCase("Mármores e Granitos")) {
+            jLabelTotalValor.setText("0");
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
@@ -306,10 +314,11 @@ public class JAppletMain extends javax.swing.JApplet implements Observer{
 
             //JOptionPane.showMessageDialog(rootPane, "Tipo Material entrou: " + tipo_material);
         } else if (tipo_material.equalsIgnoreCase("Lambrim e Balcão")) {
+            jLabelTotalValor.setText("0");
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-            
+
             JPanelEcoLeather j = new JPanelEcoLeather(q, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
@@ -320,6 +329,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer{
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
         } else {
+            jLabelTotalValor.setText("0");
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
@@ -332,7 +342,6 @@ public class JAppletMain extends javax.swing.JApplet implements Observer{
 
     }//GEN-LAST:event_jComboBoxTipoMaterialItemStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBoxTipoMaterial;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelTipoMaterial;

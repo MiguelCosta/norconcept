@@ -10,6 +10,7 @@
  */
 package Interface;
 
+import Config.StringHtml;
 import XML.QueryXML;
 import java.awt.Component;
 import java.text.DecimalFormat;
@@ -51,11 +52,23 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
     }
 
     private void configs() {
-        jButtonAdicionarPeca.setToolTipText("Adicionar uma nova linha.");
-        jButtonLimparPeca.setToolTipText("Limpar todas as linhas.");
-        jLabelEspessuraPreco.setToolTipText("Vários preços para a cor do material");
-        jLabelMaterial.setToolTipText("Escolha o material pretendido na caixa ao lado.");
-        jLabelCor.setToolTipText("Escolha a cor que pretende na caixa ao lado.");
+        String material = StringHtml.html_toolTipText("Escolha o material pretendido na caixa ao lado.");
+        String cor = StringHtml.html_toolTipText("Escolha a cor que pretende na caixa ao lado.");
+        String espessura = StringHtml.html_toolTipText("Vários preços para a cor do material conforme a espessura.");
+
+        String adicionar = StringHtml.html_toolTipText("Adicionar uma nova linha.");
+        String limpar = StringHtml.html_toolTipText("Limpar todas as linhas.");
+
+
+        jLabelMaterial.setToolTipText(material);
+        jLabelCor.setToolTipText(cor);
+        jLabelEspessuraPreco.setToolTipText(espessura);
+
+        jButtonAdicionarPeca.setToolTipText(adicionar);
+        jButtonLimparPeca.setToolTipText(limpar);
+
+
+
     }
 
     private void preencherMateriais() {
@@ -71,7 +84,7 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
             Logger.getLogger(JPanelEcoLeather.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="getTotal">
     public Double getTotal() {
         Double valor = 0.0;
@@ -88,7 +101,7 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
             valor += Double.parseDouble(pecas);
             valor += Double.parseDouble(rodapes);
             valor += Double.parseDouble(rebaixos);
-            
+
         } catch (Exception e) {
         }
 
@@ -452,10 +465,8 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
     // <editor-fold defaultstate="collapsed" desc="Eventos e variáveis">
 private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxMaterialItemStateChanged
     materialSeleccionado();
-    jComboBoxMaterial.setToolTipText(_material);
-    //jPanelPecas.removeAll();
-    //jPanelPecas.repaint();
-    //jPanelPecas.revalidate();
+    jComboBoxMaterial.setToolTipText(StringHtml.html_toolTipText(_material));
+
     this.notifyObservers(_material, _cor);
     this.repaint();
     this.revalidate();
@@ -487,10 +498,8 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         }
         _cor = jComboBoxCor.getSelectedItem().toString();
         jLabelEspessuraPreco.setText(_q.queryCoresPrecoString(_material, _cor));
-        jComboBoxCor.setToolTipText(_cor);
-        //jPanelPecas.removeAll();
-        //jPanelPecas.repaint();
-        //jPanelPecas.revalidate();
+        jComboBoxCor.setToolTipText(StringHtml.html_toolTipText(_cor));
+
         this.notifyObservers(_material, _cor);
         this.repaint();
         this.revalidate();
@@ -589,23 +598,15 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     private void jButtonNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNotasActionPerformed
         ArrayList<String> notas = _q.queryNotas(_material);
-        String texto = "<html><table width=\"600\"><tr><td>";
-        for (String s : notas) {
-            texto += "<li>" + s + "</li>";
-        }
-        texto += "</ul></td></tr></table></html>";
+
+        String texto = StringHtml.html_list(notas, "Notas:");
 
         JOptionPane.showMessageDialog(null, texto, "Notas", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonNotasActionPerformed
 
-    
     private void jButtonObservaçõesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObservaçõesActionPerformed
         ArrayList<String> obss = _q.queryObss(_material);
-        String texto = "<html><table width=\"600\"><tr><td><ol>";
-        for (String s : obss) {
-            texto += "<li>" + s + "</li>";
-        }
-        texto += "</ol></td></tr></table></html>";
+        String texto = StringHtml.html_list_numeric(obss, "Observações:");
 
         JOptionPane.showMessageDialog(null, texto, "Observações", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonObservaçõesActionPerformed
@@ -647,8 +648,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     private javax.swing.JScrollPane jScrollPaneRebaixos;
     // End of variables declaration//GEN-END:variables
     // </editor-fold>
-    
-    
+
     private void materialSeleccionado() {
         String nome_material = jComboBoxMaterial.getSelectedItem().toString();
 
