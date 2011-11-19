@@ -15,7 +15,14 @@
             <jLabelTipoMaterial_desc>Escolha na caixa ao lado o tipo de material que pretende.</jLabelTipoMaterial_desc>
             <jLabelTotal_desc>Valor total do que foi escolhido.</jLabelTotal_desc>
         </main>
-        
-
+    </lingua>
+    
+    <lingua lingua="fr">
+        <!-- Main -->
+        <main>
+            <jLabelTipoMaterial>Choisissez le type de matériau:</jLabelTipoMaterial>
+            <jLabelTipoMaterial_desc>Sélectionnez la case à côté du type de matériel que vous voulez.</jLabelTipoMaterial_desc>
+            <jLabelTotal_desc>La valeur totale de ce qui a été choisi.</jLabelTotal_desc>
+        </main>
     </lingua>
 </linguas>

@@ -13,17 +13,14 @@ package Interface;
 import Config.StringHtml;
 import XML.QueryXML;
 import XML.QueryXML_Lingua;
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPathExpressionException;
 import mvc.Observer;
-import org.xml.sax.SAXException;
 
 /**
  *
@@ -78,6 +75,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         carregarBD();
         preencherTipoMateriais();
         configs();
+        jRadioButtonPT.setSelected(true);
     }
     
     private void carregarBD() {
@@ -99,10 +97,12 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         String tm_desc = _l.queryText("main", "jLabelTipoMaterial_desc");
         String v = _l.queryText("main", "jLabelTotal_desc");
 
+        //System.out.println(tm + "\n" + tm_desc + "\n" + v);
+
         jLabelTipoMaterial.setText(tm);
-        jLabelTipoMaterial.setToolTipText(tm_desc);
-        jLabelTotal.setToolTipText(v);
-        jLabelTotalValor.setToolTipText(v);
+        jLabelTipoMaterial.setToolTipText(StringHtml.html_toolTipText(tm_desc));
+        jLabelTotal.setToolTipText(StringHtml.html_toolTipText(v));
+        jLabelTotalValor.setToolTipText(StringHtml.html_toolTipText(v));
     }
 
     /****************************************/
@@ -132,14 +132,15 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jLabelTipoMaterial = new javax.swing.JLabel();
         jComboBoxTipoMaterial = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButtonPT = new javax.swing.JRadioButton();
+        jRadioButtonFR = new javax.swing.JRadioButton();
         jLabelLogo = new javax.swing.JLabel();
         jLabelTotalValor = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -148,7 +149,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabelTipoMaterial.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jLabelTipoMaterial.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelTipoMaterial.setText("Escolha o tipo de material:");
 
         jComboBoxTipoMaterial.addItemListener(new java.awt.event.ItemListener() {
@@ -163,8 +164,8 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelTipoMaterial)
-                .addGap(128, 128, 128)
+                .addComponent(jLabelTipoMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBoxTipoMaterial, 0, 341, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -181,30 +182,34 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Língua"));
+        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        jRadioButton1.setText("Português");
+        jRadioButtonPT.setText("Português");
+        jRadioButtonPT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonPTActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
+        jPanel3.add(jRadioButtonPT, gridBagConstraints);
 
-        jRadioButton2.setText("François");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
-                .addContainerGap(81, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButton2)
-                .addContainerGap())
-        );
+        jRadioButtonFR.setText("Français");
+        jRadioButtonFR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonFRActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
+        jPanel3.add(jRadioButtonFR, gridBagConstraints);
 
         jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo2.jpg"))); // NOI18N
 
@@ -212,20 +217,20 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 301, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelLogo)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelLogo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -278,7 +283,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTotalValor)
@@ -341,6 +346,20 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         jPanelTipoMaterial.revalidate();
         
     }//GEN-LAST:event_jComboBoxTipoMaterialItemStateChanged
+    
+    private void jRadioButtonPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPTActionPerformed
+        jRadioButtonPT.setSelected(true);
+        jRadioButtonFR.setSelected(false);
+        _l.setLingua("pt");
+        configs();
+    }//GEN-LAST:event_jRadioButtonPTActionPerformed
+    
+    private void jRadioButtonFRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonFRActionPerformed
+        jRadioButtonPT.setSelected(false);
+        jRadioButtonFR.setSelected(true);
+        _l.setLingua("fr");
+        configs();
+    }//GEN-LAST:event_jRadioButtonFRActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBoxTipoMaterial;
     private javax.swing.JLabel jLabelLogo;
@@ -351,8 +370,8 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelTipoMaterial;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButtonFR;
+    private javax.swing.JRadioButton jRadioButtonPT;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 

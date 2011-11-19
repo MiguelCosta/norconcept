@@ -30,7 +30,7 @@ public class QueryXML_Lingua {
     DocumentBuilderFactory factory;
     DocumentBuilder builder;
     Document doc = null;
-    String lingua = "pt";
+    String _lingua = "pt";
 
     // <editor-fold defaultstate="collapsed" desc="QueryXML">
     public QueryXML_Lingua() {
@@ -97,7 +97,7 @@ public class QueryXML_Lingua {
             XPathFactory xFactory = XPathFactory.newInstance();
             XPath xpath = xFactory.newXPath();
 
-            String q = "//lingua/" + panel + "/" + label + "[../../@lingua='pt']";
+            String q = "//lingua/" + panel + "/" + label + "[../../@lingua='" + _lingua + "']";
             expr = xpath.compile(q);
 
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
@@ -113,4 +113,8 @@ public class QueryXML_Lingua {
         }
         return texto;
     }// </editor-fold>
+
+    public void setLingua(String lingua) {
+        _lingua = lingua;
+    }
 }
