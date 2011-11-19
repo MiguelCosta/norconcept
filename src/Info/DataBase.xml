@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
+<!--
+    Document   : DataBase.xml
+    Created on : 19 de Novembro de 2011, 17:28
+    Author     : miguel
+    Description:
+        Purpose of the document follows.
+-->
+
 <norconcept>
     <materiais>
         <tipo_material tipo="Mármores e Granitos">

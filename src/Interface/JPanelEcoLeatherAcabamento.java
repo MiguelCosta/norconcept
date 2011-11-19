@@ -10,6 +10,7 @@
  */
 package Interface;
 
+import Config.StringHtml;
 import XML.QueryXML;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class JPanelEcoLeatherAcabamento extends javax.swing.JPanel implements Su
     private ArrayList<Observer> observers = new ArrayList<Observer>();
     // para não estar a fazer uma query sempre, fica aqui os precos com as cores
     private HashMap<String, Double> acabamentos_e_precos = new HashMap<String, Double>();
-    private String acabamento = "";
+    private String _acabamento = "";
 
     /** Creates new form JPanelPedraPeca */
     public JPanelEcoLeatherAcabamento(QueryXML q, String material, String cor) {
@@ -49,8 +50,15 @@ public class JPanelEcoLeatherAcabamento extends javax.swing.JPanel implements Su
         SpinnerNumberModel modelSpinnerC = new SpinnerNumberModel(0, 0, 100000, 1);
         jSpinnerNumero.setModel(modelSpinnerC);
 
-        jLabelAcabamento.setToolTipText("Selecione o acabamento na caixa ao lado.");
-        jLabelComprimento.setToolTipText("Indique o comprimento que pretende.");
+        String acabamento = StringHtml.html_toolTipText("Selecione o acabamento na caixa ao lado.");
+        String comprimento = StringHtml.html_toolTipText("Indique o comprimento que pretende em cm.");
+        String unidade = StringHtml.html_toolTipText("Preço do acabamento por metro.");
+        String total = StringHtml.html_toolTipText("Preço total do acabamento.");
+
+        jLabelAcabamento.setToolTipText(acabamento);
+        jLabelComprimento.setToolTipText(comprimento);
+        jLabelAcabamentoPreco.setToolTipText(unidade);
+        jLabelTOTAL.setToolTipText(total);
     }
 
     private void valores() {
@@ -67,9 +75,9 @@ public class JPanelEcoLeatherAcabamento extends javax.swing.JPanel implements Su
         try {
             int dim = Integer.parseInt(jSpinnerNumero.getValue().toString());
 
-            Double preco_acabamento = acabamentos_e_precos.get(acabamento);
+            Double preco_acabamento = acabamentos_e_precos.get(_acabamento);
 
-            Double dim_cm = dim/100.0; // porque está em cm e o preço em m
+            Double dim_cm = dim / 100.0; // porque está em cm e o preço em m
             Double preco_total = dim_cm * preco_acabamento;
 
             jLabelTOTALValor.setText(df.format(preco_total).toString());
@@ -174,10 +182,11 @@ public class JPanelEcoLeatherAcabamento extends javax.swing.JPanel implements Su
 
     private void jComboBoxAcabamentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxAcabamentoItemStateChanged
         try {
-            acabamento = jComboBoxAcabamento.getSelectedItem().toString();
+            _acabamento = jComboBoxAcabamento.getSelectedItem().toString();
+            String acabamento = StringHtml.html_toolTipText(_acabamento);
             jComboBoxAcabamento.setToolTipText(acabamento);
 
-            Double d = acabamentos_e_precos.get(acabamento);
+            Double d = acabamentos_e_precos.get(_acabamento);
             String valor = d.toString() + " €/m";
             jLabelAcabamentoPreco.setText(valor);
 

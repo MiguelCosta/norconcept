@@ -12,6 +12,7 @@ package Interface;
 
 import Config.StringHtml;
 import XML.QueryXML;
+import XML.QueryXML_Lingua;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -29,8 +30,9 @@ import org.xml.sax.SAXException;
  * @author Miguel
  */
 public class JAppletMain extends javax.swing.JApplet implements Observer {
-
-    QueryXML q;
+    
+    QueryXML _q;
+    QueryXML_Lingua _l;
     DecimalFormat df = new DecimalFormat("#.##");
 
     /** Initializes the applet JAppletMain */
@@ -63,7 +65,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         /* Create and display the applet */
         try {
             java.awt.EventQueue.invokeAndWait(new Runnable() {
-
+                
                 @Override
                 public void run() {
                     initComponents();
@@ -77,31 +79,29 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         preencherTipoMateriais();
         configs();
     }
-
+    
     private void carregarBD() {
-        try {
-            //URL base = getDocumentBase();
-            //URL xmlBD = new URL(base, "DataBase2.xml");
 
-            //JOptionPane.showConfirmDialog(rootPane, "URL: " + base.toString());
-            //JOptionPane.showConfirmDialog(rootPane, "URL: " + xmlBD.toString());
+        //URL base = getDocumentBase();
+        //URL xmlBD = new URL(base, "DataBase.xml");
 
-            /*não está a ser usado o xmlBD*/
-            q = new QueryXML();
+        //JOptionPane.showConfirmDialog(rootPane, "URL: " + base.toString());
+        //JOptionPane.showConfirmDialog(rootPane, "URL: " + xmlBD.toString());
 
-        } catch (ParserConfigurationException ex) {
-            Logger.getLogger(JAppletMain.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SAXException ex) {
-            Logger.getLogger(JAppletMain.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(JAppletMain.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        /*não está a ser usado o xmlBD*/
+        _q = new QueryXML();
+        _l = new QueryXML_Lingua();
+        
     }
-
+    
     private void configs() {
-        String tm = StringHtml.html_toolTipText("Escolha na caixa ao lado o tipo de material que pretende.");
-        jLabelTipoMaterial.setToolTipText(tm);
-        String v = StringHtml.html_toolTipText("Valor total do que foi escolhido.");
+        String tm = _l.queryText("main", "jLabelTipoMaterial");
+        String tm_desc = _l.queryText("main", "jLabelTipoMaterial_desc");
+        String v = _l.queryText("main", "jLabelTotal_desc");
+
+        jLabelTipoMaterial.setText(tm);
+        jLabelTipoMaterial.setToolTipText(tm_desc);
+        jLabelTotal.setToolTipText(v);
         jLabelTotalValor.setToolTipText(v);
     }
 
@@ -109,12 +109,12 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
     /*      PREENCHER COMBO BOX             */
     /****************************************/
     private void preencherTipoMateriais() {
-
+        
         jComboBoxTipoMaterial.removeAllItems();
         jComboBoxTipoMaterial.addItem("");
         try {
-            ArrayList<String> tipo_materiais = q.queryTipoMateriais();
-
+            ArrayList<String> tipo_materiais = _q.queryTipoMateriais();
+            
             for (String s : tipo_materiais) {
                 jComboBoxTipoMaterial.addItem(s);
                 System.out.println(s);
@@ -291,23 +291,23 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
     /*         MUDA O TIPO DE MATERIAL              */
     /****************************************/
     private void jComboBoxTipoMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxTipoMaterialItemStateChanged
-
+        
         String tipo_material = materialSeleccionado();
-        q.setTipoMaterial(tipo_material);
+        _q.setTipoMaterial(tipo_material);
         jComboBoxTipoMaterial.setToolTipText(tipo_material);
-
+        
         if (tipo_material.equalsIgnoreCase("pedra") || tipo_material.equalsIgnoreCase("Mármores e Granitos")) {
             jLabelTotalValor.setText("0");
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-
-            JPanelPedra j = new JPanelPedra(q, tipo_material);
+            
+            JPanelPedra j = new JPanelPedra(_q, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-
+            
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -318,13 +318,13 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-
-            JPanelEcoLeather j = new JPanelEcoLeather(q, tipo_material);
+            
+            JPanelEcoLeather j = new JPanelEcoLeather(_q, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-
+            
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -336,10 +336,10 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
             JPanelNada j = new JPanelNada();
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
-
+            
         }
         jPanelTipoMaterial.revalidate();
-
+        
     }//GEN-LAST:event_jComboBoxTipoMaterialItemStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBoxTipoMaterial;
@@ -366,15 +366,15 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         }
         return m;
     }
-
+    
     @Override
     public void update(String n) {
     }
-
+    
     @Override
     public void update(String material, String cor) {
     }
-
+    
     @Override
     public void update(String n, Double v) {
         jLabelTotalValor.setText(df.format(v).toString());

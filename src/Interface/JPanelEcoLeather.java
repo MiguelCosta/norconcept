@@ -28,7 +28,7 @@ import mvc.Subject;
  * @author miguel
  */
 public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Subject {
-
+    
     private QueryXML _q;
     private ArrayList<String> cores;
     private int num_linhas_peca = 0;
@@ -44,33 +44,59 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
     /** Creates new form JPanelPedra */
     public JPanelEcoLeather(QueryXML q, String tipo_material) {
         initComponents();
-
+        
         _q = q;
         _tipo_material = tipo_material;
         configs();
         preencherMateriais();
     }
-
+    
     private void configs() {
         String material = StringHtml.html_toolTipText("Escolha o material pretendido na caixa ao lado.");
         String cor = StringHtml.html_toolTipText("Escolha a cor que pretende na caixa ao lado.");
         String espessura = StringHtml.html_toolTipText("Vários preços para a cor do material conforme a espessura.");
-
-        String adicionar = StringHtml.html_toolTipText("Adicionar uma nova linha.");
-        String limpar = StringHtml.html_toolTipText("Limpar todas as linhas.");
-
-
+        String notas = StringHtml.html_toolTipText("Notas sobre os produtos.");
+        String obss = StringHtml.html_toolTipText("Observações sobre as condições de venda.");
+        
+        String adicionarPeca = StringHtml.html_toolTipText("Adicionar uma nova peça.");
+        String adicionarAcabamento = StringHtml.html_toolTipText("Adicionar um acabamento.");
+        String adicionarFuro = StringHtml.html_toolTipText("Adicionar um furo");
+        String adicionarRebaixo = StringHtml.html_toolTipText("Adicionar um Rebaixo.");
+        
+        String limparPeca = StringHtml.html_toolTipText("Limpar todas as pecas.");
+        String limparAcabamento = StringHtml.html_toolTipText("Limpar todas os acabamentos.");
+        String limparFuro = StringHtml.html_toolTipText("Limpar todas os Furos.");
+        String limparRebaixo = StringHtml.html_toolTipText("Limpar todas os rebaixos.");
+        
+        String totalPeca = StringHtml.html_toolTipText("Valor total das peças.");
+        String totalAcabemento = StringHtml.html_toolTipText("Valor total dos acabamentos");
+        String totalFuro = StringHtml.html_toolTipText("Valor total dos furos.");
+        String totalRebaixo = StringHtml.html_toolTipText("Valor total dos rebaixos");
+        
+        
         jLabelMaterial.setToolTipText(material);
         jLabelCor.setToolTipText(cor);
         jLabelEspessuraPreco.setToolTipText(espessura);
-
-        jButtonAdicionarPeca.setToolTipText(adicionar);
-        jButtonLimparPeca.setToolTipText(limpar);
-
-
-
+        jButtonNotas.setToolTipText(notas);
+        jButtonObservações.setToolTipText(obss);
+        
+        jButtonAdicionarPeca.setToolTipText(adicionarPeca);
+        jButtonAdicionarAcabamento.setToolTipText(adicionarAcabamento);
+        jButtonAdicionarFuro.setToolTipText(adicionarFuro);
+        jButtonAdicionarRebaixo.setToolTipText(adicionarRebaixo);
+        
+        jButtonLimparPeca.setToolTipText(limparPeca);
+        jButtonLimparAcabamento.setToolTipText(limparAcabamento);
+        jButtonLimparFuro.setToolTipText(limparFuro);
+        jButtonLimparRebaixo.setToolTipText(limparRebaixo);
+        
+        jLabelPecaTotal.setToolTipText(totalPeca);
+        jLabelAcabamentoTotal.setToolTipText(totalAcabemento);
+        jLabelFuroTotal.setToolTipText(totalFuro);
+        jLabelRebaixoTotal.setToolTipText(totalRebaixo);
+        
     }
-
+    
     private void preencherMateriais() {
         try {
             jComboBoxMaterial.removeAllItems();
@@ -79,7 +105,7 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
             for (String s : materiais) {
                 jComboBoxMaterial.addItem(s);
             }
-
+            
         } catch (XPathExpressionException ex) {
             Logger.getLogger(JPanelEcoLeather.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -101,10 +127,10 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
             valor += Double.parseDouble(pecas);
             valor += Double.parseDouble(rodapes);
             valor += Double.parseDouble(rebaixos);
-
+            
         } catch (Exception e) {
         }
-
+        
         return valor;
     }
     // </editor-fold>
@@ -466,14 +492,14 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
 private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxMaterialItemStateChanged
     materialSeleccionado();
     jComboBoxMaterial.setToolTipText(StringHtml.html_toolTipText(_material));
-
+    
     this.notifyObservers(_material, _cor);
     this.repaint();
     this.revalidate();
 }//GEN-LAST:event_jComboBoxMaterialItemStateChanged
-
+    
     private void jButtonAdicionarPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarPecaActionPerformed
-
+        
         JPanelPedraPeca l = new JPanelPedraPeca(_q, _material, _cor);
         l.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
@@ -482,15 +508,15 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = num_linhas_peca;
         jPanelPecas.add(l, gridBagConstraints);
-
+        
         num_linhas_peca++;
-
+        
         this.addObserver(l);
         jPanelPecas.repaint();
         jPanelPecas.revalidate();
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonAdicionarPecaActionPerformed
-
+    
     private void jComboBoxCorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCorItemStateChanged
         _material = jComboBoxMaterial.getSelectedItem().toString();
         if (jComboBoxCor.getSelectedItem() == null) {
@@ -499,13 +525,13 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         _cor = jComboBoxCor.getSelectedItem().toString();
         jLabelEspessuraPreco.setText(_q.queryCoresPrecoString(_material, _cor));
         jComboBoxCor.setToolTipText(StringHtml.html_toolTipText(_cor));
-
+        
         this.notifyObservers(_material, _cor);
         this.repaint();
         this.revalidate();
         //JOptionPane.showMessageDialog(this, "FIM" + _material + _cor);
     }//GEN-LAST:event_jComboBoxCorItemStateChanged
-
+    
     private void jButtonLimparPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparPecaActionPerformed
         jPanelPecas.removeAll();
         jPanelPecas.repaint();
@@ -514,7 +540,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         num_linhas_peca = 0;
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonLimparPecaActionPerformed
-
+    
     private void jButtonAdicionarAcabamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarAcabamentoActionPerformed
         JPanelEcoLeatherAcabamento r = new JPanelEcoLeatherAcabamento(_q, _material, _cor);
         r.addObserver(this);
@@ -524,15 +550,15 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = num_linhas_acabamento;
         jPanelAcabamentos.add(r, gridBagConstraints);
-
+        
         num_linhas_acabamento++;
-
+        
         this.addObserver(r);
         jPanelAcabamentos.repaint();
         jPanelAcabamentos.revalidate();
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonAdicionarAcabamentoActionPerformed
-
+    
     private void jButtonLimparAcabamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparAcabamentoActionPerformed
         jPanelAcabamentos.removeAll();
         jPanelAcabamentos.repaint();
@@ -541,7 +567,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         num_linhas_acabamento = 0;
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonLimparAcabamentoActionPerformed
-
+    
     private void jButtonAdicionarFuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarFuroActionPerformed
         JPanelPedraFuro f = new JPanelPedraFuro(_q, _material, _cor);
         f.addObserver(this);
@@ -551,15 +577,15 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = num_linhas_furos;
         jPanelFuros.add(f, gridBagConstraints);
-
+        
         num_linhas_furos++;
-
+        
         this.addObserver(f);
         jPanelFuros.repaint();
         jPanelFuros.revalidate();
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonAdicionarFuroActionPerformed
-
+    
     private void jButtonLimparFuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparFuroActionPerformed
         jPanelFuros.removeAll();
         jPanelFuros.repaint();
@@ -567,7 +593,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         jLabelFuroTotalValor.setText("0.0");
         num_linhas_furos = 0;
     }//GEN-LAST:event_jButtonLimparFuroActionPerformed
-
+    
     private void jButtonAdicionarRebaixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarRebaixoActionPerformed
         JPanelPedraRebaixo r = new JPanelPedraRebaixo(_q, _material, _cor);
         r.addObserver(this);
@@ -577,16 +603,16 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = num_linhas_rebaixos;
         jPanelRebaixos.add(r, gridBagConstraints);
-
+        
         num_linhas_rebaixos++;
-
+        
         this.addObserver(r);
         jPanelRebaixos.repaint();
         jPanelRebaixos.revalidate();
         notifyObservers(_material, getTotal());
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonAdicionarRebaixoActionPerformed
-
+    
     private void jButtonLimparRebaixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparRebaixoActionPerformed
         jPanelRebaixos.removeAll();
         jPanelRebaixos.repaint();
@@ -595,19 +621,20 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         num_linhas_rebaixos = 0;
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonLimparRebaixoActionPerformed
-
+    
     private void jButtonNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNotasActionPerformed
         ArrayList<String> notas = _q.queryNotas(_material);
-
+        
         String texto = StringHtml.html_list(notas, "Notas:");
-
+        
         JOptionPane.showMessageDialog(null, texto, "Notas", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonNotasActionPerformed
-
+    
     private void jButtonObservaçõesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObservaçõesActionPerformed
         ArrayList<String> obss = _q.queryObss(_material);
+        
         String texto = StringHtml.html_list_numeric(obss, "Observações:");
-
+        
         JOptionPane.showMessageDialog(null, texto, "Observações", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonObservaçõesActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -651,11 +678,11 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     private void materialSeleccionado() {
         String nome_material = jComboBoxMaterial.getSelectedItem().toString();
-
+        
         if (nome_material.equalsIgnoreCase("") || nome_material == null) {
             return;
         }
-
+        
         cores = _q.queryCores(nome_material);
         jComboBoxCor.removeAllItems();
         for (String s : cores) {
@@ -674,10 +701,10 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
             } catch (Exception e) {
             }
         }
-
+        
         jLabelPecaTotalValor.setText(df.format(d));
     }
-
+    
     public void actualizarTotalAcabamentos() {
         Double d = 0.0;
         for (Component c : jPanelAcabamentos.getComponents()) {
@@ -687,10 +714,10 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
             } catch (Exception e) {
             }
         }
-
+        
         jLabelAcabamentoTotalValor.setText(df.format(d));
     }
-
+    
     public void actualizarTotalFuros() {
         Double d = 0.0;
         for (Component c : jPanelFuros.getComponents()) {
@@ -700,10 +727,10 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
             } catch (Exception e) {
             }
         }
-
+        
         jLabelFuroTotalValor.setText(df.format(d));
     }
-
+    
     public void actualizarTotalRebaixos() {
         Double d = 0.0;
         for (Component c : jPanelRebaixos.getComponents()) {
@@ -713,7 +740,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
             } catch (Exception e) {
             }
         }
-
+        
         jLabelRebaixoTotalValor.setText(df.format(d));
     }
     // </editor-fold>
@@ -733,27 +760,27 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         }
         notifyObservers(_material, getTotal());
     }
-
+    
     @Override
     public void update(String material, String cor) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    
     @Override
     public void addObserver(Observer o) {
         observers.add(o);
     }
-
+    
     @Override
     public void removeObserver(Observer o) {
         observers.remove(o);
     }
-
+    
     @Override
     public void notifyObservers(String n) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
+    
     @Override
     public void notifyObservers(String material, String cor) {
         Iterator<Observer> it = observers.iterator();
@@ -762,7 +789,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
             observer.update(material, cor);
         }
     }
-
+    
     @Override
     public void notifyObservers(String n, Double d) {
         Iterator<Observer> it = observers.iterator();
@@ -771,7 +798,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
             observer.update(n, d);
         }
     }
-
+    
     @Override
     public void update(String n, Double v) {
         throw new UnsupportedOperationException("Not supported yet.");

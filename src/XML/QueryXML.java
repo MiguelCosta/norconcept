@@ -36,18 +36,32 @@ public class QueryXML {
     Document doc = null;
     String _tipo_material = "";
 
-    // <editor-fold defaultstate="collapsed" desc="Tipo QueryXML">
-    public QueryXML() throws ParserConfigurationException, SAXException, IOException {
-        factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        builder = factory.newDocumentBuilder();
-
-        /*URL para dentro do projecto, se ficar este não é preciso a query receber algum parametro */
-        String local_string = "/Info/DataBase2.xml";
-        URL local_url = this.getClass().getResource(local_string);
-        InputStream inputLocal = local_url.openStream();
-
-        doc = builder.parse(inputLocal);
+    // <editor-fold defaultstate="collapsed" desc="QueryXML">
+    public QueryXML() {
+        {
+            InputStream inputLocal = null;
+            try {
+                factory = DocumentBuilderFactory.newInstance();
+                factory.setNamespaceAware(true);
+                builder = factory.newDocumentBuilder();
+                String local_string = "/Info/DataBase.xml";
+                URL local_url = this.getClass().getResource(local_string);
+                inputLocal = local_url.openStream();
+                doc = builder.parse(inputLocal);
+            } catch (SAXException ex) {
+                Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (ParserConfigurationException ex) {
+               Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
+           } finally {
+                try {
+                    inputLocal.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }
 
     public QueryXML(URL xml) throws ParserConfigurationException, SAXException, IOException {
@@ -59,7 +73,7 @@ public class QueryXML {
         InputStream is = xml.openStream();
 
         /*URL para dentro do projecto, se ficar este não é preciso a query receber algum parametro */
-        String local_string = "/Info/DataBase2.xml";
+        String local_string = "/Info/DataBase.xml";
         URL local_url = this.getClass().getResource(local_string);
         InputStream inputLocal = local_url.openStream();
 

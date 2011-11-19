@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+    Document   : Linguas.xml
+    Created on : 19 de Novembro de 2011, 17:28
+    Author     : miguel
+    Description:
+        Purpose of the document follows.
+-->
+<linguas>
+    <lingua lingua="pt">
+        <!-- Main -->
+        <main>
+            <jLabelTipoMaterial>Escolha o tipo de material:</jLabelTipoMaterial>
+            <jLabelTipoMaterial_desc>Escolha na caixa ao lado o tipo de material que pretende.</jLabelTipoMaterial_desc>
+            <jLabelTotal_desc>Valor total do que foi escolhido.</jLabelTotal_desc>
+        </main>
+        
+
+    </lingua>
+</linguas>
