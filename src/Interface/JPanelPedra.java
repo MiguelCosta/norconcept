@@ -143,7 +143,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
         jButtonNotas = new javax.swing.JButton();
         jButtonObservações = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(168, 164, 230));
+        setBackground(new java.awt.Color(178, 178, 178));
         setAutoscrolls(true);
 
         jLabelMaterial.setFont(new java.awt.Font("Tahoma", 1, 11));

@@ -27,7 +27,7 @@ import mvc.Observer;
  * @author Miguel
  */
 public class JAppletMain extends javax.swing.JApplet implements Observer {
-    
+
     QueryXML _q;
     QueryXML_Lingua _l;
     DecimalFormat df = new DecimalFormat("#.##");
@@ -43,6 +43,13 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 //JOptionPane.showMessageDialog(rootPane, info.getName());
+                System.out.println(info.getName());
+
+                /*
+                Metal
+                Nimbus
+                CDE/Motif
+                GTK+*/
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
@@ -62,7 +69,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         /* Create and display the applet */
         try {
             java.awt.EventQueue.invokeAndWait(new Runnable() {
-                
+
                 @Override
                 public void run() {
                     initComponents();
@@ -77,7 +84,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         configs();
         jRadioButtonPT.setSelected(true);
     }
-    
+
     private void carregarBD() {
 
         //URL base = getDocumentBase();
@@ -89,9 +96,9 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         /*não está a ser usado o xmlBD*/
         _q = new QueryXML();
         _l = new QueryXML_Lingua();
-        
+
     }
-    
+
     private void configs() {
         String tm = _l.queryText("main", "jLabelTipoMaterial");
         String tm_desc = _l.queryText("main", "jLabelTipoMaterial_desc");
@@ -109,12 +116,12 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
     /*      PREENCHER COMBO BOX             */
     /****************************************/
     private void preencherTipoMateriais() {
-        
+
         jComboBoxTipoMaterial.removeAllItems();
         jComboBoxTipoMaterial.addItem("");
         try {
             ArrayList<String> tipo_materiais = _q.queryTipoMateriais();
-            
+
             for (String s : tipo_materiais) {
                 jComboBoxTipoMaterial.addItem(s);
                 System.out.println(s);
@@ -179,9 +186,9 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setBackground(new java.awt.Color(178, 178, 178));
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel3.setBackground(new java.awt.Color(249, 70, 5));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
@@ -211,7 +218,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
         jPanel3.add(jRadioButtonFR, gridBagConstraints);
 
-        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo2.jpg"))); // NOI18N
+        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo5.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -220,7 +227,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -283,7 +290,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTotalValor)
@@ -296,23 +303,23 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
     /*         MUDA O TIPO DE MATERIAL              */
     /****************************************/
     private void jComboBoxTipoMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxTipoMaterialItemStateChanged
-        
+
         String tipo_material = materialSeleccionado();
         _q.setTipoMaterial(tipo_material);
         jComboBoxTipoMaterial.setToolTipText(tipo_material);
-        
+
         if (tipo_material.equalsIgnoreCase("pedra") || tipo_material.equalsIgnoreCase("Mármores e Granitos")) {
             jLabelTotalValor.setText("0");
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-            
+
             JPanelPedra j = new JPanelPedra(_q, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-            
+
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -323,13 +330,13 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-            
+
             JPanelEcoLeather j = new JPanelEcoLeather(_q, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-            
+
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -341,19 +348,19 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
             JPanelNada j = new JPanelNada();
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
-            
+
         }
         jPanelTipoMaterial.revalidate();
-        
+
     }//GEN-LAST:event_jComboBoxTipoMaterialItemStateChanged
-    
+
     private void jRadioButtonPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPTActionPerformed
         jRadioButtonPT.setSelected(true);
         jRadioButtonFR.setSelected(false);
         _l.setLingua("pt");
         configs();
     }//GEN-LAST:event_jRadioButtonPTActionPerformed
-    
+
     private void jRadioButtonFRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonFRActionPerformed
         jRadioButtonPT.setSelected(false);
         jRadioButtonFR.setSelected(true);
@@ -385,15 +392,15 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         }
         return m;
     }
-    
+
     @Override
     public void update(String n) {
     }
-    
+
     @Override
     public void update(String material, String cor) {
     }
-    
+
     @Override
     public void update(String n, Double v) {
         jLabelTotalValor.setText(df.format(v).toString());

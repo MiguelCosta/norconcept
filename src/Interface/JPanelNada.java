@@ -29,8 +29,8 @@ public class JPanelNada extends javax.swing.JPanel {
     private void changeLabel() {
         String msg = "Escolha o material que pretende.";
         String tipText = "Terá de escolher o material que pretende na Combo box Respectiva!";
-        ImageIcon icon = createImageIcon("/Imagens/logo.jpg", "Logo");
-        jLabelInfo.setIcon(icon);
+        //ImageIcon icon = createImageIcon("/Imagens/logo5.png", "Logo");
+        //jLabelInfo.setIcon(icon);
         jLabelInfo.setText(msg);
         jLabelInfo.setHorizontalTextPosition(JLabel.CENTER);
         jLabelInfo.setVerticalTextPosition(JLabel.BOTTOM);
@@ -61,11 +61,11 @@ public class JPanelNada extends javax.swing.JPanel {
 
         jLabelInfo = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 102, 102));
+        setBackground(new java.awt.Color(84, 87, 90));
         setLayout(new java.awt.GridBagLayout());
 
         jLabelInfo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabelInfo.setForeground(new java.awt.Color(55, 59, 227));
+        jLabelInfo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelInfo.setText("info");
         gridBagConstraints = new java.awt.GridBagConstraints();
