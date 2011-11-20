@@ -13,11 +13,14 @@ package Interface;
 import Config.StringHtml;
 import XML.QueryXML;
 import XML.QueryXML_Lingua;
+import java.awt.Image;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BoxLayout;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.xml.xpath.XPathExpressionException;
 import mvc.Observer;
@@ -31,6 +34,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
     QueryXML _q;
     QueryXML_Lingua _l;
     DecimalFormat df = new DecimalFormat("#.##");
+    Double _valor = 0.0;
 
     /** Initializes the applet JAppletMain */
     @Override
@@ -103,13 +107,16 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         String tm = _l.queryText("main", "jLabelTipoMaterial");
         String tm_desc = _l.queryText("main", "jLabelTipoMaterial_desc");
         String v = _l.queryText("main", "jLabelTotal_desc");
-
-        //System.out.println(tm + "\n" + tm_desc + "\n" + v);
+        //String i_pt = "<html><img src=\""+Image.class.getResource("/Imagens/pt.png")+"\" alt=\"pt\"</html>";
+        //String i_fr = "<html><img src=\""+Image.class.getResource("/Imagens/fr.png")+"\" alt=\"pt\"</html>";
 
         jLabelTipoMaterial.setText(tm);
         jLabelTipoMaterial.setToolTipText(StringHtml.html_toolTipText(tm_desc));
         jLabelTotal.setToolTipText(StringHtml.html_toolTipText(v));
         jLabelTotalValor.setToolTipText(StringHtml.html_toolTipText(v));
+
+        //jRadioButtonPT.setText(i_pt);
+        //jRadioButtonFR.setText(i_fr);
     }
 
     /****************************************/
@@ -148,15 +155,22 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         jPanel3 = new javax.swing.JPanel();
         jRadioButtonPT = new javax.swing.JRadioButton();
         jRadioButtonFR = new javax.swing.JRadioButton();
+        jLabelPT_img = new javax.swing.JLabel();
+        jLabelFR_img = new javax.swing.JLabel();
         jLabelLogo = new javax.swing.JLabel();
         jLabelTotalValor = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanelTipoMaterial = new javax.swing.JPanel();
         jLabelTotal = new javax.swing.JLabel();
+        jLabelTotalComIVA = new javax.swing.JLabel();
+        jLabelTotalValorComIVA = new javax.swing.JLabel();
+        jComboBoxIVA = new javax.swing.JComboBox();
+        jLabelIVA = new javax.swing.JLabel();
+        jLabelValorIVA = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabelTipoMaterial.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelTipoMaterial.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabelTipoMaterial.setText("Escolha o tipo de material:");
 
         jComboBoxTipoMaterial.addItemListener(new java.awt.event.ItemListener() {
@@ -188,11 +202,10 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
 
         jPanel2.setBackground(new java.awt.Color(178, 178, 178));
 
-        jPanel3.setBackground(new java.awt.Color(249, 70, 5));
+        jPanel3.setBackground(new java.awt.Color(178, 178, 178));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        jRadioButtonPT.setText("Português");
         jRadioButtonPT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonPTActionPerformed(evt);
@@ -201,22 +214,31 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         jPanel3.add(jRadioButtonPT, gridBagConstraints);
 
-        jRadioButtonFR.setText("Français");
         jRadioButtonFR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonFRActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 10, 10);
         jPanel3.add(jRadioButtonFR, gridBagConstraints);
+
+        jLabelPT_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pt.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        jPanel3.add(jLabelPT_img, gridBagConstraints);
+
+        jLabelFR_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fr.png"))); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 0;
+        jPanel3.add(jLabelFR_img, gridBagConstraints);
 
         jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo5.png"))); // NOI18N
 
@@ -227,17 +249,17 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelLogo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                    .addComponent(jLabelLogo, javax.swing.GroupLayout.Alignment.LEADING))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -246,6 +268,8 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         jLabelTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelTotalValor.setText("€");
 
+        jScrollPane1.setBackground(new java.awt.Color(249, 70, 5));
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setMaximumSize(new java.awt.Dimension(665, 353));
 
         jPanelTipoMaterial.setBackground(new java.awt.Color(208, 192, 190));
@@ -264,7 +288,26 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
 
         jScrollPane1.setViewportView(jPanelTipoMaterial);
 
-        jLabelTotal.setText("TOTAL");
+        jLabelTotal.setText("TOTAL (s/ IVA)");
+
+        jLabelTotalComIVA.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        jLabelTotalComIVA.setText("TOTAL (c/ IVA)");
+
+        jLabelTotalValorComIVA.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        jLabelTotalValorComIVA.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelTotalValorComIVA.setText("€");
+
+        jComboBoxIVA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23 %", "19.6 %", "5.5 %" }));
+        jComboBoxIVA.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxIVAItemStateChanged(evt);
+            }
+        });
+
+        jLabelIVA.setText("IVA:");
+
+        jLabelValorIVA.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelValorIVA.setText("€");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -277,9 +320,19 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelTotalComIVA)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelTotalValorComIVA, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelTotal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelIVA)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxIVA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelValorIVA, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -290,12 +343,20 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTotalValor)
                     .addComponent(jLabelTotal))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelValorIVA)
+                    .addComponent(jComboBoxIVA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelIVA))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelTotalValorComIVA)
+                    .addComponent(jLabelTotalComIVA)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -309,7 +370,8 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         jComboBoxTipoMaterial.setToolTipText(tipo_material);
 
         if (tipo_material.equalsIgnoreCase("pedra") || tipo_material.equalsIgnoreCase("Mármores e Granitos")) {
-            jLabelTotalValor.setText("0");
+            _valor = 0.0;
+            actualizarPrecos();
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
@@ -326,7 +388,8 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
 
             //JOptionPane.showMessageDialog(rootPane, "Tipo Material entrou: " + tipo_material);
         } else if (tipo_material.equalsIgnoreCase("Lambrim e Balcão")) {
-            jLabelTotalValor.setText("0");
+            _valor = 0.0;
+            actualizarPrecos();
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
@@ -367,12 +430,23 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         _l.setLingua("fr");
         configs();
     }//GEN-LAST:event_jRadioButtonFRActionPerformed
+
+    private void jComboBoxIVAItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxIVAItemStateChanged
+        actualizarPrecos();
+    }//GEN-LAST:event_jComboBoxIVAItemStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox jComboBoxIVA;
     private javax.swing.JComboBox jComboBoxTipoMaterial;
+    private javax.swing.JLabel jLabelFR_img;
+    private javax.swing.JLabel jLabelIVA;
     private javax.swing.JLabel jLabelLogo;
+    private javax.swing.JLabel jLabelPT_img;
     private javax.swing.JLabel jLabelTipoMaterial;
     private javax.swing.JLabel jLabelTotal;
+    private javax.swing.JLabel jLabelTotalComIVA;
     private javax.swing.JLabel jLabelTotalValor;
+    private javax.swing.JLabel jLabelTotalValorComIVA;
+    private javax.swing.JLabel jLabelValorIVA;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -393,6 +467,24 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         return m;
     }
 
+    public void actualizarPrecos() {
+        jLabelTotalValor.setText(df.format(_valor).toString() + " €");
+        String i = jComboBoxIVA.getSelectedItem().toString();
+        Double iva = 0.23;
+        if (i.equalsIgnoreCase("23 %")) {
+            iva = 0.23;
+        } else if (i.equalsIgnoreCase("19.6 %")) {
+            iva = 0.196;
+        } else if (i.equalsIgnoreCase("5.5 %")) {
+            iva = 0.05;
+        }
+
+        Double iva_valor = _valor * iva;
+        Double preco = _valor + iva_valor;
+        jLabelValorIVA.setText(df.format(iva_valor).toString() + " €");
+        jLabelTotalValorComIVA.setText(df.format(preco).toString() + " €");
+    }
+
     @Override
     public void update(String n) {
     }
@@ -403,6 +495,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
 
     @Override
     public void update(String n, Double v) {
-        jLabelTotalValor.setText(df.format(v).toString());
+        _valor = v;
+        actualizarPrecos();
     }
 }
