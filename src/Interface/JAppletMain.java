@@ -13,14 +13,11 @@ package Interface;
 import Config.StringHtml;
 import XML.QueryXML;
 import XML.QueryXML_Lingua;
-import java.awt.Image;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BoxLayout;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.xml.xpath.XPathExpressionException;
 import mvc.Observer;
@@ -46,9 +43,6 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                //JOptionPane.showMessageDialog(rootPane, info.getName());
-                System.out.println(info.getName());
-
                 /*
                 Metal
                 Nimbus
