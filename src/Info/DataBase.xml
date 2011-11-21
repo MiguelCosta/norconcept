@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="ISO-8859-15"?>
 
 <!--
     Document   : DataBase.xml
@@ -153,8 +153,8 @@
                 </colocacoes>
 
                 <notas>
-                    <nota> efectuar meia esquadria e colagem 40.00 euros/m</nota>
-                    <nota>polimento na contra-face (2F) 10.00 euros/m2</nota>
+                    <nota> efectuar meia esquadria e colagem 40.00 ¤/m</nota>
+                    <nota>polimento na contra-face (2F) 10.00 ¤/m2</nota>
                     <nota>rodamão pode ter entre 4 e 10cm de altura</nota>
                     <nota> para balcões/ lambrins que excedam os 70cm de largura, acrescente 30% ao preço mencionado</nota>
                 </notas>
@@ -340,8 +340,8 @@
                 </colocacoes>
 
                 <notas>
-                    <nota>efectuar meia esquadria e colagem 40.00 euros/m</nota>
-                    <nota>polimento na contra-face (2F) 10.00 euros/m2</nota>
+                    <nota>efectuar meia esquadria e colagem 40.00 ¤/m</nota>
+                    <nota>polimento na contra-face (2F) 10.00 ¤/m2</nota>
                     <nota>rodamão pode ter entre 4 e 10cm de altura</nota>
                     <nota> para balcões/ lambrins que excedam os 70cm de largura, acrescente 30% ao preço acima mencionado</nota>
                 </notas>
@@ -887,8 +887,8 @@
                 </colocacoes>
 
                 <notas>
-                    <nota>efectuar meia esquadria e colagem 40.00 euros/m</nota>
-                    <nota>amaciar (atenção não fica com o mesmo acabamento do leather e do volcano) na contra-face (2F) 15.00 euros/m2</nota>
+                    <nota>efectuar meia esquadria e colagem 40.00 ¤/m</nota>
+                    <nota>amaciar (atenção não fica com o mesmo acabamento do leather e do volcano) na contra-face (2F) 15.00 ¤/m2</nota>
                     <nota>rodamão pode ter entre 4 e 10cm de altura</nota>
                     <nota> para balcões/ lambrins que excedam os 67cm de largura, acrescente 40% ao preço mencionado </nota>
                 </notas>
