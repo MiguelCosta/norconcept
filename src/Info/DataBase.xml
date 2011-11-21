@@ -360,9 +360,9 @@
 
         </tipo_material>
         
-        <tipo_material tipo="Lambrim e Balcão">
+        <tipo_material tipo="Silestone ECO Leather e Volcano">
             <material>
-                <tipo_material_nome>Silestone ECO Leather e Volcano</tipo_material_nome>
+                <tipo_material_nome>Lambrim e Balcão</tipo_material_nome>
                 <espessuras>
                     <espessura unidade="cm" valor_espessura="1.2"/>
                     <espessura unidade="cm" valor_espessura="2"/>

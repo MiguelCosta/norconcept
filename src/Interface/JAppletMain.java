@@ -381,7 +381,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
             jPanelTipoMaterial.revalidate();
 
             //JOptionPane.showMessageDialog(rootPane, "Tipo Material entrou: " + tipo_material);
-        } else if (tipo_material.equalsIgnoreCase("Lambrim e Balcão")) {
+        } else if (tipo_material.equalsIgnoreCase("Silestone ECO Leather e Volcano")) {
             _valor = 0.0;
             actualizarPrecos();
             if (jPanelTipoMaterial.getComponents().length > 0) {
