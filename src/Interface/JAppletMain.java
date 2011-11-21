@@ -408,6 +408,8 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
 
         }
         jPanelTipoMaterial.revalidate();
+        jPanelTipoMaterial.repaint();
+        this.repaint();
 
     }//GEN-LAST:event_jComboBoxTipoMaterialItemStateChanged
 

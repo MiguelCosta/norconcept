@@ -496,6 +496,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     this.notifyObservers(_material, _cor);
     this.repaint();
     this.revalidate();
+    this.repaint();
 }//GEN-LAST:event_jComboBoxMaterialItemStateChanged
     
     private void jButtonAdicionarPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarPecaActionPerformed
@@ -515,6 +516,8 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         jPanelPecas.repaint();
         jPanelPecas.revalidate();
         notifyObservers(_material, getTotal());
+        this.repaint();
+        jPanelPecas.repaint();
     }//GEN-LAST:event_jButtonAdicionarPecaActionPerformed
     
     private void jComboBoxCorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCorItemStateChanged
@@ -529,6 +532,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         this.notifyObservers(_material, _cor);
         this.repaint();
         this.revalidate();
+        this.repaint();
         //JOptionPane.showMessageDialog(this, "FIM" + _material + _cor);
     }//GEN-LAST:event_jComboBoxCorItemStateChanged
     
