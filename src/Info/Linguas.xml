@@ -13,8 +13,27 @@
         <main>
             <jLabelTipoMaterial>Escolha o tipo de material:</jLabelTipoMaterial>
             <jLabelTipoMaterial_desc>Escolha na caixa ao lado o tipo de material que pretende.</jLabelTipoMaterial_desc>
-            <jLabelTotal_desc>Valor total do que foi escolhido.</jLabelTotal_desc>
+            <jLabelTotal_desc_semIVA>Valor total do que foi escolhido (sem IVA).</jLabelTotal_desc_semIVA>
+            <jLabelTotal_desc_comIVA>Valor total do que foi escolhido (IVA incluído).</jLabelTotal_desc_comIVA>
+            <jLabelTotal_desc_IVA>Valor total do IVA.</jLabelTotal_desc_IVA>
         </main>
+        <!-- Panel Nada -->
+        <nada>
+            <jLabelInfo>Escolha o tipo de material que pretende.</jLabelInfo>
+            <jLabelInfo_desc>Escolha o tipo de material que pretende na caixa acima.</jLabelInfo_desc>
+        </nada>
+        <!-- Panel Pedra -->
+        <pedra>
+            <jLabelMaterial>Escolha o material:</jLabelMaterial>
+            <jLabelMaterial_desc>Escolha o material pretendido na caixa ao lado.</jLabelMaterial_desc>
+            <jLabelCor>Escolha a cor:</jLabelCor>
+            <jLabelCor_desc>Escolha a cor que pretende na caixa ao lado.</jLabelCor_desc>
+            <jLabelEspessuraPreco>Vários preços para a cor do material.</jLabelEspessuraPreco>
+            <jButtonNotas>Notas</jButtonNotas>
+            <jButtonNotas_desc>Notas sobre os produtos.</jButtonNotas_desc>
+            <jButtonObservacoes>Observações</jButtonObservacoes>
+            <jButtonObservacoes_desc>Observações sobre as condições de venda.</jButtonObservacoes_desc>
+        </pedra>
     </lingua>
     
     <lingua lingua="fr">
@@ -22,7 +41,26 @@
         <main>
             <jLabelTipoMaterial>Choisissez le type de matériau:</jLabelTipoMaterial>
             <jLabelTipoMaterial_desc>Sélectionnez la case à côté du type de matériel que vous voulez.</jLabelTipoMaterial_desc>
-            <jLabelTotal_desc>La valeur totale de ce qui a été choisi.</jLabelTotal_desc>
+            <jLabelTotal_desc_semIVA>La valeur totale de ce qui a été choisi (hors TVA).</jLabelTotal_desc_semIVA>
+            <jLabelTotal_desc_comIVA>La valeur totale de ce qui a été choisi (TVA incluse).</jLabelTotal_desc_comIVA>
+            <jLabelTotal_desc_IVA>Montant total de la TVA.</jLabelTotal_desc_IVA>
         </main>
+        <!-- Panel Nada -->
+        <nada>
+            <jLabelInfo>Choisissez le type de matériel que vous voulez.</jLabelInfo>
+            <jLabelInfo_desc>Vous avez à choisir le matériel que vous voulez dans Combobox respectivement!</jLabelInfo_desc>
+        </nada>
+        <!-- Panel Pedra -->
+        <pedra>
+            <jLabelMaterial>Choisissez le matériau:</jLabelMaterial>
+            <jLabelMaterial_desc>Choisissez le matériel que vous voulez dans la liste déroulante.</jLabelMaterial_desc>
+            <jLabelCor>Choisissez une couleur:</jLabelCor>
+            <jLabelCor_desc>Choisissez la couleur que vous voulez dans la liste déroulante.</jLabelCor_desc>
+            <jLabelEspessuraPreco>Différents prix pour la couleur du matériau.</jLabelEspessuraPreco>
+            <jButtonNotas>Notes</jButtonNotas>
+            <jButtonNotas_desc>Notes sur les produits.</jButtonNotas_desc>
+            <jButtonObservacoes>Remarques</jButtonObservacoes>
+            <jButtonObservacoes_desc>Commentaires sur les conditions de vente.</jButtonObservacoes_desc>
+        </pedra>
     </lingua>
 </linguas>

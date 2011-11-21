@@ -10,31 +10,36 @@
  */
 package Interface;
 
+import Config.StringHtml;
+import XML.QueryXML_Lingua;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import mvc.Observer;
 
 /**
  *
  * @author miguel
  */
-public class JPanelNada extends javax.swing.JPanel {
+public class JPanelNada extends javax.swing.JPanel implements Observer {
+
+    QueryXML_Lingua _l;
 
     /** Creates new form JPanelNada */
-    public JPanelNada() {
+    public JPanelNada(QueryXML_Lingua l) {
         initComponents();
+        _l = l;
         //JOptionPane.showMessageDialog(jButton1, "ola");
         changeLabel();
     }
 
     private void changeLabel() {
-        String msg = "Escolha o material que pretende.";
-        String tipText = "Terá de escolher o material que pretende na Combo box Respectiva!";
-        //ImageIcon icon = createImageIcon("/Imagens/logo5.png", "Logo");
-        //jLabelInfo.setIcon(icon);
-        jLabelInfo.setText(msg);
+        String i = _l.queryText("nada", "jLabelInfo");
+        String i_desc = _l.queryText("nada", "jLabelInfo_desc");
+
+        jLabelInfo.setText(i);
+        jLabelInfo.setToolTipText(StringHtml.html_toolTipText(i_desc));
         jLabelInfo.setHorizontalTextPosition(JLabel.CENTER);
         jLabelInfo.setVerticalTextPosition(JLabel.BOTTOM);
-        jLabelInfo.setToolTipText(tipText);
     }
 
     /** Returns an ImageIcon, or null if the path was invalid. */
@@ -78,4 +83,19 @@ public class JPanelNada extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelInfo;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void update(String n) {
+        if (n.equalsIgnoreCase("lng")) {
+            changeLabel();
+        }
+    }
+
+    @Override
+    public void update(String n, Double v) {
+    }
+
+    @Override
+    public void update(String material, String cor) {
+    }
 }

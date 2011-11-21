@@ -78,7 +78,7 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
         jLabelCor.setToolTipText(cor);
         jLabelEspessuraPreco.setToolTipText(espessura);
         jButtonNotas.setToolTipText(notas);
-        jButtonObservações.setToolTipText(obss);
+        jButtonObservacoes.setToolTipText(obss);
         
         jButtonAdicionarPeca.setToolTipText(adicionarPeca);
         jButtonAdicionarAcabamento.setToolTipText(adicionarAcabamento);
@@ -178,7 +178,7 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
         jLabelRebaixoTotalValor = new javax.swing.JLabel();
         jLabelRebaixoTotal = new javax.swing.JLabel();
         jButtonNotas = new javax.swing.JButton();
-        jButtonObservações = new javax.swing.JButton();
+        jButtonObservacoes = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(168, 164, 230));
         setAutoscrolls(true);
@@ -267,7 +267,7 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
         jLabelAcabamentoTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelAcabamentoTotalValor.setText("0.0");
 
-        jLabelAcabamentoTotal.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabelAcabamentoTotal.setFont(new java.awt.Font("Ubuntu", 1, 12));
         jLabelAcabamentoTotal.setText("TOTAL (€)");
 
         javax.swing.GroupLayout jPanelAcabamentoOpLayout = new javax.swing.GroupLayout(jPanelAcabamentoOp);
@@ -415,10 +415,10 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
             }
         });
 
-        jButtonObservações.setText("Observações");
-        jButtonObservações.addActionListener(new java.awt.event.ActionListener() {
+        jButtonObservacoes.setText("Observações");
+        jButtonObservacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonObservaçõesActionPerformed(evt);
+                jButtonObservacoesActionPerformed(evt);
             }
         });
 
@@ -449,7 +449,7 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonNotas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonObservações)))
+                        .addComponent(jButtonObservacoes)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -467,7 +467,7 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
                 .addComponent(jLabelEspessuraPreco)
                 .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonObservações)
+                    .addComponent(jButtonObservacoes)
                     .addComponent(jButtonNotas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jScrollPanePecas, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -634,13 +634,13 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         JOptionPane.showMessageDialog(null, texto, "Notas", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonNotasActionPerformed
     
-    private void jButtonObservaçõesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObservaçõesActionPerformed
+    private void jButtonObservacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObservacoesActionPerformed
         ArrayList<String> obss = _q.queryObss(_material);
         
         String texto = StringHtml.html_list_numeric(obss, "Observações:");
         
         JOptionPane.showMessageDialog(null, texto, "Observações", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_jButtonObservaçõesActionPerformed
+    }//GEN-LAST:event_jButtonObservacoesActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdicionarAcabamento;
     private javax.swing.JButton jButtonAdicionarFuro;
@@ -651,7 +651,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     private javax.swing.JButton jButtonLimparPeca;
     private javax.swing.JButton jButtonLimparRebaixo;
     private javax.swing.JButton jButtonNotas;
-    private javax.swing.JButton jButtonObservações;
+    private javax.swing.JButton jButtonObservacoes;
     private javax.swing.JComboBox jComboBoxCor;
     private javax.swing.JComboBox jComboBoxMaterial;
     private javax.swing.JLabel jLabelAcabamentoTotal;

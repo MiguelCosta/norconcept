@@ -28,10 +28,10 @@
                   <Component id="jLabelEspessuraPreco" alignment="1" pref="613" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelMaterial" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelCor" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCor" pref="367" max="32767" attributes="0"/>
+                          <Component id="jLabelMaterial" alignment="1" pref="367" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="256" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jComboBoxMaterial" alignment="0" max="32767" attributes="1"/>
                           <Component id="jComboBoxCor" alignment="0" pref="234" max="32767" attributes="1"/>
@@ -60,13 +60,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelMaterial" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBoxMaterial" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelMaterial" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jComboBoxCor" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelCor" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxCor" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelCor" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelEspessuraPreco" min="-2" max="-2" attributes="0"/>

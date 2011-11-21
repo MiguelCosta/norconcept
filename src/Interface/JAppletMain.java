@@ -15,23 +15,26 @@ import XML.QueryXML;
 import XML.QueryXML_Lingua;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
 import javax.xml.xpath.XPathExpressionException;
 import mvc.Observer;
+import mvc.Subject;
 
 /**
  *
  * @author Miguel
  */
-public class JAppletMain extends javax.swing.JApplet implements Observer {
+public class JAppletMain extends javax.swing.JApplet implements Observer, Subject {
 
     QueryXML _q;
     QueryXML_Lingua _l;
     DecimalFormat df = new DecimalFormat("#.##");
     Double _valor = 0.0;
+    private ArrayList<Observer> observers = new ArrayList<Observer>();
 
     /** Initializes the applet JAppletMain */
     @Override
@@ -79,7 +82,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         // meu código
         carregarBD();
         preencherTipoMateriais();
-        configs();
+        configs_lng();
         jRadioButtonPT.setSelected(true);
     }
 
@@ -97,21 +100,24 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
 
     }
 
-    private void configs() {
+    // <editor-fold defaultstate="collapsed" desc="Lingua">   
+    private void configs_lng() {
         String tm = _l.queryText("main", "jLabelTipoMaterial");
         String tm_desc = _l.queryText("main", "jLabelTipoMaterial_desc");
-        String v = _l.queryText("main", "jLabelTotal_desc");
-        //String i_pt = "<html><img src=\""+Image.class.getResource("/Imagens/pt.png")+"\" alt=\"pt\"</html>";
-        //String i_fr = "<html><img src=\""+Image.class.getResource("/Imagens/fr.png")+"\" alt=\"pt\"</html>";
+        String v_s_iva = _l.queryText("main", "jLabelTotal_desc_semIVA");
+        String v_c_iva = _l.queryText("main", "jLabelTotal_desc_comIVA");
+        String iva = _l.queryText("main", "jLabelTotal_desc_IVA");
 
         jLabelTipoMaterial.setText(tm);
         jLabelTipoMaterial.setToolTipText(StringHtml.html_toolTipText(tm_desc));
-        jLabelTotal.setToolTipText(StringHtml.html_toolTipText(v));
-        jLabelTotalValor.setToolTipText(StringHtml.html_toolTipText(v));
+        jLabelTotal.setToolTipText(StringHtml.html_toolTipText(v_s_iva));
+        jLabelTotalValor.setToolTipText(StringHtml.html_toolTipText(v_s_iva));
+        jLabelTotalComIVA.setToolTipText(StringHtml.html_toolTipText(v_c_iva));
+        jLabelTotalValorComIVA.setToolTipText(StringHtml.html_toolTipText(v_c_iva));
+        jLabelValorIVA.setToolTipText(StringHtml.html_toolTipText(iva));
 
-        //jRadioButtonPT.setText(i_pt);
-        //jRadioButtonFR.setText(i_fr);
     }
+    // </editor-fold>  
 
     /****************************************/
     /*      PREENCHER COMBO BOX             */
@@ -370,7 +376,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
                 jPanelTipoMaterial.removeAll();
             }
 
-            JPanelPedra j = new JPanelPedra(_q, tipo_material);
+            JPanelPedra j = new JPanelPedra(_q, _l, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
@@ -379,6 +385,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
+            addObserver(j);
 
             //JOptionPane.showMessageDialog(rootPane, "Tipo Material entrou: " + tipo_material);
         } else if (tipo_material.equalsIgnoreCase("Silestone ECO Leather e Volcano")) {
@@ -402,9 +409,10 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-            JPanelNada j = new JPanelNada();
+            JPanelNada j = new JPanelNada(_l);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
+            observers.add(j);
 
         }
         jPanelTipoMaterial.revalidate();
@@ -417,14 +425,16 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
         jRadioButtonPT.setSelected(true);
         jRadioButtonFR.setSelected(false);
         _l.setLingua("pt");
-        configs();
+        configs_lng();
+        notifyObservers("lng");
     }//GEN-LAST:event_jRadioButtonPTActionPerformed
 
     private void jRadioButtonFRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonFRActionPerformed
         jRadioButtonPT.setSelected(false);
         jRadioButtonFR.setSelected(true);
         _l.setLingua("fr");
-        configs();
+        configs_lng();
+        notifyObservers("lng");
     }//GEN-LAST:event_jRadioButtonFRActionPerformed
 
     private void jComboBoxIVAItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxIVAItemStateChanged
@@ -493,5 +503,42 @@ public class JAppletMain extends javax.swing.JApplet implements Observer {
     public void update(String n, Double v) {
         _valor = v;
         actualizarPrecos();
+    }
+
+    @Override
+    public void addObserver(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void removeObserver(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyObservers(String n) {
+        Iterator<Observer> it = observers.iterator();
+        while (it.hasNext()) {
+            Observer observer = it.next();
+            observer.update("lng");
+        }
+    }
+
+    @Override
+    public void notifyObservers(String material, String cor) {
+        Iterator<Observer> it = observers.iterator();
+        while (it.hasNext()) {
+            Observer observer = it.next();
+            observer.update(material, cor);
+        }
+    }
+
+    @Override
+    public void notifyObservers(String n, Double d) {
+        Iterator<Observer> it = observers.iterator();
+        while (it.hasNext()) {
+            Observer observer = it.next();
+            observer.update(n, d);
+        }
     }
 }

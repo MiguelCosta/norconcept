@@ -10,7 +10,9 @@
  */
 package Interface;
 
+import Config.StringHtml;
 import XML.QueryXML;
+import XML.QueryXML_Lingua;
 import java.awt.Component;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ import mvc.Subject;
 public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject {
 
     private QueryXML _q;
+    private QueryXML_Lingua _l;
     private ArrayList<String> cores;
     private int num_linhas_peca = 0;
     private int num_linhas_rodape = 0;
@@ -42,21 +45,43 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
     private String _tipo_material = "";
 
     /** Creates new form JPanelPedra */
-    public JPanelPedra(QueryXML q, String tipo_material) {
+    public JPanelPedra(QueryXML q, QueryXML_Lingua l, String tipo_material) {
         initComponents();
 
         _q = q;
+        _l = l;
         _tipo_material = tipo_material;
-        configs();
+        configs_lng();
         preencherMateriais();
     }
 
-    private void configs() {
+    private void configs_lng() {
+
+        String material = _l.queryText("pedra", "jLabelMaterial");
+        String material_desc = _l.queryText("pedra", "jLabelMaterial_desc");
+        String cor = _l.queryText("pedra", "jLabelCor");
+        String cor_desc = _l.queryText("pedra", "jLabelCor_desc");
+        String preco = _l.queryText("pedra", "jLabelEspessuraPreco");
+        String notas = _l.queryText("pedra", "jButtonNotas");
+        String notas_desc = _l.queryText("pedra", "jButtonNotas_desc");
+        String observacoes = _l.queryText("pedra", "jButtonObservacoes");
+        String observacoes_desc = _l.queryText("pedra", "jButtonObservacoes_desc");
+
+        jLabelMaterial.setText(material);
+        jLabelMaterial.setToolTipText(StringHtml.html_toolTipText(material_desc));
+        jLabelCor.setText(cor);
+        jLabelCor.setToolTipText(StringHtml.html_toolTipText(cor_desc));
+        jLabelEspessuraPreco.setToolTipText(StringHtml.html_toolTipText(preco));
+        jButtonNotas.setText(notas);
+        jButtonNotas.setToolTipText(StringHtml.html_toolTipText(notas_desc));
+        jButtonObservações.setText(observacoes);
+        jButtonObservações.setToolTipText(StringHtml.html_toolTipText(observacoes_desc));
+        /*
         jButtonAdicionarPeca.setToolTipText("Adicionar uma nova linha.");
         jButtonLimparPeca.setToolTipText("Limpar todas as linhas.");
         jLabelEspessuraPreco.setToolTipText("Vários preços para a cor do material");
         jLabelMaterial.setToolTipText("Escolha o material pretendido na caixa ao lado.");
-        jLabelCor.setToolTipText("Escolha a cor que pretende na caixa ao lado.");
+        jLabelCor.setToolTipText("Escolha a cor que pretende na caixa ao lado.");*/
     }
 
     private void preencherMateriais() {
@@ -64,16 +89,16 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
             jComboBoxMaterial.removeAllItems();
             //jComboBoxMaterial.addItem("");
             ArrayList<String> materiais = _q.queryMateriais(_tipo_material);
-            
+
             for (String s : materiais) {
                 jComboBoxMaterial.addItem(s);
             }
-            
+
         } catch (XPathExpressionException ex) {
             Logger.getLogger(JPanelPedra.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="getTotal">
     public Double getTotal() {
         Double valor = 0.0;
@@ -90,7 +115,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
             valor += Double.parseDouble(pecas);
             valor += Double.parseDouble(rodapes);
             valor += Double.parseDouble(rebaixos);
-            
+
         } catch (Exception e) {
         }
 
@@ -146,7 +171,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
         setBackground(new java.awt.Color(178, 178, 178));
         setAutoscrolls(true);
 
-        jLabelMaterial.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jLabelMaterial.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelMaterial.setText("Escolha o material:");
 
         jComboBoxMaterial.addItemListener(new java.awt.event.ItemListener() {
@@ -155,7 +180,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
             }
         });
 
-        jLabelCor.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jLabelCor.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelCor.setText("Escolha a cor:");
 
         jComboBoxCor.addItemListener(new java.awt.event.ItemListener() {
@@ -395,9 +420,9 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
                     .addComponent(jLabelEspessuraPreco, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelMaterial)
-                            .addComponent(jLabelCor))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
+                            .addComponent(jLabelCor, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+                            .addComponent(jLabelMaterial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jComboBoxMaterial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBoxCor, 0, 234, Short.MAX_VALUE)))
@@ -420,8 +445,8 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelMaterial)
-                    .addComponent(jComboBoxMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelMaterial))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBoxCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -600,7 +625,6 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         JOptionPane.showMessageDialog(null, texto, "Notas", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonNotasActionPerformed
 
-    
     private void jButtonObservaçõesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObservaçõesActionPerformed
         ArrayList<String> obss = _q.queryObss(_material);
         String texto = "<html><table width=\"600\"><tr><td><ol>";
@@ -649,8 +673,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     private javax.swing.JScrollPane jScrollPaneRodapes;
     // End of variables declaration//GEN-END:variables
     // </editor-fold>
-    
-    
+
     private void materialSeleccionado() {
         String nome_material = jComboBoxMaterial.getSelectedItem().toString();
 
@@ -723,6 +746,9 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     // <editor-fold defaultstate="collapsed" desc="Notify Observer">
     @Override
     public void update(String enviou) {
+        if (enviou.equalsIgnoreCase("lng")) {
+            configs_lng();
+        }
         if (enviou.equalsIgnoreCase("peca")) {
             actualizarTotalPecas();
             //JOptionPane.showMessageDialog(jLabelCor, "peca");
@@ -738,7 +764,6 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     @Override
     public void update(String material, String cor) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
@@ -753,7 +778,6 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     @Override
     public void notifyObservers(String n) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
@@ -776,7 +800,6 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     @Override
     public void update(String n, Double v) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
     // </editor-fold>
 }
