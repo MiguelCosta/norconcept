@@ -57,6 +57,14 @@
             <jLabelEspessura_desc>Espessura em cm</jLabelEspessura_desc>
             <jLabelTOTAL_desc>Valor total da peça.</jLabelTOTAL_desc>
         </pedraPeca>
+        <pedraRodape>
+            <jLabelCor>Cor:</jLabelCor>
+            <jLabelComprimento>Comp.(cm):</jLabelComprimento>
+            <jLabelTOTAL>TOTAL (¤):</jLabelTOTAL>
+            <jLabelCor_desc>Selecione a cor.</jLabelCor_desc>
+            <jLabelComprimento_desc>Indique o comprimento que pretende.</jLabelComprimento_desc>
+            <jLabelTOTAL_desc>Valor total do rodapé.</jLabelTOTAL_desc>
+        </pedraRodape>
     </lingua>
     
     <lingua lingua="fr">
@@ -89,8 +97,8 @@
             <jButtonLimpar>Nettoyer</jButtonLimpar>
             <jButtonLimpar_desc>Effacer toutes les lignes.</jButtonLimpar_desc>
             <jLabelTotal>TOTALE (¤)</jLabelTotal>
-            <jScrollPanePecas>Pièces</jScrollPanePecas>
-            <jLabelPecaTotal_desc>La valeur totale des pièces.</jLabelPecaTotal_desc>
+            <jScrollPanePecas>Plans</jScrollPanePecas>
+            <jLabelPecaTotal_desc>La valeur totale des plans.</jLabelPecaTotal_desc>
             <jScrollPaneRodapes>Pieds de page</jScrollPaneRodapes>
             <jLabelRodapeTotal>La valeur totale des pieds de page.</jLabelRodapeTotal>
             <jScrollPaneFuros>Perçage</jScrollPaneFuros>
@@ -108,5 +116,13 @@
             <jLabelEspessura_desc>cm d'épaisseur</jLabelEspessura_desc>
             <jLabelTOTAL_desc>valeur totale de la pièce</jLabelTOTAL_desc>
         </pedraPeca>
+        <pedraRodape>
+            <jLabelCor>Coloris:</jLabelCor>
+            <jLabelComprimento>Long(cm):</jLabelComprimento>
+            <jLabelTOTAL>TOTALE (¤):</jLabelTOTAL>
+            <jLabelCor_desc>Choisissez le coloris.</jLabelCor_desc>
+            <jLabelComprimento_desc>Indiquez la longueur que vous voulez.</jLabelComprimento_desc>
+            <jLabelTOTAL_desc>Valor total do rodapé.</jLabelTOTAL_desc>
+        </pedraRodape>
     </lingua>
 </linguas>

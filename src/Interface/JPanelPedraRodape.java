@@ -10,11 +10,15 @@
  */
 package Interface;
 
+import Config.StringHtml;
 import XML.QueryXML;
+import XML.QueryXML_Lingua;
+import java.awt.Component;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 import mvc.Observer;
@@ -27,8 +31,8 @@ import mvc.Subject;
 public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Observer {
 
     private String _material;
-    private String _cor;
     private QueryXML _q;
+    private QueryXML_Lingua _l;
     private DecimalFormat df = new DecimalFormat("#.##");
     private ArrayList<Observer> observers = new ArrayList<Observer>();
     // para não estar a fazer uma query sempre, fica aqui os precos com as cores
@@ -36,12 +40,13 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
     private String cor_rodape = "";
 
     /** Creates new form JPanelPedraPeca */
-    public JPanelPedraRodape(QueryXML q, String material, String cor) {
+    public JPanelPedraRodape(QueryXML q, QueryXML_Lingua l, String material) {
         initComponents();
         _q = q;
+        _l = l;
         _material = material;
-        _cor = cor;
         configs();
+        configs_lng();
         valores();
     }
 
@@ -49,8 +54,23 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
         SpinnerNumberModel modelSpinnerC = new SpinnerNumberModel(0, 0, 100000, 1);
         jSpinnerComprimento.setModel(modelSpinnerC);
 
-        jLabelCor.setToolTipText("Selecione a cor na caixa ao lado.");
-        jLabelComprimento.setToolTipText("Indique o comprimento que pretende.");
+        jLabelCor.setName("jLabelCor");
+        jLabelComprimento.setName("jLabelComprimento");
+        jLabelTOTAL.setName("jLabelTOTAL");
+        jLabelTOTALValor.setName("valor");
+        jLabelRodapePreco.setName("valor");
+    }
+
+    private void configs_lng() {
+        for (Component c : this.getComponents()) {
+            if (c instanceof JLabel && !c.getName().equals("valor")) {
+                JLabel j = (JLabel) c;
+                String texto = _l.queryText("pedraRodape", j.getName());
+                String desc = StringHtml.html_toolTipText(_l.queryText("pedraRodape", j.getName() + "_desc"));
+                j.setText(texto);
+                j.setToolTipText(desc);
+            }
+        }
     }
 
     private void valores() {
@@ -146,7 +166,7 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
                 .addComponent(jLabelComprimento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(jLabelTOTAL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelTOTALValor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,11 +179,11 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBoxCor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelCor)
-                    .addComponent(jLabelTOTALValor)
-                    .addComponent(jLabelTOTAL)
                     .addComponent(jLabelRodapePreco)
                     .addComponent(jLabelComprimento)
-                    .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTOTALValor)
+                    .addComponent(jLabelTOTAL)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -176,7 +196,7 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
 
         try {
             cor_rodape = jComboBoxCor.getSelectedItem().toString();
-
+            jComboBoxCor.setToolTipText(cor_rodape);
             Double d = cores_e_precos.get(cor_rodape);
             String valor = d.toString() + " €/m";
             jLabelRodapePreco.setText(valor);
@@ -222,13 +242,15 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
 
     @Override
     public void update(String n) {
+        if (n.equalsIgnoreCase("lng")) {
+            configs_lng();
+        }
         actualizarTotal();
     }
 
     @Override
     public void update(String material, String cor) {
         _material = material;
-        _cor = cor;
         valores();
         actualizarTotal();
     }

@@ -564,7 +564,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     }//GEN-LAST:event_jButtonLimparPecaActionPerformed
 
     private void jButtonAdicionarRodapeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarRodapeActionPerformed
-        JPanelPedraRodape r = new JPanelPedraRodape(_q, _material, _cor);
+        JPanelPedraRodape r = new JPanelPedraRodape(_q, _l, _material);
         r.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -579,6 +579,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         jPanelRodapes.repaint();
         jPanelRodapes.revalidate();
         notifyObservers(_material, getTotal());
+        repaint();
     }//GEN-LAST:event_jButtonAdicionarRodapeActionPerformed
 
     private void jButtonLimparRodapeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparRodapeActionPerformed
@@ -774,21 +775,25 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
         if (enviou.equalsIgnoreCase("peca")) {
             actualizarTotalPecas();
+            notifyObservers(_material, getTotal());
             return;
         }
         if (enviou.equalsIgnoreCase("rodape")) {
             actualizarTotalRodapes();
+            notifyObservers(_material, getTotal());
             return;
         }
         if (enviou.equalsIgnoreCase("furo")) {
             actualizarTotalFuros();
+            notifyObservers(_material, getTotal());
             return;
         }
         if (enviou.equalsIgnoreCase("rebaixo")) {
             actualizarTotalRebaixos();
+            notifyObservers(_material, getTotal());
             return;
         }
-        notifyObservers(_material, getTotal());
+
     }
 
     @Override
