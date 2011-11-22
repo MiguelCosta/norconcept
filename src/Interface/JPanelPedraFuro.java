@@ -33,7 +33,6 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
     private String _material;
     private QueryXML _q;
     private QueryXML_Lingua _l;
-    private String _cor;
     private DecimalFormat df = new DecimalFormat("#.##");
     private ArrayList<Observer> observers = new ArrayList<Observer>();
     // para não estar a fazer uma query sempre, fica aqui os precos com as cores
@@ -41,12 +40,11 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
     private String furo = "";
 
     /** Creates new form JPanelPedraPeca */
-    public JPanelPedraFuro(QueryXML q, QueryXML_Lingua l, String material, String cor) {
+    public JPanelPedraFuro(QueryXML q, QueryXML_Lingua l, String material) {
         initComponents();
         _q = q;
         _l = l;
         _material = material;
-        _cor = cor;
         configs();
         //configs_lng();
         valores();
@@ -251,7 +249,6 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
     @Override
     public void update(String material, String cor) {
         _material = material;
-        _cor = cor;
         valores();
         actualizarTotal();
     }
