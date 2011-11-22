@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="ISO-8859-15"?>
 
 <!--
     Document   : Linguas.xml
@@ -37,9 +37,15 @@
             <jButtonAdicionar_desc>Adicionar uma nova linha.</jButtonAdicionar_desc>
             <jButtonLimpar>Limpar</jButtonLimpar>
             <jButtonLimpar_desc>Limpar todas as linhas.</jButtonLimpar_desc>
+            <jLabelTotal>TOTAL (¤)</jLabelTotal>
             <jScrollPanePecas>Peças</jScrollPanePecas>
             <jLabelPecaTotal_desc>Valor total das peças.</jLabelPecaTotal_desc>
-            
+            <jScrollPaneRodapes>Rodapés</jScrollPaneRodapes>
+            <jLabelRodapeTotal>Valor total dos rodapés.</jLabelRodapeTotal>
+            <jScrollPaneFuros>Furos</jScrollPaneFuros>
+            <jLabelFuroTotal>Valor total dos furos.</jLabelFuroTotal>
+            <jScrollPaneRebaixos>Rebaixos</jScrollPaneRebaixos>
+            <jLabelRebaixoTotal>Valor total dos furos.</jLabelRebaixoTotal>
         </pedra>
     </lingua>
     
@@ -61,9 +67,9 @@
         <pedra>
             <jLabelMaterial>Choisissez le matériau:</jLabelMaterial>
             <jLabelMaterial_desc>Choisissez le matériel que vous voulez dans la liste déroulante.</jLabelMaterial_desc>
-            <jLabelCor>Choisissez une couleur:</jLabelCor>
-            <jLabelCor_desc>Choisissez la couleur que vous voulez dans la liste déroulante.</jLabelCor_desc>
-            <jLabelEspessuraPreco>Différents prix pour la couleur du matériau.</jLabelEspessuraPreco>
+            <jLabelCor>Choisissez le coloris:</jLabelCor>
+            <jLabelCor_desc>Choisissez le coloris que vous voulez dans la liste déroulante.</jLabelCor_desc>
+            <jLabelEspessuraPreco>Différents prix pour  le coloris du matériau.</jLabelEspessuraPreco>
             <jButtonNotas>Notes</jButtonNotas>
             <jButtonNotas_desc>Notes sur les produits.</jButtonNotas_desc>
             <jButtonObservacoes>Remarques</jButtonObservacoes>
@@ -72,8 +78,15 @@
             <jButtonAdicionar_desc>Ajouter une nouvelle ligne.</jButtonAdicionar_desc>
             <jButtonLimpar>Nettoyer</jButtonLimpar>
             <jButtonLimpar_desc>Effacer toutes les lignes.</jButtonLimpar_desc>
+            <jLabelTotal>TOTALE (¤)</jLabelTotal>
             <jScrollPanePecas>Pièces</jScrollPanePecas>
             <jLabelPecaTotal_desc>La valeur totale des pièces.</jLabelPecaTotal_desc>
+            <jScrollPaneRodapes>Pieds de page</jScrollPaneRodapes>
+            <jLabelRodapeTotal>La valeur totale des pieds de page.</jLabelRodapeTotal>
+            <jScrollPaneFuros>Perçage</jScrollPaneFuros>
+            <jLabelFuroTotal>La valeur totale des trous perçages.</jLabelFuroTotal>
+            <jScrollPaneRebaixos>Rebaixos</jScrollPaneRebaixos>
+            <jLabelRebaixoTotal>Valor total dos rebaixos.</jLabelRebaixoTotal>
         </pedra>
     </lingua>
 </linguas>
