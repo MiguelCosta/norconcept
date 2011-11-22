@@ -66,7 +66,6 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject, Obse
     }
 
     private void configs_lng() {
-
         for (Component c : this.getComponents()) {
             if (c instanceof JLabel && !c.getName().equals("valor")) {
                 JLabel j = (JLabel) c;

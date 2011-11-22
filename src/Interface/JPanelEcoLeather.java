@@ -599,7 +599,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     }//GEN-LAST:event_jButtonLimparFuroActionPerformed
 
     private void jButtonAdicionarRebaixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarRebaixoActionPerformed
-        JPanelPedraRebaixo r = new JPanelPedraRebaixo(_q, _material, _cor);
+        JPanelPedraRebaixo r = new JPanelPedraRebaixo(_q, null,_material);
         r.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;

@@ -194,7 +194,7 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
     private void jComboBoxFuroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxFuroItemStateChanged
         try {
             furo = jComboBoxFuro.getSelectedItem().toString();
-            
+            jComboBoxFuro.setToolTipText(furo);
             Double d = furos_e_precos.get(furo);
             String valor = d.toString() + " €";
             jLabelFuroPreco.setText(valor);

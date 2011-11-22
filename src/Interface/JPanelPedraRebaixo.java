@@ -10,11 +10,15 @@
  */
 package Interface;
 
+import Config.StringHtml;
 import XML.QueryXML;
+import XML.QueryXML_Lingua;
+import java.awt.Component;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 import mvc.Observer;
@@ -27,8 +31,8 @@ import mvc.Subject;
 public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, Observer {
 
     private String _material;
-    private String _cor;
     private QueryXML _q;
+    private QueryXML_Lingua _l;
     private DecimalFormat df = new DecimalFormat("#.##");
     private ArrayList<Observer> observers = new ArrayList<Observer>();
     // para não estar a fazer uma query sempre, fica aqui os precos com as cores
@@ -36,12 +40,13 @@ public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, O
     private String rebaixo = "";
 
     /** Creates new form JPanelPedraPeca */
-    public JPanelPedraRebaixo(QueryXML q, String material, String cor) {
+    public JPanelPedraRebaixo(QueryXML q, QueryXML_Lingua l, String material) {
         initComponents();
         _q = q;
+        _l = l;
         _material = material;
-        _cor = cor;
         configs();
+        configs_lng();
         valores();
     }
 
@@ -49,8 +54,23 @@ public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, O
         SpinnerNumberModel modelSpinnerC = new SpinnerNumberModel(0, 0, 100000, 1);
         jSpinnerNumero.setModel(modelSpinnerC);
 
-        jLabelRebaixo.setToolTipText("Selecione a cor na caixa ao lado.");
-        jLabelNumero.setToolTipText("Indique o comprimento que pretende.");
+        jLabelRebaixo.setName("jLabelRebaixo");
+        jLabelNumero.setName("valor");
+        jLabelTOTAL.setName("jLabelTOTAL");
+        jLabelTOTALValor.setName("valor");
+        jLabelRebaixoPreco.setName("valor");
+    }
+
+    private void configs_lng() {
+        for (Component c : this.getComponents()) {
+            if (c instanceof JLabel && !c.getName().equals("valor")) {
+                JLabel j = (JLabel) c;
+                String texto = _l.queryText("pedraRebaixo", j.getName());
+                String desc = StringHtml.html_toolTipText(_l.queryText("pedraRebaixo", j.getName() + "_desc"));
+                j.setText(texto);
+                j.setToolTipText(desc);
+            }
+        }
     }
 
     private void valores() {
@@ -174,7 +194,7 @@ public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, O
 
         try {
             rebaixo = jComboBoxRebaixo.getSelectedItem().toString();
-
+            jComboBoxRebaixo.setToolTipText(rebaixo);
             Double d = rebaixos_e_precos.get(rebaixo);
             String valor = d.toString() + " €";
             jLabelRebaixoPreco.setText(valor);
@@ -221,13 +241,16 @@ public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, O
 
     @Override
     public void update(String n) {
+        if (n.equalsIgnoreCase("lng")) {
+            configs_lng();
+            return;
+        }
         actualizarTotal();
     }
 
     @Override
     public void update(String material, String cor) {
         _material = material;
-        _cor = cor;
         valores();
         actualizarTotal();
     }
