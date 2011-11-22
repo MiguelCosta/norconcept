@@ -33,6 +33,13 @@
             <jButtonNotas_desc>Notas sobre os produtos.</jButtonNotas_desc>
             <jButtonObservacoes>Observações</jButtonObservacoes>
             <jButtonObservacoes_desc>Observações sobre as condições de venda.</jButtonObservacoes_desc>
+            <jButtonAdicionar>Adicionar</jButtonAdicionar>
+            <jButtonAdicionar_desc>Adicionar uma nova linha.</jButtonAdicionar_desc>
+            <jButtonLimpar>Limpar</jButtonLimpar>
+            <jButtonLimpar_desc>Limpar todas as linhas.</jButtonLimpar_desc>
+            <jScrollPanePecas>Peças</jScrollPanePecas>
+            <jLabelPecaTotal_desc>Valor total das peças.</jLabelPecaTotal_desc>
+            
         </pedra>
     </lingua>
     
@@ -61,6 +68,12 @@
             <jButtonNotas_desc>Notes sur les produits.</jButtonNotas_desc>
             <jButtonObservacoes>Remarques</jButtonObservacoes>
             <jButtonObservacoes_desc>Commentaires sur les conditions de vente.</jButtonObservacoes_desc>
+            <jButtonAdicionar>Ajouter</jButtonAdicionar>
+            <jButtonAdicionar_desc>Ajouter une nouvelle ligne.</jButtonAdicionar_desc>
+            <jButtonLimpar>Nettoyer</jButtonLimpar>
+            <jButtonLimpar_desc>Effacer toutes les lignes.</jButtonLimpar_desc>
+            <jScrollPanePecas>Pièces</jScrollPanePecas>
+            <jLabelPecaTotal_desc>La valeur totale des pièces.</jLabelPecaTotal_desc>
         </pedra>
     </lingua>
 </linguas>
