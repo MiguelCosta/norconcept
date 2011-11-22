@@ -10,11 +10,15 @@
  */
 package Interface;
 
+import Config.StringHtml;
 import XML.QueryXML;
+import XML.QueryXML_Lingua;
+import java.awt.Component;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 import mvc.Observer;
@@ -25,9 +29,10 @@ import mvc.Subject;
  * @author miguel
  */
 public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Observer {
-
+    
     private String _material;
     private QueryXML _q;
+    private QueryXML_Lingua _l;
     private String _cor;
     private DecimalFormat df = new DecimalFormat("#.##");
     private ArrayList<Observer> observers = new ArrayList<Observer>();
@@ -36,46 +41,63 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
     private String furo = "";
 
     /** Creates new form JPanelPedraPeca */
-    public JPanelPedraFuro(QueryXML q, String material, String cor) {
+    public JPanelPedraFuro(QueryXML q, QueryXML_Lingua l, String material, String cor) {
         initComponents();
         _q = q;
+        _l = l;
         _material = material;
         _cor = cor;
         configs();
+        //configs_lng();
         valores();
     }
-
+    
     private void configs() {
         SpinnerNumberModel modelSpinnerC = new SpinnerNumberModel(0, 0, 100000, 1);
         jSpinnerNumero.setModel(modelSpinnerC);
-
-        jLabelFuro.setToolTipText("Selecione a cor na caixa ao lado.");
-        jLabelComprimento.setToolTipText("Indique o comprimento que pretende.");
+        
+        jLabelFuro.setName("jLabelFuro");
+        jLabelFuroPreco.setName("valor");
+        jLabelComprimento.setName("valor");
+        jLabelTOTAL.setName("jLabelTOTAL");
+        jLabelTOTALValor.setName("valor");
     }
-
+    
+    private void configs_lng() {
+        for (Component c : this.getComponents()) {
+            if (c instanceof JLabel && !c.getName().equals("valor")) {
+                JLabel j = (JLabel) c;
+                String texto = _l.queryText("pedraFuro", j.getName());
+                String desc = StringHtml.html_toolTipText(_l.queryText("pedraFuro", j.getName() + "_desc"));
+                j.setText(texto);
+                j.setToolTipText(desc);
+            }
+        }
+    }
+    
     private void valores() {
         furos_e_precos.clear();
         furos_e_precos = _q.queryFuros_NomeEPreco(_material);
-
+        
         jComboBoxFuro.removeAllItems();
         for (String s : furos_e_precos.keySet()) {
             jComboBoxFuro.addItem(s);
         }
     }
-
+    
     public void actualizarTotal() {
         try {
             int numero = Integer.parseInt(jSpinnerNumero.getValue().toString());
-
+            
             Double preco_furo = furos_e_precos.get(furo);
-
+            
             Double preco_total = numero * preco_furo;
-
+            
             jLabelTOTALValor.setText(df.format(preco_total).toString());
         } catch (Exception e) {
         }
     }
-
+    
     public Double getTotal() {
         Double valor = 0.0;
         try {
@@ -170,15 +192,15 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
         actualizarTotal();
         notifyObservers("furo");
     }//GEN-LAST:event_jSpinnerNumeroStateChanged
-
+    
     private void jComboBoxFuroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxFuroItemStateChanged
         try {
             furo = jComboBoxFuro.getSelectedItem().toString();
-
+            
             Double d = furos_e_precos.get(furo);
-            String valor = d.toString() + " €/furo";
+            String valor = d.toString() + " €";
             jLabelFuroPreco.setText(valor);
-
+            
             actualizarTotal();
             notifyObservers("furo");
         } catch (Exception e) {
@@ -198,12 +220,12 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
     public void addObserver(Observer o) {
         observers.add(o);
     }
-
+    
     @Override
     public void removeObserver(Observer o) {
         observers.remove(o);
     }
-
+    
     @Override
     public void notifyObservers(String n) {
         //JOptionPane.showMessageDialog(jLabelComprimento, "Vai notificar! Valor: " + d);
@@ -213,16 +235,19 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
             observer.update(n);
         }
     }
-
+    
     @Override
     public void notifyObservers(String material, String cor) {
     }
-
+    
     @Override
     public void update(String n) {
+        if (n.equalsIgnoreCase("lng")) {
+            configs_lng();
+        }
         actualizarTotal();
     }
-
+    
     @Override
     public void update(String material, String cor) {
         _material = material;
@@ -230,11 +255,11 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
         valores();
         actualizarTotal();
     }
-
+    
     @Override
     public void notifyObservers(String n, Double d) {
     }
-
+    
     @Override
     public void update(String n, Double v) {
     }

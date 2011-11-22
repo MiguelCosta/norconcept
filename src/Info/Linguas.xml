@@ -65,6 +65,12 @@
             <jLabelComprimento_desc>Indique o comprimento que pretende.</jLabelComprimento_desc>
             <jLabelTOTAL_desc>Valor total do rodapé.</jLabelTOTAL_desc>
         </pedraRodape>
+        <pedraFuro>
+            <jLabelFuro>Furo:</jLabelFuro>
+            <jLabelTOTAL>TOTAL (¤):</jLabelTOTAL>
+            <jLabelFuro_desc>Escolha o tipo de furo que pretende.</jLabelFuro_desc>
+            <jLabelTOTAL_desc>Valor total do furo.</jLabelTOTAL_desc>
+        </pedraFuro>
     </lingua>
     
     <lingua lingua="fr">
@@ -124,5 +130,11 @@
             <jLabelComprimento_desc>Indiquez la longueur que vous voulez.</jLabelComprimento_desc>
             <jLabelTOTAL_desc>Valor total do rodapé.</jLabelTOTAL_desc>
         </pedraRodape>
+        <pedraFuro>
+            <jLabelFuro>Perçage:</jLabelFuro>
+            <jLabelTOTAL>TOTALE (¤):</jLabelTOTAL>
+            <jLabelFuro_desc>Choisissez le type de perçage que vous voulez.</jLabelFuro_desc>
+            <jLabelTOTAL_desc>Valeur total du forage.</jLabelTOTAL_desc>
+        </pedraFuro>
     </lingua>
 </linguas>

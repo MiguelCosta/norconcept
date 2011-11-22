@@ -592,7 +592,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     }//GEN-LAST:event_jButtonLimparRodapeActionPerformed
 
     private void jButtonAdicionarFuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarFuroActionPerformed
-        JPanelPedraFuro f = new JPanelPedraFuro(_q, _material, _cor);
+        JPanelPedraFuro f = new JPanelPedraFuro(_q, _l, _material, _cor);
         f.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
