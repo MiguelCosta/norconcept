@@ -10,10 +10,14 @@
  */
 package Interface;
 
+import Config.StringHtml;
 import XML.QueryXML;
+import XML.QueryXML_Lingua;
+import java.awt.Component;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 import mvc.Observer;
@@ -28,16 +32,19 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject, Obse
     private String _material;
     private String _cor;
     private QueryXML _q;
+    private QueryXML_Lingua _l;
     private DecimalFormat df = new DecimalFormat("#.##");
     private ArrayList<Observer> observers = new ArrayList<Observer>();
 
     /** Creates new form JPanelPedraPeca */
-    public JPanelPedraPeca(QueryXML q, String material, String cor) {
+    public JPanelPedraPeca(QueryXML q, QueryXML_Lingua l, String material, String cor) {
         initComponents();
         _q = q;
+        _l = l;
         _material = material;
         _cor = cor;
         configs();
+        configs_lng();
         valores();
     }
 
@@ -47,10 +54,28 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject, Obse
         jSpinnerLargura.setModel(modelSpinnerL);
         jSpinnerComprimento.setModel(modelSpinnerC);
 
+        jLabelLargura.setName("jLabelLargura");
+        jLabelComprimento.setName("jLabelComprimento");
+        jLabelEspessura.setName("jLabelEspessura");
+        jLabelTOTAL.setName("jLabelTOTAL");
+        jLabelTOTALValor.setName("valor");
 
         jLabelLargura.setToolTipText("Largura");
         jLabelComprimento.setToolTipText("Comprimento");
         jLabelEspessura.setToolTipText("Espessura");
+    }
+
+    private void configs_lng() {
+
+        for (Component c : this.getComponents()) {
+            if (c instanceof JLabel && !c.getName().equals("valor")) {
+                JLabel j = (JLabel) c;
+                String texto = _l.queryText("pedraPeca", j.getName());
+                String desc = StringHtml.html_toolTipText(_l.queryText("pedraPeca", j.getName() + "_desc"));
+                j.setText(texto);
+                j.setToolTipText(desc);
+            }
+        }
     }
 
     private void valores() {
@@ -249,6 +274,10 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject, Obse
 
     @Override
     public void update(String n) {
+        if (n.equalsIgnoreCase("lng")) {
+            configs_lng();
+            return;
+        }
         actualizarTotal();
     }
 
@@ -269,6 +298,5 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject, Obse
 
     @Override
     public void update(String n, Double v) {
-        
     }
 }

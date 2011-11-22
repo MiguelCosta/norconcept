@@ -52,6 +52,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
         _tipo_material = tipo_material;
         configs_lng();
         preencherMateriais();
+        repaint();
     }
 
     // <editor-fold defaultstate="collapsed" desc="lng">
@@ -92,33 +93,33 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
         jButtonAdicionarRodape.setText(adicionar);
         jButtonAdicionarFuro.setText(adicionar);
         jButtonAdicionarRebaixo.setText(adicionar);
-        jButtonAdicionarPeca.setToolTipText(adicionar_desc);
-        jButtonAdicionarRodape.setToolTipText(adicionar_desc);
-        jButtonAdicionarFuro.setToolTipText(adicionar_desc);
-        jButtonAdicionarRebaixo.setToolTipText(adicionar_desc);
+        jButtonAdicionarPeca.setToolTipText(StringHtml.html_toolTipText(adicionar_desc));
+        jButtonAdicionarRodape.setToolTipText(StringHtml.html_toolTipText(adicionar_desc));
+        jButtonAdicionarFuro.setToolTipText(StringHtml.html_toolTipText(adicionar_desc));
+        jButtonAdicionarRebaixo.setToolTipText(StringHtml.html_toolTipText(adicionar_desc));
         jButtonLimparPeca.setText(limpar);
-        jButtonLimparPeca.setToolTipText(limpar_desc);
+        jButtonLimparPeca.setToolTipText(StringHtml.html_toolTipText(limpar_desc));
         jButtonLimparRodape.setText(limpar);
-        jButtonLimparRodape.setToolTipText(limpar_desc);
+        jButtonLimparRodape.setToolTipText(StringHtml.html_toolTipText(limpar_desc));
         jButtonLimparFuro.setText(limpar);
-        jButtonLimparFuro.setToolTipText(limpar_desc);
+        jButtonLimparFuro.setToolTipText(StringHtml.html_toolTipText(limpar_desc));
         jButtonLimparRebaixo.setText(limpar);
-        jButtonLimparRebaixo.setToolTipText(limpar_desc);
+        jButtonLimparRebaixo.setToolTipText(StringHtml.html_toolTipText(limpar_desc));
         jScrollPanePecas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, scrollPanePecas, javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
-        jLabelPecaTotal.setToolTipText(pecaTotal);
+        jLabelPecaTotal.setToolTipText(StringHtml.html_toolTipText(pecaTotal));
         jScrollPaneRodapes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, scrollPaneRodapes, javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
-        jLabelRodapeTotal.setToolTipText(rodapeTotal);
+        jLabelRodapeTotal.setToolTipText(StringHtml.html_toolTipText(rodapeTotal));
         jScrollPaneFuros.setBorder(javax.swing.BorderFactory.createTitledBorder(null, scrollPaneFuros, javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
-        jLabelFuroTotal.setToolTipText(furoTotal);
+        jLabelFuroTotal.setToolTipText(StringHtml.html_toolTipText(furoTotal));
         jScrollPaneRebaixos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, scrollPaneRebaixos, javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
-        jLabelRodapeTotal.setToolTipText(rebaixoTotal);
+        jLabelRodapeTotal.setToolTipText(StringHtml.html_toolTipText(rebaixoTotal));
         jLabelPecaTotal.setText(total);
         jLabelRodapeTotal.setText(total);
         jLabelFuroTotal.setText(total);
         jLabelRebaixoTotal.setText(total);
     }
     // </editor-fold>
-    
+
     private void preencherMateriais() {
         try {
             jComboBoxMaterial.removeAllItems();
@@ -132,6 +133,7 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
         } catch (XPathExpressionException ex) {
             Logger.getLogger(JPanelPedra.class.getName()).log(Level.SEVERE, null, ex);
         }
+        repaint();
     }
 
     // <editor-fold defaultstate="collapsed" desc="getTotal">
@@ -513,9 +515,6 @@ public class JPanelPedra extends javax.swing.JPanel implements Observer, Subject
 private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxMaterialItemStateChanged
     materialSeleccionado();
     jComboBoxMaterial.setToolTipText(_material);
-    //jPanelPecas.removeAll();
-    //jPanelPecas.repaint();
-    //jPanelPecas.revalidate();
     this.notifyObservers(_material, _cor);
     this.repaint();
     this.revalidate();
@@ -523,7 +522,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     private void jButtonAdicionarPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarPecaActionPerformed
 
-        JPanelPedraPeca l = new JPanelPedraPeca(_q, _material, _cor);
+        JPanelPedraPeca l = new JPanelPedraPeca(_q, _l, _material, _cor);
         l.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -538,6 +537,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         jPanelPecas.repaint();
         jPanelPecas.revalidate();
         notifyObservers(_material, getTotal());
+        repaint();
     }//GEN-LAST:event_jButtonAdicionarPecaActionPerformed
 
     private void jComboBoxCorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCorItemStateChanged
@@ -548,9 +548,6 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
         _cor = jComboBoxCor.getSelectedItem().toString();
         jLabelEspessuraPreco.setText(_q.queryCoresPrecoString(_material, _cor));
         jComboBoxCor.setToolTipText(_cor);
-        //jPanelPecas.removeAll();
-        //jPanelPecas.repaint();
-        //jPanelPecas.revalidate();
         this.notifyObservers(_material, _cor);
         this.repaint();
         this.revalidate();
@@ -649,23 +646,13 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     private void jButtonNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNotasActionPerformed
         ArrayList<String> notas = _q.queryNotas(_material);
-        String texto = "<html><table width=\"600\"><tr><td>";
-        for (String s : notas) {
-            texto += "<li>" + s + "</li>";
-        }
-        texto += "</ul></td></tr></table></html>";
-
+        String texto = StringHtml.html_list(notas, "Notas:");
         JOptionPane.showMessageDialog(null, texto, "Notas", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonNotasActionPerformed
 
     private void jButtonObservaçõesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObservaçõesActionPerformed
         ArrayList<String> obss = _q.queryObss(_material);
-        String texto = "<html><table width=\"600\"><tr><td><ol>";
-        for (String s : obss) {
-            texto += "<li>" + s + "</li>";
-        }
-        texto += "</ol></td></tr></table></html>";
-
+        String texto = StringHtml.html_list_numeric(obss, "Observações:");
         JOptionPane.showMessageDialog(null, texto, "Observações", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonObservaçõesActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -781,16 +768,25 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     public void update(String enviou) {
         if (enviou.equalsIgnoreCase("lng")) {
             configs_lng();
+            notifyObservers("lng");
+            return;
         }
+
         if (enviou.equalsIgnoreCase("peca")) {
             actualizarTotalPecas();
-            //JOptionPane.showMessageDialog(jLabelCor, "peca");
-        } else if (enviou.equalsIgnoreCase("rodape")) {
+            return;
+        }
+        if (enviou.equalsIgnoreCase("rodape")) {
             actualizarTotalRodapes();
-        } else if (enviou.equalsIgnoreCase("furo")) {
+            return;
+        }
+        if (enviou.equalsIgnoreCase("furo")) {
             actualizarTotalFuros();
-        } else if (enviou.equalsIgnoreCase("rebaixo")) {
+            return;
+        }
+        if (enviou.equalsIgnoreCase("rebaixo")) {
             actualizarTotalRebaixos();
+            return;
         }
         notifyObservers(_material, getTotal());
     }
@@ -811,6 +807,11 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     @Override
     public void notifyObservers(String n) {
+        Iterator<Observer> it = observers.iterator();
+        while (it.hasNext()) {
+            Observer observer = it.next();
+            observer.update("lng");
+        }
     }
 
     @Override

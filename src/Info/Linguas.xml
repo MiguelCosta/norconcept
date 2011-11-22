@@ -47,6 +47,16 @@
             <jScrollPaneRebaixos>Rebaixos</jScrollPaneRebaixos>
             <jLabelRebaixoTotal>Valor total dos furos.</jLabelRebaixoTotal>
         </pedra>
+        <pedraPeca>
+            <jLabelLargura>Larg. (cm):</jLabelLargura>
+            <jLabelComprimento>Comp. (cm):</jLabelComprimento>
+            <jLabelEspessura>Esp. (cm):</jLabelEspessura>
+            <jLabelTOTAL>TOTAL (¤):</jLabelTOTAL>
+            <jLabelLargura_desc>Largura em cm</jLabelLargura_desc>
+            <jLabelComprimento_desc>Comprimento em cm</jLabelComprimento_desc>
+            <jLabelEspessura_desc>Espessura em cm</jLabelEspessura_desc>
+            <jLabelTOTAL_desc>Valor total da peça.</jLabelTOTAL_desc>
+        </pedraPeca>
     </lingua>
     
     <lingua lingua="fr">
@@ -88,5 +98,15 @@
             <jScrollPaneRebaixos>Rebaixos</jScrollPaneRebaixos>
             <jLabelRebaixoTotal>Valor total dos rebaixos.</jLabelRebaixoTotal>
         </pedra>
+        <pedraPeca>
+            <jLabelLargura>Larg(cm):</jLabelLargura>
+            <jLabelComprimento>Long(cm):</jLabelComprimento>
+            <jLabelEspessura>Epaisseur(cm):</jLabelEspessura>
+            <jLabelTOTAL>TOTALE (¤):</jLabelTOTAL>
+            <jLabelLargura_desc>cm de largeur</jLabelLargura_desc>
+            <jLabelComprimento_desc>cm de longueur</jLabelComprimento_desc>
+            <jLabelEspessura_desc>cm d'épaisseur</jLabelEspessura_desc>
+            <jLabelTOTAL_desc>valeur totale de la pièce</jLabelTOTAL_desc>
+        </pedraPeca>
     </lingua>
 </linguas>
