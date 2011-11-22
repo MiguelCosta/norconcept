@@ -71,6 +71,12 @@
             <jLabelFuro_desc>Escolha o tipo de furo que pretende.</jLabelFuro_desc>
             <jLabelTOTAL_desc>Valor total do furo.</jLabelTOTAL_desc>
         </pedraFuro>
+        <pedraRebaixo>
+            <jLabelRebaixo>Rebaixo:</jLabelRebaixo>
+            <jLabelTOTAL>TOTAL (¤):</jLabelTOTAL>
+            <jLabelRebaixo_desc>Selecione o rebaixo na caixa ao lado.</jLabelRebaixo_desc>
+            <jLabelTOTAL_desc>Valor total do rebaixo.</jLabelTOTAL_desc>
+        </pedraRebaixo>
     </lingua>
     
     <lingua lingua="fr">
@@ -136,5 +142,11 @@
             <jLabelFuro_desc>Choisissez le type de perçage que vous voulez.</jLabelFuro_desc>
             <jLabelTOTAL_desc>Valeur total du forage.</jLabelTOTAL_desc>
         </pedraFuro>
+        <pedraRebaixo>
+            <jLabelRebaixo>Rebaixo:fr</jLabelRebaixo>
+            <jLabelTOTAL>TOTALE (¤):</jLabelTOTAL>
+            <jLabelRebaixo_desc>Selecione o rebaixo na caixa ao lado.fr</jLabelRebaixo_desc>
+            <jLabelTOTAL_desc>Valor total do rebaixo.fr</jLabelTOTAL_desc>
+        </pedraRebaixo>
     </lingua>
 </linguas>
