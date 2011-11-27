@@ -77,6 +77,14 @@
             <jLabelRebaixo_desc>Selecione o rebaixo na caixa ao lado.</jLabelRebaixo_desc>
             <jLabelTOTAL_desc>Valor total do rebaixo.</jLabelTOTAL_desc>
         </pedraRebaixo>
+        <ecoleather>
+            <jLabelMaterial>Escolha o material:</jLabelMaterial>
+            <jLabelMaterial_desc>Escolha o material pretendido na caixa ao lado.</jLabelMaterial_desc>
+            <jLabelCor>Escolha a cor:</jLabelCor>
+            <jLabelCor_desc>Escolha a cor que pretende na caixa ao lado.</jLabelCor_desc>
+            <jLabelEspessuraPreco_desc>Vários preços para a cor do material conforme a espessura.</jLabelEspessuraPreco_desc>
+            <jButtonNotas></jButtonNotas>
+        </ecoleather>
     </lingua>
     
     <lingua lingua="fr">

@@ -395,7 +395,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
                 jPanelTipoMaterial.removeAll();
             }
 
-            JPanelEcoLeather j = new JPanelEcoLeather(_q, tipo_material);
+            JPanelEcoLeather j = new JPanelEcoLeather(_q, _l, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();

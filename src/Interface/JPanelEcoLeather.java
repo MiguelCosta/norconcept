@@ -12,6 +12,7 @@ package Interface;
 
 import Config.StringHtml;
 import XML.QueryXML;
+import XML.QueryXML_Lingua;
 import java.awt.Component;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -30,6 +31,7 @@ import mvc.Subject;
 public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Subject {
 
     private QueryXML _q;
+    private QueryXML_Lingua _l;
     private ArrayList<String> cores;
     private int num_linhas_peca = 0;
     private int num_linhas_acabamento = 0;
@@ -42,10 +44,11 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
     private String _tipo_material = "";
 
     /** Creates new form JPanelPedra */
-    public JPanelEcoLeather(QueryXML q, String tipo_material) {
+    public JPanelEcoLeather(QueryXML q, QueryXML_Lingua l, String tipo_material) {
         initComponents();
 
         _q = q;
+        _l = l;
         _tipo_material = tipo_material;
         configs();
         preencherMateriais();
@@ -95,6 +98,12 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
         jLabelFuroTotal.setToolTipText(totalFuro);
         jLabelRebaixoTotal.setToolTipText(totalRebaixo);
 
+    }
+    
+    public void config_lng(){
+        
+        
+        
     }
 
     private void preencherMateriais() {
@@ -599,7 +608,7 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     }//GEN-LAST:event_jButtonLimparFuroActionPerformed
 
     private void jButtonAdicionarRebaixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarRebaixoActionPerformed
-        JPanelPedraRebaixo r = new JPanelPedraRebaixo(_q, null,_material);
+        JPanelPedraRebaixo r = new JPanelPedraRebaixo(_q, null, _material);
         r.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
