@@ -29,7 +29,7 @@ import mvc.Subject;
  * @author miguel
  */
 public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Observer {
-    
+
     private String _material;
     private QueryXML _q;
     private QueryXML_Lingua _l;
@@ -46,21 +46,21 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
         _l = l;
         _material = material;
         configs();
-        //configs_lng();
         valores();
+        configs_lng();
     }
-    
+
     private void configs() {
         SpinnerNumberModel modelSpinnerC = new SpinnerNumberModel(0, 0, 100000, 1);
         jSpinnerNumero.setModel(modelSpinnerC);
-        
+
         jLabelFuro.setName("jLabelFuro");
         jLabelFuroPreco.setName("valor");
         jLabelComprimento.setName("valor");
         jLabelTOTAL.setName("jLabelTOTAL");
         jLabelTOTALValor.setName("valor");
     }
-    
+
     private void configs_lng() {
         for (Component c : this.getComponents()) {
             if (c instanceof JLabel && !c.getName().equals("valor")) {
@@ -72,30 +72,30 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
             }
         }
     }
-    
+
     private void valores() {
         furos_e_precos.clear();
         furos_e_precos = _q.queryFuros_NomeEPreco(_material);
-        
+
         jComboBoxFuro.removeAllItems();
         for (String s : furos_e_precos.keySet()) {
             jComboBoxFuro.addItem(s);
         }
     }
-    
+
     public void actualizarTotal() {
         try {
             int numero = Integer.parseInt(jSpinnerNumero.getValue().toString());
-            
+
             Double preco_furo = furos_e_precos.get(furo);
-            
+
             Double preco_total = numero * preco_furo;
-            
+
             jLabelTOTALValor.setText(df.format(preco_total).toString());
         } catch (Exception e) {
         }
     }
-    
+
     public Double getTotal() {
         Double valor = 0.0;
         try {
@@ -190,7 +190,7 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
         actualizarTotal();
         notifyObservers("furo");
     }//GEN-LAST:event_jSpinnerNumeroStateChanged
-    
+
     private void jComboBoxFuroItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxFuroItemStateChanged
         try {
             furo = jComboBoxFuro.getSelectedItem().toString();
@@ -198,7 +198,7 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
             Double d = furos_e_precos.get(furo);
             String valor = d.toString() + " €";
             jLabelFuroPreco.setText(valor);
-            
+
             actualizarTotal();
             notifyObservers("furo");
         } catch (Exception e) {
@@ -218,12 +218,12 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
     public void addObserver(Observer o) {
         observers.add(o);
     }
-    
+
     @Override
     public void removeObserver(Observer o) {
         observers.remove(o);
     }
-    
+
     @Override
     public void notifyObservers(String n) {
         //JOptionPane.showMessageDialog(jLabelComprimento, "Vai notificar! Valor: " + d);
@@ -233,11 +233,11 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
             observer.update(n);
         }
     }
-    
+
     @Override
     public void notifyObservers(String material, String cor) {
     }
-    
+
     @Override
     public void update(String n) {
         if (n.equalsIgnoreCase("lng")) {
@@ -245,18 +245,18 @@ public class JPanelPedraFuro extends javax.swing.JPanel implements Subject, Obse
         }
         actualizarTotal();
     }
-    
+
     @Override
     public void update(String material, String cor) {
         _material = material;
         valores();
         actualizarTotal();
     }
-    
+
     @Override
     public void notifyObservers(String n, Double d) {
     }
-    
+
     @Override
     public void update(String n, Double v) {
     }

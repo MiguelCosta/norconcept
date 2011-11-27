@@ -114,6 +114,10 @@ public class QueryXML_Lingua {
         return texto;
     }// </editor-fold>
 
+    public String getLingua(){
+        return _lingua;
+    }
+    
     public void setLingua(String lingua) {
         _lingua = lingua;
     }
