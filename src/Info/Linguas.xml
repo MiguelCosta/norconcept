@@ -101,6 +101,13 @@
             <jScrollPaneRebaixos>Rebaixos</jScrollPaneRebaixos>
             <jLabelRebaixoTotal>Valor total dos rebaixos.</jLabelRebaixoTotal>
         </ecoleather>
+        <ecoleatherAcabamento>
+            <jLabelAcabamento>Acabamento</jLabelAcabamento>
+            <jLabelAcabamento_desc>Selecione o acabamento na caixa ao lado.</jLabelAcabamento_desc>
+            <jLabelComprimento>Long(cm):</jLabelComprimento>
+            <jLabelComprimento_desc>Indiquez la longueur que vous voulez.</jLabelComprimento_desc>
+            <jLabelTotal>TOTALE (¤)</jLabelTotal>
+        </ecoleatherAcabamento>
     </lingua>
     
     <lingua lingua="fr">
@@ -191,10 +198,17 @@
             <jLabelPecaTotal_desc>La valeur totale des plans.</jLabelPecaTotal_desc>
             <jScrollPaneAcabamentos>Acamentos</jScrollPaneAcabamentos>
             <jLabelAcabamentoTotal>Valor total dos rodapés.</jLabelAcabamentoTotal>
-            <jScrollPaneFuros>Furos</jScrollPaneFuros>
-            <jLabelFuroTotal>Valor total dos furos.</jLabelFuroTotal>
+            <jScrollPaneFuros>Perçage</jScrollPaneFuros>
+            <jLabelFuroTotal>La valeur totale des trous perçages.</jLabelFuroTotal>
             <jScrollPaneRebaixos>Rebaixos</jScrollPaneRebaixos>
             <jLabelRebaixoTotal>Valor total dos rebaixos.</jLabelRebaixoTotal>
         </ecoleather>
+        <ecoleatherAcabamento>
+            <jLabelAcabamento>Acabamento</jLabelAcabamento>
+            <jLabelAcabamento_desc>Selecione o acabamento na caixa ao lado.</jLabelAcabamento_desc>
+            <jLabelComprimento>Long(cm):</jLabelComprimento>
+            <jLabelComprimento_desc>Indiquez la longueur que vous voulez.</jLabelComprimento_desc>
+            <jLabelTotal>TOTALE (¤)</jLabelTotal>
+        </ecoleatherAcabamento>
     </lingua>
 </linguas>

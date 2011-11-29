@@ -12,6 +12,7 @@ package Interface;
 
 import Config.StringHtml;
 import XML.QueryXML;
+import XML.QueryXML_Lingua;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,7 +30,7 @@ public class JPanelEcoLeatherAcabamento extends javax.swing.JPanel implements Su
 
     private String _material;
     private QueryXML _q;
-    private String _cor;
+    private QueryXML_Lingua _l;
     private DecimalFormat df = new DecimalFormat("#.##");
     private ArrayList<Observer> observers = new ArrayList<Observer>();
     // para não estar a fazer uma query sempre, fica aqui os precos com as cores
@@ -37,12 +38,13 @@ public class JPanelEcoLeatherAcabamento extends javax.swing.JPanel implements Su
     private String _acabamento = "";
 
     /** Creates new form JPanelPedraPeca */
-    public JPanelEcoLeatherAcabamento(QueryXML q, String material, String cor) {
+    public JPanelEcoLeatherAcabamento(QueryXML q, QueryXML_Lingua l, String material) {
         initComponents();
         _q = q;
+        _l = l;
         _material = material;
-        _cor = cor;
         configs();
+        configs_lng();
         valores();
     }
 
@@ -50,15 +52,18 @@ public class JPanelEcoLeatherAcabamento extends javax.swing.JPanel implements Su
         SpinnerNumberModel modelSpinnerC = new SpinnerNumberModel(0, 0, 100000, 1);
         jSpinnerNumero.setModel(modelSpinnerC);
 
-        String acabamento = StringHtml.html_toolTipText("Selecione o acabamento na caixa ao lado.");
-        String comprimento = StringHtml.html_toolTipText("Indique o comprimento que pretende em cm.");
-        String unidade = StringHtml.html_toolTipText("Preço do acabamento por metro.");
-        String total = StringHtml.html_toolTipText("Preço total do acabamento.");
+        
+    }
+    
+    public void configs_lng(){
+        
+        jLabelAcabamento.setText(_l.queryText("ecoleatherAcabamento", "jLabelAcabamento"));
+        jLabelAcabamento.setToolTipText(_l.queryText("ecoleatherAcabamento", "jLabelAcabamento_desc"));
+        jLabelComprimento.setText(_l.queryText("ecoleatherAcabamento", "jLabelComprimento"));
+        jLabelComprimento.setToolTipText(_l.queryText("ecoleatherAcabamento", "jLabelComprimento_desc"));
+        jLabelTOTAL.setText(_l.queryText("ecoleatherAcabamento", "jLabelTotal"));
+        
 
-        jLabelAcabamento.setToolTipText(acabamento);
-        jLabelComprimento.setToolTipText(comprimento);
-        jLabelAcabamentoPreco.setToolTipText(unidade);
-        jLabelTOTAL.setToolTipText(total);
     }
 
     private void valores() {
@@ -217,7 +222,6 @@ public class JPanelEcoLeatherAcabamento extends javax.swing.JPanel implements Su
 
     @Override
     public void notifyObservers(String n) {
-        //JOptionPane.showMessageDialog(jLabelComprimento, "Vai notificar! Valor: " + d);
         Iterator<Observer> it = observers.iterator();
         while (it.hasNext()) {
             Observer observer = it.next();
@@ -231,13 +235,15 @@ public class JPanelEcoLeatherAcabamento extends javax.swing.JPanel implements Su
 
     @Override
     public void update(String n) {
+        if(n.equalsIgnoreCase("lng")){
+            configs_lng();
+        }
         actualizarTotal();
     }
 
     @Override
     public void update(String material, String cor) {
         _material = material;
-        _cor = cor;
         valores();
         actualizarTotal();
     }
