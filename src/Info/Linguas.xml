@@ -45,7 +45,7 @@
             <jScrollPaneFuros>Furos</jScrollPaneFuros>
             <jLabelFuroTotal>Valor total dos furos.</jLabelFuroTotal>
             <jScrollPaneRebaixos>Rebaixos</jScrollPaneRebaixos>
-            <jLabelRebaixoTotal>Valor total dos furos.</jLabelRebaixoTotal>
+            <jLabelRebaixoTotal>Valor total dos rebaixos.</jLabelRebaixoTotal>
         </pedra>
         <pedraPeca>
             <jLabelLargura>Larg. (cm):</jLabelLargura>
@@ -83,7 +83,23 @@
             <jLabelCor>Escolha a cor:</jLabelCor>
             <jLabelCor_desc>Escolha a cor que pretende na caixa ao lado.</jLabelCor_desc>
             <jLabelEspessuraPreco_desc>Vários preços para a cor do material conforme a espessura.</jLabelEspessuraPreco_desc>
-            <jButtonNotas></jButtonNotas>
+            <jButtonNotas>Notas</jButtonNotas>
+            <jButtonNotas_desc>Notas sobre os produtos.</jButtonNotas_desc>
+            <jButtonObservacoes>Observações</jButtonObservacoes>
+            <jButtonObservacoes_desc>Observações sobre as condições de venda.</jButtonObservacoes_desc>
+            <jButtonAdicionar>Adicionar</jButtonAdicionar>
+            <jButtonAdicionar_desc>Adicionar uma nova linha.</jButtonAdicionar_desc>
+            <jButtonLimpar>Limpar</jButtonLimpar>
+            <jButtonLimpar_desc>Limpar todas as linhas.</jButtonLimpar_desc>
+            <jLabelTotal>TOTAL (¤)</jLabelTotal>
+            <jScrollPanePecas>Peças</jScrollPanePecas>
+            <jLabelPecaTotal_desc>Valor total das peças.</jLabelPecaTotal_desc>
+            <jScrollPaneAcabamentos>Acamentos</jScrollPaneAcabamentos>
+            <jLabelAcabamentoTotal>Valor total dos rodapés.</jLabelAcabamentoTotal>
+            <jScrollPaneFuros>Furos</jScrollPaneFuros>
+            <jLabelFuroTotal>Valor total dos furos.</jLabelFuroTotal>
+            <jScrollPaneRebaixos>Rebaixos</jScrollPaneRebaixos>
+            <jLabelRebaixoTotal>Valor total dos rebaixos.</jLabelRebaixoTotal>
         </ecoleather>
     </lingua>
     
@@ -156,5 +172,29 @@
             <jLabelRebaixo_desc>Selecione o rebaixo na caixa ao lado.fr</jLabelRebaixo_desc>
             <jLabelTOTAL_desc>Valor total do rebaixo.fr</jLabelTOTAL_desc>
         </pedraRebaixo>
+        <ecoleather>
+            <jLabelMaterial>Choisissez le matériau:</jLabelMaterial>
+            <jLabelMaterial_desc>Choisissez le matériel que vous voulez dans la liste déroulante.</jLabelMaterial_desc>
+            <jLabelCor>Choisissez le coloris:</jLabelCor>
+            <jLabelCor_desc>Choisissez le coloris que vous voulez dans la liste déroulante.</jLabelCor_desc>
+            <jLabelEspessuraPreco>Différents prix pour  le coloris du matériau.</jLabelEspessuraPreco>
+            <jButtonNotas>Notes</jButtonNotas>
+            <jButtonNotas_desc>Notes sur les produits.</jButtonNotas_desc>
+            <jButtonObservacoes>Remarques</jButtonObservacoes>
+            <jButtonObservacoes_desc>Commentaires sur les conditions de vente.</jButtonObservacoes_desc>
+            <jButtonAdicionar>Ajouter</jButtonAdicionar>
+            <jButtonAdicionar_desc>Ajouter une nouvelle ligne.</jButtonAdicionar_desc>
+            <jButtonLimpar>Nettoyer</jButtonLimpar>
+            <jButtonLimpar_desc>Effacer toutes les lignes.</jButtonLimpar_desc>
+            <jLabelTotal>TOTALE (¤)</jLabelTotal>
+            <jScrollPanePecas>Plans</jScrollPanePecas>
+            <jLabelPecaTotal_desc>La valeur totale des plans.</jLabelPecaTotal_desc>
+            <jScrollPaneAcabamentos>Acamentos</jScrollPaneAcabamentos>
+            <jLabelAcabamentoTotal>Valor total dos rodapés.</jLabelAcabamentoTotal>
+            <jScrollPaneFuros>Furos</jScrollPaneFuros>
+            <jLabelFuroTotal>Valor total dos furos.</jLabelFuroTotal>
+            <jScrollPaneRebaixos>Rebaixos</jScrollPaneRebaixos>
+            <jLabelRebaixoTotal>Valor total dos rebaixos.</jLabelRebaixoTotal>
+        </ecoleather>
     </lingua>
 </linguas>

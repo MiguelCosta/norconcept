@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.xml.xpath.XPathExpressionException;
 import mvc.Observer;
@@ -51,59 +53,68 @@ public class JPanelEcoLeather extends javax.swing.JPanel implements Observer, Su
         _l = l;
         _tipo_material = tipo_material;
         configs();
+        configs_lng();
         preencherMateriais();
     }
 
     private void configs() {
-        String material = StringHtml.html_toolTipText("Escolha o material pretendido na caixa ao lado.");
-        String cor = StringHtml.html_toolTipText("Escolha a cor que pretende na caixa ao lado.");
-        String espessura = StringHtml.html_toolTipText("Vários preços para a cor do material conforme a espessura.");
-        String notas = StringHtml.html_toolTipText("Notas sobre os produtos.");
-        String obss = StringHtml.html_toolTipText("Observações sobre as condições de venda.");
 
-        String adicionarPeca = StringHtml.html_toolTipText("Adicionar uma nova peça.");
-        String adicionarAcabamento = StringHtml.html_toolTipText("Adicionar um acabamento.");
-        String adicionarFuro = StringHtml.html_toolTipText("Adicionar um furo");
-        String adicionarRebaixo = StringHtml.html_toolTipText("Adicionar um Rebaixo.");
+        jLabelMaterial.setName("jLabelMaterial");
+        jLabelCor.setName("jLabelCor");
+        jLabelEspessuraPreco.setName("jLabelEspessuraPreco");
 
-        String limparPeca = StringHtml.html_toolTipText("Limpar todas as pecas.");
-        String limparAcabamento = StringHtml.html_toolTipText("Limpar todas os acabamentos.");
-        String limparFuro = StringHtml.html_toolTipText("Limpar todas os Furos.");
-        String limparRebaixo = StringHtml.html_toolTipText("Limpar todas os rebaixos.");
+        jButtonNotas.setName("jButtonNotas");
+        jButtonObservacoes.setName("jButtonObservacoes");
 
-        String totalPeca = StringHtml.html_toolTipText("Valor total das peças.");
-        String totalAcabemento = StringHtml.html_toolTipText("Valor total dos acabamentos");
-        String totalFuro = StringHtml.html_toolTipText("Valor total dos furos.");
-        String totalRebaixo = StringHtml.html_toolTipText("Valor total dos rebaixos");
+        jButtonAdicionarPeca.setName("jButtonAdicionar");
+        jButtonAdicionarAcabamento.setName("jButtonAdicionar");
+        jButtonAdicionarFuro.setName("jButtonAdicionar");
+        jButtonAdicionarRebaixo.setName("jButtonAdicionar");
 
+        jButtonLimparPeca.setName("jButtonLimpar");
+        jButtonLimparAcabamento.setName("jButtonLimpar");
+        jButtonLimparFuro.setName("jButtonLimpar");
+        jButtonLimparRebaixo.setName("jButtonLimpar");
 
-        jLabelMaterial.setToolTipText(material);
-        jLabelCor.setToolTipText(cor);
-        jLabelEspessuraPreco.setToolTipText(espessura);
-        jButtonNotas.setToolTipText(notas);
-        jButtonObservacoes.setToolTipText(obss);
-
-        jButtonAdicionarPeca.setToolTipText(adicionarPeca);
-        jButtonAdicionarAcabamento.setToolTipText(adicionarAcabamento);
-        jButtonAdicionarFuro.setToolTipText(adicionarFuro);
-        jButtonAdicionarRebaixo.setToolTipText(adicionarRebaixo);
-
-        jButtonLimparPeca.setToolTipText(limparPeca);
-        jButtonLimparAcabamento.setToolTipText(limparAcabamento);
-        jButtonLimparFuro.setToolTipText(limparFuro);
-        jButtonLimparRebaixo.setToolTipText(limparRebaixo);
-
-        jLabelPecaTotal.setToolTipText(totalPeca);
-        jLabelAcabamentoTotal.setToolTipText(totalAcabemento);
-        jLabelFuroTotal.setToolTipText(totalFuro);
-        jLabelRebaixoTotal.setToolTipText(totalRebaixo);
+        jLabelPecaTotal.setName("jLabelTotal");
+        jLabelAcabamentoTotal.setName("jLabelTotal");
+        jLabelFuroTotal.setName("jLabelTotal");
+        jLabelRebaixoTotal.setName("jLabelTotal");
 
     }
-    
-    public void config_lng(){
+
+    public void configs_lng() {
+        //JOptionPane.showMessageDialog(jButtonNotas, "actualizar a lingua");
+        // butões de adicionar
+        jButtonAdicionarPeca.setText(_l.queryText("ecoleather", "jButtonAdicionar"));
+        jButtonAdicionarAcabamento.setText(_l.queryText("ecoleather", "jButtonAdicionar"));
+        jButtonAdicionarFuro.setText(_l.queryText("ecoleather", "jButtonAdicionar"));
+        jButtonAdicionarRebaixo.setText(_l.queryText("ecoleather", "jButtonAdicionar"));
+
+        // butões de limpar
+        jButtonLimparPeca.setText(_l.queryText("ecoleather", "jButtonLimpar"));
+        jButtonLimparAcabamento.setText(_l.queryText("ecoleather", "jButtonLimpar"));
+        jButtonLimparFuro.setText(_l.queryText("ecoleather", "jButtonLimpar"));
+        jButtonLimparRebaixo.setText(_l.queryText("ecoleather", "jButtonLimpar"));
+
+        // Label total
+        jLabelPecaTotal.setText(_l.queryText("ecoleather", "jLabelTotal"));
+        jLabelAcabamentoTotal.setText(_l.queryText("ecoleather", "jLabelTotal"));
+        jLabelFuroTotal.setText(_l.queryText("ecoleather", "jLabelTotal"));
+        jLabelRebaixoTotal.setText(_l.queryText("ecoleather", "jLabelTotal"));
+
+        jLabelPecaTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleather", "jLabelPecaTotal_desc")));
+        jLabelAcabamentoTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleather", "jLabelAcabamentoTotal")));
+        jLabelFuroTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleather", "jLabelFuroTotal")));
+        jLabelRebaixoTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleather", "jLabelRebaixoTotal")));
+
+        // Notas e observações
+        jButtonNotas.setText(_l.queryText("ecoleather", "jButtonNotas"));
+        jButtonObservacoes.setText(_l.queryText("ecoleather", "jButtonObservacoes"));
         
-        
-        
+        jButtonNotas.setToolTipText(_l.queryText("ecoleather", "jButtonNotas_desc"));
+        jButtonObservacoes.setToolTipText(_l.queryText("ecoleather", "jButtonObservacoes_desc3"));
+
     }
 
     private void preencherMateriais() {
@@ -761,6 +772,11 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
     // <editor-fold defaultstate="collapsed" desc="Notify Observer">
     @Override
     public void update(String enviou) {
+        if (enviou.equalsIgnoreCase("lng")) {
+            configs_lng();
+            notifyObservers("lng");
+        }
+
         if (enviou.equalsIgnoreCase("peca")) {
             actualizarTotalPecas();
             //JOptionPane.showMessageDialog(jLabelCor, "peca");
@@ -776,7 +792,6 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     @Override
     public void update(String material, String cor) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
@@ -791,7 +806,11 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     @Override
     public void notifyObservers(String n) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Iterator<Observer> it = observers.iterator();
+        while (it.hasNext()) {
+            Observer observer = it.next();
+            observer.update("lng");
+        }
     }
 
     @Override
@@ -814,7 +833,6 @@ private void jComboBoxMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//
 
     @Override
     public void update(String n, Double v) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
     // </editor-fold>
 }

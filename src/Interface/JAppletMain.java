@@ -404,6 +404,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
+            addObserver(j);
         } else {
             jLabelTotalValor.setText("0");
             if (jPanelTipoMaterial.getComponents().length > 0) {
