@@ -4,12 +4,17 @@
  */
 package XML;
 
+import Config.OrdenaStrings;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.Comparable;
+import java.lang.String;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -473,6 +478,52 @@ public class QueryXML {
         }
 
         return acabamentos;
+    }// </editor-fold>
+    
+    // <editor-fold defaultstate="collapsed" desc="Rodamãos">
+    public TreeMap<String, Double> queryRodamaos_NomeEPreco(String material) {
+        
+        TreeMap<String, Double> rodamaos = new TreeMap<String, Double>(new OrdenaStrings());
+        
+        try {
+            XPathExpression expr = null;
+            XPathFactory xFactory = XPathFactory.newInstance();
+            XPath xpath = xFactory.newXPath();
+
+            // cores de um determinado material
+            String query = "//tipo_material[./@tipo='"+_tipo_material+"']/material/rodamaos/rodamao[../../tipo_material_nome='" + material + "']";
+            expr = xpath.compile(query);
+
+            Object result = expr.evaluate(doc, XPathConstants.NODESET);
+
+            NodeList nodes = (NodeList) result;
+            //String s = "";
+            //String s2 = "";
+            for (int i = 0; i < nodes.getLength(); i++) {
+                NodeList r = nodes.item(i).getChildNodes();
+                String nome = "";
+                String valor = "";
+                for (int j = 0; j < r.getLength(); j++) {
+                    if (r.item(j).getNodeName().equalsIgnoreCase("rodamao_nome")) {
+                        nome = r.item(j).getTextContent();
+                    }
+                    if (r.item(j).getNodeName().equalsIgnoreCase("rodamao_preco")) {
+                        valor = r.item(j).getTextContent();
+                    }
+
+                }
+                valor.replace(",", ".");
+                Double d = Double.parseDouble(valor);
+                rodamaos.put(nome, d);
+            }
+
+        } catch (XPathExpressionException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryRodamaos" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
+            Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException e) {
+        }
+
+        return rodamaos;
     }// </editor-fold>
     
     // <editor-fold defaultstate="collapsed" desc="Notas">

@@ -22,9 +22,14 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jLabelMaterial" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="237" max="-2" attributes="0"/>
+                      <Component id="jComboBoxMaterial" pref="234" max="32767" attributes="1"/>
+                  </Group>
                   <Component id="jPanelRodamaosOp" alignment="0" max="32767" attributes="0"/>
                   <Component id="jScrollPaneRodamaos" alignment="0" pref="594" max="32767" attributes="0"/>
                   <Component id="jPanelFurosOp" alignment="0" max="32767" attributes="0"/>
@@ -40,18 +45,12 @@
                   </Group>
                   <Component id="jLabelEspessuraPreco" alignment="1" min="-2" pref="477" max="-2" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelMaterial" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelCor" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="237" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jComboBoxMaterial" max="32767" attributes="1"/>
-                          <Component id="jComboBoxCor" alignment="1" pref="234" max="32767" attributes="1"/>
-                      </Group>
+                      <Component id="jLabelCor" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="270" max="32767" attributes="0"/>
+                      <Component id="jComboBoxCor" min="-2" pref="234" max="-2" attributes="1"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,7 +62,7 @@
                   <Component id="jLabelMaterial" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBoxMaterial" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabelCor" min="-2" max="-2" attributes="0"/>
                   <Component id="jComboBoxCor" min="-2" max="-2" attributes="0"/>
@@ -75,7 +74,7 @@
                   <Component id="jButtonNotas" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonObservacoes" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="7" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jScrollPanePecas" min="-2" pref="160" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelPecaOp" min="-2" max="-2" attributes="0"/>
@@ -91,6 +90,7 @@
               <Component id="jScrollPaneRodamaos" min="-2" pref="116" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelRodamaosOp" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
