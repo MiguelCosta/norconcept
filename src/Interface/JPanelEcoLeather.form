@@ -25,8 +25,8 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jPanelRebaixosOp" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jScrollPaneRebaixos" alignment="0" pref="594" max="32767" attributes="0"/>
+                  <Component id="jPanelRodamaosOp" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneRodamaos" alignment="0" pref="594" max="32767" attributes="0"/>
                   <Component id="jPanelFurosOp" alignment="0" max="32767" attributes="0"/>
                   <Component id="jScrollPaneFuros" alignment="0" pref="594" max="32767" attributes="0"/>
                   <Component id="jPanelAcabamentoOp" alignment="0" max="32767" attributes="0"/>
@@ -88,9 +88,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanelFurosOp" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPaneRebaixos" min="-2" pref="116" max="-2" attributes="0"/>
+              <Component id="jScrollPaneRodamaos" min="-2" pref="116" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanelRebaixosOp" min="-2" max="-2" attributes="0"/>
+              <Component id="jPanelRodamaosOp" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -408,7 +408,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPaneRebaixos">
+    <Container class="javax.swing.JScrollPane" name="jScrollPaneRodamaos">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -421,7 +421,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanelRebaixos">
+        <Container class="javax.swing.JPanel" name="jPanelRodamaos">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -433,7 +433,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanelRebaixosOp">
+    <Container class="javax.swing.JPanel" name="jPanelRodamaosOp">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d7" green="d8" red="d9" type="rgb"/>
@@ -444,51 +444,51 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jButtonAdicionarRebaixo" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonAdicionarRodamao" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonLimparRebaixo" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonLimparRodamao" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="346" max="32767" attributes="0"/>
-                  <Component id="jLabelRebaixoTotal" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelRodamaoTotal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLabelRebaixoTotalValor" min="-2" pref="63" max="-2" attributes="0"/>
+                  <Component id="jLabelRodamaoTotalValor" min="-2" pref="63" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                  <Component id="jButtonAdicionarRebaixo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonLimparRebaixo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelRebaixoTotalValor" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelRebaixoTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonAdicionarRodamao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonLimparRodamao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelRodamaoTotalValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelRodamaoTotal" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButtonAdicionarRebaixo">
+        <Component class="javax.swing.JButton" name="jButtonAdicionarRodamao">
           <Properties>
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdicionarRebaixoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdicionarRodamaoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonLimparRebaixo">
+        <Component class="javax.swing.JButton" name="jButtonLimparRodamao">
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimparRebaixoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimparRodamaoActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelRebaixoTotalValor">
+        <Component class="javax.swing.JLabel" name="jLabelRodamaoTotalValor">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="0.0"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelRebaixoTotal">
+        <Component class="javax.swing.JLabel" name="jLabelRodamaoTotal">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="12" style="1"/>

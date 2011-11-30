@@ -98,8 +98,8 @@
             <jLabelAcabamentoTotal>Valor total dos rodapés.</jLabelAcabamentoTotal>
             <jScrollPaneFuros>Furos</jScrollPaneFuros>
             <jLabelFuroTotal>Valor total dos furos.</jLabelFuroTotal>
-            <jScrollPaneRebaixos>Rebaixos</jScrollPaneRebaixos>
-            <jLabelRebaixoTotal>Valor total dos rebaixos.</jLabelRebaixoTotal>
+            <jScrollPaneRodamao>Rodamãos</jScrollPaneRodamao>
+            <jLabelRodamaoTotal>Valor total das rodamãos.</jLabelRodamaoTotal>
         </ecoleather>
         <ecoleatherAcabamento>
             <jLabelAcabamento>Acabamento</jLabelAcabamento>
@@ -200,8 +200,8 @@
             <jLabelAcabamentoTotal>Valor total dos rodapés.</jLabelAcabamentoTotal>
             <jScrollPaneFuros>Perçage</jScrollPaneFuros>
             <jLabelFuroTotal>La valeur totale des trous perçages.</jLabelFuroTotal>
-            <jScrollPaneRebaixos>Rebaixos</jScrollPaneRebaixos>
-            <jLabelRebaixoTotal>Valor total dos rebaixos.</jLabelRebaixoTotal>
+            <jScrollPaneRodamao>Rodamãos</jScrollPaneRodamao>
+            <jLabelRodamaoTotal>Valor total das rodamãos.</jLabelRodamaoTotal>
         </ecoleather>
         <ecoleatherAcabamento>
             <jLabelAcabamento>Acabamento</jLabelAcabamento>
