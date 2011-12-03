@@ -369,7 +369,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         _q.setTipoMaterial(tipo_material);
         jComboBoxTipoMaterial.setToolTipText(tipo_material);
 
-        if (tipo_material.equalsIgnoreCase("pedra") || tipo_material.equalsIgnoreCase("Mármores e Granitos")) {
+        if (tipo_material.equalsIgnoreCase("Mármores e Granitos")) {
             _valor = 0.0;
             actualizarPrecos();
             if (jPanelTipoMaterial.getComponents().length > 0) {
@@ -388,14 +388,31 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             addObserver(j);
 
             //JOptionPane.showMessageDialog(rootPane, "Tipo Material entrou: " + tipo_material);
-        } else if (tipo_material.equalsIgnoreCase("Silestone ECO Leather e Volcano")) {
+        } else if (tipo_material.equalsIgnoreCase("Silestone ECO Leather e Volcano - Lambrim e Balcão")) {
             _valor = 0.0;
             actualizarPrecos();
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
 
-            JPanelEcoLeather j = new JPanelEcoLeather(_q, _l, tipo_material);
+            JPanelEcoLeatherLambrimBalcao j = new JPanelEcoLeatherLambrimBalcao(_q, _l, tipo_material);
+            j.addObserver(this);
+            jPanelTipoMaterial.add(j);
+            jPanelTipoMaterial.repaint();
+            jPanelTipoMaterial.revalidate();
+
+            jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
+            jPanelTipoMaterial.repaint();
+            jPanelTipoMaterial.revalidate();
+            addObserver(j);
+        } else if (tipo_material.equalsIgnoreCase("Silestone ECO Leather e Volcano - Ladrilhos")) {
+            _valor = 0.0;
+            actualizarPrecos();
+            if (jPanelTipoMaterial.getComponents().length > 0) {
+                jPanelTipoMaterial.removeAll();
+            }
+
+            JPanelEcoLeatherLadrilhos j = new JPanelEcoLeatherLadrilhos(_q, _l, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
@@ -416,12 +433,14 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             observers.add(j);
 
         }
+
         jPanelTipoMaterial.revalidate();
+
         jPanelTipoMaterial.repaint();
+
+
         this.repaint();
-
     }//GEN-LAST:event_jComboBoxTipoMaterialItemStateChanged
-
     private void jRadioButtonPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPTActionPerformed
         jRadioButtonPT.setSelected(true);
         jRadioButtonFR.setSelected(false);

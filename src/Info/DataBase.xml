@@ -360,7 +360,7 @@
 
         </tipo_material>
         
-        <tipo_material tipo="Silestone ECO Leather e Volcano">
+        <tipo_material tipo="Silestone ECO Leather e Volcano - Lambrim e Balcão">
             <material>
                 <tipo_material_nome>Lambrim e Balcão</tipo_material_nome>
                 <espessuras>
@@ -908,6 +908,8 @@
                     <obs>Mantenha a prova de compra, leia atentamente o guia de manutenção do silestone, assim como as condições gerais e termos.</obs>
                 </obss>
             </material>
+            </tipo_material>
+            <tipo_material tipo="Silestone ECO Leather e Volcano - Ladrilhos">
             <material>
                 <tipo_material_nome>Ladrilhos</tipo_material_nome>
                 <tamanhos>
@@ -1287,6 +1289,14 @@
                         <cor_preco tamanho="60x60x1.2cm">230.00</cor_preco>
                     </cor>
                 </cores>
+                <obss>
+                    <obs>Preço sujeito a IVA á taxa em vigor. </obs>
+                    <obs>Pagamento a 30 dias. </obs>
+                    <obs>Carregamento nas nossas instalações.</obs>
+                    <obs>Os ladrilhos são vendidos á caixa (solicite informaões por favor).</obs>
+                    <obs>Sendo o Silestone um produto composto, está sujeito a variações de tonalidade, logo não aceitamos reclamações por este motivo.</obs>
+                    <obs>Á empresa reserva-se o direito de alterar a tabela sempre que necessário sem aviso prévio.</obs>
+                </obss>
             </material>
         </tipo_material>
 

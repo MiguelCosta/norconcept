@@ -29,7 +29,7 @@ import mvc.Subject;
  * @author miguel
  */
 public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements Observer, Subject {
-    
+
     private QueryXML _q;
     private QueryXML_Lingua _l;
     private ArrayList<String> cores;
@@ -46,81 +46,91 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
     /** Creates new form JPanelPedra */
     public JPanelEcoLeatherLambrimBalcao(QueryXML q, QueryXML_Lingua l, String tipo_material) {
         initComponents();
-        
+
         _q = q;
         _l = l;
         _tipo_material = tipo_material;
         configs();
         configs_lng();
+        preencherCores();
     }
-    
+
+    private void preencherCores() {
+        cores = _q.queryCores(_material);
+        for (String s : cores) {
+            jComboBoxCor.addItem(s);
+        }
+
+
+    }
+
     private void configs() {
-        
+
         jLabelCor.setName("jLabelCor");
         jLabelEspessuraPreco.setName("jLabelEspessuraPreco");
-        
+
         jButtonNotas.setName("jButtonNotas");
         jButtonObservacoes.setName("jButtonObservacoes");
-        
+
         jButtonAdicionarPeca.setName("jButtonAdicionar");
         jButtonAdicionarAcabamento.setName("jButtonAdicionar");
         jButtonAdicionarFuro.setName("jButtonAdicionar");
         jButtonAdicionarRodamao.setName("jButtonAdicionar");
-        
+
         jButtonLimparPeca.setName("jButtonLimpar");
         jButtonLimparAcabamento.setName("jButtonLimpar");
         jButtonLimparFuro.setName("jButtonLimpar");
         jButtonLimparRodamao.setName("jButtonLimpar");
-        
+
         jLabelPecaTotal.setName("jLabelTotal");
         jLabelAcabamentoTotal.setName("jLabelTotal");
         jLabelFuroTotal.setName("jLabelTotal");
         jLabelRodamaoTotal.setName("jLabelTotal");
-        
+
     }
-    
+
     public void configs_lng() {
         // material e cor
-        jLabelCor.setText(_l.queryText("ecoleather", "jLabelCor"));
-        jLabelCor.setToolTipText(_l.queryText("ecoleather", "jLabelCor_desc"));
+        jLabelCor.setText(_l.queryText("ecoleatherLambrimBalcao", "jLabelCor"));
+        jLabelCor.setToolTipText(_l.queryText("ecoleatherLambrimBalcao", "jLabelCor_desc"));
 
         // butões de adicionar
-        jButtonAdicionarPeca.setText(_l.queryText("ecoleather", "jButtonAdicionar"));
-        jButtonAdicionarAcabamento.setText(_l.queryText("ecoleather", "jButtonAdicionar"));
-        jButtonAdicionarFuro.setText(_l.queryText("ecoleather", "jButtonAdicionar"));
-        jButtonAdicionarRodamao.setText(_l.queryText("ecoleather", "jButtonAdicionar"));
+        jButtonAdicionarPeca.setText(_l.queryText("ecoleatherLambrimBalcao", "jButtonAdicionar"));
+        jButtonAdicionarAcabamento.setText(_l.queryText("ecoleatherLambrimBalcao", "jButtonAdicionar"));
+        jButtonAdicionarFuro.setText(_l.queryText("ecoleatherLambrimBalcao", "jButtonAdicionar"));
+        jButtonAdicionarRodamao.setText(_l.queryText("ecoleatherLambrimBalcao", "jButtonAdicionar"));
 
         // butões de limpar
-        jButtonLimparPeca.setText(_l.queryText("ecoleather", "jButtonLimpar"));
-        jButtonLimparAcabamento.setText(_l.queryText("ecoleather", "jButtonLimpar"));
-        jButtonLimparFuro.setText(_l.queryText("ecoleather", "jButtonLimpar"));
-        jButtonLimparRodamao.setText(_l.queryText("ecoleather", "jButtonLimpar"));
+        jButtonLimparPeca.setText(_l.queryText("ecoleatherLambrimBalcao", "jButtonLimpar"));
+        jButtonLimparAcabamento.setText(_l.queryText("ecoleatherLambrimBalcao", "jButtonLimpar"));
+        jButtonLimparFuro.setText(_l.queryText("ecoleatherLambrimBalcao", "jButtonLimpar"));
+        jButtonLimparRodamao.setText(_l.queryText("ecoleatherLambrimBalcao", "jButtonLimpar"));
 
         // Label total
-        jLabelPecaTotal.setText(_l.queryText("ecoleather", "jLabelTotal"));
-        jLabelAcabamentoTotal.setText(_l.queryText("ecoleather", "jLabelTotal"));
-        jLabelFuroTotal.setText(_l.queryText("ecoleather", "jLabelTotal"));
-        jLabelRodamaoTotal.setText(_l.queryText("ecoleather", "jLabelTotal"));
-        
-        jLabelPecaTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleather", "jLabelPecaTotal_desc")));
-        jLabelAcabamentoTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleather", "jLabelAcabamentoTotal")));
-        jLabelFuroTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleather", "jLabelFuroTotal")));
-        jLabelRodamaoTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleather", "jLabelRodamaoTotal")));
+        jLabelPecaTotal.setText(_l.queryText("ecoleatherLambrimBalcao", "jLabelTotal"));
+        jLabelAcabamentoTotal.setText(_l.queryText("ecoleatherLambrimBalcao", "jLabelTotal"));
+        jLabelFuroTotal.setText(_l.queryText("ecoleatherLambrimBalcao", "jLabelTotal"));
+        jLabelRodamaoTotal.setText(_l.queryText("ecoleatherLambrimBalcao", "jLabelTotal"));
+
+        jLabelPecaTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleatherLambrimBalcao", "jLabelPecaTotal_desc")));
+        jLabelAcabamentoTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleatherLambrimBalcao", "jLabelAcabamentoTotal")));
+        jLabelFuroTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleatherLambrimBalcao", "jLabelFuroTotal")));
+        jLabelRodamaoTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleatherLambrimBalcao", "jLabelRodamaoTotal")));
 
         // Notas e observações
-        jButtonNotas.setText(_l.queryText("ecoleather", "jButtonNotas"));
-        jButtonObservacoes.setText(_l.queryText("ecoleather", "jButtonObservacoes"));
-        
-        jButtonNotas.setToolTipText(_l.queryText("ecoleather", "jButtonNotas_desc"));
-        jButtonObservacoes.setToolTipText(_l.queryText("ecoleather", "jButtonObservacoes_desc3"));
+        jButtonNotas.setText(_l.queryText("ecoleatherLambrimBalcao", "jButtonNotas"));
+        jButtonObservacoes.setText(_l.queryText("ecoleatherLambrimBalcao", "jButtonObservacoes"));
+
+        jButtonNotas.setToolTipText(_l.queryText("ecoleatherLambrimBalcao", "jButtonNotas_desc"));
+        jButtonObservacoes.setToolTipText(_l.queryText("ecoleatherLambrimBalcao", "jButtonObservacoes_desc3"));
 
         //PanelScrool
-        jScrollPanePecas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, _l.queryText("ecoleather", "jScrollPanePecas"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
-        jScrollPaneAcabamentos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, _l.queryText("ecoleather", "jScrollPaneAcabamentos"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
-        jScrollPaneFuros.setBorder(javax.swing.BorderFactory.createTitledBorder(null, _l.queryText("ecoleather", "jScrollPaneFuros"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
-        jScrollPaneRodamaos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, _l.queryText("ecoleather", "jScrollPaneRodamao"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
-        
-        
+        jScrollPanePecas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, _l.queryText("ecoleatherLambrimBalcao", "jScrollPanePecas"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+        jScrollPaneAcabamentos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, _l.queryText("ecoleatherLambrimBalcao", "jScrollPaneAcabamentos"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+        jScrollPaneFuros.setBorder(javax.swing.BorderFactory.createTitledBorder(null, _l.queryText("ecoleatherLambrimBalcao", "jScrollPaneFuros"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+        jScrollPaneRodamaos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, _l.queryText("ecoleatherLambrimBalcao", "jScrollPaneRodamao"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="getTotal">
@@ -139,10 +149,10 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
             valor += Double.parseDouble(pecas);
             valor += Double.parseDouble(rodapes);
             valor += Double.parseDouble(rebaixos);
-            
+
         } catch (Exception e) {
         }
-        
+
         return valor;
     }
     // </editor-fold>
@@ -484,7 +494,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
 
     // <editor-fold defaultstate="collapsed" desc="Eventos e variáveis">    
     private void jButtonAdicionarPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarPecaActionPerformed
-        
+
         JPanelPedraPeca l = new JPanelPedraPeca(_q, _l, _material, _cor);
         l.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
@@ -493,9 +503,9 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = num_linhas_peca;
         jPanelPecas.add(l, gridBagConstraints);
-        
+
         num_linhas_peca++;
-        
+
         this.addObserver(l);
         jPanelPecas.repaint();
         jPanelPecas.revalidate();
@@ -503,7 +513,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
         this.repaint();
         jPanelPecas.repaint();
     }//GEN-LAST:event_jButtonAdicionarPecaActionPerformed
-    
+
     private void jComboBoxCorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCorItemStateChanged
 
         if (jComboBoxCor.getSelectedItem() == null) {
@@ -515,16 +525,16 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
         } else {
             jLabelEspessuraPreco.setText(_q.queryCoresPrecoString(_material, _cor));
         }
-        
+
         jComboBoxCor.setToolTipText(StringHtml.html_toolTipText(_cor));
-        
+
         this.notifyObservers(_material, _cor);
         this.repaint();
         this.revalidate();
         this.repaint();
         //JOptionPane.showMessageDialog(this, "FIM" + _material + _cor);
     }//GEN-LAST:event_jComboBoxCorItemStateChanged
-    
+
     private void jButtonLimparPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparPecaActionPerformed
         jPanelPecas.removeAll();
         jPanelPecas.repaint();
@@ -533,7 +543,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
         num_linhas_peca = 0;
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonLimparPecaActionPerformed
-    
+
     private void jButtonAdicionarAcabamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarAcabamentoActionPerformed
         JPanelEcoLeatherAcabamento r = new JPanelEcoLeatherAcabamento(_q, _l, _material);
         r.addObserver(this);
@@ -543,15 +553,15 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = num_linhas_acabamento;
         jPanelAcabamentos.add(r, gridBagConstraints);
-        
+
         num_linhas_acabamento++;
-        
+
         this.addObserver(r);
         jPanelAcabamentos.repaint();
         jPanelAcabamentos.revalidate();
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonAdicionarAcabamentoActionPerformed
-    
+
     private void jButtonLimparAcabamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparAcabamentoActionPerformed
         jPanelAcabamentos.removeAll();
         jPanelAcabamentos.repaint();
@@ -560,7 +570,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
         num_linhas_acabamento = 0;
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonLimparAcabamentoActionPerformed
-    
+
     private void jButtonAdicionarFuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarFuroActionPerformed
         JPanelPedraFuro f = new JPanelPedraFuro(_q, _l, _material);
         f.addObserver(this);
@@ -570,15 +580,15 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = num_linhas_furos;
         jPanelFuros.add(f, gridBagConstraints);
-        
+
         num_linhas_furos++;
-        
+
         this.addObserver(f);
         jPanelFuros.repaint();
         jPanelFuros.revalidate();
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonAdicionarFuroActionPerformed
-    
+
     private void jButtonLimparFuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparFuroActionPerformed
         jPanelFuros.removeAll();
         jPanelFuros.repaint();
@@ -586,7 +596,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
         jLabelFuroTotalValor.setText("0.0");
         num_linhas_furos = 0;
     }//GEN-LAST:event_jButtonLimparFuroActionPerformed
-    
+
     private void jButtonAdicionarRodamaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarRodamaoActionPerformed
         JPanelEcoLeatherRodamao r = new JPanelEcoLeatherRodamao(_q, _l, _material);
         r.addObserver(this);
@@ -596,16 +606,16 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = num_linhas_rodamaos;
         jPanelRodamaos.add(r, gridBagConstraints);
-        
+
         num_linhas_rodamaos++;
-        
+
         this.addObserver(r);
         jPanelRodamaos.repaint();
         jPanelRodamaos.revalidate();
         notifyObservers(_material, getTotal());
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonAdicionarRodamaoActionPerformed
-    
+
     private void jButtonLimparRodamaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparRodamaoActionPerformed
         jPanelRodamaos.removeAll();
         jPanelRodamaos.repaint();
@@ -614,20 +624,20 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
         num_linhas_rodamaos = 0;
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonLimparRodamaoActionPerformed
-    
+
     private void jButtonNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNotasActionPerformed
         ArrayList<String> notas = _q.queryNotas(_material);
-        
+
         String texto = StringHtml.html_list(notas, "Notas:");
-        
+
         JOptionPane.showMessageDialog(null, texto, "Notas", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonNotasActionPerformed
-    
+
     private void jButtonObservacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObservacoesActionPerformed
         ArrayList<String> obss = _q.queryObss(_material);
-        
+
         String texto = StringHtml.html_list_numeric(obss, "Observações:");
-        
+
         JOptionPane.showMessageDialog(null, texto, "Observações", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonObservacoesActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -666,7 +676,6 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
     private javax.swing.JScrollPane jScrollPaneRodamaos;
     // End of variables declaration//GEN-END:variables
     // </editor-fold>
-    
 
     // <editor-fold defaultstate="collapsed" desc="Actualizar">
     public void actualizarTotalPecas() {
@@ -678,10 +687,10 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
             } catch (Exception e) {
             }
         }
-        
+
         jLabelPecaTotalValor.setText(df.format(d));
     }
-    
+
     public void actualizarTotalAcabamentos() {
         Double d = 0.0;
         for (Component c : jPanelAcabamentos.getComponents()) {
@@ -691,10 +700,10 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
             } catch (Exception e) {
             }
         }
-        
+
         jLabelAcabamentoTotalValor.setText(df.format(d));
     }
-    
+
     public void actualizarTotalFuros() {
         Double d = 0.0;
         for (Component c : jPanelFuros.getComponents()) {
@@ -704,10 +713,10 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
             } catch (Exception e) {
             }
         }
-        
+
         jLabelFuroTotalValor.setText(df.format(d));
     }
-    
+
     public void actualizarTotalRodamao() {
         Double d = 0.0;
         for (Component c : jPanelRodamaos.getComponents()) {
@@ -717,7 +726,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
             } catch (Exception e) {
             }
         }
-        
+
         jLabelRodamaoTotalValor.setText(df.format(d));
     }
     // </editor-fold>
@@ -729,7 +738,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
             configs_lng();
             notifyObservers("lng");
         }
-        
+
         if (enviou.equalsIgnoreCase("peca")) {
             actualizarTotalPecas();
             //JOptionPane.showMessageDialog(jLabelCor, "peca");
@@ -742,21 +751,21 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
         }
         notifyObservers(_material, getTotal());
     }
-    
+
     @Override
     public void update(String material, String cor) {
     }
-    
+
     @Override
     public void addObserver(Observer o) {
         observers.add(o);
     }
-    
+
     @Override
     public void removeObserver(Observer o) {
         observers.remove(o);
     }
-    
+
     @Override
     public void notifyObservers(String n) {
         Iterator<Observer> it = observers.iterator();
@@ -765,7 +774,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
             observer.update("lng");
         }
     }
-    
+
     @Override
     public void notifyObservers(String material, String cor) {
         Iterator<Observer> it = observers.iterator();
@@ -774,7 +783,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
             observer.update(material, cor);
         }
     }
-    
+
     @Override
     public void notifyObservers(String n, Double d) {
         Iterator<Observer> it = observers.iterator();
@@ -783,7 +792,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
             observer.update(n, d);
         }
     }
-    
+
     @Override
     public void update(String n, Double v) {
     }

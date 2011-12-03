@@ -68,29 +68,29 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
     
     public void configs_lng() {
         // material e cor
-        jLabelCor.setText(_l.queryText("ecoleather", "jLabelCor"));
-        jLabelCor.setToolTipText(_l.queryText("ecoleather", "jLabelCor_desc"));
+        jLabelCor.setText(_l.queryText("ecoleatherLadrilhos", "jLabelCor"));
+        jLabelCor.setToolTipText(_l.queryText("ecoleatherLadrilhos", "jLabelCor_desc"));
 
         // butões de adicionar
-        jButtonAdicionarPeca.setText(_l.queryText("ecoleather", "jButtonAdicionar"));
+        jButtonAdicionarPeca.setText(_l.queryText("ecoleatherLadrilhos", "jButtonAdicionar"));
 
         // butões de limpar
-        jButtonLimparPeca.setText(_l.queryText("ecoleather", "jButtonLimpar"));
+        jButtonLimparPeca.setText(_l.queryText("ecoleatherLadrilhos", "jButtonLimpar"));
         
         // Label total
-        jLabelPecaTotal.setText(_l.queryText("ecoleather", "jLabelTotal"));
+        jLabelPecaTotal.setText(_l.queryText("ecoleatherLadrilhos", "jLabelTotal"));
         
-        jLabelPecaTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleather", "jLabelPecaTotal_desc")));
+        jLabelPecaTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleatherLadrilhos", "jLabelPecaTotal_desc")));
        
         // Notas e observações
-        jButtonNotas.setText(_l.queryText("ecoleather", "jButtonNotas"));
-        jButtonObservacoes.setText(_l.queryText("ecoleather", "jButtonObservacoes"));
+        jButtonNotas.setText(_l.queryText("ecoleatherLadrilhos", "jButtonNotas"));
+        jButtonObservacoes.setText(_l.queryText("ecoleatherLadrilhos", "jButtonObservacoes"));
         
-        jButtonNotas.setToolTipText(_l.queryText("ecoleather", "jButtonNotas_desc"));
-        jButtonObservacoes.setToolTipText(_l.queryText("ecoleather", "jButtonObservacoes_desc3"));
+        jButtonNotas.setToolTipText(_l.queryText("ecoleatherLadrilhos", "jButtonNotas_desc"));
+        jButtonObservacoes.setToolTipText(_l.queryText("ecoleatherLadrilhos", "jButtonObservacoes_desc3"));
 
         //PanelScrool
-        jScrollPanePecas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, _l.queryText("ecoleather", "jScrollPanePecas"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+        jScrollPanePecas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, _l.queryText("ecoleatherLadrilhos", "jScrollPanePecas"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
         
         
     }
