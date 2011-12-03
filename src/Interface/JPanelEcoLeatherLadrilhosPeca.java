@@ -48,7 +48,7 @@ public class JPanelEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements
     }
 
     private void configs() {
-        SpinnerNumberModel modelSpinnerC = new SpinnerNumberModel(0, 0, 100000, 1);
+        SpinnerNumberModel modelSpinnerC = new SpinnerNumberModel(0, 0, 1000000000, 1);
         jSpinnerComprimento.setModel(modelSpinnerC);
 
         jLabelDim.setName("jLabelLargura");
@@ -73,23 +73,17 @@ public class JPanelEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements
     public void actualizarTotal() {
         try {
             int comp = Integer.parseInt(jSpinnerComprimento.getValue().toString());
-            double dim = comp;
-            String esp = jComboBoxDim.getSelectedItem().toString();
 
-            String unidade_cor = _q.queryCoresUnidade(_material);
+            Double m = comp / 10000.00;
 
-            if (unidade_cor.equalsIgnoreCase("m2")) {
-                dim = dim / 10000;
-            }
+            Double preco_dim = 0.0;
 
-            Double preco_cor = 0.0;
+            preco_dim = dimensoes_e_precos.get(_dim);
 
-            preco_cor = _q.queryCoresPreco(_material, _cor, esp);
-
-            Double preco_total = dim * preco_cor;
+            Double preco_total = m * preco_dim;
 
             jLabelTOTALValor.setText("" + df.format(preco_total));
-            this.notifyObservers("peca");
+            this.notifyObservers("LadrilhosPeca");
         } catch (Exception e) {
         }
     }
@@ -159,14 +153,14 @@ public class JPanelEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements
                 .addContainerGap()
                 .addComponent(jLabelDim)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxDim, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxDim, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelPreco)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabelComprimento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jLabelTOTAL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelTOTALValor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -179,9 +173,9 @@ public class JPanelEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements
                 .addComponent(jLabelTOTAL)
                 .addComponent(jLabelDim)
                 .addComponent(jComboBoxDim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabelPreco)
                 .addComponent(jLabelComprimento)
-                .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelPreco))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -194,8 +188,9 @@ public class JPanelEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements
     }//GEN-LAST:event_jComboBoxDimItemStateChanged
 
     private void jSpinnerComprimentoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerComprimentoStateChanged
-
-        actualizarTotal();         notifyObservers("peca");     }//GEN-LAST:event_jSpinnerComprimentoStateChanged
+        actualizarTotal();
+        notifyObservers("LadrilhosPeca");
+    }//GEN-LAST:event_jSpinnerComprimentoStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComboBoxDim;
     private javax.swing.JLabel jLabelComprimento;

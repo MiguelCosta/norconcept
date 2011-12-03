@@ -336,7 +336,7 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
         Double d = 0.0;
         for (Component c : jPanelPecas.getComponents()) {
             try {
-                JPanelPedraPeca l = (JPanelPedraPeca) c;
+                JPanelEcoLeatherLadrilhosPeca l = (JPanelEcoLeatherLadrilhosPeca) c;
                 d += l.getTotal();
             } catch (Exception e) {
             }
@@ -354,7 +354,7 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
             notifyObservers("lng");
         }
 
-        if (enviou.equalsIgnoreCase("peca")) {
+        if (enviou.equalsIgnoreCase("LadrilhosPeca")) {
             actualizarTotalPecas();
             //JOptionPane.showMessageDialog(jLabelCor, "peca");
         }

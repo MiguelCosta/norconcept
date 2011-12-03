@@ -20,14 +20,14 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelDim" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jComboBoxDim" min="-2" pref="184" max="-2" attributes="0"/>
+              <Component id="jComboBoxDim" min="-2" pref="178" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelPreco" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabelComprimento" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jSpinnerComprimento" min="-2" pref="64" max="-2" attributes="0"/>
-              <EmptySpace pref="57" max="32767" attributes="0"/>
+              <Component id="jSpinnerComprimento" min="-2" pref="89" max="-2" attributes="0"/>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
               <Component id="jLabelTOTAL" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelTOTALValor" min="-2" pref="47" max="-2" attributes="0"/>
@@ -42,9 +42,9 @@
               <Component id="jLabelTOTAL" alignment="3" min="-2" max="-2" attributes="0"/>
               <Component id="jLabelDim" alignment="3" min="-2" max="-2" attributes="0"/>
               <Component id="jComboBoxDim" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="jLabelPreco" alignment="3" min="-2" max="-2" attributes="0"/>
               <Component id="jLabelComprimento" alignment="3" min="-2" max="-2" attributes="0"/>
               <Component id="jSpinnerComprimento" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabelPreco" alignment="3" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
