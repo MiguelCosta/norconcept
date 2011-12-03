@@ -74,13 +74,13 @@ public class JPanelEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements
         try {
             int comp = Integer.parseInt(jSpinnerComprimento.getValue().toString());
 
-            Double m = comp / 10000.00;
+            //Double m = comp / 10000.00;
 
             Double preco_dim = 0.0;
 
             preco_dim = dimensoes_e_precos.get(_dim);
 
-            Double preco_total = m * preco_dim;
+            Double preco_total = comp * preco_dim;
 
             jLabelTOTALValor.setText("" + df.format(preco_total));
             this.notifyObservers("LadrilhosPeca");
@@ -122,7 +122,7 @@ public class JPanelEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements
 
         jLabelDim.setText("Dim:");
 
-        jLabelComprimento.setText("cm2:");
+        jLabelComprimento.setText("m2:");
 
         jComboBoxDim.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -160,7 +160,7 @@ public class JPanelEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements
                 .addComponent(jLabelComprimento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jLabelTOTAL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelTOTALValor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)

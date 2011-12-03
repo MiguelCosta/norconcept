@@ -27,7 +27,7 @@
               <Component id="jLabelComprimento" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jSpinnerComprimento" min="-2" pref="89" max="-2" attributes="0"/>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
               <Component id="jLabelTOTAL" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelTOTALValor" min="-2" pref="47" max="-2" attributes="0"/>
@@ -57,7 +57,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelComprimento">
       <Properties>
-        <Property name="text" type="java.lang.String" value="cm2:"/>
+        <Property name="text" type="java.lang.String" value="m2:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBoxDim">
