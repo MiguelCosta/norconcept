@@ -26,7 +26,7 @@ import mvc.Subject;
  * @author miguel
  */
 public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Observer, Subject {
-    
+
     private QueryXML _q;
     private QueryXML_Lingua _l;
     private ArrayList<String> cores;
@@ -34,38 +34,47 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
     private int num_linhas_acabamento = 0;
     private int num_linhas_furos = 0;
     private int num_linhas_rodamaos = 0;
-    private String _material = "";
+    private String _material = "Ladrilhos";
     private String _cor = "";
     private DecimalFormat df = new DecimalFormat("#.##");
     private ArrayList<Observer> observers = new ArrayList<Observer>();
-    private String _tipo_material = "";
+    private String _tipo_material = "Silestone ECO Leather e Volcano - Ladrilhos";
 
     /** Creates new form JPanelPedra */
     public JPanelEcoLeatherLadrilhos(QueryXML q, QueryXML_Lingua l, String tipo_material) {
         initComponents();
-        
+
         _q = q;
         _l = l;
         _tipo_material = tipo_material;
         configs();
         configs_lng();
+        preencherCores();
     }
-    
+
+    private void preencherCores() {
+        cores = _q.queryCores(_material);
+
+        for (String s : cores) {
+            jComboBoxCor.addItem(s);
+        }
+    }
+
     private void configs() {
-        
+
         jLabelCor.setName("jLabelCor");
-        
+
         jButtonNotas.setName("jButtonNotas");
         jButtonObservacoes.setName("jButtonObservacoes");
-        
+
         jButtonAdicionarPeca.setName("jButtonAdicionar");
-        
+
         jButtonLimparPeca.setName("jButtonLimpar");
-        
+
         jLabelPecaTotal.setName("jLabelTotal");
-        
+
     }
-    
+
     public void configs_lng() {
         // material e cor
         jLabelCor.setText(_l.queryText("ecoleatherLadrilhos", "jLabelCor"));
@@ -76,37 +85,36 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
 
         // butões de limpar
         jButtonLimparPeca.setText(_l.queryText("ecoleatherLadrilhos", "jButtonLimpar"));
-        
+
         // Label total
         jLabelPecaTotal.setText(_l.queryText("ecoleatherLadrilhos", "jLabelTotal"));
-        
+
         jLabelPecaTotal.setToolTipText(StringHtml.html_toolTipText(_l.queryText("ecoleatherLadrilhos", "jLabelPecaTotal_desc")));
-       
+
         // Notas e observações
         jButtonNotas.setText(_l.queryText("ecoleatherLadrilhos", "jButtonNotas"));
         jButtonObservacoes.setText(_l.queryText("ecoleatherLadrilhos", "jButtonObservacoes"));
-        
+
         jButtonNotas.setToolTipText(_l.queryText("ecoleatherLadrilhos", "jButtonNotas_desc"));
         jButtonObservacoes.setToolTipText(_l.queryText("ecoleatherLadrilhos", "jButtonObservacoes_desc3"));
 
         //PanelScrool
         jScrollPanePecas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, _l.queryText("ecoleatherLadrilhos", "jScrollPanePecas"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
-        
-        
+
+
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="getTotal">
     public Double getTotal() {
         Double valor = 0.0;
         try {
-            
-            String pecas = jLabelPecaTotalValor.getText();            
+
+            String pecas = jLabelPecaTotalValor.getText();
             pecas = pecas.replace(",", ".");
             valor += Double.parseDouble(pecas);
         } catch (Exception e) {
         }
-        
+
         return valor;
     }
     // </editor-fold>
@@ -249,8 +257,8 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
 
     // <editor-fold defaultstate="collapsed" desc="Eventos e variáveis">    
     private void jButtonAdicionarPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarPecaActionPerformed
-        
-        JPanelPedraPeca l = new JPanelPedraPeca(_q, _l, _material, _cor);
+
+        JPanelEcoLeatherLadrilhosPeca l = new JPanelEcoLeatherLadrilhosPeca(_q, _l, _cor);
         l.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -258,9 +266,9 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = num_linhas_peca;
         jPanelPecas.add(l, gridBagConstraints);
-        
+
         num_linhas_peca++;
-        
+
         this.addObserver(l);
         jPanelPecas.repaint();
         jPanelPecas.revalidate();
@@ -268,22 +276,22 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
         this.repaint();
         jPanelPecas.repaint();
     }//GEN-LAST:event_jButtonAdicionarPecaActionPerformed
-    
+
     private void jComboBoxCorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxCorItemStateChanged
         if (jComboBoxCor.getSelectedItem() == null) {
             return;
         }
         _cor = jComboBoxCor.getSelectedItem().toString();
-        
+
         jComboBoxCor.setToolTipText(StringHtml.html_toolTipText(_cor));
-        
+
         this.notifyObservers(_material, _cor);
         this.repaint();
         this.revalidate();
         this.repaint();
         //JOptionPane.showMessageDialog(this, "FIM" + _material + _cor);
     }//GEN-LAST:event_jComboBoxCorItemStateChanged
-    
+
     private void jButtonLimparPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimparPecaActionPerformed
         jPanelPecas.removeAll();
         jPanelPecas.repaint();
@@ -292,20 +300,20 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
         num_linhas_peca = 0;
         notifyObservers(_material, getTotal());
     }//GEN-LAST:event_jButtonLimparPecaActionPerformed
-                            
+
     private void jButtonNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNotasActionPerformed
         ArrayList<String> notas = _q.queryNotas(_material);
-        
+
         String texto = StringHtml.html_list(notas, "Notas:");
-        
+
         JOptionPane.showMessageDialog(null, texto, "Notas", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonNotasActionPerformed
-    
+
     private void jButtonObservacoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonObservacoesActionPerformed
         ArrayList<String> obss = _q.queryObss(_material);
-        
+
         String texto = StringHtml.html_list_numeric(obss, "Observações:");
-        
+
         JOptionPane.showMessageDialog(null, texto, "Observações", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonObservacoesActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -323,7 +331,6 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
     // End of variables declaration//GEN-END:variables
     // </editor-fold>
 
-
     // <editor-fold defaultstate="collapsed" desc="Actualizar">
     public void actualizarTotalPecas() {
         Double d = 0.0;
@@ -334,13 +341,11 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
             } catch (Exception e) {
             }
         }
-        
+
         jLabelPecaTotalValor.setText(df.format(d));
     }
-    
-   
-    // </editor-fold>
 
+    // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="Notify Observer">
     @Override
     public void update(String enviou) {
@@ -348,28 +353,28 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
             configs_lng();
             notifyObservers("lng");
         }
-        
+
         if (enviou.equalsIgnoreCase("peca")) {
             actualizarTotalPecas();
             //JOptionPane.showMessageDialog(jLabelCor, "peca");
-        } 
+        }
         notifyObservers(_material, getTotal());
     }
-    
+
     @Override
     public void update(String material, String cor) {
     }
-    
+
     @Override
     public void addObserver(Observer o) {
         observers.add(o);
     }
-    
+
     @Override
     public void removeObserver(Observer o) {
         observers.remove(o);
     }
-    
+
     @Override
     public void notifyObservers(String n) {
         Iterator<Observer> it = observers.iterator();
@@ -378,7 +383,7 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
             observer.update("lng");
         }
     }
-    
+
     @Override
     public void notifyObservers(String material, String cor) {
         Iterator<Observer> it = observers.iterator();
@@ -387,7 +392,7 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
             observer.update(material, cor);
         }
     }
-    
+
     @Override
     public void notifyObservers(String n, Double d) {
         Iterator<Observer> it = observers.iterator();
@@ -396,7 +401,7 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
             observer.update(n, d);
         }
     }
-    
+
     @Override
     public void update(String n, Double v) {
     }
