@@ -545,7 +545,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
     }//GEN-LAST:event_jButtonLimparPecaActionPerformed
 
     private void jButtonAdicionarAcabamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarAcabamentoActionPerformed
-        JPanelEcoLeatherAcabamento r = new JPanelEcoLeatherAcabamento(_q, _l, _material);
+        JPanelEcoLeatherLambrimBalcaoAcabamento r = new JPanelEcoLeatherLambrimBalcaoAcabamento(_q, _l, _material);
         r.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -695,7 +695,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
         Double d = 0.0;
         for (Component c : jPanelAcabamentos.getComponents()) {
             try {
-                JPanelEcoLeatherAcabamento l = (JPanelEcoLeatherAcabamento) c;
+                JPanelEcoLeatherLambrimBalcaoAcabamento l = (JPanelEcoLeatherLambrimBalcaoAcabamento) c;
                 d += l.getTotal();
             } catch (Exception e) {
             }

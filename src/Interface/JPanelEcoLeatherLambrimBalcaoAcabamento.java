@@ -26,7 +26,7 @@ import mvc.Subject;
  *
  * @author miguel
  */
-public class JPanelEcoLeatherAcabamento extends javax.swing.JPanel implements Subject, Observer {
+public class JPanelEcoLeatherLambrimBalcaoAcabamento extends javax.swing.JPanel implements Subject, Observer {
 
     private String _material;
     private QueryXML _q;
@@ -38,7 +38,7 @@ public class JPanelEcoLeatherAcabamento extends javax.swing.JPanel implements Su
     private String _acabamento = "";
 
     /** Creates new form JPanelPedraPeca */
-    public JPanelEcoLeatherAcabamento(QueryXML q, QueryXML_Lingua l, String material) {
+    public JPanelEcoLeatherLambrimBalcaoAcabamento(QueryXML q, QueryXML_Lingua l, String material) {
         initComponents();
         _q = q;
         _l = l;
@@ -136,7 +136,7 @@ public class JPanelEcoLeatherAcabamento extends javax.swing.JPanel implements Su
             }
         });
 
-        jLabelTOTAL.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabelTOTAL.setFont(new java.awt.Font("Ubuntu", 1, 12));
         jLabelTOTAL.setText("TOTAL (€):");
 
         jLabelTOTALValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
