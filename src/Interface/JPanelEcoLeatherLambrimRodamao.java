@@ -27,7 +27,7 @@ import mvc.Subject;
  *
  * @author miguel
  */
-public class JPanelEcoLeatherRodamao extends javax.swing.JPanel implements Subject, Observer {
+public class JPanelEcoLeatherLambrimRodamao extends javax.swing.JPanel implements Subject, Observer {
 
     private String _material;
     private QueryXML _q;
@@ -39,7 +39,7 @@ public class JPanelEcoLeatherRodamao extends javax.swing.JPanel implements Subje
     private String _rodamaos = "";
 
     /** Creates new form JPanelPedraPeca */
-    public JPanelEcoLeatherRodamao(QueryXML q, QueryXML_Lingua l, String material) {
+    public JPanelEcoLeatherLambrimRodamao(QueryXML q, QueryXML_Lingua l, String material) {
         initComponents();
         _q = q;
         _l = l;

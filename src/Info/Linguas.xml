@@ -126,9 +126,9 @@
         <ecoleatherAcabamento>
             <jLabelAcabamento>Acabamento</jLabelAcabamento>
             <jLabelAcabamento_desc>Selecione o acabamento na caixa ao lado.</jLabelAcabamento_desc>
-            <jLabelComprimento>Long(cm):</jLabelComprimento>
-            <jLabelComprimento_desc>Indiquez la longueur que vous voulez.</jLabelComprimento_desc>
-            <jLabelTotal>TOTALE (¤)</jLabelTotal>
+            <jLabelComprimento>Comp(cm):</jLabelComprimento>
+            <jLabelComprimento_desc>Indique o comprimento que pretende</jLabelComprimento_desc>
+            <jLabelTotal>TOTAL (¤)</jLabelTotal>
         </ecoleatherAcabamento>
     </lingua>
     
@@ -247,8 +247,8 @@
         </ecoleatherLadrilhos>
         
         <ecoleatherAcabamento>
-            <jLabelAcabamento>Acabamento</jLabelAcabamento>
-            <jLabelAcabamento_desc>Selecione o acabamento na caixa ao lado.</jLabelAcabamento_desc>
+            <jLabelAcabamento>Acabamento:fr</jLabelAcabamento>
+            <jLabelAcabamento_desc>Selecione o acabamento na caixa ao lado.:fr</jLabelAcabamento_desc>
             <jLabelComprimento>Long(cm):</jLabelComprimento>
             <jLabelComprimento_desc>Indiquez la longueur que vous voulez.</jLabelComprimento_desc>
             <jLabelTotal>TOTALE (¤)</jLabelTotal>

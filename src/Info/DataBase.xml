@@ -908,8 +908,8 @@
                     <obs>Mantenha a prova de compra, leia atentamente o guia de manutenção do silestone, assim como as condições gerais e termos.</obs>
                 </obss>
             </material>
-            </tipo_material>
-            <tipo_material tipo="Silestone ECO Leather e Volcano - Ladrilhos">
+        </tipo_material>
+        <tipo_material tipo="Silestone ECO Leather e Volcano - Ladrilhos">
             <material>
                 <tipo_material_nome>Ladrilhos</tipo_material_nome>
                 <tamanhos>
@@ -1300,8 +1300,739 @@
             </material>
         </tipo_material>
 
+        <tipo_material tipo="Silestone Eco Polido -  Lambrim e Balcão">
+            <material>
+                <espessuras>
+                    <espessura unidade="cm" valor_espessura="1.2"/>
+                    <espessura unidade="cm" valor_espessura="2"/>
+                    <espessura unidade="cm" valor_espessura="3"/>
+                </espessuras>
+                <cores unidade="m2">
+                    <cor>
+                        <cor_nome>beige daphne</cor_nome>
+                        <cor_preco espessura="1.2">112.50</cor_preco>
+                        <cor_preco espessura="2">132.50</cor_preco>
+                        <cor_preco espessura="3">175.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>beige olimpo</cor_nome>
+                        <cor_preco espessura="1.2">112.50</cor_preco>
+                        <cor_preco espessura="2">132.50</cor_preco>
+                        <cor_preco espessura="3">175.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>blanco city</cor_nome>
+                        <cor_preco espessura="1.2">112.50</cor_preco>
+                        <cor_preco espessura="2">132.50</cor_preco>
+                        <cor_preco espessura="3">175.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>creme urban</cor_nome>
+                        <cor_preco espessura="1.2">112.50</cor_preco>
+                        <cor_preco espessura="2">132.50</cor_preco>
+                        <cor_preco espessura="3">175.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>gris expo</cor_nome>
+                        <cor_preco espessura="1.2">112.50</cor_preco>
+                        <cor_preco espessura="2">132.50</cor_preco>
+                        <cor_preco espessura="3">175.00</cor_preco>
+                    </cor>
+                    
+                  
+                    <cor>
+                        <cor_nome>blanco norte</cor_nome>
+                        <cor_preco espessura="1.2">132.50</cor_preco>
+                        <cor_preco espessura="2">154.50</cor_preco>
+                        <cor_preco espessura="3">203.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>cemento spa</cor_nome>
+                        <cor_preco espessura="1.2">132.50</cor_preco>
+                        <cor_preco espessura="2">154.50</cor_preco>
+                        <cor_preco espessura="3">203.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>creme minerva</cor_nome>
+                        <cor_preco espessura="1.2">132.50</cor_preco>
+                        <cor_preco espessura="2">154.50</cor_preco>
+                        <cor_preco espessura="3">203.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>negro magma</cor_nome>
+                        <cor_preco espessura="1.2">132.50</cor_preco>
+                        <cor_preco espessura="2">154.50</cor_preco>
+                        <cor_preco espessura="3">203.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>negro tebas</cor_nome>
+                        <cor_preco espessura="1.2">132.50</cor_preco>
+                        <cor_preco espessura="2">154.50</cor_preco>
+                        <cor_preco espessura="3">203.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>nuit blue</cor_nome>
+                        <cor_preco espessura="1.2">132.50</cor_preco>
+                        <cor_preco espessura="2">154.50</cor_preco>
+                        <cor_preco espessura="3">203.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>rojo eros</cor_nome>
+                        <cor_preco espessura="1.2">132.50</cor_preco>
+                        <cor_preco espessura="2">154.50</cor_preco>
+                        <cor_preco espessura="3">203.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>aluminio nube</cor_nome>
+                        <cor_preco espessura="1.2">144.50</cor_preco>
+                        <cor_preco espessura="2">165.00</cor_preco>
+                        <cor_preco espessura="3">222.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>amarillo arena</cor_nome>
+                        <cor_preco espessura="1.2">144.50</cor_preco>
+                        <cor_preco espessura="2">165.00</cor_preco>
+                        <cor_preco espessura="3">222.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>amarillo palmira</cor_nome>
+                        <cor_preco espessura="1.2">144.50</cor_preco>
+                        <cor_preco espessura="2">165.00</cor_preco>
+                        <cor_preco espessura="3">222.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>azul ugarit</cor_nome>
+                        <cor_preco espessura="1.2">144.50</cor_preco>
+                        <cor_preco espessura="2">165.00</cor_preco>
+                        <cor_preco espessura="3">222.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>blanco capri</cor_nome>
+                        <cor_preco espessura="1.2">144.50</cor_preco>
+                        <cor_preco espessura="2">165.00</cor_preco>
+                        <cor_preco espessura="3">222.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>blanco dune</cor_nome>
+                        <cor_preco espessura="1.2">144.50</cor_preco>
+                        <cor_preco espessura="2">165.00</cor_preco>
+                        <cor_preco espessura="3">222.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>kona beige</cor_nome>
+                        <cor_preco espessura="1.2">144.50</cor_preco>
+                        <cor_preco espessura="2">165.00</cor_preco>
+                        <cor_preco espessura="3">222.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>marron jupiter</cor_nome>
+                        <cor_preco espessura="1.2">144.50</cor_preco>
+                        <cor_preco espessura="2">165.00</cor_preco>
+                        <cor_preco espessura="3">222.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>mont blanc</cor_nome>
+                        <cor_preco espessura="1.2">144.50</cor_preco>
+                        <cor_preco espessura="2">165.00</cor_preco>
+                        <cor_preco espessura="3">222.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>negro anubis</cor_nome>
+                        <cor_preco espessura="1.2">144.50</cor_preco>
+                        <cor_preco espessura="2">165.00</cor_preco>
+                        <cor_preco espessura="3">222.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>verde ugarit</cor_nome>
+                        <cor_preco espessura="1.2">144.50</cor_preco>
+                        <cor_preco espessura="2">165.00</cor_preco>
+                        <cor_preco espessura="3">222.50</cor_preco>
+                    </cor>
+                    
+                    
+                    
+                    <cor>
+                        <cor_nome>amarillo dream</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>                    
+                    <cor>
+                        <cor_nome>amazon</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>azul enjoy</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>bianco river</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>blanco maple</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>blanco stellar</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>blanco zeus</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>brazilian brown</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>ebony pearl</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>eros stellar</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>gedatsu</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>haiku</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>ivory coast</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>kensho</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>koan</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>love</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>magenta energy</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>marina stellar</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>naranja cool</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>negro stellar</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>nile</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>rain forest</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>rosso monza</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>tao</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>tigris sand</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>unsui</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>verde fun</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>you</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>yukon</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>black forest</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>cristal ash</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>polar cap</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>starlight</cor_nome>
+                        <cor_preco espessura="1.2">177.50</cor_preco>
+                        <cor_preco espessura="2">230.00</cor_preco>
+                        <cor_preco espessura="3">315.50</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>cristal sand</cor_nome>
+                        <cor_preco espessura="1.2">221.50</cor_preco>
+                        <cor_preco espessura="2">280.00</cor_preco>
+                        <cor_preco espessura="3">385.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>luna</cor_nome>
+                        <cor_preco espessura="1.2">221.50</cor_preco>
+                        <cor_preco espessura="2">280.00</cor_preco>
+                        <cor_preco espessura="3">385.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>carbono</cor_nome>
+                        <cor_preco espessura="1.2">250.00</cor_preco>
+                        <cor_preco espessura="2">330.00</cor_preco>
+                        <cor_preco espessura="3">460.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>chrome</cor_nome>
+                        <cor_preco espessura="1.2">250.00</cor_preco>
+                        <cor_preco espessura="2">330.00</cor_preco>
+                        <cor_preco espessura="3">460.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>steel</cor_nome>
+                        <cor_preco espessura="1.2">250.00</cor_preco>
+                        <cor_preco espessura="2">330.00</cor_preco>
+                        <cor_preco espessura="3">460.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>white platinum</cor_nome>
+                        <cor_preco espessura="1.2">250.00</cor_preco>
+                        <cor_preco espessura="2">330.00</cor_preco>
+                        <cor_preco espessura="3">460.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>zirconium</cor_nome>
+                        <cor_preco espessura="1.2">250.00</cor_preco>
+                        <cor_preco espessura="2">330.00</cor_preco>
+                        <cor_preco espessura="3">460.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>iron ore</cor_nome>
+                        <cor_preco espessura="1.2">250.00</cor_preco>
+                        <cor_preco espessura="2">330.00</cor_preco>
+                        <cor_preco espessura="3">460.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>riverbed</cor_nome>
+                        <cor_preco espessura="1.2">250.00</cor_preco>
+                        <cor_preco espessura="2">330.00</cor_preco>
+                        <cor_preco espessura="3">460.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>terra</cor_nome>
+                        <cor_preco espessura="1.2">250.00</cor_preco>
+                        <cor_preco espessura="2">330.00</cor_preco>
+                        <cor_preco espessura="3">460.00</cor_preco>
+                    </cor>
+                    <cor>
+                        <cor_nome>white diamond</cor_nome>
+                        <cor_preco espessura="1.2">250.00</cor_preco>
+                        <cor_preco espessura="2">330.00</cor_preco>
+                        <cor_preco espessura="3">460.00</cor_preco>
+                    </cor>
+                </cores>
+                <acabamentos unidade="m">
+                    <acabamento>
+                        <acabamento_nome>1 topo amaciado com 2 arestas biseladas</acabamento_nome>
+                        <acabamento_preco>16.00</acabamento_preco>
+                    </acabamento>
+                </acabamentos>
+                <rodamaos unidade="m" valor_espessura="1.2">
+                    <rodamao>
+                        <rodamao_nome>beige daphne</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">17.50</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>beige olimpo</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">17.50</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>blanco city</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">17.50</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>creme urban</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">17.50</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>gris expo</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">17.50</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>blanco norte</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">20.30</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>cemento spa</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">20.30</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>creme minerva</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">20.30</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>negro magma</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">20.30</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>negro tebas</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">20.30</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>niut blue</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">20.30</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>rojo eros</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">20.30</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>aluminio nube</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">22.25</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>amarillo arena</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">22.25</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>amarillo palmira</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">22.25</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>azul ugarit</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">22.25</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>blanco capri</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">22.25</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>blanco dune</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">22.25</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>kona beige</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">22.25</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>marron jupiter</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">22.25</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>mont blanc</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">22.25</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>negro anubis</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">22.25</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>verde ugarit</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">22.25</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>amarillo dream</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>amazon</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>azul enjoy</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>bianco river</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>blanco maple</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>blanco stellar</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>blanco zeus</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>brazilian brown</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>ebony pearl</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>eros stellar</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>gedatsu</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>haiku</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>ivory coast</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>kensho</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>koan</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>love</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>magenta ennergy</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>marina stellar</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>naranja cool</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>negro stellar</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>nile</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>rain forest</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>rosso monza</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>tao</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>tigris sand</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>unsui</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>verde fun</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>you</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>yukon</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>black forest</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>cristal ash</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>polar cap</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>starlight</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">31.55</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>cristal sand</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">38.50</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>luna</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">38.50</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>carbono</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">46.00</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>chrome</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">46.00</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>steel</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">46.00</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>white platinum</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">46.00</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>zirconium</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">46.00</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>iron ore</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">46.00</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>riverbed</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">46.00</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>terra</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">46.00</rodamao_preco>
+                    </rodamao>
+                    <rodamao>
+                        <rodamao_nome>white diamond</rodamao_nome>
+                        <rodamao_preco valor_espessura="1.2">46.00</rodamao_preco>
+                    </rodamao>
+                </rodamaos>
+            
+                <furos>
+                    <furo>
+                        <furo_nome>lava-loiça de colar por baixo</furo_nome>
+                        <furo_preco>80.00</furo_preco>
+                    </furo>
+                    <furo>
+                        <furo_nome>lavatório de colar p/ baixo</furo_nome>
+                        <furo_preco>55.00</furo_preco>
+                    </furo>
+                    <furo>
+                        <furo_nome>lava-loiça/ lavatório de colar por cima</furo_nome>
+                        <furo_preco>37.50</furo_preco>
+                    </furo>
+                    <furo>
+                        <furo_nome>lambrim/ torneira/ válvula</furo_nome>
+                        <furo_preco>8.00</furo_preco>
+                    </furo>
+                    <furo>
+                        <furo_nome>placa c/ isolante</furo_nome>
+                        <furo_preco>32.50</furo_preco>
+                    </furo>
+                </furos>
+                <rebaixos>
+                    <rebaixo>
+                        <rebaixo_nome>escorredor com rasgos</rebaixo_nome>
+                        <rebaixo_preco>290.00</rebaixo_preco>
+                    </rebaixo>
+                    <rebaixo>
+                        <rebaixo_nome>escorredor sem rasgos</rebaixo_nome>
+                        <rebaixo_preco>190.00</rebaixo_preco>
+                    </rebaixo>
+                    <rebaixo>
+                        <rebaixo_nome>4 rasgos (até 35cm comprimento)</rebaixo_nome>
+                        <rebaixo_preco>125.00</rebaixo_preco>
+                    </rebaixo>
+                </rebaixos>                
+            </material>
+            
+        
+        </tipo_material>
     </materiais>
-
-
 
 </norconcept>

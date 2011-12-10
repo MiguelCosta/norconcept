@@ -368,7 +368,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
                 .addComponent(jLabelFuroTotal))
         );
 
-        jScrollPaneRodamaos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rebaixos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+        jScrollPaneRodamaos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rodamaos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
 
         jPanelRodamaos.setBorder(null);
         jPanelRodamaos.setAutoscrolls(true);
@@ -598,7 +598,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
     }//GEN-LAST:event_jButtonLimparFuroActionPerformed
 
     private void jButtonAdicionarRodamaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarRodamaoActionPerformed
-        JPanelEcoLeatherRodamao r = new JPanelEcoLeatherRodamao(_q, _l, _material);
+        JPanelEcoLeatherLambrimRodamao r = new JPanelEcoLeatherLambrimRodamao(_q, _l, _material);
         r.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -721,7 +721,7 @@ public class JPanelEcoLeatherLambrimBalcao extends javax.swing.JPanel implements
         Double d = 0.0;
         for (Component c : jPanelRodamaos.getComponents()) {
             try {
-                JPanelEcoLeatherRodamao j = (JPanelEcoLeatherRodamao) c;
+                JPanelEcoLeatherLambrimRodamao j = (JPanelEcoLeatherLambrimRodamao) c;
                 d += j.getTotal();
             } catch (Exception e) {
             }
