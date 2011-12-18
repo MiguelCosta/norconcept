@@ -422,6 +422,40 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
             addObserver(j);
+        } else if (tipo_material.equalsIgnoreCase("Silestone ECO Polido - Lambrim e Balcão")) {
+            _valor = 0.0;
+            actualizarPrecos();
+            if (jPanelTipoMaterial.getComponents().length > 0) {
+                jPanelTipoMaterial.removeAll();
+            }
+
+            JPanelEcoPolidoLambrimBalcao j = new JPanelEcoPolidoLambrimBalcao(_q, _l, tipo_material);
+            j.addObserver(this);
+            jPanelTipoMaterial.add(j);
+            jPanelTipoMaterial.repaint();
+            jPanelTipoMaterial.revalidate();
+
+            jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
+            jPanelTipoMaterial.repaint();
+            jPanelTipoMaterial.revalidate();
+            addObserver(j);
+        } else if (tipo_material.equalsIgnoreCase("Silestone ECO Polido - Ladrilhos")) {
+            _valor = 0.0;
+            actualizarPrecos();
+            if (jPanelTipoMaterial.getComponents().length > 0) {
+                jPanelTipoMaterial.removeAll();
+            }
+
+            JPanelEcoPolidoLadrilhos j = new JPanelEcoPolidoLadrilhos(_q, _l, tipo_material);
+            j.addObserver(this);
+            jPanelTipoMaterial.add(j);
+            jPanelTipoMaterial.repaint();
+            jPanelTipoMaterial.revalidate();
+
+            jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
+            jPanelTipoMaterial.repaint();
+            jPanelTipoMaterial.revalidate();
+            addObserver(j);
         } else {
             jLabelTotalValor.setText("0");
             if (jPanelTipoMaterial.getComponents().length > 0) {
