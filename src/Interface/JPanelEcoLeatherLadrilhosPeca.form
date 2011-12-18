@@ -20,14 +20,18 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelDim" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jComboBoxDim" min="-2" pref="178" max="-2" attributes="0"/>
+              <Component id="jComboBoxDim" min="-2" pref="135" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelPreco" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabelLargura" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jSpinnerLargura" min="-2" pref="66" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelComprimento" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jSpinnerComprimento" min="-2" pref="89" max="-2" attributes="0"/>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <Component id="jSpinnerComprimento" min="-2" pref="64" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabelTOTAL" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelTOTALValor" min="-2" pref="47" max="-2" attributes="0"/>
@@ -37,14 +41,20 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="103" groupAlignment="3" attributes="0">
-              <Component id="jLabelTOTALValor" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="jLabelTOTAL" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="jLabelDim" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="jComboBoxDim" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="jLabelComprimento" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="jSpinnerComprimento" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="jLabelPreco" alignment="3" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jComboBoxDim" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelDim" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelPreco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelLargura" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jSpinnerLargura" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelComprimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jSpinnerComprimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelTOTALValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelTOTAL" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -55,11 +65,6 @@
         <Property name="text" type="java.lang.String" value="Dim:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelComprimento">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="m2:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JComboBox" name="jComboBoxDim">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
@@ -68,16 +73,6 @@
       </Properties>
       <Events>
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxDimItemStateChanged"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JSpinner" name="jSpinnerComprimento">
-      <Properties>
-        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[36, 26]"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerComprimentoStateChanged"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelTOTAL">
@@ -98,6 +93,36 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#x20ac;/m2"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="jSpinnerLargura">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[36, 26]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerLarguraStateChanged"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelLargura">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Larg(cm):"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelComprimento">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Comp:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="jSpinnerComprimento">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[36, 26]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerComprimentoStateChanged"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
