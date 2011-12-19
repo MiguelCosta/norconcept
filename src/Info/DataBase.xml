@@ -2636,13 +2636,25 @@
                     <obs>Carregamento nas nossas instalações.</obs>
                     <obs>Os ladrilhos são vendidos á caixa (solicite informaões por favor).</obs>
                     <obs>Sendo o Silestone um produto composto, está sujeito a 
-                    variações de tonalidade, logo não aceitamos reclamações por este motivo.</obs>
+                    variações de tonalidade, logo não aceitamos reclamações por este motivo.
+                    </obs>
                     <obs>Á empresa reserva-se o direito de alterar a tabela 
-                    sempre que necessário sem aviso prévio.</obs>
+                    sempre que necessário sem aviso prévio.
+                    </obs>
                 </obss>
             </material>
         </tipo_material>
         
     </materiais>
 
+    <imagens tipo="silestone">
+        <imagem>
+            <nome>chrome</nome>
+            <path>/Imagens/silestone/silestone-chrome.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>love</nome>
+            <path>/Imagens/silestone/silestone-love-nuevo-color-encimera.jpg</path>
+        </imagem>
+    </imagens>
 </norconcept>

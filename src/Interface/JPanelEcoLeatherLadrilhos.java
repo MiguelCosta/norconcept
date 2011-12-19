@@ -151,6 +151,11 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
                 jComboBoxCorItemStateChanged(evt);
             }
         });
+        jComboBoxCor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCorActionPerformed(evt);
+            }
+        });
 
         jPanelPecaOp.setBackground(new java.awt.Color(217, 216, 215));
 
@@ -316,6 +321,11 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
 
         JOptionPane.showMessageDialog(null, texto, "Observações", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButtonObservacoesActionPerformed
+
+    private void jComboBoxCorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCorActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdicionarPeca;
     private javax.swing.JButton jButtonLimparPeca;

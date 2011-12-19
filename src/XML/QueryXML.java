@@ -35,7 +35,7 @@ import org.xml.sax.SAXException;
  * @author Miguel
  */
 public class QueryXML {
-    
+
     DocumentBuilderFactory factory;
     DocumentBuilder builder;
     Document doc = null;
@@ -68,7 +68,7 @@ public class QueryXML {
             }
         }
     }
-    
+
     public QueryXML(URL xml) throws ParserConfigurationException, SAXException, IOException {
         factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true);
@@ -81,10 +81,10 @@ public class QueryXML {
         String local_string = "/Info/DataBase.xml";
         URL local_url = this.getClass().getResource(local_string);
         InputStream inputLocal = local_url.openStream();
-        
+
         doc = builder.parse(inputLocal);
     }
-    
+
     public void setTipoMaterial(String tipo_material) {
         _tipo_material = tipo_material;
     }
@@ -98,13 +98,13 @@ public class QueryXML {
         XPathExpression expr = null;
         XPathFactory xFactory = XPathFactory.newInstance();
         XPath xpath = xFactory.newXPath();
-        
+
         expr = xpath.compile("//tipo_material/@tipo");
-        
+
         Object result = expr.evaluate(doc, XPathConstants.NODESET);
-        
+
         NodeList nodes = (NodeList) result;
-        
+
         for (int i = 0; i < nodes.getLength(); i++) {
             tipos_materiais.add(nodes.item(i).getTextContent());
         }
@@ -123,13 +123,13 @@ public class QueryXML {
         XPathExpression expr = null;
         XPathFactory xFactory = XPathFactory.newInstance();
         XPath xpath = xFactory.newXPath();
-        
+
         expr = xpath.compile("//tipo_material[./@tipo='" + tipo_material + "']/material/tipo_material_nome");
-        
+
         Object result = expr.evaluate(doc, XPathConstants.NODESET);
-        
+
         NodeList nodes = (NodeList) result;
-        
+
         for (int i = 0; i < nodes.getLength(); i++) {
             materiais.add(nodes.item(i).getTextContent());
         }
@@ -138,13 +138,13 @@ public class QueryXML {
         //JOptionPane.showMessageDialog(null, "Materiais:\n"+materiais.toString());
         Collections.sort(materiais);
         return materiais;
-        
+
     }// </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Cores">
     public ArrayList<String> queryCores(String material) {
         ArrayList<String> cores = new ArrayList<String>();
-        
+
         try {
             XPathExpression expr = null;
             XPathFactory xFactory = XPathFactory.newInstance();
@@ -153,9 +153,9 @@ public class QueryXML {
             // cores de um determinado material
             String query = "//tipo_material[./@tipo='" + _tipo_material + "']/material/cores/cor/cor_nome[../../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
-            
+
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            
+
             NodeList nodes = (NodeList) result;
             //String s = "";
             //String s2 = "";
@@ -163,7 +163,7 @@ public class QueryXML {
                 String nome_cor = nodes.item(i).getTextContent();
                 cores.add(nome_cor);
             }
-            
+
         } catch (XPathExpressionException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryCores" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
@@ -171,10 +171,10 @@ public class QueryXML {
         Collections.sort(cores);
         return cores;
     }
-    
+
     public String queryCoresPrecoString(String material, String cor) {
         String p = "| ";
-        
+
         try {
             XPathExpression expr = null;
             XPathFactory xFactory = XPathFactory.newInstance();
@@ -183,9 +183,9 @@ public class QueryXML {
             // cores de um determinado material
             String query = "//tipo_material[./@tipo='" + _tipo_material + "']/material/cores/cor/cor_preco[../../../tipo_material_nome='" + material + "' and ../cor_nome='" + cor + "']";
             expr = xpath.compile(query);
-            
+
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            
+
             NodeList nodes = (NodeList) result;
             //String s = "";
             //String s2 = "";
@@ -200,13 +200,13 @@ public class QueryXML {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryCores" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return p;
     }
-    
+
     public String queryCoresUnidade(String material) {
         String unidade = "";
-        
+
         try {
             XPathExpression expr = null;
             XPathFactory xFactory = XPathFactory.newInstance();
@@ -215,9 +215,9 @@ public class QueryXML {
             // cores de um determinado material
             String query = "//tipo_material[./@tipo='" + _tipo_material + "']/material/cores[../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
-            
+
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            
+
             NodeList nodes = (NodeList) result;
             //String s = "";
             //String s2 = "";
@@ -231,13 +231,13 @@ public class QueryXML {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryCores" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return unidade;
     }
-    
+
     public Double queryCoresPreco(String material, String cor, String espessura) {
         Double preco = 0.0;
-        
+
         try {
             XPathExpression expr = null;
             XPathFactory xFactory = XPathFactory.newInstance();
@@ -247,9 +247,9 @@ public class QueryXML {
             String query = "//tipo_material[./@tipo='" + _tipo_material + "']/material/cores/cor/cor_preco[../../../tipo_material_nome='" + material + "' and ../cor_nome='" + cor + "' and @valor_espessura='" + espessura + "']";
             //JOptionPane.showMessageDialog(null, query);
             expr = xpath.compile(query);
-            
+
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            
+
             NodeList nodes = (NodeList) result;
             //String s = "";
             //String s2 = "";
@@ -257,20 +257,20 @@ public class QueryXML {
                 String p = nodes.item(i).getTextContent();
                 preco = Double.parseDouble(p);
             }
-            
-            
+
+
         } catch (XPathExpressionException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryCoresPreco" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return preco;
     }// </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Espessuras">
     public ArrayList<String> queryEspessuras(String material) {
         ArrayList<String> espessuras = new ArrayList<String>();
-        
+
         try {
             XPathExpression expr = null;
             XPathFactory xFactory = XPathFactory.newInstance();
@@ -279,9 +279,9 @@ public class QueryXML {
             // cores de um determinado material
             String query = "//tipo_material[./@tipo='" + _tipo_material + "']/material/espessuras/espessura[../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
-            
+
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            
+
             NodeList nodes = (NodeList) result;
             //String s = "";
             //String s2 = "";
@@ -291,19 +291,19 @@ public class QueryXML {
                 //String esp = valor + " " + unidade;
                 espessuras.add(valor);
             }
-            
+
         } catch (XPathExpressionException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryEspessuras" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return espessuras;
     }// </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Rodapés">
     public HashMap<String, Double> queryRodapes_NomeEPreco(String material) {
         HashMap<String, Double> rodapes = new HashMap<String, Double>();
-        
+
         try {
             XPathExpression expr = null;
             XPathFactory xFactory = XPathFactory.newInstance();
@@ -312,9 +312,9 @@ public class QueryXML {
             // cores de um determinado material
             String query = "//tipo_material[./@tipo='" + _tipo_material + "']/material/rodapes/rodape[../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
-            
+
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            
+
             NodeList nodes = (NodeList) result;
             //String s = "";
             //String s2 = "";
@@ -329,26 +329,26 @@ public class QueryXML {
                     if (r.item(j).getNodeName().equalsIgnoreCase("rodape_preco")) {
                         valor = r.item(j).getTextContent();
                     }
-                    
+
                 }
                 valor.replace(",", ".");
                 Double d = Double.parseDouble(valor);
                 rodapes.put(nome, d);
             }
-            
+
         } catch (XPathExpressionException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryRodapes" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException e) {
         }
-        
+
         return rodapes;
     }// </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Furos">
     public HashMap<String, Double> queryFuros_NomeEPreco(String material) {
         HashMap<String, Double> furos = new HashMap<String, Double>();
-        
+
         try {
             XPathExpression expr = null;
             XPathFactory xFactory = XPathFactory.newInstance();
@@ -357,9 +357,9 @@ public class QueryXML {
             // cores de um determinado material
             String query = "//tipo_material[./@tipo='" + _tipo_material + "']/material/furos/furo[../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
-            
+
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            
+
             NodeList nodes = (NodeList) result;
             //String s = "";
             //String s2 = "";
@@ -374,26 +374,26 @@ public class QueryXML {
                     if (r.item(j).getNodeName().equalsIgnoreCase("furo_preco")) {
                         valor = r.item(j).getTextContent();
                     }
-                    
+
                 }
                 valor.replace(",", ".");
                 Double d = Double.parseDouble(valor);
                 furos.put(nome, d);
             }
-            
+
         } catch (XPathExpressionException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryFuros" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException e) {
         }
-        
+
         return furos;
     }// </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Rebaixos">
     public HashMap<String, Double> queryRebaixos_NomeEPreco(String material) {
         HashMap<String, Double> rebaixos = new HashMap<String, Double>();
-        
+
         try {
             XPathExpression expr = null;
             XPathFactory xFactory = XPathFactory.newInstance();
@@ -402,9 +402,9 @@ public class QueryXML {
             // cores de um determinado material
             String query = "//tipo_material[./@tipo='" + _tipo_material + "']/material/rebaixos/rebaixo[../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
-            
+
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            
+
             NodeList nodes = (NodeList) result;
             //String s = "";
             //String s2 = "";
@@ -419,26 +419,26 @@ public class QueryXML {
                     if (r.item(j).getNodeName().equalsIgnoreCase("rebaixo_preco")) {
                         valor = r.item(j).getTextContent();
                     }
-                    
+
                 }
                 valor.replace(",", ".");
                 Double d = Double.parseDouble(valor);
                 rebaixos.put(nome, d);
             }
-            
+
         } catch (XPathExpressionException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryRebaixos" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException e) {
         }
-        
+
         return rebaixos;
     }// </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Acabamentos">
     public HashMap<String, Double> queryAcabamentos_NomeEPreco(String material) {
         HashMap<String, Double> acabamentos = new HashMap<String, Double>();
-        
+
         try {
             XPathExpression expr = null;
             XPathFactory xFactory = XPathFactory.newInstance();
@@ -447,9 +447,9 @@ public class QueryXML {
             // cores de um determinado material
             String query = "//tipo_material[./@tipo='" + _tipo_material + "']/material/acabamentos/acabamento[../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
-            
+
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            
+
             NodeList nodes = (NodeList) result;
             //String s = "";
             //String s2 = "";
@@ -465,27 +465,27 @@ public class QueryXML {
                         valor = r.item(j).getTextContent();
                         valor = valor.replace(",", ".");
                     }
-                    
+
                 }
-                
+
                 Double d = Double.parseDouble(valor);
                 acabamentos.put(nome, d);
             }
-            
+
         } catch (XPathExpressionException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryAcabamentos" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException e) {
         }
-        
+
         return acabamentos;
     }// </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Rodamãos">
     public TreeMap<String, Double> queryRodamaos_NomeEPreco(String material) {
-        
+
         TreeMap<String, Double> rodamaos = new TreeMap<String, Double>(new OrdenaStrings());
-        
+
         try {
             XPathExpression expr = null;
             XPathFactory xFactory = XPathFactory.newInstance();
@@ -494,9 +494,9 @@ public class QueryXML {
             // cores de um determinado material
             String query = "//tipo_material[./@tipo='" + _tipo_material + "']/material/rodamaos/rodamao[../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
-            
+
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            
+
             NodeList nodes = (NodeList) result;
             //String s = "";
             //String s2 = "";
@@ -511,26 +511,26 @@ public class QueryXML {
                     if (r.item(j).getNodeName().equalsIgnoreCase("rodamao_preco")) {
                         valor = r.item(j).getTextContent();
                     }
-                    
+
                 }
                 valor.replace(",", ".");
                 Double d = Double.parseDouble(valor);
                 rodamaos.put(nome, d);
             }
-            
+
         } catch (XPathExpressionException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryRodamaos" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException e) {
         }
-        
+
         return rodamaos;
     }// </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Notas">
     public ArrayList<String> queryNotas(String material) {
         ArrayList<String> notas = new ArrayList<String>();
-        
+
         try {
             XPathExpression expr = null;
             XPathFactory xFactory = XPathFactory.newInstance();
@@ -539,9 +539,9 @@ public class QueryXML {
             // cores de um determinado material
             String query = "//tipo_material[./@tipo='" + _tipo_material + "']/material/notas/nota[../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
-            
+
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            
+
             NodeList nodes = (NodeList) result;
             //String s = "";
             //String s2 = "";
@@ -550,20 +550,20 @@ public class QueryXML {
                 nota.replace("\n", " ");
                 notas.add(nota);
             }
-            
+
         } catch (XPathExpressionException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryNotas" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException e) {
         }
-        
+
         return notas;
     }// </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="Observações">
     public ArrayList<String> queryObss(String material) {
         ArrayList<String> obss = new ArrayList<String>();
-        
+
         try {
             XPathExpression expr = null;
             XPathFactory xFactory = XPathFactory.newInstance();
@@ -572,9 +572,9 @@ public class QueryXML {
             // cores de um determinado material
             String query = "//tipo_material[./@tipo='" + _tipo_material + "']/material/obss/obs[../../tipo_material_nome='" + material + "']";
             expr = xpath.compile(query);
-            
+
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            
+
             NodeList nodes = (NodeList) result;
             //String s = "";
             //String s2 = "";
@@ -582,20 +582,20 @@ public class QueryXML {
                 String obs = nodes.item(i).getTextContent();
                 obss.add(obs);
             }
-            
+
         } catch (XPathExpressionException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryObss" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException e) {
         }
-        
+
         return obss;
     }// </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="LadrilhosPeca">
     public HashMap<String, Double> queryLadrilhosPeca_NomeEPreco(String material, String cor) {
         HashMap<String, Double> pecas = new HashMap<String, Double>();
-        
+
         try {
             XPathExpression expr = null;
             XPathFactory xFactory = XPathFactory.newInstance();
@@ -604,9 +604,9 @@ public class QueryXML {
             // cores de um determinado material
             String query = "//tipo_material[./@tipo='" + _tipo_material + "']/material/cores/cor[../../tipo_material_nome='" + material + "' and cor_nome='" + cor + "']";
             expr = xpath.compile(query);
-            
+
             Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            
+
             NodeList nodes = (NodeList) result;
             for (int i = 0; i < nodes.getLength(); i++) {
                 NodeList r = nodes.item(i).getChildNodes();
@@ -616,21 +616,65 @@ public class QueryXML {
                     if (r.item(j).getNodeName().equalsIgnoreCase("cor_preco")) {
                         preco = r.item(j).getTextContent();
                         dim = r.item(j).getAttributes().getNamedItem("tamanho").getTextContent();
-                        
+
                         preco.replace(",", ".");
                         Double d = Double.parseDouble(preco);
                         pecas.put(dim, d);
                     }
                 }
-                
+
             }
-            
+
         } catch (XPathExpressionException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryLadrilhosPeca_NomeEPreco" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
             Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
         } catch (NumberFormatException e) {
         }
-        
+
         return pecas;
+    }// </editor-fold>
+
+    // <editor-fold defaultstate="collapsed" desc="Imagens">
+    public TreeMap<String, String> queryImagem_NomeEPath(String tipo) {
+
+        TreeMap<String, String> imagens = new TreeMap<String, String>(new OrdenaStrings());
+
+        try {
+            XPathExpression expr = null;
+            XPathFactory xFactory = XPathFactory.newInstance();
+            XPath xpath = xFactory.newXPath();
+
+            // cores de um determinado material
+            String query = "//imagens[./@tipo='" + tipo + "']/imagem";
+            expr = xpath.compile(query);
+
+            Object result = expr.evaluate(doc, XPathConstants.NODESET);
+
+            NodeList nodes = (NodeList) result;
+            //String s = "";
+            //String s2 = "";
+            for (int i = 0; i < nodes.getLength(); i++) {
+                NodeList r = nodes.item(i).getChildNodes();
+                String nome = "";
+                String path = "";
+                for (int j = 0; j < r.getLength(); j++) {
+                    if (r.item(j).getNodeName().equalsIgnoreCase("nome")) {
+                        nome = r.item(j).getTextContent();
+                    }
+                    if (r.item(j).getNodeName().equalsIgnoreCase("path")) {
+                        path = r.item(j).getTextContent();
+                    }
+
+                }
+                imagens.put(nome, path);
+            }
+
+        } catch (XPathExpressionException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao executar a query.\n" + "QueryXML:queryRodamaos" + ex.getLocalizedMessage() + "\n" + ex.getMessage());
+            Logger.getLogger(QueryXML.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NumberFormatException e) {
+        }
+
+        return imagens;
     }// </editor-fold>
 }
