@@ -2657,11 +2657,19 @@
             <path>/Imagens/silestone/silestone-blanco-norte.jpg</path>
         </imagem>
         <imagem>
+            <nome>blanco stellar</nome>
+            <path>/Imagens/silestone/silestone-blanco-norte.jpg</path>
+        </imagem>
+        <imagem>
             <nome>chrome</nome>
             <path>/Imagens/silestone/silestone-chrome.jpg</path>
         </imagem>
         <imagem>
             <nome>crema minerva</nome>
+            <path>/Imagens/silestone/silestone-crema-minerva.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>eros stellar</nome>
             <path>/Imagens/silestone/silestone-crema-minerva.jpg</path>
         </imagem>
         <imagem>
@@ -2673,12 +2681,24 @@
             <path>/Imagens/silestone/silestone-love-nuevo-color-encimera.jpg</path>
         </imagem>
         <imagem>
+            <nome>marina stllar</nome>
+            <path>/Imagens/silestone/silestone-marina-stellar.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>marron jupiter</nome>
+            <path>/Imagens/silestone/silestone-marron-jupiter.jpg</path>
+        </imagem>
+        <imagem>
             <nome>negro anubis</nome>
             <path>/Imagens/silestone/silestone-negro-anubis.jpg</path>
         </imagem>
         <imagem>
             <nome>negro magma</nome>
             <path>/Imagens/silestone/silestone-negro-magma.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>negro stellar</nome>
+            <path>/Imagens/silestone/silestone-negro-stellar.jpg</path>
         </imagem>
         <imagem>
             <nome>negro tebas</nome>

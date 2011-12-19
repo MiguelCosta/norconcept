@@ -12,6 +12,9 @@ package Interface;
 
 import XML.QueryXML;
 import XML.QueryXML_Lingua;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.TreeMap;
 import javax.swing.DefaultComboBoxModel;
 
@@ -23,12 +26,13 @@ public class JFrameImagens extends javax.swing.JFrame {
 
     QueryXML _q;
     QueryXML_Lingua _l;
-    TreeMap<String, String> _imgs;
+    TreeMap<String, String> _imgs_silestone;
     private DefaultComboBoxModel _silestone = new DefaultComboBoxModel();
 
     /** Creates new form JFrameImagens */
     public JFrameImagens(QueryXML q, QueryXML_Lingua l) {
         initComponents();
+        centerOnScreen(this);
         _q = q;
         _l = l;
 
@@ -36,13 +40,33 @@ public class JFrameImagens extends javax.swing.JFrame {
     }
 
     private void imagens_silestone() {
+        _silestone = new DefaultComboBoxModel();
         jComboBox1.setModel(_silestone);
-        _imgs = _q.queryImagem_NomeEPath("silestone");
+        _imgs_silestone = _q.queryImagem_NomeEPath("silestone");
 
-        for (String n : _imgs.keySet()) {
+        for (String n : _imgs_silestone.keySet()) {
             _silestone.addElement(n);
         }
 
+    }
+
+    private void procura_silestone() {
+        try {
+            imagens_silestone();
+            String n = jTextFieldSilestone.getText().toString();
+            if (n.equals("") || n == null) {
+                imagens_silestone();
+                return;
+            } else {
+                _silestone.removeAllElements();
+                for (String nome : _imgs_silestone.keySet()) {
+                    if (nome.contains(n)) {
+                        _silestone.addElement(nome);
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
     }
 
     /** This method is called from within the constructor to
@@ -68,6 +92,15 @@ public class JFrameImagens extends javax.swing.JFrame {
         jPanelSilestoneProcura.setBackground(new java.awt.Color(245, 245, 245));
         jPanelSilestoneProcura.setPreferredSize(new java.awt.Dimension(390, 416));
 
+        jTextFieldSilestone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldSilestoneKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldSilestoneKeyReleased(evt);
+            }
+        });
+
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -83,9 +116,9 @@ public class JFrameImagens extends javax.swing.JFrame {
             .addGroup(jPanelSilestoneProcuraLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelSilestoneProcuraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelSilestone, javax.swing.GroupLayout.DEFAULT_SIZE, 761, Short.MAX_VALUE)
+                    .addComponent(jLabelSilestone, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSilestoneProcuraLayout.createSequentialGroup()
-                        .addComponent(jComboBox1, 0, 564, Short.MAX_VALUE)
+                        .addComponent(jComboBox1, 0, 570, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldSilestone, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -108,7 +141,7 @@ public class JFrameImagens extends javax.swing.JFrame {
             jPanelSilestoneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSilestoneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelSilestoneProcura, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
+                .addComponent(jPanelSilestoneProcura, javax.swing.GroupLayout.DEFAULT_SIZE, 791, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanelSilestoneLayout.setVerticalGroup(
@@ -125,7 +158,7 @@ public class JFrameImagens extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 809, Short.MAX_VALUE)
+            .addGap(0, 815, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +171,7 @@ public class JFrameImagens extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 809, Short.MAX_VALUE)
+            .addGap(0, 815, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,7 +186,7 @@ public class JFrameImagens extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPaneSilestone, javax.swing.GroupLayout.DEFAULT_SIZE, 817, Short.MAX_VALUE)
+                .addComponent(jTabbedPaneSilestone, javax.swing.GroupLayout.DEFAULT_SIZE, 823, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -170,12 +203,23 @@ public class JFrameImagens extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         try {
             String n = jComboBox1.getSelectedItem().toString();
-            String p = _imgs.get(n);
+            String p = _imgs_silestone.get(n);
 
             jLabelSilestone.setIcon(new javax.swing.ImageIcon(getClass().getResource(p)));
+            jLabelSilestone.setText("");
         } catch (Exception e) {
+            jLabelSilestone.setText("Sem imagem para mostrar.");
+            jLabelSilestone.setIcon(null);
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jTextFieldSilestoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSilestoneKeyPressed
+        //procura_silestone();
+    }//GEN-LAST:event_jTextFieldSilestoneKeyPressed
+
+    private void jTextFieldSilestoneKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldSilestoneKeyReleased
+        procura_silestone();
+    }//GEN-LAST:event_jTextFieldSilestoneKeyReleased
 
     /**
      * @param args the command line arguments
@@ -222,4 +266,24 @@ public class JFrameImagens extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPaneSilestone;
     private javax.swing.JTextField jTextFieldSilestone;
     // End of variables declaration//GEN-END:variables
+
+
+ public static void centerOnScreen(final Component target) {
+       if (target != null) {
+           Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+           Dimension dialogSize = target.getSize();
+
+           if (dialogSize.height > screenSize.height) {
+               dialogSize.height = screenSize.height;
+           }
+           if (dialogSize.width > screenSize.width) {
+               dialogSize.width = screenSize.width;
+           }
+
+           target.setLocation((screenSize.width - dialogSize.width) / 2,
+                   (screenSize.height - dialogSize.height) / 2);
+       }
+   }
+
+
 }
