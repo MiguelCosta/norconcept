@@ -2649,64 +2649,214 @@
 
     <imagens tipo="silestone">
         <imagem>
+            <nome></nome>
+            <path>/Imagens/silestone/.jpg</path>
+        </imagem>
+        <imagem>
+            <nome></nome>
+            <path>/Imagens/silestone/.jpg</path>
+        </imagem>
+        
+        
+        <imagem>
+            <nome>amarillo-palmira</nome>
+            <path>/Imagens/silestone/amarillo-palmira.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>amazon</nome>
+            <path>/Imagens/silestone/amazon.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>azul ugarit</nome>
+            <path>/Imagens/silestone/azul-ugarit.jpg</path>
+        </imagem>
+        <imagem>
             <nome>beige olimpo</nome>
-            <path>/Imagens/silestone/silestone-beige-olimpo.jpg</path>
+            <path>/Imagens/silestone/beige-olimpo.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>bianco river</nome>
+            <path>/Imagens/silestone/bianco-river.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>blanco capri</nome>
+            <path>/Imagens/silestone/blanco-capri.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>blanco city</nome>
+            <path>/Imagens/silestone/blanco-city.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>blanco mapple</nome>
+            <path>/Imagens/silestone/blanco-mapple.jpg</path>
         </imagem>
         <imagem>
             <nome>blanco norte</nome>
-            <path>/Imagens/silestone/silestone-blanco-norte.jpg</path>
+            <path>/Imagens/silestone/blanco-norte.jpg</path>
         </imagem>
         <imagem>
             <nome>blanco stellar</nome>
-            <path>/Imagens/silestone/silestone-blanco-stellar.jpg</path>
+            <path>/Imagens/silestone/blanco-stellar.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>blanco zeus</nome>
+            <path>/Imagens/silestone/blanco-zeus.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>brazilian brown</nome>
+            <path>/Imagens/silestone/brazilian-brown.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>carbono</nome>
+            <path>/Imagens/silestone/carbono.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>cemento spa</nome>
+            <path>/Imagens/silestone/cemento-spa.jpg</path>
         </imagem>
         <imagem>
             <nome>chrome</nome>
-            <path>/Imagens/silestone/silestone-chrome.jpg</path>
+            <path>/Imagens/silestone/chrome.jpg</path>
         </imagem>
         <imagem>
-            <nome>crema minerva</nome>
-            <path>/Imagens/silestone/silestone-crema-minerva.jpg</path>
+            <nome>creme minerva</nome>
+            <path>/Imagens/silestone/creme-minerva.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>creme urban</nome>
+            <path>/Imagens/silestone/creme-urban.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>cristal ash</nome>
+            <path>/Imagens/silestone/cristal-ash.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>cristal sand</nome>
+            <path>/Imagens/silestone/cristal-sand.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>ebony pearl</nome>
+            <path>/Imagens/silestone/ebony-pearl.jpg</path>
         </imagem>
         <imagem>
             <nome>eros stellar</nome>
-            <path>/Imagens/silestone/silestone-eros-stellar.jpg</path>
+            <path>/Imagens/silestone/eros-stellar.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>gedatsu</nome>
+            <path>/Imagens/silestone/gedatsu.jpg</path>
         </imagem>
         <imagem>
             <nome>gris expo</nome>
-            <path>/Imagens/silestone/silestone-gris-expo.jpg</path>
+            <path>/Imagens/silestone/gris-expo.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>haiku</nome>
+            <path>/Imagens/silestone/haiku.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>iron ore</nome>
+            <path>/Imagens/silestone/iron-ore.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>ivory coast</nome>
+            <path>/Imagens/silestone/ivory-coast.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>kensho</nome>
+            <path>/Imagens/silestone/kensho.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>koan</nome>
+            <path>/Imagens/silestone/koan.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>kona beige</nome>
+            <path>/Imagens/silestone/kona-beige.jpg</path>
         </imagem>
         <imagem>
             <nome>love</nome>
-            <path>/Imagens/silestone/silestone-love-nuevo-color-encimera.jpg</path>
+            <path>/Imagens/silestone/love.jpg</path>
         </imagem>
         <imagem>
-            <nome>marina stllar</nome>
-            <path>/Imagens/silestone/silestone-marina-stellar.jpg</path>
+            <nome>marina stellar</nome>
+            <path>/Imagens/silestone/marina-stellar.jpg</path>
         </imagem>
         <imagem>
             <nome>marron jupiter</nome>
-            <path>/Imagens/silestone/silestone-marron-jupiter.jpg</path>
+            <path>/Imagens/silestone/marron-jupiter.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>mont blanc</nome>
+            <path>/Imagens/silestone/mont-blanc.jpg</path>
         </imagem>
         <imagem>
             <nome>negro anubis</nome>
-            <path>/Imagens/silestone/silestone-negro-anubis.jpg</path>
+            <path>/Imagens/silestone/negro-anubis.jpg</path>
         </imagem>
         <imagem>
             <nome>negro magma</nome>
-            <path>/Imagens/silestone/silestone-negro-magma.jpg</path>
+            <path>/Imagens/silestone/negro-magma.jpg</path>
         </imagem>
         <imagem>
             <nome>negro stellar</nome>
-            <path>/Imagens/silestone/silestone-negro-stellar.jpg</path>
+            <path>/Imagens/silestone/negro-stellar.jpg</path>
         </imagem>
         <imagem>
             <nome>negro tebas</nome>
-            <path>/Imagens/silestone/silestone-negro-tebas.jpg</path>
+            <path>/Imagens/silestone/negro-tebas.jpg</path>
         </imagem>
         <imagem>
-            <nome>rejo eros</nome>
-            <path>/Imagens/silestone/silestone-rojo-eros.jpg</path>
+            <nome>nile</nome>
+            <path>/Imagens/silestone/nile.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>nuit blue</nome>
+            <path>/Imagens/silestone/nuit-bleue.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>polar cap</nome>
+            <path>/Imagens/silestone/polar-cap.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>rain forest</nome>
+            <path>/Imagens/silestone/rain-forest.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>rojo eros</nome>
+            <path>/Imagens/silestone/rojo-eros.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>steel</nome>
+            <path>/Imagens/silestone/steel.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>tao</nome>
+            <path>/Imagens/silestone/tao.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>tigris sand</nome>
+            <path>/Imagens/silestone/tigris-sand.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>unsui</nome>
+            <path>/Imagens/silestone/unsui.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>verde ugarit</nome>
+            <path>/Imagens/silestone/verde-ugarit.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>white platinum</nome>
+            <path>/Imagens/silestone/white-platinum.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>yukon</nome>
+            <path>/Imagens/silestone/yukon.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>zirconium</nome>
+            <path>/Imagens/silestone/zirconium.jpg</path>
         </imagem>
         
     </imagens>
