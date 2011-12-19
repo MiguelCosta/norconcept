@@ -2649,12 +2649,45 @@
 
     <imagens tipo="silestone">
         <imagem>
+            <nome>beige olimpo</nome>
+            <path>/Imagens/silestone/silestone-beige-olimpo.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>blanco norte</nome>
+            <path>/Imagens/silestone/silestone-blanco-norte.jpg</path>
+        </imagem>
+        <imagem>
             <nome>chrome</nome>
             <path>/Imagens/silestone/silestone-chrome.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>crema minerva</nome>
+            <path>/Imagens/silestone/silestone-crema-minerva.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>gris expo</nome>
+            <path>/Imagens/silestone/silestone-gris-expo.jpg</path>
         </imagem>
         <imagem>
             <nome>love</nome>
             <path>/Imagens/silestone/silestone-love-nuevo-color-encimera.jpg</path>
         </imagem>
+        <imagem>
+            <nome>negro anubis</nome>
+            <path>/Imagens/silestone/silestone-negro-anubis.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>negro magma</nome>
+            <path>/Imagens/silestone/silestone-negro-magma.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>negro tebas</nome>
+            <path>/Imagens/silestone/silestone-negro-tebas.jpg</path>
+        </imagem>
+        <imagem>
+            <nome>rejo eros</nome>
+            <path>/Imagens/silestone/silestone-rojo-eros.jpg</path>
+        </imagem>
+        
     </imagens>
 </norconcept>

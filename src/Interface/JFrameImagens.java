@@ -168,11 +168,13 @@ public class JFrameImagens extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        String n = jComboBox1.getSelectedItem().toString();
-        String p = _imgs.get(n);
+        try {
+            String n = jComboBox1.getSelectedItem().toString();
+            String p = _imgs.get(n);
 
-        jLabelSilestone.setIcon(new javax.swing.ImageIcon(getClass().getResource(p)));
-
+            jLabelSilestone.setIcon(new javax.swing.ImageIcon(getClass().getResource(p)));
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
