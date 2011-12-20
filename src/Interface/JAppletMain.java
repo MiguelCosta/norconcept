@@ -55,6 +55,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
+                //JOptionPane.showMessageDialog(rootPane, "Tema: "+info.getName());
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(JAppletMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
