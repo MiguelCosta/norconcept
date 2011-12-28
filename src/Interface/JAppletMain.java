@@ -86,7 +86,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
 
         // meu código
         _loading.setTitle("Loading...");
-        _loading.setDefaultCloseOperation(1);
+        //_loading.setDefaultCloseOperation(1);
         _loading.repaint();
 
         loading();
