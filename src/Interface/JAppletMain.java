@@ -497,17 +497,36 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
     private void jRadioButtonPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPTActionPerformed
         jRadioButtonPT.setSelected(true);
         jRadioButtonFR.setSelected(false);
+
+        Loading f = new Loading();
+        f.setTitle("Loading...");
+        f.setDefaultCloseOperation(1);
+        f.setVisible(true);
+        
         _l.setLingua("pt");
         configs_lng();
         notifyObservers("lng");
+
+        f.dispose();
+
     }//GEN-LAST:event_jRadioButtonPTActionPerformed
 
     private void jRadioButtonFRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonFRActionPerformed
         jRadioButtonPT.setSelected(false);
         jRadioButtonFR.setSelected(true);
+
+        Loading f = new Loading();
+        f.setTitle("Loading...");
+        f.setDefaultCloseOperation(1);
+        f.setVisible(true);
+        
         _l.setLingua("fr");
         configs_lng();
+
         notifyObservers("lng");
+
+        f.dispose();
+
     }//GEN-LAST:event_jRadioButtonFRActionPerformed
 
     private void jComboBoxIVAItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxIVAItemStateChanged

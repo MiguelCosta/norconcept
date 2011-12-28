@@ -8,7 +8,6 @@ import Interface.JAppletMain;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
 
@@ -22,7 +21,6 @@ public class Norconcept {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
         
         JAppletMain theApplet = new JAppletMain();
         
