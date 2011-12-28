@@ -384,6 +384,11 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
     /****************************************/
     private void jComboBoxTipoMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxTipoMaterialItemStateChanged
 
+        Loading f = new Loading();
+        f.setTitle("Loading...");
+        f.setDefaultCloseOperation(1);
+        f.setVisible(true);
+        
         String tipo_material = materialSeleccionado();
         _q.setTipoMaterial(tipo_material);
         jComboBoxTipoMaterial.setToolTipText(tipo_material);
@@ -492,6 +497,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         jPanelTipoMaterial.repaint();
 
 
+        f.dispose();
         this.repaint();
     }//GEN-LAST:event_jComboBoxTipoMaterialItemStateChanged
     private void jRadioButtonPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPTActionPerformed

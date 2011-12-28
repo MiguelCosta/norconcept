@@ -37,18 +37,19 @@ public class Loading extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
 
-        setResizable(false);
+        setMinimumSize(new java.awt.Dimension(203, 65));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/loading02.png"))); // NOI18N
+        jLabel1.setText("Loading...");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(56, 56, 56)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
