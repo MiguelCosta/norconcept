@@ -29,7 +29,7 @@ import mvc.Subject;
  * @author Miguel
  */
 public class JAppletMain extends javax.swing.JApplet implements Observer, Subject {
-
+    
     QueryXML _q;
     QueryXML_Lingua _l;
     DecimalFormat df = new DecimalFormat("#.##");
@@ -71,7 +71,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         /* Create and display the applet */
         try {
             java.awt.EventQueue.invokeAndWait(new Runnable() {
-
+                
                 @Override
                 public void run() {
                     initComponents();
@@ -79,14 +79,16 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             });
         } catch (Exception ex) {
         }
-
+        
         // meu código
+        jLabelLoading.setVisible(true);
         carregarBD();
         preencherTipoMateriais();
         configs_lng();
         jRadioButtonPT.setSelected(true);
+        jLabelLoading.setVisible(false);
     }
-
+    
     private void carregarBD() {
 
         //URL base = getDocumentBase();
@@ -98,7 +100,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         /*não está a ser usado o xmlBD*/
         _q = new QueryXML();
         _l = new QueryXML_Lingua();
-
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="Lingua">   
@@ -108,7 +110,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         String v_s_iva = _l.queryText("main", "jLabelTotal_desc_semIVA");
         String v_c_iva = _l.queryText("main", "jLabelTotal_desc_comIVA");
         String iva = _l.queryText("main", "jLabelTotal_desc_IVA");
-
+        
         jLabelTipoMaterial.setText(tm);
         jLabelTipoMaterial.setToolTipText(StringHtml.html_toolTipText(tm_desc));
         jLabelTotal.setToolTipText(StringHtml.html_toolTipText(v_s_iva));
@@ -116,7 +118,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         jLabelTotalComIVA.setToolTipText(StringHtml.html_toolTipText(v_c_iva));
         jLabelTotalValorComIVA.setToolTipText(StringHtml.html_toolTipText(v_c_iva));
         jLabelValorIVA.setToolTipText(StringHtml.html_toolTipText(iva));
-
+        
     }
     // </editor-fold>  
 
@@ -124,12 +126,12 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
     /*      PREENCHER COMBO BOX             */
     /****************************************/
     private void preencherTipoMateriais() {
-
+        jLabelLoading.setVisible(true);
         jComboBoxTipoMaterial.removeAllItems();
         jComboBoxTipoMaterial.addItem("");
         try {
             ArrayList<String> tipo_materiais = _q.queryTipoMateriais();
-
+            
             for (String s : tipo_materiais) {
                 jComboBoxTipoMaterial.addItem(s);
                 System.out.println(s);
@@ -137,6 +139,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         } catch (XPathExpressionException ex) {
             Logger.getLogger(JAppletMain.class.getName()).log(Level.SEVERE, null, ex);
         }
+        jLabelLoading.setVisible(false);
     }
 
     /** This method is called from within the init() method to
@@ -159,6 +162,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         jLabelPT_img = new javax.swing.JLabel();
         jLabelFR_img = new javax.swing.JLabel();
         jLabelLogo = new javax.swing.JLabel();
+        jLabelLoading = new javax.swing.JLabel();
         jLabelTotalValor = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanelTipoMaterial = new javax.swing.JPanel();
@@ -244,6 +248,9 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
 
         jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo5.png"))); // NOI18N
 
+        jLabelLoading.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/loading02.png"))); // NOI18N
+        jLabelLoading.setText("Loading...");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -251,18 +258,25 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jLabelLoading)
+                .addGap(52, 52, 52)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                    .addComponent(jLabelLogo, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                            .addComponent(jLabelLogo)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabelLoading)))
+                .addContainerGap())
         );
 
         jPanel3.getAccessibleContext().setAccessibleName("Lingua");
@@ -383,29 +397,32 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
     /*         MUDA O TIPO DE MATERIAL              */
     /****************************************/
     private void jComboBoxTipoMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxTipoMaterialItemStateChanged
-
+        jLabelLoading.setVisible(true);
         Loading f = new Loading();
         f.setTitle("Loading...");
         f.setDefaultCloseOperation(1);
         f.setVisible(true);
+        f.repaint();
+        this.repaint();
+        
         
         String tipo_material = materialSeleccionado();
         _q.setTipoMaterial(tipo_material);
         jComboBoxTipoMaterial.setToolTipText(tipo_material);
-
+        
         if (tipo_material.equalsIgnoreCase("Mármores e Granitos")) {
             _valor = 0.0;
             actualizarPrecos();
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-
+            
             JPanelPedra j = new JPanelPedra(_q, _l, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-
+            
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -418,13 +435,13 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-
+            
             JPanelEcoLeatherLambrimBalcao j = new JPanelEcoLeatherLambrimBalcao(_q, _l, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-
+            
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -435,13 +452,13 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-
+            
             JPanelEcoLeatherLadrilhos j = new JPanelEcoLeatherLadrilhos(_q, _l, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-
+            
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -452,13 +469,13 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-
+            
             JPanelEcoPolidoLambrimBalcao j = new JPanelEcoPolidoLambrimBalcao(_q, _l, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-
+            
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -469,13 +486,13 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-
+            
             JPanelEcoPolidoLadrilhos j = new JPanelEcoPolidoLadrilhos(_q, _l, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-
+            
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -489,56 +506,66 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             observers.add(j);
-
+            
         }
-
+        
         jPanelTipoMaterial.revalidate();
-
+        
         jPanelTipoMaterial.repaint();
-
-
+        
+        
         f.dispose();
+        jLabelLoading.setVisible(false);
         this.repaint();
     }//GEN-LAST:event_jComboBoxTipoMaterialItemStateChanged
     private void jRadioButtonPTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPTActionPerformed
         jRadioButtonPT.setSelected(true);
         jRadioButtonFR.setSelected(false);
-
+        
+        jLabelLoading.setVisible(true);
+        this.repaint();
+        
         Loading f = new Loading();
         f.setTitle("Loading...");
         f.setDefaultCloseOperation(1);
         f.setVisible(true);
+        f.repaint();
         
         _l.setLingua("pt");
         configs_lng();
         notifyObservers("lng");
-
+        
         f.dispose();
-
+        jLabelLoading.setVisible(false);
+        
     }//GEN-LAST:event_jRadioButtonPTActionPerformed
-
+    
     private void jRadioButtonFRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonFRActionPerformed
         jRadioButtonPT.setSelected(false);
         jRadioButtonFR.setSelected(true);
-
+        
+        jLabelLoading.setVisible(true);
+        this.repaint();
+        
         Loading f = new Loading();
         f.setTitle("Loading...");
         f.setDefaultCloseOperation(1);
         f.setVisible(true);
+        f.repaint();
         
         _l.setLingua("fr");
         configs_lng();
-
+        
         notifyObservers("lng");
-
+        
         f.dispose();
-
+        jLabelLoading.setVisible(false);
     }//GEN-LAST:event_jRadioButtonFRActionPerformed
-
+    
     private void jComboBoxIVAItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxIVAItemStateChanged
         actualizarPrecos();
     }//GEN-LAST:event_jComboBoxIVAItemStateChanged
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JFrameImagens mine = new JFrameImagens(_q, _l);
         mine.setTitle("Imagens");
@@ -551,6 +578,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
     private javax.swing.JComboBox jComboBoxTipoMaterial;
     private javax.swing.JLabel jLabelFR_img;
     private javax.swing.JLabel jLabelIVA;
+    private javax.swing.JLabel jLabelLoading;
     private javax.swing.JLabel jLabelLogo;
     private javax.swing.JLabel jLabelPT_img;
     private javax.swing.JLabel jLabelTipoMaterial;
@@ -578,7 +606,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         }
         return m;
     }
-
+    
     public void actualizarPrecos() {
         jLabelTotalValor.setText(df.format(_valor).toString() + " €");
         String i = jComboBoxIVA.getSelectedItem().toString();
@@ -590,37 +618,39 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         } else if (i.equalsIgnoreCase("5.5 %")) {
             iva = 0.05;
         }
-
+        
         Double iva_valor = _valor * iva;
         Double preco = _valor + iva_valor;
         jLabelValorIVA.setText(df.format(iva_valor).toString() + " €");
         jLabelTotalValorComIVA.setText(df.format(preco).toString() + " €");
     }
-
+    
     @Override
     public void update(String n) {
     }
-
+    
     @Override
     public void update(String material, String cor) {
     }
-
+    
     @Override
     public void update(String n, Double v) {
         _valor = v;
+        jLabelLoading.setVisible(true);
         actualizarPrecos();
+        jLabelLoading.setVisible(false);
     }
-
+    
     @Override
     public void addObserver(Observer o) {
         observers.add(o);
     }
-
+    
     @Override
     public void removeObserver(Observer o) {
         observers.remove(o);
     }
-
+    
     @Override
     public void notifyObservers(String n) {
         Iterator<Observer> it = observers.iterator();
@@ -629,7 +659,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             observer.update("lng");
         }
     }
-
+    
     @Override
     public void notifyObservers(String material, String cor) {
         Iterator<Observer> it = observers.iterator();
@@ -638,7 +668,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             observer.update(material, cor);
         }
     }
-
+    
     @Override
     public void notifyObservers(String n, Double d) {
         Iterator<Observer> it = observers.iterator();

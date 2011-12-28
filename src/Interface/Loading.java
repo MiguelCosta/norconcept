@@ -24,6 +24,7 @@ public class Loading extends javax.swing.JFrame {
     public Loading() {
         initComponents();
         centerOnScreen(this);
+        this.repaint();
     }
 
     /** This method is called from within the constructor to
@@ -37,7 +38,7 @@ public class Loading extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
 
-        setMinimumSize(new java.awt.Dimension(203, 65));
+        setMinimumSize(new java.awt.Dimension(203, 81));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/loading02.png"))); // NOI18N
         jLabel1.setText("Loading...");
@@ -47,16 +48,16 @@ public class Loading extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(57, 57, 57)
                 .addComponent(jLabel1)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(24, 24, 24))
         );
 
         pack();
