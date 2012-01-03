@@ -392,7 +392,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
     }// </editor-fold>//GEN-END:initComponents
 
     /****************************************/
-    /*         MUDA O TIPO DE MATERIAL              */
+    /*         MUDA O TIPO DE MATERIAL      */
     /****************************************/
     private void jComboBoxTipoMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxTipoMaterialItemStateChanged
         loading();
