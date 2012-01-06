@@ -16,6 +16,9 @@
             <jLabelTotal_desc_semIVA>Valor total do que foi escolhido (sem IVA).</jLabelTotal_desc_semIVA>
             <jLabelTotal_desc_comIVA>Valor total do que foi escolhido (IVA incluído).</jLabelTotal_desc_comIVA>
             <jLabelTotal_desc_IVA>Valor total do IVA.</jLabelTotal_desc_IVA>
+            <jButtonImagens>Imagens</jButtonImagens>
+            <jButtonImagens_desc>Clique para ver algumas imagens dos materias.</jButtonImagens_desc>
+            <iva>IVA:</iva>
         </main>
         <!-- Panel Nada -->
         <nada>
@@ -140,6 +143,9 @@
             <jLabelTotal_desc_semIVA>La valeur totale de ce qui a été choisie (hors TVA).</jLabelTotal_desc_semIVA>
             <jLabelTotal_desc_comIVA>La valeur totale de ce qui a été choisie (TVA incluse).</jLabelTotal_desc_comIVA>
             <jLabelTotal_desc_IVA>Montant total de la TVA.</jLabelTotal_desc_IVA>
+            <jButtonImagens>Images</jButtonImagens>
+            <jButtonImagens_desc>Cliquez pour voir quelques images de la matière.</jButtonImagens_desc>
+            <iva>TVA:</iva>
         </main>
         <!-- Panel Nada -->
         <nada>
