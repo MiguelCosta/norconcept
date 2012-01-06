@@ -1,9 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
  * JPanelPedra.java
  *
  * Created on 2/Nov/2011, 17:18:17
@@ -31,9 +26,6 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
     private QueryXML_Lingua _l;
     private ArrayList<String> cores;
     private int num_linhas_peca = 0;
-    private int num_linhas_acabamento = 0;
-    private int num_linhas_furos = 0;
-    private int num_linhas_rodamaos = 0;
     private String _material = "Ladrilhos";
     private String _cor = "";
     private DecimalFormat df = new DecimalFormat("#.##");
@@ -74,7 +66,7 @@ public class JPanelEcoLeatherLadrilhos extends javax.swing.JPanel implements Obs
         jLabelPecaTotal.setName("jLabelTotal");
 
     }
-
+    
     public void configs_lng() {
         // material e cor
         jLabelCor.setText(_l.queryText("ecoleatherLadrilhos", "jLabelCor"));
