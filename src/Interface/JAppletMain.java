@@ -6,6 +6,7 @@
 package Interface;
 
 import Config.StringHtml;
+import Info.pdf;
 import XML.QueryXML;
 import XML.QueryXML_Lingua;
 import java.awt.Component;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.sound.midi.MidiDevice.Info;
 import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
 import javax.xml.xpath.XPathExpressionException;
@@ -27,7 +29,7 @@ import mvc.Subject;
  * @author Miguel
  */
 public class JAppletMain extends javax.swing.JApplet implements Observer, Subject {
-
+    
     QueryXML _q;
     QueryXML_Lingua _l;
     DecimalFormat df = new DecimalFormat("#.##");
@@ -76,7 +78,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
          */
         try {
             java.awt.EventQueue.invokeAndWait(new Runnable() {
-
+                
                 @Override
                 public void run() {
                     initComponents();
@@ -89,16 +91,16 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         _loading.setTitle("Loading...");
         //_loading.setDefaultCloseOperation(1);
         _loading.repaint();
-
+        
         loading();
-
+        
         carregarBD();
         preencherTipoMateriais();
         configs_lng();
         jRadioButtonPT.setSelected(true);
         loading_no();
     }
-
+    
     private void carregarBD() {
 
         //URL base = getDocumentBase();
@@ -109,7 +111,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
 
         _q = new QueryXML();
         _l = new QueryXML_Lingua();
-
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="Lingua">   
@@ -122,7 +124,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         String imagens = _l.queryText("main", "jButtonImagens");
         String imagens_desc = _l.queryText("main", "jButtonImagens_desc");
         String iva_label = _l.queryText("main", "iva");
-
+        
         jLabelTipoMaterial.setText(tm);
         jLabelTipoMaterial.setToolTipText(StringHtml.html_toolTipText(tm_desc));
         jLabelTotal.setToolTipText(StringHtml.html_toolTipText(v_s_iva));
@@ -130,11 +132,11 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         jLabelTotalComIVA.setToolTipText(StringHtml.html_toolTipText(v_c_iva));
         jLabelTotalValorComIVA.setToolTipText(StringHtml.html_toolTipText(v_c_iva));
         jLabelValorIVA.setToolTipText(StringHtml.html_toolTipText(iva));
-
+        
         jButtonImagens.setText(imagens);
         jButtonImagens.setToolTipText(StringHtml.html_toolTipText(imagens_desc));
         jLabelIVA.setText(iva_label);
-
+        
     }
     // </editor-fold>  
 
@@ -147,7 +149,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         jComboBoxTipoMaterial.addItem("");
         try {
             ArrayList<String> tipo_materiais = _q.queryTipoMateriais();
-
+            
             for (String s : tipo_materiais) {
                 jComboBoxTipoMaterial.addItem(s);
                 System.out.println(s);
@@ -193,7 +195,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabelTipoMaterial.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelTipoMaterial.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabelTipoMaterial.setText("Escolha o tipo de material:");
 
         jComboBoxTipoMaterial.addItemListener(new java.awt.event.ItemListener() {
@@ -210,7 +212,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
                 .addContainerGap()
                 .addComponent(jLabelTipoMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxTipoMaterial, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jComboBoxTipoMaterial, 0, 341, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -272,7 +274,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -281,7 +283,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                     .addComponent(jLabelLogo))
                 .addContainerGap())
         );
@@ -313,10 +315,10 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
 
         jLabelTotal.setText("TOTAL (s/ IVA)");
 
-        jLabelTotalComIVA.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        jLabelTotalComIVA.setFont(new java.awt.Font("Ubuntu", 1, 14));
         jLabelTotalComIVA.setText("TOTAL (c/ IVA)");
 
-        jLabelTotalValorComIVA.setFont(new java.awt.Font("Ubuntu", 1, 14)); // NOI18N
+        jLabelTotalValorComIVA.setFont(new java.awt.Font("Ubuntu", 1, 14));
         jLabelTotalValorComIVA.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelTotalValorComIVA.setText("€");
 
@@ -339,11 +341,16 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 10)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 10));
         jLabel1.setForeground(new java.awt.Color(107, 169, 255));
         jLabel1.setText("Copyright by Miguel Costa");
 
         jButton1.setText("PDF");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -357,7 +364,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 356, Short.MAX_VALUE)
                         .addComponent(jLabelTotalComIVA)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabelTotalValorComIVA, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -366,7 +373,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
                         .addComponent(jButtonImagens)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 352, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabelTotal)
@@ -419,24 +426,24 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
      */
     private void jComboBoxTipoMaterialItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxTipoMaterialItemStateChanged
         loading();
-
+        
         String tipo_material = materialSeleccionado();
         _q.setTipoMaterial(tipo_material);
         jComboBoxTipoMaterial.setToolTipText(tipo_material);
-
+        
         if (tipo_material.equalsIgnoreCase("Mármores e Granitos")) {
             _valor = 0.0;
             actualizarPrecos();
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-
+            
             JPanelPedra j = new JPanelPedra(_q, _l, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-
+            
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -449,13 +456,13 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-
+            
             JPanelEcoLeatherLambrimBalcao j = new JPanelEcoLeatherLambrimBalcao(_q, _l, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-
+            
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -466,15 +473,15 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-
+            
             JPanelEcoLeatherLadrilhos j = new JPanelEcoLeatherLadrilhos(_q, _l, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-
+            
             loading_no();
-
+            
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -485,13 +492,13 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-
+            
             JPanelEcoPolidoLambrimBalcao j = new JPanelEcoPolidoLambrimBalcao(_q, _l, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-
+            
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -502,15 +509,15 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             if (jPanelTipoMaterial.getComponents().length > 0) {
                 jPanelTipoMaterial.removeAll();
             }
-
+            
             JPanelEcoPolidoLadrilhos j = new JPanelEcoPolidoLadrilhos(_q, _l, tipo_material);
             j.addObserver(this);
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
-
+            
             loading_no();
-
+            
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             jPanelTipoMaterial.repaint();
             jPanelTipoMaterial.revalidate();
@@ -524,13 +531,13 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             jPanelTipoMaterial.add(j);
             jPanelTipoMaterial.setLayout(new BoxLayout(jPanelTipoMaterial, BoxLayout.X_AXIS));
             observers.add(j);
-
+            
         }
-
+        
         jPanelTipoMaterial.revalidate();
-
+        
         jPanelTipoMaterial.repaint();
-
+        
         loading_no();
         this.repaint();
     }//GEN-LAST:event_jComboBoxTipoMaterialItemStateChanged
@@ -538,42 +545,46 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         loading();
         jRadioButtonPT.setSelected(true);
         jRadioButtonFR.setSelected(false);
-
+        
         this.repaint();
-
+        
         _l.setLingua("pt");
         configs_lng();
         notifyObservers("lng");
-
+        
         loading_no();
     }//GEN-LAST:event_jRadioButtonPTActionPerformed
-
+    
     private void jRadioButtonFRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonFRActionPerformed
         _loading.setVisible(true);
         System.out.println("Loading...");
         jRadioButtonPT.setSelected(false);
         jRadioButtonFR.setSelected(true);
-
+        
         this.repaint();
-
+        
         _l.setLingua("fr");
         configs_lng();
-
+        
         notifyObservers("lng");
-
+        
         loading_no();
     }//GEN-LAST:event_jRadioButtonFRActionPerformed
-
+    
     private void jComboBoxIVAItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxIVAItemStateChanged
         actualizarPrecos();
     }//GEN-LAST:event_jComboBoxIVAItemStateChanged
-
+    
     private void jButtonImagensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImagensActionPerformed
         JFrameImagens mine = new JFrameImagens(_q, _l);
         mine.setTitle("Imagens");
         mine.setDefaultCloseOperation(1);
         mine.setVisible(true);
     }//GEN-LAST:event_jButtonImagensActionPerformed
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        pdf.main(null);
+    }//GEN-LAST:event_jButton1ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonImagens;
@@ -611,7 +622,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         }
         return m;
     }
-
+    
     public void actualizarPrecos() {
         jLabelTotalValor.setText(df.format(_valor).toString() + " €");
         String i = jComboBoxIVA.getSelectedItem().toString();
@@ -623,37 +634,37 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         } else if (i.equalsIgnoreCase("5.5 %")) {
             iva = 0.05;
         }
-
+        
         Double iva_valor = _valor * iva;
         Double preco = _valor + iva_valor;
         jLabelValorIVA.setText(df.format(iva_valor).toString() + " €");
         jLabelTotalValorComIVA.setText(df.format(preco).toString() + " €");
     }
-
+    
     @Override
     public void update(String n) {
     }
-
+    
     @Override
     public void update(String material, String cor) {
     }
-
+    
     @Override
     public void update(String n, Double v) {
         _valor = v;
         actualizarPrecos();
     }
-
+    
     @Override
     public void addObserver(Observer o) {
         observers.add(o);
     }
-
+    
     @Override
     public void removeObserver(Observer o) {
         observers.remove(o);
     }
-
+    
     @Override
     public void notifyObservers(String n) {
         Iterator<Observer> it = observers.iterator();
@@ -662,7 +673,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             observer.update("lng");
         }
     }
-
+    
     @Override
     public void notifyObservers(String material, String cor) {
         Iterator<Observer> it = observers.iterator();
@@ -671,7 +682,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             observer.update(material, cor);
         }
     }
-
+    
     @Override
     public void notifyObservers(String n, Double d) {
         Iterator<Observer> it = observers.iterator();
@@ -680,31 +691,31 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             observer.update(n, d);
         }
     }
-
+    
     public void loading() {
         _loading.setVisible(true);
         System.out.println("Loading...");
         centerOnScreen(_loading);
     }
-
+    
     public void loading_no() {
         _loading.setVisible(false);
         System.out.println("Ready");
         _loading.setVisible(false);
     }
-
+    
     public static void centerOnScreen(final Component target) {
         if (target != null) {
             Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
             Dimension dialogSize = target.getSize();
-
+            
             if (dialogSize.height > screenSize.height) {
                 dialogSize.height = screenSize.height;
             }
             if (dialogSize.width > screenSize.width) {
                 dialogSize.width = screenSize.width;
             }
-
+            
             target.setLocation((screenSize.width - dialogSize.width) / 2,
                     (screenSize.height - dialogSize.height) / 2);
         }
