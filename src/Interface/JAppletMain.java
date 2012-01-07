@@ -189,6 +189,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         jLabelValorIVA = new javax.swing.JLabel();
         jButtonImagens = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -342,6 +343,8 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         jLabel1.setForeground(new java.awt.Color(107, 169, 255));
         jLabel1.setText("Copyright by Miguel Costa");
 
+        jButton1.setText("PDF");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -361,6 +364,8 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
                     .addGroup(layout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addComponent(jButtonImagens)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -401,7 +406,9 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
                             .addComponent(jLabelTotalComIVA)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonImagens)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonImagens)
+                            .addComponent(jButton1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel1))))
         );
@@ -568,6 +575,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         mine.setVisible(true);
     }//GEN-LAST:event_jButtonImagensActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonImagens;
     private javax.swing.JComboBox jComboBoxIVA;
     private javax.swing.JComboBox jComboBoxTipoMaterial;
