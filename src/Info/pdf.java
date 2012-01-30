@@ -12,6 +12,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.List;
 import com.itextpdf.text.ListItem;
 import com.itextpdf.text.Paragraph;
@@ -22,7 +23,12 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.Date;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -35,43 +41,41 @@ import javax.swing.JOptionPane;
 public class pdf {
 
     private static String FILE = "FirstPdf.pdf";
-    private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
-    private static Font redFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.RED);
-    private static Font subFont = new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.BOLD);
-    private static Font smallBold = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
+    private static Font catFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
+    private static Font redFont = new Font(Font.FontFamily.HELVETICA, 12, Font.NORMAL, BaseColor.RED);
+    private static Font subFont = new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD);
+    private static Font smallBold = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
 
     public static void main(String[] args) {
         try {
             System.out.println("A começar a gerar pdf...");
-            Document document = new Document();
 
-            PdfWriter.getInstance(document, new FileOutputStream(FILE));
-            document.open();
-            addMetaData(document);
-            addTitlePage(document);
-            addContent(document);
-            document.close();
-            System.out.println("Gerou.");
-
-            SendMail mail = new SendMail();
-            mail.sendMail(
-                    "miguelpintodacosta@gmail.com",
-                    "miguelpintodacosta@hotmail.com",
-                    "Testar envio de email",
-                    "Esta é a mensagem do email");
-
-            /*
             JFileChooser chooser = new JFileChooser();
             chooser.setApproveButtonText("Save");
-            
+
             File theFileToSave = null;
             int option = chooser.showOpenDialog(null);
             if (option == JFileChooser.APPROVE_OPTION) {
-            if (chooser.getSelectedFile() != null) {
-            theFileToSave = chooser.getSelectedFile();
+                if (chooser.getSelectedFile() != null) {
+                    theFileToSave = chooser.getSelectedFile();
+                }
             }
-            }
-             */
+
+            Document document = new Document();
+
+            PdfWriter.getInstance(document, new FileOutputStream(theFileToSave));
+            //PdfWriter.getInstance(document, new FileOutputStream(FILE));
+            document.open();
+            createPDF(document);
+            document.close();
+            System.out.println("Gerou.");
+            /*
+            SendMail mail = new SendMail();
+            mail.sendMail(
+            "miguelpintodacosta@gmail.com",
+            "miguelpintodacosta@hotmail.com",
+            "Testar envio de email",
+            "Esta é a mensagem do email");*/
 
             System.out.println("Terminou de gerar.");
 
@@ -82,50 +86,103 @@ public class pdf {
 
     }
 
+    private static void createPDF(Document document) {
+        try {
+            addMetaData(document);
+            addLogo(document);
+            addAdress(document);
+            addTitlePage(document);
+            addContent(document);
+        } catch (DocumentException ex) {
+            Logger.getLogger(pdf.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     // iText allows to add metadata to the PDF which can be viewed in your Adobe
     // Reader
     // under File -> Properties
     private static void addMetaData(Document document) {
-        document.addTitle("My first PDF");
-        document.addSubject("Using iText");
-        document.addKeywords("Java, PDF, iText");
+        document.addTitle("Norconcept");
+        document.addSubject("Orçamento");
+        document.addKeywords("Norconcept, PDF, orçamento, Cozinhas, mármore, granito");
         document.addAuthor("Miguel Costa");
         document.addCreator("Miguel Costa");
     }
 
     private static void addTitlePage(Document document) throws DocumentException {
-        Paragraph preface = new Paragraph();
-        // We add one empty line
-        addEmptyLine(preface, 1);
-        // Lets write a big header
-        preface.add(new Paragraph(
-                "Title of the document",
-                catFont));
+        try {
 
-        addEmptyLine(preface, 1);
+            // adicina texto
+            Paragraph preface = new Paragraph();
+            // We add one empty line
+            addEmptyLine(preface, 1);
+            // Lets write a big header
+            preface.add(new Paragraph(
+                    "Orçamento Gerado Automaticamente", smallBold));
+            GregorianCalendar data = new GregorianCalendar();
+            preface.add(new Paragraph(
+                    "Data: " + data.get(Calendar.DAY_OF_MONTH) + "/" + data.get(Calendar.MONTH) + "/" + data.get(Calendar.YEAR)));
+            addEmptyLine(preface, 1);
 
-        // Will create: Report generated by: _name, _date
-        preface.add(new Paragraph(
-                "Report generated by: " + System.getProperty("user.name") + ", " + new Date(),
-                smallBold));
-        //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 
-        addEmptyLine(preface, 3);
+            //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+            addEmptyLine(preface, 3);
 
-        preface.add(new Paragraph(
-                "This document describes something which is very important ",
-                smallBold));
+            //addEmptyLine(preface, 8);
 
-        addEmptyLine(preface, 8);
+            preface.add(new Paragraph(
+                    "Os preços podem não estar de acordo com a realidade.",
+                    redFont));
 
-        preface.add(new Paragraph(
-                "This document is a preliminary version and not subject to your license agreement or any other agreement with vogella.de ;-).",
-                redFont));
+            document.add(preface);
+            // Start a new page
+            document.newPage();
+        } catch (BadElementException ex) {
+            Logger.getLogger(pdf.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        document.add(preface);
-        // Start a new page
-        document.newPage();
+    }
 
+    private static void addLogo(Document document) {
+        try {
+            // Adicionar a Imagem do logo
+            System.out.println("Add logo");
+            URL i = pdf.class.getClass().getResource("/Imagens/logo6.png");
+            System.out.println(i.toURI());
+            Image img = Image.getInstance(i);
+            img.setAlignment(Image.RIGHT);
+            document.add(img);
+            System.out.println("Add logo end");
+        } catch (BadElementException ex) {
+            Logger.getLogger(pdf.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(pdf.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(pdf.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(pdf.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (URISyntaxException ex) {
+            Logger.getLogger(pdf.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private static void addAdress(Document document) {
+        try {
+            // Morada
+            Paragraph morada = new Paragraph();
+            morada.setAlignment(Image.RIGHT);
+            morada.add(new Paragraph(
+                    "Bloco A1, 5ºE"));
+            morada.add(new Paragraph(
+                    "Urbanização Quinta dos Orfãos"));
+            morada.add(new Paragraph(
+                    "4700-000 Braga"));
+            morada.add(new Paragraph(
+                    "Protugal"));
+            document.add(morada);
+        } catch (DocumentException ex) {
+            Logger.getLogger(pdf.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private static void addContent(Document document) throws DocumentException {
