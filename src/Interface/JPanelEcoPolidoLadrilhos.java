@@ -137,20 +137,23 @@ public class JPanelEcoPolidoLadrilhos extends javax.swing.JPanel implements Obse
         jButtonNotas = new javax.swing.JButton();
         jButtonObservacoes = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(178, 178, 178));
+        setBackground(new java.awt.Color(41, 41, 41));
         setAutoscrolls(true);
 
-        jLabelCor.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jLabelCor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelCor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelCor.setText("Escolha a cor:");
 
+        jComboBoxCor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jComboBoxCor.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBoxCorItemStateChanged(evt);
             }
         });
 
-        jPanelPecaOp.setBackground(new java.awt.Color(217, 216, 215));
+        jPanelPecaOp.setBackground(new java.awt.Color(41, 41, 41));
 
+        jButtonAdicionarPeca.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonAdicionarPeca.setText("Adicionar");
         jButtonAdicionarPeca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,6 +161,7 @@ public class JPanelEcoPolidoLadrilhos extends javax.swing.JPanel implements Obse
             }
         });
 
+        jButtonLimparPeca.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonLimparPeca.setText("Limpar");
         jButtonLimparPeca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,10 +169,13 @@ public class JPanelEcoPolidoLadrilhos extends javax.swing.JPanel implements Obse
             }
         });
 
+        jLabelPecaTotalValor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelPecaTotalValor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelPecaTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelPecaTotalValor.setText("0.0");
 
-        jLabelPecaTotal.setFont(new java.awt.Font("Ubuntu", 1, 12));
+        jLabelPecaTotal.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelPecaTotal.setForeground(new java.awt.Color(204, 204, 204));
         jLabelPecaTotal.setText("TOTAL (€)");
 
         javax.swing.GroupLayout jPanelPecaOpLayout = new javax.swing.GroupLayout(jPanelPecaOp);
@@ -179,7 +186,7 @@ public class JPanelEcoPolidoLadrilhos extends javax.swing.JPanel implements Obse
                 .addComponent(jButtonAdicionarPeca)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonLimparPeca)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
                 .addComponent(jLabelPecaTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelPecaTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -193,13 +200,14 @@ public class JPanelEcoPolidoLadrilhos extends javax.swing.JPanel implements Obse
                 .addComponent(jLabelPecaTotal))
         );
 
-        jScrollPanePecas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Peças", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+        jScrollPanePecas.setBorder(null);
 
-        jPanelPecas.setBorder(null);
+        jPanelPecas.setBackground(new java.awt.Color(41, 41, 41));
         jPanelPecas.setAutoscrolls(true);
         jPanelPecas.setLayout(new java.awt.GridBagLayout());
         jScrollPanePecas.setViewportView(jPanelPecas);
 
+        jButtonNotas.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonNotas.setText("Notas");
         jButtonNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,6 +215,7 @@ public class JPanelEcoPolidoLadrilhos extends javax.swing.JPanel implements Obse
             }
         });
 
+        jButtonObservacoes.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonObservacoes.setText("Observações");
         jButtonObservacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,11 +230,11 @@ public class JPanelEcoPolidoLadrilhos extends javax.swing.JPanel implements Obse
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPanePecas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                    .addComponent(jScrollPanePecas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
                     .addComponent(jPanelPecaOp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabelCor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 266, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 311, Short.MAX_VALUE)
                         .addComponent(jComboBoxCor, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButtonNotas)
@@ -255,7 +264,7 @@ public class JPanelEcoPolidoLadrilhos extends javax.swing.JPanel implements Obse
     // <editor-fold defaultstate="collapsed" desc="Eventos e variáveis">    
     private void jButtonAdicionarPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarPecaActionPerformed
 
-        JPanelEcoLeatherLadrilhosPeca l = new JPanelEcoLeatherLadrilhosPeca(_q, _l, _cor);
+        JPanelLinhaEcoLeatherLadrilhosPeca l = new JPanelLinhaEcoLeatherLadrilhosPeca(_q, _l, _cor);
         l.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -333,7 +342,7 @@ public class JPanelEcoPolidoLadrilhos extends javax.swing.JPanel implements Obse
         Double d = 0.0;
         for (Component c : jPanelPecas.getComponents()) {
             try {
-                JPanelEcoLeatherLadrilhosPeca l = (JPanelEcoLeatherLadrilhosPeca) c;
+                JPanelLinhaEcoLeatherLadrilhosPeca l = (JPanelLinhaEcoLeatherLadrilhosPeca) c;
                 d += l.getTotal();
             } catch (Exception e) {
             }

@@ -25,7 +25,7 @@ import mvc.Subject;
  *
  * @author miguel
  */
-public class JPanelEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements Subject, Observer {
+public class JPanelLinhaEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements Subject, Observer {
 
     private String _material = "Ladrilhos";
     private String _cor;
@@ -37,7 +37,7 @@ public class JPanelEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements
     private HashMap<String, Double> dimensoes_e_precos = new HashMap<String, Double>();
 
     /** Creates new form JPanelPedraPeca */
-    public JPanelEcoLeatherLadrilhosPeca(QueryXML q, QueryXML_Lingua l, String cor) {
+    public JPanelLinhaEcoLeatherLadrilhosPeca(QueryXML q, QueryXML_Lingua l, String cor) {
         initComponents();
         _q = q;
         _l = l;
@@ -123,22 +123,33 @@ public class JPanelEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements
         jLabelComprimento = new javax.swing.JLabel();
         jSpinnerComprimento = new javax.swing.JSpinner();
 
+        setBackground(new java.awt.Color(41, 41, 41));
+
+        jLabelDim.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelDim.setForeground(new java.awt.Color(204, 204, 204));
         jLabelDim.setText("Dim:");
 
+        jComboBoxDim.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jComboBoxDim.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBoxDimItemStateChanged(evt);
             }
         });
 
-        jLabelTOTAL.setFont(new java.awt.Font("Ubuntu", 1, 12));
+        jLabelTOTAL.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelTOTAL.setForeground(new java.awt.Color(204, 204, 204));
         jLabelTOTAL.setText("TOTAL (€):");
 
+        jLabelTOTALValor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelTOTALValor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelTOTALValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelTOTALValor.setText("€");
 
+        jLabelPreco.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelPreco.setForeground(new java.awt.Color(204, 204, 204));
         jLabelPreco.setText("€/m2");
 
+        jSpinnerLargura.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jSpinnerLargura.setMaximumSize(new java.awt.Dimension(36, 26));
         jSpinnerLargura.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -146,10 +157,15 @@ public class JPanelEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements
             }
         });
 
+        jLabelLargura.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelLargura.setForeground(new java.awt.Color(204, 204, 204));
         jLabelLargura.setText("Larg(cm):");
 
+        jLabelComprimento.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelComprimento.setForeground(new java.awt.Color(204, 204, 204));
         jLabelComprimento.setText("Comp:");
 
+        jSpinnerComprimento.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jSpinnerComprimento.setMaximumSize(new java.awt.Dimension(36, 26));
         jSpinnerComprimento.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -176,7 +192,7 @@ public class JPanelEcoLeatherLadrilhosPeca extends javax.swing.JPanel implements
                 .addComponent(jLabelComprimento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(jLabelTOTAL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelTOTALValor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)

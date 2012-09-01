@@ -120,16 +120,24 @@ public class JPanelEcoLeatherLambrimRodamao extends javax.swing.JPanel implement
         jLabelTOTALValor = new javax.swing.JLabel();
         jLabelRodamaoPreco = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(41, 41, 41));
+
+        jLabelRodamao.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelRodamao.setForeground(new java.awt.Color(204, 204, 204));
         jLabelRodamao.setText("Rodamão:");
 
+        jLabelComprimento.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelComprimento.setForeground(new java.awt.Color(204, 204, 204));
         jLabelComprimento.setText("cm:");
 
+        jComboBoxRodamao.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jComboBoxRodamao.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBoxRodamaoItemStateChanged(evt);
             }
         });
 
+        jSpinnerNumero.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jSpinnerNumero.setMaximumSize(new java.awt.Dimension(36, 26));
         jSpinnerNumero.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -137,12 +145,17 @@ public class JPanelEcoLeatherLambrimRodamao extends javax.swing.JPanel implement
             }
         });
 
-        jLabelTOTAL.setFont(new java.awt.Font("Ubuntu", 1, 12));
+        jLabelTOTAL.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelTOTAL.setForeground(new java.awt.Color(204, 204, 204));
         jLabelTOTAL.setText("TOTAL (€):");
 
+        jLabelTOTALValor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelTOTALValor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelTOTALValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelTOTALValor.setText("€");
 
+        jLabelRodamaoPreco.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelRodamaoPreco.setForeground(new java.awt.Color(204, 204, 204));
         jLabelRodamaoPreco.setText("€/m");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -160,7 +173,7 @@ public class JPanelEcoLeatherLambrimRodamao extends javax.swing.JPanel implement
                 .addComponent(jLabelComprimento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(jLabelTOTAL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelTOTALValor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)

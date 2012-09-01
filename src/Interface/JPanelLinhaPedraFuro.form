@@ -23,16 +23,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabelCor" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabelFuro" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jComboBoxCor" min="-2" pref="174" max="-2" attributes="0"/>
+              <Component id="jComboBoxFuro" min="-2" pref="174" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabelRodapePreco" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabelFuroPreco" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="jLabelComprimento" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jSpinnerComprimento" min="-2" pref="64" max="-2" attributes="0"/>
-              <EmptySpace pref="46" max="32767" attributes="0"/>
+              <Component id="jSpinnerNumero" min="-2" pref="64" max="-2" attributes="0"/>
+              <EmptySpace pref="92" max="32767" attributes="0"/>
               <Component id="jLabelTOTAL" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelTOTALValor" min="-2" pref="47" max="-2" attributes="0"/>
@@ -45,42 +45,48 @@
           <Group type="102" attributes="0">
               <EmptySpace min="1" pref="1" max="1" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jComboBoxCor" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelCor" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelRodapePreco" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelComprimento" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jSpinnerComprimento" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxFuro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelFuro" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelTOTALValor" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelTOTAL" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelFuroPreco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jSpinnerNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelComprimento" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabelCor">
+    <Component class="javax.swing.JLabel" name="jLabelFuro">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="10" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cor:"/>
+        <Property name="text" type="java.lang.String" value="Furo:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelComprimento">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="10" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Comp. (cm):"/>
+        <Property name="text" type="java.lang.String" value="n.&#xba;:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBoxCor">
+    <Component class="javax.swing.JComboBox" name="jComboBoxFuro">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="10" style="0"/>
@@ -90,10 +96,10 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxCorItemStateChanged"/>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxFuroItemStateChanged"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JSpinner" name="jSpinnerComprimento">
+    <Component class="javax.swing.JSpinner" name="jSpinnerNumero">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="10" style="0"/>
@@ -103,11 +109,14 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerComprimentoStateChanged"/>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSpinnerNumeroStateChanged"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelTOTAL">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="10" style="0"/>
         </Property>
@@ -119,6 +128,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelTOTALValor">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="10" style="0"/>
         </Property>
@@ -129,15 +141,18 @@
         <Property name="text" type="java.lang.String" value="&#x20ac;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelRodapePreco">
+    <Component class="javax.swing.JLabel" name="jLabelFuroPreco">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="10" style="0"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&#x20ac;/m"/>
+        <Property name="text" type="java.lang.String" value="&#x20ac;/furo"/>
       </Properties>
     </Component>
   </SubComponents>

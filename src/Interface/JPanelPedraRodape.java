@@ -126,16 +126,24 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
         jLabelTOTALValor = new javax.swing.JLabel();
         jLabelRodapePreco = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(41, 41, 41));
+
+        jLabelCor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelCor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelCor.setText("Cor:");
 
+        jLabelComprimento.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelComprimento.setForeground(new java.awt.Color(204, 204, 204));
         jLabelComprimento.setText("Comp. (cm):");
 
+        jComboBoxCor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jComboBoxCor.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBoxCorItemStateChanged(evt);
             }
         });
 
+        jSpinnerComprimento.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jSpinnerComprimento.setMaximumSize(new java.awt.Dimension(36, 26));
         jSpinnerComprimento.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -143,12 +151,17 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
             }
         });
 
-        jLabelTOTAL.setFont(new java.awt.Font("Ubuntu", 1, 12));
+        jLabelTOTAL.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelTOTAL.setForeground(new java.awt.Color(204, 204, 204));
         jLabelTOTAL.setText("TOTAL (€):");
 
+        jLabelTOTALValor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelTOTALValor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelTOTALValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelTOTALValor.setText("€");
 
+        jLabelRodapePreco.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelRodapePreco.setForeground(new java.awt.Color(204, 204, 204));
         jLabelRodapePreco.setText("€/m");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -166,7 +179,7 @@ public class JPanelPedraRodape extends javax.swing.JPanel implements Subject, Ob
                 .addComponent(jLabelComprimento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerComprimento, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jLabelTOTAL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelTOTALValor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -3,7 +3,7 @@
 <Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="b2" green="b2" red="b2" type="rgb"/>
+      <Color blue="29" green="29" red="29" type="rgb"/>
     </Property>
     <Property name="autoscrolls" type="boolean" value="true"/>
   </Properties>
@@ -27,7 +27,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabelCor" min="-2" max="-2" attributes="1"/>
-                      <EmptySpace pref="252" max="32767" attributes="0"/>
+                      <EmptySpace pref="297" max="32767" attributes="0"/>
                       <Component id="jComboBoxCor" min="-2" pref="224" max="-2" attributes="1"/>
                   </Group>
                   <Component id="jLabelEspessuraPreco" alignment="1" min="-2" pref="477" max="-2" attributes="0"/>
@@ -36,15 +36,15 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButtonObservacoes" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPanePecas" alignment="1" pref="566" max="32767" attributes="0"/>
+                  <Component id="jScrollPanePecas" alignment="1" pref="589" max="32767" attributes="0"/>
                   <Component id="jPanelPecaOp" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jScrollPaneAcabamentos" alignment="1" pref="566" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneAcabamentos" alignment="1" pref="589" max="32767" attributes="0"/>
                   <Component id="jPanelAcabamentoOp" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jScrollPaneFuros" alignment="1" pref="566" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneFuros" alignment="1" pref="589" max="32767" attributes="0"/>
                   <Component id="jPanelFurosOp" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jScrollPaneRodamaos" alignment="1" pref="566" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneRodamaos" alignment="1" pref="589" max="32767" attributes="0"/>
                   <Component id="jPanelRodamaosOp" alignment="1" max="32767" attributes="0"/>
-                  <Component id="jScrollPaneRebaixos" alignment="1" pref="566" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneRebaixos" alignment="1" pref="589" max="32767" attributes="0"/>
                   <Component id="jPanelRebaixosOp" alignment="1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -95,13 +95,19 @@
     <Component class="javax.swing.JLabel" name="jLabelCor">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="11" style="1"/>
+          <Font name="SansSerif" size="10" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Escolha a cor:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBoxCor">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="SansSerif" size="10" style="0"/>
+        </Property>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
@@ -112,6 +118,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelEspessuraPreco">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="SansSerif" size="10" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
         <Property name="horizontalAlignment" type="int" value="11"/>
         <Property name="text" type="java.lang.String" value="precos"/>
       </Properties>
@@ -119,7 +131,7 @@
     <Container class="javax.swing.JPanel" name="jPanelPecaOp">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="d7" green="d8" red="d9" type="rgb"/>
+          <Color blue="29" green="29" red="29" type="rgb"/>
         </Property>
       </Properties>
 
@@ -130,7 +142,7 @@
                   <Component id="jButtonAdicionarPeca" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonLimparPeca" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="318" max="32767" attributes="0"/>
+                  <EmptySpace pref="320" max="32767" attributes="0"/>
                   <Component id="jLabelPecaTotal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabelPecaTotalValor" min="-2" pref="63" max="-2" attributes="0"/>
@@ -151,6 +163,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButtonAdicionarPeca">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
           <Events>
@@ -159,6 +174,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonLimparPeca">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
           <Events>
@@ -167,6 +185,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelPecaTotalValor">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="0.0"/>
           </Properties>
@@ -174,7 +198,10 @@
         <Component class="javax.swing.JLabel" name="jLabelPecaTotal">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="12" style="1"/>
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="TOTAL (&#x20ac;)"/>
           </Properties>
@@ -184,7 +211,7 @@
     <Container class="javax.swing.JPanel" name="jPanelAcabamentoOp">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="d7" green="d8" red="d9" type="rgb"/>
+          <Color blue="29" green="29" red="29" type="rgb"/>
         </Property>
       </Properties>
 
@@ -195,7 +222,7 @@
                   <Component id="jButtonAdicionarAcabamento" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonLimparAcabamento" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="318" max="32767" attributes="0"/>
+                  <EmptySpace pref="320" max="32767" attributes="0"/>
                   <Component id="jLabelAcabamentoTotal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabelAcabamentoTotalValor" min="-2" pref="63" max="-2" attributes="0"/>
@@ -216,6 +243,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButtonAdicionarAcabamento">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
           <Events>
@@ -224,6 +254,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonLimparAcabamento">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
           <Events>
@@ -232,6 +265,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelAcabamentoTotalValor">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="0.0"/>
           </Properties>
@@ -239,7 +278,10 @@
         <Component class="javax.swing.JLabel" name="jLabelAcabamentoTotal">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="12" style="1"/>
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="TOTAL (&#x20ac;)"/>
           </Properties>
@@ -249,11 +291,7 @@
     <Container class="javax.swing.JScrollPane" name="jScrollPanePecas">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Pe&#xe7;as">
-              <Color PropertyName="color" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
-            </TitledBorder>
-          </Border>
+          <Border info="null"/>
         </Property>
       </Properties>
 
@@ -261,8 +299,8 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanelPecas">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="29" green="29" red="29" type="rgb"/>
             </Property>
             <Property name="autoscrolls" type="boolean" value="true"/>
           </Properties>
@@ -274,11 +312,7 @@
     <Container class="javax.swing.JScrollPane" name="jScrollPaneAcabamentos">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Acabamentos">
-              <Color PropertyName="color" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
-            </TitledBorder>
-          </Border>
+          <Border info="null"/>
         </Property>
       </Properties>
 
@@ -286,8 +320,8 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanelAcabamentos">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="29" green="29" red="29" type="rgb"/>
             </Property>
             <Property name="autoscrolls" type="boolean" value="true"/>
           </Properties>
@@ -299,11 +333,7 @@
     <Container class="javax.swing.JScrollPane" name="jScrollPaneFuros">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Furos">
-              <Color PropertyName="color" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
-            </TitledBorder>
-          </Border>
+          <Border info="null"/>
         </Property>
       </Properties>
 
@@ -311,8 +341,8 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanelFuros">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="29" green="29" red="29" type="rgb"/>
             </Property>
             <Property name="autoscrolls" type="boolean" value="true"/>
           </Properties>
@@ -324,7 +354,7 @@
     <Container class="javax.swing.JPanel" name="jPanelFurosOp">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="d7" green="d8" red="d9" type="rgb"/>
+          <Color blue="29" green="29" red="29" type="rgb"/>
         </Property>
       </Properties>
 
@@ -335,7 +365,7 @@
                   <Component id="jButtonAdicionarFuro" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonLimparFuro" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="318" max="32767" attributes="0"/>
+                  <EmptySpace pref="320" max="32767" attributes="0"/>
                   <Component id="jLabelFuroTotal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabelFuroTotalValor" min="-2" pref="63" max="-2" attributes="0"/>
@@ -356,6 +386,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButtonAdicionarFuro">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
           <Events>
@@ -364,6 +397,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonLimparFuro">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
           <Events>
@@ -372,6 +408,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelFuroTotalValor">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="0.0"/>
           </Properties>
@@ -379,7 +421,10 @@
         <Component class="javax.swing.JLabel" name="jLabelFuroTotal">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="12" style="1"/>
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="TOTAL (&#x20ac;)"/>
           </Properties>
@@ -388,12 +433,11 @@
     </Container>
     <Container class="javax.swing.JScrollPane" name="jScrollPaneRodamaos">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="29" green="29" red="29" type="rgb"/>
+        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Rodamaos">
-              <Color PropertyName="color" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
-            </TitledBorder>
-          </Border>
+          <Border info="null"/>
         </Property>
       </Properties>
 
@@ -401,8 +445,8 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanelRodamaos">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="29" green="29" red="29" type="rgb"/>
             </Property>
             <Property name="autoscrolls" type="boolean" value="true"/>
           </Properties>
@@ -414,7 +458,7 @@
     <Container class="javax.swing.JPanel" name="jPanelRodamaosOp">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="d7" green="d8" red="d9" type="rgb"/>
+          <Color blue="29" green="29" red="29" type="rgb"/>
         </Property>
       </Properties>
 
@@ -425,7 +469,7 @@
                   <Component id="jButtonAdicionarRodamao" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonLimparRodamao" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="318" max="32767" attributes="0"/>
+                  <EmptySpace pref="320" max="32767" attributes="0"/>
                   <Component id="jLabelRodamaoTotal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabelRodamaoTotalValor" min="-2" pref="63" max="-2" attributes="0"/>
@@ -446,6 +490,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButtonAdicionarRodamao">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
           <Events>
@@ -454,6 +501,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonLimparRodamao">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
           <Events>
@@ -462,6 +512,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelRodamaoTotalValor">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="0.0"/>
           </Properties>
@@ -469,7 +525,10 @@
         <Component class="javax.swing.JLabel" name="jLabelRodamaoTotal">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="12" style="1"/>
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="TOTAL (&#x20ac;)"/>
           </Properties>
@@ -478,6 +537,9 @@
     </Container>
     <Component class="javax.swing.JButton" name="jButtonNotas">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="SansSerif" size="10" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Notas"/>
       </Properties>
       <Events>
@@ -486,6 +548,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonObservacoes">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="SansSerif" size="10" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Observa&#xe7;&#xf5;es"/>
       </Properties>
       <Events>
@@ -495,11 +560,7 @@
     <Container class="javax.swing.JScrollPane" name="jScrollPaneRebaixos">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Rebaixos">
-              <Color PropertyName="color" blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
-            </TitledBorder>
-          </Border>
+          <Border info="null"/>
         </Property>
       </Properties>
 
@@ -507,8 +568,8 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanelRebaixos">
           <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="29" green="29" red="29" type="rgb"/>
             </Property>
             <Property name="autoscrolls" type="boolean" value="true"/>
           </Properties>
@@ -520,7 +581,7 @@
     <Container class="javax.swing.JPanel" name="jPanelRebaixosOp">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="d7" green="d8" red="d9" type="rgb"/>
+          <Color blue="29" green="29" red="29" type="rgb"/>
         </Property>
       </Properties>
 
@@ -531,7 +592,7 @@
                   <Component id="jButtonAdicionarRebaixo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonLimparRebaixo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="318" max="32767" attributes="0"/>
+                  <EmptySpace pref="320" max="32767" attributes="0"/>
                   <Component id="jLabelRebaixoTotal" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabelRebaixoTotalValor" min="-2" pref="63" max="-2" attributes="0"/>
@@ -552,6 +613,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButtonAdicionarRebaixo">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Adicionar"/>
           </Properties>
           <Events>
@@ -560,6 +624,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonLimparRebaixo">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
           <Events>
@@ -568,6 +635,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelRebaixoTotalValor">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
             <Property name="horizontalAlignment" type="int" value="4"/>
             <Property name="text" type="java.lang.String" value="0.0"/>
           </Properties>
@@ -575,7 +648,10 @@
         <Component class="javax.swing.JLabel" name="jLabelRebaixoTotal">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Ubuntu" size="12" style="1"/>
+              <Font name="SansSerif" size="10" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="TOTAL (&#x20ac;)"/>
           </Properties>

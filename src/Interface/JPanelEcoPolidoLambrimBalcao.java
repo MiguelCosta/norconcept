@@ -208,23 +208,28 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
         jLabelRebaixoTotalValor = new javax.swing.JLabel();
         jLabelRebaixoTotal = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(178, 178, 178));
+        setBackground(new java.awt.Color(41, 41, 41));
         setAutoscrolls(true);
 
-        jLabelCor.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jLabelCor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelCor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelCor.setText("Escolha a cor:");
 
+        jComboBoxCor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jComboBoxCor.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBoxCorItemStateChanged(evt);
             }
         });
 
+        jLabelEspessuraPreco.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelEspessuraPreco.setForeground(new java.awt.Color(204, 204, 204));
         jLabelEspessuraPreco.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabelEspessuraPreco.setText("precos");
 
-        jPanelPecaOp.setBackground(new java.awt.Color(217, 216, 215));
+        jPanelPecaOp.setBackground(new java.awt.Color(41, 41, 41));
 
+        jButtonAdicionarPeca.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonAdicionarPeca.setText("Adicionar");
         jButtonAdicionarPeca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,6 +237,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
             }
         });
 
+        jButtonLimparPeca.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonLimparPeca.setText("Limpar");
         jButtonLimparPeca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,10 +245,13 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
             }
         });
 
+        jLabelPecaTotalValor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelPecaTotalValor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelPecaTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelPecaTotalValor.setText("0.0");
 
-        jLabelPecaTotal.setFont(new java.awt.Font("Ubuntu", 1, 12));
+        jLabelPecaTotal.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelPecaTotal.setForeground(new java.awt.Color(204, 204, 204));
         jLabelPecaTotal.setText("TOTAL (€)");
 
         javax.swing.GroupLayout jPanelPecaOpLayout = new javax.swing.GroupLayout(jPanelPecaOp);
@@ -253,7 +262,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
                 .addComponent(jButtonAdicionarPeca)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonLimparPeca)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
                 .addComponent(jLabelPecaTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelPecaTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -267,8 +276,9 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
                 .addComponent(jLabelPecaTotal))
         );
 
-        jPanelAcabamentoOp.setBackground(new java.awt.Color(217, 216, 215));
+        jPanelAcabamentoOp.setBackground(new java.awt.Color(41, 41, 41));
 
+        jButtonAdicionarAcabamento.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonAdicionarAcabamento.setText("Adicionar");
         jButtonAdicionarAcabamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,6 +286,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
             }
         });
 
+        jButtonLimparAcabamento.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonLimparAcabamento.setText("Limpar");
         jButtonLimparAcabamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -283,10 +294,13 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
             }
         });
 
+        jLabelAcabamentoTotalValor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelAcabamentoTotalValor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelAcabamentoTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelAcabamentoTotalValor.setText("0.0");
 
-        jLabelAcabamentoTotal.setFont(new java.awt.Font("Ubuntu", 1, 12));
+        jLabelAcabamentoTotal.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelAcabamentoTotal.setForeground(new java.awt.Color(204, 204, 204));
         jLabelAcabamentoTotal.setText("TOTAL (€)");
 
         javax.swing.GroupLayout jPanelAcabamentoOpLayout = new javax.swing.GroupLayout(jPanelAcabamentoOp);
@@ -297,7 +311,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
                 .addComponent(jButtonAdicionarAcabamento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonLimparAcabamento)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
                 .addComponent(jLabelAcabamentoTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelAcabamentoTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -311,29 +325,30 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
                 .addComponent(jLabelAcabamentoTotal))
         );
 
-        jScrollPanePecas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Peças", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+        jScrollPanePecas.setBorder(null);
 
-        jPanelPecas.setBorder(null);
+        jPanelPecas.setBackground(new java.awt.Color(41, 41, 41));
         jPanelPecas.setAutoscrolls(true);
         jPanelPecas.setLayout(new java.awt.GridBagLayout());
         jScrollPanePecas.setViewportView(jPanelPecas);
 
-        jScrollPaneAcabamentos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acabamentos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+        jScrollPaneAcabamentos.setBorder(null);
 
-        jPanelAcabamentos.setBorder(null);
+        jPanelAcabamentos.setBackground(new java.awt.Color(41, 41, 41));
         jPanelAcabamentos.setAutoscrolls(true);
         jPanelAcabamentos.setLayout(new java.awt.GridBagLayout());
         jScrollPaneAcabamentos.setViewportView(jPanelAcabamentos);
 
-        jScrollPaneFuros.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Furos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+        jScrollPaneFuros.setBorder(null);
 
-        jPanelFuros.setBorder(null);
+        jPanelFuros.setBackground(new java.awt.Color(41, 41, 41));
         jPanelFuros.setAutoscrolls(true);
         jPanelFuros.setLayout(new java.awt.GridBagLayout());
         jScrollPaneFuros.setViewportView(jPanelFuros);
 
-        jPanelFurosOp.setBackground(new java.awt.Color(217, 216, 215));
+        jPanelFurosOp.setBackground(new java.awt.Color(41, 41, 41));
 
+        jButtonAdicionarFuro.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonAdicionarFuro.setText("Adicionar");
         jButtonAdicionarFuro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -341,6 +356,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
             }
         });
 
+        jButtonLimparFuro.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonLimparFuro.setText("Limpar");
         jButtonLimparFuro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,10 +364,13 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
             }
         });
 
+        jLabelFuroTotalValor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelFuroTotalValor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelFuroTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelFuroTotalValor.setText("0.0");
 
-        jLabelFuroTotal.setFont(new java.awt.Font("Ubuntu", 1, 12));
+        jLabelFuroTotal.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelFuroTotal.setForeground(new java.awt.Color(204, 204, 204));
         jLabelFuroTotal.setText("TOTAL (€)");
 
         javax.swing.GroupLayout jPanelFurosOpLayout = new javax.swing.GroupLayout(jPanelFurosOp);
@@ -362,7 +381,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
                 .addComponent(jButtonAdicionarFuro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonLimparFuro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
                 .addComponent(jLabelFuroTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelFuroTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -376,15 +395,17 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
                 .addComponent(jLabelFuroTotal))
         );
 
-        jScrollPaneRodamaos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rodamaos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+        jScrollPaneRodamaos.setBackground(new java.awt.Color(41, 41, 41));
+        jScrollPaneRodamaos.setBorder(null);
 
-        jPanelRodamaos.setBorder(null);
+        jPanelRodamaos.setBackground(new java.awt.Color(41, 41, 41));
         jPanelRodamaos.setAutoscrolls(true);
         jPanelRodamaos.setLayout(new java.awt.GridBagLayout());
         jScrollPaneRodamaos.setViewportView(jPanelRodamaos);
 
-        jPanelRodamaosOp.setBackground(new java.awt.Color(217, 216, 215));
+        jPanelRodamaosOp.setBackground(new java.awt.Color(41, 41, 41));
 
+        jButtonAdicionarRodamao.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonAdicionarRodamao.setText("Adicionar");
         jButtonAdicionarRodamao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -392,6 +413,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
             }
         });
 
+        jButtonLimparRodamao.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonLimparRodamao.setText("Limpar");
         jButtonLimparRodamao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -399,10 +421,13 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
             }
         });
 
+        jLabelRodamaoTotalValor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelRodamaoTotalValor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelRodamaoTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelRodamaoTotalValor.setText("0.0");
 
-        jLabelRodamaoTotal.setFont(new java.awt.Font("Ubuntu", 1, 12));
+        jLabelRodamaoTotal.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelRodamaoTotal.setForeground(new java.awt.Color(204, 204, 204));
         jLabelRodamaoTotal.setText("TOTAL (€)");
 
         javax.swing.GroupLayout jPanelRodamaosOpLayout = new javax.swing.GroupLayout(jPanelRodamaosOp);
@@ -413,7 +438,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
                 .addComponent(jButtonAdicionarRodamao)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonLimparRodamao)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
                 .addComponent(jLabelRodamaoTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelRodamaoTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -427,6 +452,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
                 .addComponent(jLabelRodamaoTotal))
         );
 
+        jButtonNotas.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonNotas.setText("Notas");
         jButtonNotas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -434,6 +460,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
             }
         });
 
+        jButtonObservacoes.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonObservacoes.setText("Observações");
         jButtonObservacoes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -441,15 +468,16 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
             }
         });
 
-        jScrollPaneRebaixos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rebaixos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, java.awt.Color.white));
+        jScrollPaneRebaixos.setBorder(null);
 
-        jPanelRebaixos.setBorder(null);
+        jPanelRebaixos.setBackground(new java.awt.Color(41, 41, 41));
         jPanelRebaixos.setAutoscrolls(true);
         jPanelRebaixos.setLayout(new java.awt.GridBagLayout());
         jScrollPaneRebaixos.setViewportView(jPanelRebaixos);
 
-        jPanelRebaixosOp.setBackground(new java.awt.Color(217, 216, 215));
+        jPanelRebaixosOp.setBackground(new java.awt.Color(41, 41, 41));
 
+        jButtonAdicionarRebaixo.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonAdicionarRebaixo.setText("Adicionar");
         jButtonAdicionarRebaixo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -457,6 +485,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
             }
         });
 
+        jButtonLimparRebaixo.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonLimparRebaixo.setText("Limpar");
         jButtonLimparRebaixo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -464,10 +493,13 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
             }
         });
 
+        jLabelRebaixoTotalValor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelRebaixoTotalValor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelRebaixoTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelRebaixoTotalValor.setText("0.0");
 
-        jLabelRebaixoTotal.setFont(new java.awt.Font("Ubuntu", 1, 12));
+        jLabelRebaixoTotal.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelRebaixoTotal.setForeground(new java.awt.Color(204, 204, 204));
         jLabelRebaixoTotal.setText("TOTAL (€)");
 
         javax.swing.GroupLayout jPanelRebaixosOpLayout = new javax.swing.GroupLayout(jPanelRebaixosOp);
@@ -478,7 +510,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
                 .addComponent(jButtonAdicionarRebaixo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonLimparRebaixo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 318, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)
                 .addComponent(jLabelRebaixoTotal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelRebaixoTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -501,22 +533,22 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelCor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 252, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 297, Short.MAX_VALUE)
                         .addComponent(jComboBoxCor, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabelEspessuraPreco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButtonNotas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonObservacoes))
-                    .addComponent(jScrollPanePecas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                    .addComponent(jScrollPanePecas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
                     .addComponent(jPanelPecaOp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPaneAcabamentos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneAcabamentos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
                     .addComponent(jPanelAcabamentoOp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPaneFuros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneFuros, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
                     .addComponent(jPanelFurosOp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPaneRodamaos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneRodamaos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
                     .addComponent(jPanelRodamaosOp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPaneRebaixos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneRebaixos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
                     .addComponent(jPanelRebaixosOp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -560,7 +592,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
     // <editor-fold defaultstate="collapsed" desc="Eventos e variáveis">    
     private void jButtonAdicionarPecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarPecaActionPerformed
 
-        JPanelPedraPeca l = new JPanelPedraPeca(_q, _l, _material, _cor);
+        JPanelLinhaPedraPeca l = new JPanelLinhaPedraPeca(_q, _l, _material, _cor);
         l.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -610,7 +642,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
     }//GEN-LAST:event_jButtonLimparPecaActionPerformed
 
     private void jButtonAdicionarAcabamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarAcabamentoActionPerformed
-        JPanelEcoLeatherLambrimBalcaoAcabamento r = new JPanelEcoLeatherLambrimBalcaoAcabamento(_q, _l, _material);
+        JPanelLinhaEcoLeatherLambrimBalcaoAcabamento r = new JPanelLinhaEcoLeatherLambrimBalcaoAcabamento(_q, _l, _material);
         r.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -637,7 +669,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
     }//GEN-LAST:event_jButtonLimparAcabamentoActionPerformed
 
     private void jButtonAdicionarFuroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarFuroActionPerformed
-        JPanelPedraFuro f = new JPanelPedraFuro(_q, _l, _material);
+        JPanelLinhaPedraFuro f = new JPanelLinhaPedraFuro(_q, _l, _material);
         f.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -707,7 +739,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
     }//GEN-LAST:event_jButtonObservacoesActionPerformed
 
     private void jButtonAdicionarRebaixoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarRebaixoActionPerformed
-        JPanelPedraRebaixo r = new JPanelPedraRebaixo(_q, _l, _material);
+        JPanelLinhaPedraRebaixo r = new JPanelLinhaPedraRebaixo(_q, _l, _material);
         r.addObserver(this);
         java.awt.GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -779,7 +811,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
         Double d = 0.0;
         for (Component c : jPanelPecas.getComponents()) {
             try {
-                JPanelPedraPeca l = (JPanelPedraPeca) c;
+                JPanelLinhaPedraPeca l = (JPanelLinhaPedraPeca) c;
                 d += l.getTotal();
             } catch (Exception e) {
             }
@@ -792,7 +824,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
         Double d = 0.0;
         for (Component c : jPanelAcabamentos.getComponents()) {
             try {
-                JPanelEcoLeatherLambrimBalcaoAcabamento l = (JPanelEcoLeatherLambrimBalcaoAcabamento) c;
+                JPanelLinhaEcoLeatherLambrimBalcaoAcabamento l = (JPanelLinhaEcoLeatherLambrimBalcaoAcabamento) c;
                 d += l.getTotal();
             } catch (Exception e) {
             }
@@ -805,7 +837,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
         Double d = 0.0;
         for (Component c : jPanelFuros.getComponents()) {
             try {
-                JPanelPedraFuro l = (JPanelPedraFuro) c;
+                JPanelLinhaPedraFuro l = (JPanelLinhaPedraFuro) c;
                 d += l.getTotal();
             } catch (Exception e) {
             }
@@ -831,7 +863,7 @@ public class JPanelEcoPolidoLambrimBalcao extends javax.swing.JPanel implements 
         Double d = 0.0;
         for (Component c : jPanelRebaixos.getComponents()) {
             try {
-                JPanelPedraRebaixo j = (JPanelPedraRebaixo) c;
+                JPanelLinhaPedraRebaixo j = (JPanelLinhaPedraRebaixo) c;
                 d += j.getTotal();
             } catch (Exception e) {
             }

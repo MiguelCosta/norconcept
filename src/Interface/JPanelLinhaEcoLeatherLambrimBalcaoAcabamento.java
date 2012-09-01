@@ -13,12 +13,10 @@ package Interface;
 import Config.StringHtml;
 import XML.QueryXML;
 import XML.QueryXML_Lingua;
-import java.awt.Component;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 import mvc.Observer;
@@ -28,7 +26,7 @@ import mvc.Subject;
  *
  * @author miguel
  */
-public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, Observer {
+public class JPanelLinhaEcoLeatherLambrimBalcaoAcabamento extends javax.swing.JPanel implements Subject, Observer {
 
     private String _material;
     private QueryXML _q;
@@ -36,11 +34,11 @@ public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, O
     private DecimalFormat df = new DecimalFormat("#.##");
     private ArrayList<Observer> observers = new ArrayList<Observer>();
     // para não estar a fazer uma query sempre, fica aqui os precos com as cores
-    private HashMap<String, Double> rebaixos_e_precos = new HashMap<String, Double>();
-    private String rebaixo = "";
+    private HashMap<String, Double> acabamentos_e_precos = new HashMap<String, Double>();
+    private String _acabamento = "";
 
     /** Creates new form JPanelPedraPeca */
-    public JPanelPedraRebaixo(QueryXML q, QueryXML_Lingua l, String material) {
+    public JPanelLinhaEcoLeatherLambrimBalcaoAcabamento(QueryXML q, QueryXML_Lingua l, String material) {
         initComponents();
         _q = q;
         _l = l;
@@ -54,41 +52,38 @@ public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, O
         SpinnerNumberModel modelSpinnerC = new SpinnerNumberModel(0, 0, 100000, 1);
         jSpinnerNumero.setModel(modelSpinnerC);
 
-        jLabelRebaixo.setName("jLabelRebaixo");
-        jLabelNumero.setName("valor");
-        jLabelTOTAL.setName("jLabelTOTAL");
-        jLabelTOTALValor.setName("valor");
-        jLabelRebaixoPreco.setName("valor");
+        
     }
+    
+    public void configs_lng(){
+        
+        jLabelAcabamento.setText(_l.queryText("ecoleatherAcabamento", "jLabelAcabamento"));
+        jLabelAcabamento.setToolTipText(_l.queryText("ecoleatherAcabamento", "jLabelAcabamento_desc"));
+        jLabelComprimento.setText(_l.queryText("ecoleatherAcabamento", "jLabelComprimento"));
+        jLabelComprimento.setToolTipText(_l.queryText("ecoleatherAcabamento", "jLabelComprimento_desc"));
+        jLabelTOTAL.setText(_l.queryText("ecoleatherAcabamento", "jLabelTotal"));
+        
 
-    private void configs_lng() {
-        for (Component c : this.getComponents()) {
-            if (c instanceof JLabel && !c.getName().equals("valor")) {
-                JLabel j = (JLabel) c;
-                String texto = _l.queryText("pedraRebaixo", j.getName());
-                String desc = StringHtml.html_toolTipText(_l.queryText("pedraRebaixo", j.getName() + "_desc"));
-                j.setText(texto);
-                j.setToolTipText(desc);
-            }
-        }
     }
 
     private void valores() {
-        jComboBoxRebaixo.removeAllItems();
-        rebaixos_e_precos.clear();
-        rebaixos_e_precos = _q.queryRebaixos_NomeEPreco(_material);
-        for (String s : rebaixos_e_precos.keySet()) {
-            jComboBoxRebaixo.addItem(s);
+        acabamentos_e_precos.clear();
+        acabamentos_e_precos = _q.queryAcabamentos_NomeEPreco(_material);
+
+        jComboBoxAcabamento.removeAllItems();
+        for (String s : acabamentos_e_precos.keySet()) {
+            jComboBoxAcabamento.addItem(s);
         }
     }
 
     public void actualizarTotal() {
         try {
-            int numero = Integer.parseInt(jSpinnerNumero.getValue().toString());
+            int dim = Integer.parseInt(jSpinnerNumero.getValue().toString());
 
-            Double preco_rebaixo = rebaixos_e_precos.get(rebaixo);
+            Double preco_acabamento = acabamentos_e_precos.get(_acabamento);
 
-            Double preco_total = numero * preco_rebaixo;
+            Double dim_cm = dim / 100.0; // porque está em cm e o preço em m
+            Double preco_total = dim_cm * preco_acabamento;
 
             jLabelTOTALValor.setText(df.format(preco_total).toString());
         } catch (Exception e) {
@@ -116,24 +111,32 @@ public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, O
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelRebaixo = new javax.swing.JLabel();
-        jLabelNumero = new javax.swing.JLabel();
-        jComboBoxRebaixo = new javax.swing.JComboBox();
+        jLabelAcabamento = new javax.swing.JLabel();
+        jLabelComprimento = new javax.swing.JLabel();
+        jComboBoxAcabamento = new javax.swing.JComboBox();
         jSpinnerNumero = new javax.swing.JSpinner();
         jLabelTOTAL = new javax.swing.JLabel();
         jLabelTOTALValor = new javax.swing.JLabel();
-        jLabelRebaixoPreco = new javax.swing.JLabel();
+        jLabelAcabamentoPreco = new javax.swing.JLabel();
 
-        jLabelRebaixo.setText("Rebaixo:");
+        setBackground(new java.awt.Color(41, 41, 41));
 
-        jLabelNumero.setText("n.º:");
+        jLabelAcabamento.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelAcabamento.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelAcabamento.setText("Acabamento:");
 
-        jComboBoxRebaixo.addItemListener(new java.awt.event.ItemListener() {
+        jLabelComprimento.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelComprimento.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelComprimento.setText("cm:");
+
+        jComboBoxAcabamento.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jComboBoxAcabamento.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxRebaixoItemStateChanged(evt);
+                jComboBoxAcabamentoItemStateChanged(evt);
             }
         });
 
+        jSpinnerNumero.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jSpinnerNumero.setMaximumSize(new java.awt.Dimension(36, 26));
         jSpinnerNumero.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -141,13 +144,18 @@ public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, O
             }
         });
 
-        jLabelTOTAL.setFont(new java.awt.Font("Ubuntu", 1, 12)); // NOI18N
+        jLabelTOTAL.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelTOTAL.setForeground(new java.awt.Color(204, 204, 204));
         jLabelTOTAL.setText("TOTAL (€):");
 
+        jLabelTOTALValor.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelTOTALValor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelTOTALValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelTOTALValor.setText("€");
 
-        jLabelRebaixoPreco.setText("€");
+        jLabelAcabamentoPreco.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelAcabamentoPreco.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelAcabamentoPreco.setText("€/m");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -155,16 +163,16 @@ public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, O
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelRebaixo)
+                .addComponent(jLabelAcabamento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxRebaixo, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBoxAcabamento, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelRebaixoPreco)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelNumero)
+                .addComponent(jLabelAcabamentoPreco)
+                .addGap(32, 32, 32)
+                .addComponent(jLabelComprimento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSpinnerNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(jLabelTOTAL)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelTOTALValor, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,40 +183,41 @@ public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, O
             .addGroup(layout.createSequentialGroup()
                 .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxRebaixo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelRebaixo)
+                    .addComponent(jComboBoxAcabamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelAcabamento)
                     .addComponent(jLabelTOTALValor)
                     .addComponent(jLabelTOTAL)
-                    .addComponent(jLabelRebaixoPreco)
-                    .addComponent(jLabelNumero)
-                    .addComponent(jSpinnerNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabelAcabamentoPreco)
+                    .addComponent(jSpinnerNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelComprimento)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jSpinnerNumeroStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSpinnerNumeroStateChanged
         actualizarTotal();
-        notifyObservers("rebaixo");
+        notifyObservers("acabamento");
     }//GEN-LAST:event_jSpinnerNumeroStateChanged
 
-    private void jComboBoxRebaixoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxRebaixoItemStateChanged
-
+    private void jComboBoxAcabamentoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxAcabamentoItemStateChanged
         try {
-            rebaixo = jComboBoxRebaixo.getSelectedItem().toString();
-            jComboBoxRebaixo.setToolTipText(rebaixo);
-            Double d = rebaixos_e_precos.get(rebaixo);
-            String valor = d.toString() + " €";
-            jLabelRebaixoPreco.setText(valor);
+            _acabamento = jComboBoxAcabamento.getSelectedItem().toString();
+            String acabamento = StringHtml.html_toolTipText(_acabamento);
+            jComboBoxAcabamento.setToolTipText(acabamento);
+
+            Double d = acabamentos_e_precos.get(_acabamento);
+            String valor = d.toString() + " €/m";
+            jLabelAcabamentoPreco.setText(valor);
 
             actualizarTotal();
-            notifyObservers("rebaixo");
+            notifyObservers("acabamento");
         } catch (Exception e) {
         }
-    }//GEN-LAST:event_jComboBoxRebaixoItemStateChanged
+    }//GEN-LAST:event_jComboBoxAcabamentoItemStateChanged
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox jComboBoxRebaixo;
-    private javax.swing.JLabel jLabelNumero;
-    private javax.swing.JLabel jLabelRebaixo;
-    private javax.swing.JLabel jLabelRebaixoPreco;
+    private javax.swing.JComboBox jComboBoxAcabamento;
+    private javax.swing.JLabel jLabelAcabamento;
+    private javax.swing.JLabel jLabelAcabamentoPreco;
+    private javax.swing.JLabel jLabelComprimento;
     private javax.swing.JLabel jLabelTOTAL;
     private javax.swing.JLabel jLabelTOTALValor;
     private javax.swing.JSpinner jSpinnerNumero;
@@ -226,7 +235,6 @@ public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, O
 
     @Override
     public void notifyObservers(String n) {
-        //JOptionPane.showMessageDialog(jLabelComprimento, "Vai notificar! Valor: " + d);
         Iterator<Observer> it = observers.iterator();
         while (it.hasNext()) {
             Observer observer = it.next();
@@ -236,14 +244,12 @@ public class JPanelPedraRebaixo extends javax.swing.JPanel implements Subject, O
 
     @Override
     public void notifyObservers(String material, String cor) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void update(String n) {
-        if (n.equalsIgnoreCase("lng")) {
+        if(n.equalsIgnoreCase("lng")){
             configs_lng();
-            return;
         }
         actualizarTotal();
     }

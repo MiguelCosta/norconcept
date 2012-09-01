@@ -9,8 +9,11 @@ import Config.StringHtml;
 import Info.pdf;
 import XML.QueryXML;
 import XML.QueryXML_Lingua;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Toolkit;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -20,6 +23,7 @@ import java.util.logging.Logger;
 import javax.sound.midi.MidiDevice.Info;
 import javax.swing.BoxLayout;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import javax.xml.xpath.XPathExpressionException;
 import mvc.Observer;
 import mvc.Subject;
@@ -51,6 +55,11 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
          * default look and feel. For details see
          * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
+        /*UIManager.put("nimbusBase", new java.awt.Color(110, 110, 110));
+        UIManager.put("nimbusBlueGrey", new java.awt.Color(110, 110, 110));
+        //UIManager.put("control", new java.awt.Color(110, 110, 110));
+        UIManager.put("defaultFont", new Font(Font.SANS_SERIF, 0, 10));
+        */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 /*
@@ -58,6 +67,14 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
                  */
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    
+                    //UIManager.put("nimbusBase", new java.awt.Color(110, 110, 110));
+                    //UIManager.put("nimbusBlueGrey", new java.awt.Color(110, 110, 110));
+                    //UIManager.put("control", new java.awt.Color(110, 110, 110));
+                    UIManager.put("defaultFont", new Font(Font.SANS_SERIF, 0, 12));
+                    UIManager.put("Button.font", new Font(Font.SANS_SERIF, 0, 12));
+                    UIManager.put("Label.font", new Font(Font.SANS_SERIF, 0, 12));
+                    
                     break;
                 }
                 //JOptionPane.showMessageDialog(rootPane, "Tema: "+info.getName());
@@ -86,6 +103,8 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             });
         } catch (Exception ex) {
         }
+        
+        setBackground(new java.awt.Color(110, 110, 110));
 
         // meu código
         _loading.setTitle("Loading...");
@@ -100,7 +119,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         jRadioButtonPT.setSelected(true);
         loading_no();
     }
-    
+        
     private void carregarBD() {
 
         //URL base = getDocumentBase();
@@ -170,9 +189,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabelTipoMaterial = new javax.swing.JLabel();
-        jComboBoxTipoMaterial = new javax.swing.JComboBox();
+        jPanel4 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jRadioButtonPT = new javax.swing.JRadioButton();
@@ -180,55 +197,29 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
         jLabelPT_img = new javax.swing.JLabel();
         jLabelFR_img = new javax.swing.JLabel();
         jLabelLogo = new javax.swing.JLabel();
-        jLabelTotalValor = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabelTipoMaterial = new javax.swing.JLabel();
+        jComboBoxTipoMaterial = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanelTipoMaterial = new javax.swing.JPanel();
-        jLabelTotal = new javax.swing.JLabel();
+        jButtonImagens = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBoxIVA = new javax.swing.JComboBox();
         jLabelTotalComIVA = new javax.swing.JLabel();
         jLabelTotalValorComIVA = new javax.swing.JLabel();
-        jComboBoxIVA = new javax.swing.JComboBox();
-        jLabelIVA = new javax.swing.JLabel();
+        jLabelTotal = new javax.swing.JLabel();
+        jLabelTotalValor = new javax.swing.JLabel();
         jLabelValorIVA = new javax.swing.JLabel();
-        jButtonImagens = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jLabelIVA = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(110, 110, 110));
 
-        jLabelTipoMaterial.setFont(new java.awt.Font("Tahoma", 1, 11));
-        jLabelTipoMaterial.setText("Escolha o tipo de material:");
+        jPanel4.setBackground(new java.awt.Color(110, 110, 110));
 
-        jComboBoxTipoMaterial.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxTipoMaterialItemStateChanged(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(41, 41, 41));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelTipoMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBoxTipoMaterial, 0, 341, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelTipoMaterial)
-                    .addComponent(jComboBoxTipoMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel2.setBackground(new java.awt.Color(178, 178, 178));
-
-        jPanel3.setBackground(new java.awt.Color(178, 178, 178));
-        jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.setBackground(new java.awt.Color(41, 41, 41));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
         jRadioButtonPT.addActionListener(new java.awt.event.ActionListener() {
@@ -274,7 +265,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabelLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -290,14 +281,44 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
 
         jPanel3.getAccessibleContext().setAccessibleName("Lingua");
 
-        jLabelTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelTotalValor.setText("€");
+        jPanel1.setBackground(new java.awt.Color(110, 110, 110));
 
-        jScrollPane1.setBackground(new java.awt.Color(249, 70, 5));
+        jLabelTipoMaterial.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelTipoMaterial.setText("Escolha o tipo de material:");
+
+        jComboBoxTipoMaterial.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jComboBoxTipoMaterial.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxTipoMaterialItemStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelTipoMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBoxTipoMaterial, 0, 358, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTipoMaterial)
+                    .addComponent(jComboBoxTipoMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jScrollPane1.setBackground(new java.awt.Color(41, 41, 41));
         jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setMaximumSize(new java.awt.Dimension(665, 353));
 
-        jPanelTipoMaterial.setBackground(new java.awt.Color(208, 192, 190));
+        jPanelTipoMaterial.setBackground(new java.awt.Color(41, 41, 41));
         jPanelTipoMaterial.setAutoscrolls(true);
 
         javax.swing.GroupLayout jPanelTipoMaterialLayout = new javax.swing.GroupLayout(jPanelTipoMaterial);
@@ -313,27 +334,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
 
         jScrollPane1.setViewportView(jPanelTipoMaterial);
 
-        jLabelTotal.setText("TOTAL (s/ IVA)");
-
-        jLabelTotalComIVA.setFont(new java.awt.Font("Ubuntu", 1, 14));
-        jLabelTotalComIVA.setText("TOTAL (c/ IVA)");
-
-        jLabelTotalValorComIVA.setFont(new java.awt.Font("Ubuntu", 1, 14));
-        jLabelTotalValorComIVA.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelTotalValorComIVA.setText("€");
-
-        jComboBoxIVA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23 %", "19.6 %", "5.5 %" }));
-        jComboBoxIVA.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxIVAItemStateChanged(evt);
-            }
-        });
-
-        jLabelIVA.setText("IVA:");
-
-        jLabelValorIVA.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelValorIVA.setText("€");
-
+        jButtonImagens.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButtonImagens.setText("Imagens");
         jButtonImagens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -341,10 +342,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 10));
-        jLabel1.setForeground(new java.awt.Color(107, 169, 255));
-        jLabel1.setText("Copyright by Miguel Costa");
-
+        jButton1.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jButton1.setText("PDF");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,34 +350,79 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 10));
+        jLabel1.setForeground(new java.awt.Color(255, 102, 0));
+        jLabel1.setText("Copyright by Miguel Costa");
+
+        jComboBoxIVA.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jComboBoxIVA.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "23 %", "19.6 %", "5.5 %" }));
+        jComboBoxIVA.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxIVAItemStateChanged(evt);
+            }
+        });
+
+        jLabelTotalComIVA.setBackground(new java.awt.Color(204, 204, 204));
+        jLabelTotalComIVA.setFont(new java.awt.Font("SansSerif", 0, 11));
+        jLabelTotalComIVA.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelTotalComIVA.setText("TOTAL (c/ IVA)");
+
+        jLabelTotalValorComIVA.setBackground(new java.awt.Color(204, 204, 204));
+        jLabelTotalValorComIVA.setFont(new java.awt.Font("SansSerif", 0, 11));
+        jLabelTotalValorComIVA.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelTotalValorComIVA.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelTotalValorComIVA.setText("€");
+
+        jLabelTotal.setBackground(new java.awt.Color(204, 204, 204));
+        jLabelTotal.setFont(new java.awt.Font("SansSerif", 0, 11));
+        jLabelTotal.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelTotal.setText("TOTAL (s/ IVA)");
+
+        jLabelTotalValor.setBackground(new java.awt.Color(204, 204, 204));
+        jLabelTotalValor.setFont(new java.awt.Font("SansSerif", 0, 11));
+        jLabelTotalValor.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelTotalValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelTotalValor.setText("€");
+
+        jLabelValorIVA.setBackground(new java.awt.Color(204, 204, 204));
+        jLabelValorIVA.setFont(new java.awt.Font("SansSerif", 0, 11));
+        jLabelValorIVA.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelValorIVA.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelValorIVA.setText("€");
+
+        jLabelIVA.setBackground(new java.awt.Color(204, 204, 204));
+        jLabelIVA.setFont(new java.awt.Font("SansSerif", 0, 11));
+        jLabelIVA.setForeground(new java.awt.Color(204, 204, 204));
+        jLabelIVA.setText("IVA:");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 356, Short.MAX_VALUE)
-                        .addComponent(jLabelTotalComIVA)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelTotalValorComIVA, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jButtonImagens)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 352, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jButtonImagens)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 367, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabelTotalComIVA)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelTotalValorComIVA, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabelTotal)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabelTotalValor, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabelIVA)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBoxIVA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -387,37 +430,47 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
                                 .addComponent(jLabelValorIVA, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 373, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonImagens)
+                            .addComponent(jButton1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelTotalValor)
                             .addComponent(jLabelTotal))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelValorIVA)
                             .addComponent(jComboBoxIVA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelIVA))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelTotalValorComIVA)
-                            .addComponent(jLabelTotalComIVA)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonImagens)
-                            .addComponent(jButton1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1))))
+                            .addComponent(jLabelTotalComIVA))
+                        .addContainerGap())))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -604,6 +657,7 @@ public class JAppletMain extends javax.swing.JApplet implements Observer, Subjec
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelTipoMaterial;
     private javax.swing.JRadioButton jRadioButtonFR;
     private javax.swing.JRadioButton jRadioButtonPT;

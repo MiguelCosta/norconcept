@@ -27,7 +27,7 @@ import mvc.Subject;
  *
  * @author miguel
  */
-public class JPanelPedraPeca extends javax.swing.JPanel implements Subject, Observer {
+public class JPanelLinhaPedraPeca extends javax.swing.JPanel implements Subject, Observer {
 
     private String _material;
     private String _cor;
@@ -37,7 +37,7 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject, Obse
     private ArrayList<Observer> observers = new ArrayList<Observer>();
 
     /** Creates new form JPanelPedraPeca */
-    public JPanelPedraPeca(QueryXML q, QueryXML_Lingua l, String material, String cor) {
+    public JPanelLinhaPedraPeca(QueryXML q, QueryXML_Lingua l, String material, String cor) {
         initComponents();
         _q = q;
         _l = l;
@@ -143,18 +143,28 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject, Obse
         jLabelTOTAL = new javax.swing.JLabel();
         jLabelTOTALValor = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(41, 41, 41));
+
+        jLabelLargura.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelLargura.setForeground(new java.awt.Color(204, 204, 204));
         jLabelLargura.setText("Larg. (cm):");
 
+        jLabelComprimento.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelComprimento.setForeground(new java.awt.Color(204, 204, 204));
         jLabelComprimento.setText("Comp. (cm):");
 
+        jLabelEspessura.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelEspessura.setForeground(new java.awt.Color(204, 204, 204));
         jLabelEspessura.setText("Esp. (cm):");
 
+        jComboBoxEspessura.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jComboBoxEspessura.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBoxEspessuraItemStateChanged(evt);
             }
         });
 
+        jSpinnerLargura.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jSpinnerLargura.setMaximumSize(new java.awt.Dimension(36, 26));
         jSpinnerLargura.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -162,6 +172,7 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject, Obse
             }
         });
 
+        jSpinnerComprimento.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
         jSpinnerComprimento.setMaximumSize(new java.awt.Dimension(36, 26));
         jSpinnerComprimento.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -169,9 +180,11 @@ public class JPanelPedraPeca extends javax.swing.JPanel implements Subject, Obse
             }
         });
 
-        jLabelTOTAL.setFont(new java.awt.Font("Ubuntu", 1, 12));
+        jLabelTOTAL.setFont(new java.awt.Font("SansSerif", 0, 10)); // NOI18N
+        jLabelTOTAL.setForeground(new java.awt.Color(204, 204, 204));
         jLabelTOTAL.setText("TOTAL (€):");
 
+        jLabelTOTALValor.setForeground(new java.awt.Color(204, 204, 204));
         jLabelTOTALValor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelTOTALValor.setText("€");
 

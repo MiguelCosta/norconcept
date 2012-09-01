@@ -66,10 +66,10 @@ public class JPanelNada extends javax.swing.JPanel implements Observer {
 
         jLabelInfo = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(84, 87, 90));
+        setBackground(new java.awt.Color(41, 41, 41));
         setLayout(new java.awt.GridBagLayout());
 
-        jLabelInfo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabelInfo.setFont(new java.awt.Font("Arial", 1, 18));
         jLabelInfo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelInfo.setText("info");
